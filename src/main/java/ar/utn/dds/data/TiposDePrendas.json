@@ -1,0 +1,52 @@
+[
+  {
+    "tipo": "Remera",
+    "Material": ["Lino, Algodon, Franela"],
+    "Categoria": "Torso"
+  },
+  {
+    "tipo": "Remera manga corta",
+    "Material": ["Lino, Algodon, Franela"],
+    "Categoria": "Torso"
+  },
+  {
+    "tipo": "Remera musculosa",
+    "Material": ["Lino, Algodon, Franela"],
+    "Categoria": "Torso"
+  },
+  {
+    "tipo": "Top",
+    "Material": ["Lino, Algodon, Franela"],
+    "Categoria": "Torso"
+  },
+  {
+    "tipo": "Campera",
+    "Material": ["Cuero, Gabardina, Jean"],
+    "Categoria": "Torso"
+  },
+  {
+    "tipo": "Pantalon largo",
+    "Material": ["Cuero, Gabardina, Jean"],
+    "Categoria": "ParteInferior"
+  },
+  {
+    "tipo": "Pantalon corto",
+    "Material": ["Cuero, Gabardina, Jean"],
+    "Categoria": "ParteInferior"
+  },
+  {
+    "tipo": "Malla",
+    "Material": ["Malla, Lino"],
+    "Categoria": "ParteInferior"
+  },
+  {
+    "tipo": "Malla enteriza",
+    "Material": ["Laicra"],
+    "Categoria": "Torso"
+  },
+  {
+    "tipo": "Pulsera",
+    "Material": ["Cuero, Oro, Plata, Plastico, Fibras textiles"],
+    "Categoria": "ParteInferior"
+  }
+]

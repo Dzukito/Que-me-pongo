@@ -13,6 +13,10 @@ public class Usuario {
     private void inicializarGuardaropa(Guardaropa guardaropa){
         this.roperos.add(guardaropa);
     }
+    private ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){
+        return ropero.atuendosDisponibles();
+    }
+
     Usuario(String userName){
         this.userName = userName;
         this.roperos = new ArrayList<Guardaropa>();

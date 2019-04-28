@@ -1,0 +1,102 @@
+[
+  {
+    "ropero": "prueba1",
+    "prendas": [
+      {
+        "tipo": "Remera",
+        "nombre": "Remera",
+        "Material": "Lino",
+        "Color": ["Amarilla"],
+        "Categoria": "Torso"
+      },
+      {
+        "tipo": "Vermuda",
+        "nombre": "Vermuda verde",
+        "Material": "Gabardina",
+        "Color": ["Verde","Negro"],
+        "Categoria": "ParteInferior"
+      },
+      {
+        "tipo": "Alpargatas",
+        "nombre": "Alpargatas azules",
+        "Material": "Lino",
+        "Color": ["Azul"],
+        "Categoria": "Calzado"
+      },
+      {
+        "tipo": "Collar",
+        "nombre": "Collar de Plata",
+        "Material": "Acero quirurgico",
+        "Color": ["Plateado"],
+        "Categoria": "Accesorio"
+      }
+    ]
+  },
+  {
+    "ropero": "Verano",
+    "prendas":[
+            {
+              "tipo": "Remera",
+              "nombre": "Remera Amarilla",
+              "Material": "Lino",
+              "Color": "Amarillo",
+              "Categoria": "Torso"
+            },
+            {
+              "tipo": "Remera",
+              "nombre": "Remera que me regalo la tia pocha",
+              "Material": "Lino",
+              "Color": ["Azul","Naranja"],
+              "Categoria": "Torso"
+            },
+            {
+              "tipo": "Remera",
+              "nombre": "Remera de pandas",
+              "Material": "Algodon",
+              "Color": ["Negro","Blanco"],
+              "Categoria": "Torso"
+            },
+            {
+              "tipo": "Remera manga corta",
+              "nombre": "Tyrion",
+              "Material": "Franela",
+              "Color": ["Rojo"],
+              "Categoria": "Torso"
+            },
+            {
+              "tipo": "Remera musculosa",
+              "nombre": "Musculosa palmeras",
+              "Material": "Lino",
+              "Color": ["Blanco"],
+              "Categoria": "Torso"
+            },
+            {
+              "tipo": "Remera Top",
+              "nombre": "Top negro y blanco",
+              "Material": "Franela",
+              "Color": ["Negro","Blanco"],
+              "Categoria": "Torso"
+            },
+            {
+              "tipo": "Campera",
+              "nombre": "Campera Deadpool",
+              "Material": "Cuero",
+              "Color": ["Rojo","Negro"],
+              "Categoria": "Torso"
+            },
+            {
+              "tipo": "Pantalon largo",
+              "nombre": "Jean Azul",
+              "Material": ["Jean"],
+              "Color": ["Azul"],
+              "Categoria": "ParteInferior"
+            },
+            {
+              "tipo": "Pantalon corto",
+              "nombre": "Vermuda Verde",
+              "Material": ["Gabardina"],
+              "Color": ["Verde"],
+              "Categoria": "ParteInferior"
+          }]
+  }
+]
