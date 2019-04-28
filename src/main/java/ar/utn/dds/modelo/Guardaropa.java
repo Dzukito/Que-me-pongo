@@ -28,18 +28,15 @@ public class Guardaropa {
          }
          return retorno;
     }
-    Guardaropa(ArrayList<Prenda> prendas){
-        this.prendas = prendas;
-    }
     public ArrayList<Atuendo> atuendosDisponibles() {
-        ArrayList<ArrayList<Prenda>> atuendos = new ArrayList<ArrayList<Prenda>>();
-        atuendos = listaDeListaDePrenda(this.listaDeListasPorCategorias().get(0));
+        ArrayList<ArrayList<Prenda>> combinaciones = new ArrayList<ArrayList<Prenda>>();
+        combinaciones = listaDeListaDePrenda(this.listaDeListasPorCategorias().get(0));
         for (int i = 1; i<= this.cantidadCategorioas();i=i+1){
-            this.agregarPrendaAAtuendo(atuendos,this.listaDeListasPorCategorias().get(0));
+            this.agregarPrendaAAtuendo(combinaciones,this.listaDeListasPorCategorias().get(0));
         }
-        return (ArrayList<Atuendo>) atuendos.stream()
-                .forEach(prendas -> this.listaDePrendasAAtuendo(prendas)
-                );
+        ArrayList<Atuendo> atuendos = new ArrayList<Atuendo>();
+        combinaciones.stream().forEach(prendas -> atuendos.add(this.listaDePrendasAAtuendo(prendas)));
+        return atuendos;
     }
     public Atuendo listaDePrendasAAtuendo(ArrayList<Prenda> prendas){
         Map<String,Prenda> mapPrendas = new HashMap<String,Prenda>();
@@ -66,6 +63,9 @@ public class Guardaropa {
             }
         }
         return combinaciones;
+    }
+    Guardaropa(ArrayList<Prenda> prendas){
+        this.prendas = prendas;
     }
 }
 
