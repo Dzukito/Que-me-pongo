@@ -63,15 +63,19 @@ public class Guardaropa {
     }
     private ArrayList<ArrayList<Prenda>> combinatoriaPrendaCombinacion(ArrayList<ArrayList<Prenda>> combinaciones, ArrayList<Prenda> prendas) {
         ArrayList<ArrayList<Prenda>> combinaciones2 = new ArrayList<ArrayList<Prenda>>();
+        ArrayList<Prenda> combinacion = new ArrayList<Prenda>();
         for (int i = 0; i<combinaciones.size(); i++){
-            for (int j = 0; j<prendas.size(); j++){
-                ArrayList<Prenda> combinacion = combinaciones.get(i);
-                combinacion.add(prendas.get(j));
+            for (int j = 0;j<prendas.size(); j++) {
+                combinacion = this.agregarPrendaACombinacion(combinaciones.get(i),prendas.get(j));
                 combinaciones2.add(combinacion);
             }
-        }
+          }
         System.out.println(combinaciones2.size());
         return combinaciones2;
+    }
+    public ArrayList<Prenda> agregarPrendaACombinacion(ArrayList<Prenda> combinacion, Prenda prenda){
+        combinacion.add(prenda);
+        return combinacion;
     }
     Guardaropa(ArrayList<Prenda> prendas){
         this.prendas = prendas;
