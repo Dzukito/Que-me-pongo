@@ -15,7 +15,7 @@ import org.junit.Assert;
 import org.junit.Before;
 
 public class ExcepcionesTest {
-	  Prenda prenda1, prenda2;
+	  Prenda prenda1, prenda2,prenda3;
 	  TipoPrenda pantalon, remera, zapatillas;
 	  ArrayList<Color> blancoYNegro, azul, vacio;
 	  HashSet<Material> materialRemera, materialPantalon, materialCalzado;
@@ -52,26 +52,33 @@ public class ExcepcionesTest {
          
          
          
-        prenda1 = new Prenda(pantalon, "PantalonAzulado", azul, Material.PLASTICO);
-        prenda2 = new Prenda(zapatillas, "ZapatillasDC", vacio, Material.CUERO);
+       
          
     }
 
     @Test(expected=SoloTieneUnColor.class) 
     public void soloUnColor() {
     	this.init();
+    	prenda1 = new Prenda(pantalon, "PantalonAzulado", azul, Material.JEAN); //(solo tiene azul)
     	prenda1.colorSecundario();
     	
     
     }
 
+    //REVISAR TRY-CATCH del constructor Prenda. Para que funcione, el catch tiene que throwear la excepcion
     @Test(expected=ElMaterialNoPerteneceALaPrenda.class)
     public void materialEquivocado() { 	
+    	this.init();
+    	prenda2 = new Prenda(pantalon, "PantalonAzulado", azul, Material.PLASTICO); //(Plastico no es material)
     }
 
     @Test(expected=AlMenosUnColor.class)
     public void ningunColor() {
+    	this.init();
+    	new Prenda(zapatillas, "ZapatillasDC", vacio, Material.CUERO); //(sin colores)
     }
     
     
+
+   
 }
