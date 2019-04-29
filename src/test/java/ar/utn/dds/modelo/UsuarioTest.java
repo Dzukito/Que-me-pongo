@@ -1,21 +1,131 @@
 package ar.utn.dds.modelo;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
+import java.util.*;
+
+
 public class UsuarioTest {
+    Usuario usuario1, usuario2, usuario3;
+    HashSet<Material> materialRemera, materialPantalon, materialCalzado, materialAccesorio;
+    TipoPrenda pantalon, remera, zapatillas, accesorio;
+    ArrayList<Color> blancoYNegro, azul, amarillo, rojoYVerde;
+    Prenda remera1, remera2, pantalon1, pantalon2, zapatillas1, zapatillas2, accesorio1, accesorio2;
+    ArrayList<Prenda> prendas1, prendas2, prendas3;
+    Guardaropa ropero1, ropero2, ropero3;
 
     @Before
-    public void init(){
-        new prenda
+    public void setup() {
+        materialRemera = new HashSet<Material>();
+        materialRemera.add(Material.LINO);
+        materialRemera.add(Material.FRANELA);
+        materialRemera.add(Material.ALGODON);
+        materialPantalon = new HashSet<Material>();
+        materialPantalon.add(Material.MALLA);
+        materialPantalon.add(Material.JEAN);
+        materialPantalon.add(Material.CUERO);
+        materialCalzado = new HashSet<Material>();
+        materialCalzado.add(Material.CUERO);
+        materialCalzado.add(Material.PLASTICO);
+        materialAccesorio = new HashSet<Material>();
+        materialAccesorio.add(Material.PLASTICO);
+        materialAccesorio.add(Material.ACEROINOXIDABLE);
+        materialAccesorio.add(Material.CUERO);
+        pantalon = new TipoPrenda(Categoria.PARTEINFERIOR, "Pantalon", materialPantalon);
+        remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera);
+        zapatillas = new TipoPrenda(Categoria.CALZADO, "Zapatillas", materialCalzado);
+        accesorio = new TipoPrenda(Categoria.ACCESORIOS, "Accesorio", materialAccesorio);
+        blancoYNegro = new ArrayList<Color>();
+        blancoYNegro.add(Color.Blanco);
+        blancoYNegro.add(Color.Negro);
+        azul = new ArrayList<Color>();
+        azul.add(Color.Azul);
+        amarillo = new ArrayList<Color>();
+        amarillo.add(Color.Amarillo);
+        rojoYVerde = new ArrayList<Color>();
+        rojoYVerde.add(Color.Rojo);
+        rojoYVerde.add(Color.Verde);
+        remera1 = new Prenda(remera, "RemeraDePandas", blancoYNegro, Material.LINO);
+        remera2 = new Prenda(remera, "Top", blancoYNegro, Material.ALGODON);
+        pantalon1 = new Prenda(pantalon, "Pantalon1", azul, Material.JEAN);
+        pantalon2 = new Prenda(pantalon, "Pantalon2", amarillo, Material.JEAN);
+        zapatillas1 = new Prenda(zapatillas, "Zapatillas1", rojoYVerde, Material.CUERO);
+        zapatillas2 = new Prenda(zapatillas, "Zapatillas2", blancoYNegro, Material.CUERO);
+        accesorio1 = new Prenda(accesorio, "Gorra", azul, Material.PLASTICO);
+        accesorio2 = new Prenda(accesorio, "Pulcera", amarillo, Material.ACEROINOXIDABLE);
+        prendas1 = new ArrayList<Prenda>();
+        prendas1.add(remera1);
+        prendas1.add(accesorio1);
+        prendas1.add(zapatillas1);
+        prendas1.add(pantalon1);
+        prendas2 = new ArrayList<Prenda>();
+        prendas2.add(remera1);
+        prendas2.add(accesorio1);
+        prendas2.add(zapatillas1);
+        prendas2.add(pantalon1);
+        prendas2.add(remera2);
+        prendas2.add(accesorio2);
+        prendas2.add(zapatillas2);
+        prendas2.add(pantalon2);
+        prendas3 = new ArrayList<Prenda>();
+        prendas3.add(remera1);
+        prendas3.add(accesorio1);
+        prendas3.add(zapatillas1);
+        prendas3.add(pantalon1);
+        prendas3.add(remera2);
+        ropero1 = new Guardaropa(prendas1);
+        ropero2 = new Guardaropa(prendas2);
+        ropero3 = new Guardaropa(prendas3);
+
+        usuario1 = new Usuario("Martin", new ArrayList<Guardaropa>());
+        usuario1.agregarRopero(ropero1);
+        usuario2 = new Usuario("Gabriela", new ArrayList<Guardaropa>());
+        usuario2.agregarRopero(ropero2);
+        usuario3 = new Usuario("Gabriela", new ArrayList<Guardaropa>());
+        usuario3.agregarRopero(ropero3);
+    }
+
+
+    @Test
+    public void cantidadDeAtuendosCon4Prendas() {
+        this.setup();
+        Assert.assertEquals(1, usuario1.cantidadAtuendos(0));
     }
     @Test
-    public void crearUsuario(){
-        assert
+    public void cantidadDeAtuendosCon8Prendas() {
+        this.setup();
+        System.out.println(usuario2.cantidadAtuendos(0));
+ //       Assert.assertEquals(2, usuario3.cantidadAtuendos(0));
     }
+    @Test
+    public void cantidadDeAtuendosCon5Prendas() {
+        this.setup();
+        System.out.println(usuario2.cantidadAtuendos(0));
+        Assert.assertEquals(2, usuario3.cantidadAtuendos(0));
+    }
+    @Test
+    public void cantidadDePrendas(){
+        this.setup();
+        Assert.assertEquals(usuario1.cantidadPrendas(0),4);
+    }
+    @Test void cantidadDePrendas5(){
+        this.setup();
+        Assert.assertEquals(usuario3.cantidadPrendas(0),5);
+    }
+    @Test
+    public void cantidadDePrendas8(){
+        this.setup();
+        Assert.assertEquals(usuario2.cantidadPrendas(0),8);
+    }
+    @Test void cantidadDeCategorias(){
+        this.setup();
+      //  Assert.assertEquals(ropero1.cantidadCategorioas(ropero1.),4);
+    }
+
     @Test
     public void cantidadPrendas(){
-
     }
 
 }

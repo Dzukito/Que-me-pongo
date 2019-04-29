@@ -10,18 +10,23 @@ public class Usuario {
     public int cantidadPrendas(int guardaropa){
         return this.roperos.get(guardaropa).cantidadDePrendas();
     }
-    private void inicializarGuardaropa(Guardaropa guardaropa){
-        this.roperos.add(guardaropa);
+    public Guardaropa guardaropa(int i){
+        return this.roperos.get(i);
     }
-    private ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){
+    public ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){
         return ropero.atuendosDisponibles();
     }
-
-    Usuario(String userName){
-        this.userName = userName;
-        this.roperos = new ArrayList<Guardaropa>();
+    public int cantidadAtuendos(int i){
+        return roperos.get(i).cantidadAtuendosDisponibles();
     }
-    Usuario(String userName, Guardaropa ropero){
-        this.inicializarGuardaropa(ropero);
+    public void agregarPreda(Prenda prenda, Guardaropa ropero){
+        ropero.agregarPrenda(prenda);
+    }
+    public void agregarRopero(Guardaropa ropero){
+        this.roperos.add(ropero);
+    }
+    Usuario(String userName, ArrayList<Guardaropa> roperos){
+        this.userName = userName;
+        this.roperos = roperos;
     }
 }

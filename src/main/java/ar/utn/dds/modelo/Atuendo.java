@@ -7,6 +7,9 @@ import java.util.*;
 public class Atuendo {
     private Map<String,Prenda> prendas;
 
+  /*  public ArrayList<Prenda> prendasDelAtuendo(){
+        return this.prendas.values();
+    }*/
     Atuendo(Map<String,Prenda> prendas){
        this.prendas = prendas;
     }

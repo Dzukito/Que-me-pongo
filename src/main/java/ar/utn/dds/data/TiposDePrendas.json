@@ -1,42 +1,27 @@
 [
   {
     "tipo": "Remera",
-    "Material": ["Lino, Algodon, Franela"],
-    "Categoria": "Torso"
-  },
-  {
-    "tipo": "Remera manga corta",
-    "Material": ["Lino, Algodon, Franela"],
-    "Categoria": "Torso"
-  },
-  {
-    "tipo": "Remera musculosa",
-    "Material": ["Lino, Algodon, Franela"],
-    "Categoria": "Torso"
-  },
-  {
-    "tipo": "Top",
-    "Material": ["Lino, Algodon, Franela"],
+    "Material": ["Lino", "Algodon", "Franela"],
     "Categoria": "Torso"
   },
   {
     "tipo": "Campera",
-    "Material": ["Cuero, Gabardina, Jean"],
+    "Material": ["Cuero", "Gabardina", "Jean"],
     "Categoria": "Torso"
   },
   {
     "tipo": "Pantalon largo",
-    "Material": ["Cuero, Gabardina, Jean"],
+    "Material": ["Cuero", "Gabardina", "Jean"],
     "Categoria": "ParteInferior"
   },
   {
     "tipo": "Pantalon corto",
-    "Material": ["Cuero, Gabardina, Jean"],
+    "Material": ["Cuero", "Gabardina", "Jean"],
     "Categoria": "ParteInferior"
   },
   {
     "tipo": "Malla",
-    "Material": ["Malla, Lino"],
+    "Material": ["Malla", "Lino"],
     "Categoria": "ParteInferior"
   },
   {
@@ -46,7 +31,32 @@
   },
   {
     "tipo": "Pulsera",
-    "Material": ["Cuero, Oro, Plata, Plastico, Fibras textiles"],
-    "Categoria": "ParteInferior"
+    "Material": ["Cuero", "Oro", "Plata", "Plastico", "Fibras textiles"],
+    "Categoria": "Accesorio"
+  },
+  {
+    "tipo": "Ojota",
+    "Material": ["Goma","Madera"],
+    "Categoria": "Calzado"
+  },
+  {
+    "tipo": "Sandalia",
+    "Material": ["Goma","Madera"],
+    "Categoria": "Calzado"
+  },
+  {
+    "tipo": "Zapatilla",
+    "Material": ["Goma","Tela","Cuero"],
+    "Categoria": "Calzado"
+  },
+  {
+    "tipo": "Gorro",
+    "Material": ["Goma","Tela","Cuero","Paja","Lana"],
+    "Categoria": "Accesorio"
+  },
+  {
+    "tipo": "Guantes",
+    "Material": ["Algodon","Lana","Cuero"],
+    "Categoria": "Accesorio"
   }
 ]
