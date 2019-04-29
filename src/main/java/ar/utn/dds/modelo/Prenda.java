@@ -22,13 +22,13 @@ public class Prenda{
         return material;
     }
     public Color colorPrimario(){
-        return this.colores.get(1);
+        return this.colores.get(0);
     }
     public  Color colorSecundario(){
         if (this.colores.size() == 1) {
             throw new SoloTieneUnColor();
         }
-        return this.colores.get(2);
+        return this.colores.get(1);
     }
     Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material){
         try{
