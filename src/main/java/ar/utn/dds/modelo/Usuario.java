@@ -6,6 +6,11 @@ import java.util.List;
 public class Usuario {
     private List<Guardaropa> roperos;
     private String userName;
+    
+    Usuario(String userName, ArrayList<Guardaropa> roperos){
+        this.userName = userName;
+        this.roperos = roperos;
+    }
 
     public int cantidadPrendas(int guardaropa){
         return this.roperos.get(guardaropa).cantidadDePrendas();
@@ -25,8 +30,5 @@ public class Usuario {
     public void agregarRopero(Guardaropa ropero){
         this.roperos.add(ropero);
     }
-    Usuario(String userName, ArrayList<Guardaropa> roperos){
-        this.userName = userName;
-        this.roperos = roperos;
-    }
+    
 }

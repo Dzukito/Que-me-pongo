@@ -1,6 +1,6 @@
 package ar.utn.dds.modelo;
 
-import com.sun.javafx.collections.MappingChange;
+//import com.sun.javafx.collections.MappingChange;
 
 import java.util.*;
 
@@ -12,5 +12,9 @@ public class Atuendo {
     }*/
     Atuendo(Map<String,Prenda> prendas){
        this.prendas = prendas;
+    }
+    
+    public Prenda getPrenda(Categoria categoria) {
+    	return this.prendas.get(categoria.getCategoria());
     }
 }

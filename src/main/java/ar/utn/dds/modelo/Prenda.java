@@ -11,6 +11,21 @@ public class Prenda{
     private TipoPrenda tipoPrenda;
     private String nombrePrenda;
     private Material material;
+    
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material){
+        try{
+        this.tipoPrenda = tipoPrenda;
+        this.nombrePrenda = nombrePrenda;
+        this.colores = colores;
+        this.material = material;
+            if(tipoPrenda.materiales().contains(material)) {
+                throw new ElMaterialNoPerteneceALaPrenda();
+            }
+            if(colores.isEmpty()){
+                throw new AlMenosUnColor();
+            }
+        }catch (ElMaterialNoPerteneceALaPrenda | AlMenosUnColor e){}
+    }
 
     public String tipo(){
         return this.tipoPrenda.tipo();
@@ -29,21 +44,8 @@ public class Prenda{
             throw new SoloTieneUnColor();
         }
         return this.colores.get(1);
-    }
-    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material){
-        try{
-        this.tipoPrenda = tipoPrenda;
-        this.nombrePrenda = nombrePrenda;
-        this.colores = colores;
-        this.material = material;
-            if(!tipoPrenda.materiales().contains(material)) {
-                throw new ElMaterialNoPerteneceALaPrenda();
-            }
-            if(colores.isEmpty()){
-                throw new AlMenosUnColor();
-            }
-        }catch (ElMaterialNoPerteneceALaPrenda | AlMenosUnColor e){}
-    }
+    }    
+    
     public String categoria() {
         return this.tipoPrenda.categoria();
     }

@@ -9,7 +9,9 @@ import java.util.stream.Collectors;
 public class Guardaropa {
     private List<Prenda> prendas;
 
-
+    Guardaropa(ArrayList<Prenda> prendas){
+        this.prendas = prendas;
+    }
 
 
     private ArrayList<String> mostrarPrendasCombinacion(ArrayList<Prenda> prendas){
@@ -74,11 +76,10 @@ public class Guardaropa {
         return combinaciones2;
     }
     public ArrayList<Prenda> agregarPrendaACombinacion(ArrayList<Prenda> combinacion, Prenda prenda){
-        combinacion.add(prenda);
-        return combinacion;
-    }
-    Guardaropa(ArrayList<Prenda> prendas){
-        this.prendas = prendas;
+    	ArrayList<Prenda> nuevaCombinacion = new ArrayList<Prenda>();
+    	nuevaCombinacion.addAll(combinacion);
+        nuevaCombinacion.add(prenda);
+        return nuevaCombinacion;
     }
     public int cantidadAtuendosDisponibles(){
         return this.atuendosDisponibles().size();
