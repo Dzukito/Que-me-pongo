@@ -18,7 +18,7 @@ public class Prenda{
         this.nombrePrenda = nombrePrenda;
         this.colores = colores;
         this.material = material;
-            if(tipoPrenda.materiales().contains(material)) {
+            if(!tipoPrenda.materiales().contains(material)) {
                 throw new ElMaterialNoPerteneceALaPrenda();
             }
             if(colores.isEmpty()){
