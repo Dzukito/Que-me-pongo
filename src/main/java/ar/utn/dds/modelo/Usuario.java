@@ -19,10 +19,10 @@ public class Usuario {
         return this.roperos.get(i);
     }
     public ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){
-        return ropero.atuendosDisponibles();
+        return ropero.atuendosGenerados();
     }
     public int cantidadAtuendos(int i){
-        return roperos.get(i).cantidadAtuendosDisponibles();
+        return roperos.get(i).cantidadAtuendosGenerados();
     }
     public void agregarPreda(Prenda prenda, Guardaropa ropero){
         ropero.agregarPrenda(prenda);
@@ -30,5 +30,11 @@ public class Usuario {
     public void agregarRopero(Guardaropa ropero){
         this.roperos.add(ropero);
     }
-    
+
+    public Atuendo pedirAtuendo(int i){
+        return this.roperos.get(i).sugerirAtuendo();
+    }
+    public int cantidadDeAtuendosDisponibles(int i){
+        return this.roperos.get(i).cantidadDeAtuendosPosibles();
+    }
 }

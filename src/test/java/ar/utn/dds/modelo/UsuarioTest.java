@@ -96,8 +96,8 @@ public class UsuarioTest {
     @Test
     public void cantidadDeAtuendosCon4Prendas() {
         this.setup();
-        Assert.assertEquals(1, usuario1.cantidadAtuendos(0));
-//        System.out.println(usuario1.cantidadAtuendos(0));
+        Assert.assertEquals(1, usuario1.cantidadDeAtuendosDisponibles(0));
+    //    System.out.println(usuario1.cantidadAtuendos(0));
     }
 
     @Test
@@ -135,7 +135,7 @@ public class UsuarioTest {
       //  Assert.assertEquals(ropero1.cantidadCategorioas(ropero1.),4);
     }
     
-    @Test 
+  /*  @Test
     public void atundosDisponiblesParaUnGuardarropa(){
         this.setup();
      
@@ -145,5 +145,5 @@ public class UsuarioTest {
 		Assert.assertEquals(zapatillas1, atuendo.getPrenda(Categoria.CALZADO));
         Assert.assertEquals(accesorio1, atuendo.getPrenda(Categoria.ACCESORIOS));
     }
-
+*/
 }

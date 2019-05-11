@@ -1,10 +1,10 @@
 package ar.utn.dds.modelo;
 
 import ar.utn.dds.excepciones.AlMenosUnColor;
-import ar.utn.dds.excepciones.ElMaterialNoPerteneceALaPrenda;
 import ar.utn.dds.excepciones.SoloTieneUnColor;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Prenda{
     private ArrayList<Color> colores;
@@ -13,20 +13,16 @@ public class Prenda{
     private Material material;
     
     Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material){
-        try{
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
         this.colores = colores;
         this.material = material;
-            if(!tipoPrenda.materiales().contains(material)) {
-                throw new ElMaterialNoPerteneceALaPrenda();
-            }
+        this.tipoPrenda.perteneceMaterial(material);
             if(colores.isEmpty()){
                 throw new AlMenosUnColor();
             }
-        }catch (ElMaterialNoPerteneceALaPrenda | AlMenosUnColor e){}
-    }
 
+    }
     public String tipo(){
         return this.tipoPrenda.tipo();
     }
@@ -45,7 +41,10 @@ public class Prenda{
         }
         return this.colores.get(1);
     }    
-    
+    @Override
+    public int hashCode(){
+        return Objects.hash(colores, tipoPrenda, nombrePrenda, material);
+    }
     public String categoria() {
         return this.tipoPrenda.categoria();
     }

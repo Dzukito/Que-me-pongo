@@ -1,5 +1,7 @@
 package ar.utn.dds.modelo;
 
+import ar.utn.dds.excepciones.ElMaterialNoPerteneceALaPrenda;
+
 import java.util.Set;
 
 public class TipoPrenda {
@@ -22,5 +24,12 @@ public class TipoPrenda {
     
     public Set<Material> materiales() {
         return materiales;
+    }
+
+    public Boolean perteneceMaterial(Material material) {
+        if(!this.materiales().contains(material)) {
+            throw new ElMaterialNoPerteneceALaPrenda();
+        }
+        return true;
     }
 }
