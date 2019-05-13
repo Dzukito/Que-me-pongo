@@ -1,11 +1,9 @@
 package ar.utn.dds.modelo;
 
-//import com.sun.javafx.collections.MappingChange;
 
 import ar.utn.dds.excepciones.EsaPrendaYaLaTengo;
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Atuendo {
@@ -23,9 +21,11 @@ public class Atuendo {
     public boolean somosIguales(Atuendo atuendo){
        return (this.tengoTusPrendas(atuendo) && atuendo.tengoTusPrendas(this));
     }
+
     private boolean tengoTusPrendas(Atuendo atuendo){
         return this.prendas.stream().allMatch(prenda -> atuendo.tengoPrenda(prenda));
     }
+
     public boolean tengoPrenda(Prenda prenda){
         return this.prendas.stream().anyMatch(prenda1 -> prenda1.hashCode() == prenda.hashCode());
     }
@@ -48,4 +48,5 @@ public class Atuendo {
             throw new EsaPrendaYaLaTengo();
         }
     }
+
 }

@@ -3,7 +3,11 @@
     "ropero": "prueba1",
     "prendas": [
       {
-        "tipo": "Remera",
+        "tipo": {
+          "tipo": "Remera",
+          "categoria": "Torso",
+          "materiasles": ["Algodhon","Franella","Pikachu"]
+        },
         "nombre": "Remera",
         "Material": "Lino",
         "Color": ["Amarilla"]

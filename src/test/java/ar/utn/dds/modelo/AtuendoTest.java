@@ -1,21 +1,20 @@
 package ar.utn.dds.modelo;
 
-import org.junit.Assert;
 import org.junit.Before;
-//import org.junit.jupiter.api.Test;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 
+import static org.junit.Assert.*;
 
-public class UsuarioTest {
-    Usuario usuario1, usuario2, usuario3;
+public class AtuendoTest {
+    Atuendo atuendo1, atuendo2, atuendo3, atuendo4;
     HashSet<Material> materialRemera, materialPantalon, materialCalzado, materialAccesorio;
     TipoPrenda pantalon, remera, zapatillas, accesorio, top,pantalonCorto,bufanda, zapatos;
     ArrayList<Color> blancoYNegro, azul, amarillo, rojoYVerde;
     Prenda remera1, remera2, pantalon1, pantalon2, zapatillas1, zapatillas2, accesorio1, accesorio2;
     ArrayList<Prenda> prendas1, prendas2, prendas3;
-    Guardaropa ropero1, ropero2, ropero3;
 
     @Before
     public void setup() {
@@ -66,80 +65,49 @@ public class UsuarioTest {
         prendas1.add(zapatillas1);
         prendas1.add(pantalon1);
         prendas2 = new ArrayList<Prenda>();
-        prendas2.add(remera1);
-        prendas2.add(accesorio1);
-        prendas2.add(zapatillas1);
-        prendas2.add(pantalon1);
         prendas2.add(remera2);
         prendas2.add(accesorio2);
         prendas2.add(zapatillas2);
         prendas2.add(pantalon2);
         prendas3 = new ArrayList<Prenda>();
-        prendas3.add(remera1);
-        prendas3.add(accesorio1);
         prendas3.add(zapatillas1);
         prendas3.add(pantalon1);
         prendas3.add(remera2);
-        ropero1 = new Guardaropa(prendas1);
-        ropero2 = new Guardaropa(prendas2);
-        ropero3 = new Guardaropa(prendas3);
-        usuario1 = new Usuario("Martin", new ArrayList<Guardaropa>());
-        usuario1.agregarRopero(ropero1);
-        usuario2 = new Usuario("Gabriela", new ArrayList<Guardaropa>());
-        usuario2.agregarRopero(ropero2);
-        usuario3 = new Usuario("Gabriela", new ArrayList<Guardaropa>());
-        usuario3.agregarRopero(ropero3);
+        atuendo1 = new Atuendo(prendas1);
+        atuendo2 = new Atuendo(prendas1);
+        atuendo3 = new Atuendo(prendas2);
+        atuendo4 = new Atuendo(prendas3);
     }
 
 
     @Test
-    public void cantidadDeAtuendosCon4Prendas() {
+    public void cambiarPrenda() {
         this.setup();
-        Assert.assertEquals(1, usuario1.cantidadDeAtuendosDisponibles(0));
+        assertEquals(remera2,atuendo3.getPrenda(remera2.categoria()));
+        atuendo3.cambiarPrenda(remera1);
+        assertEquals(remera1,atuendo1.getPrenda(remera1.categoria()));
     }
 
     @Test
-    public void cantidadDeAtuendosCon8Prendas() {
+    public void somosIguales() {
         this.setup();
-       Assert.assertEquals(16, usuario2.cantidadDeAtuendosDisponibles(0));
-   }
-
-    @Test
-    public void cantidadDeAtuendosCon5Prendas() {
-        this.setup();
-        Assert.assertEquals(2, usuario3.cantidadDeAtuendosDisponibles(0));
-    }
-
-    @Test
-    public void cantidadDePrendas(){
-        this.setup();
-        Assert.assertEquals(usuario1.cantidadPrendas(0),4);
+        assertTrue(atuendo1.somosIguales(atuendo2));
     }
     @Test
-    public void cantidadDePrendas5(){
+    public void noSomosIguales(){
         this.setup();
-        Assert.assertEquals(usuario3.cantidadPrendas(0),5);
+        assertFalse(atuendo1.somosIguales(atuendo3));
     }
     @Test
-    public void cantidadDePrendas8(){
+    public void agregarPrenda() {
         this.setup();
-        Assert.assertEquals(usuario2.cantidadPrendas(0),8);
+        atuendo4.agregarPrenda(accesorio1);
+        assertTrue(atuendo4.tengoPrenda(accesorio1));
     }
-    @Test 
-    public void cantidadDeCategorias(){
+    @Test
+    public void agregarPrendaTeniendoEseTipoDePrenda(){
         this.setup();
-        Assert.assertEquals(ropero1.cantidadCategorioas(ropero1.getPrendas()),4);
+        atuendo1.agregarPrenda(accesorio2);
+        assertTrue(atuendo1.tengoPrenda(accesorio2));
     }
-    
-  /*  @Test
-    public void atundosDisponiblesParaUnGuardarropa(){
-        this.setup();
-     
-        Atuendo atuendo = usuario1.atuendosGuardaropa(ropero1).get(0);      
-		Assert.assertEquals(remera1, atuendo.getPrenda(Categoria.TORSO));
-		Assert.assertEquals(pantalon1, atuendo.getPrenda(Categoria.PARTEINFERIOR));
-		Assert.assertEquals(zapatillas1, atuendo.getPrenda(Categoria.CALZADO));
-        Assert.assertEquals(accesorio1, atuendo.getPrenda(Categoria.ACCESORIOS));
-    }
-*/
 }

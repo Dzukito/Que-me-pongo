@@ -15,14 +15,11 @@ import org.junit.Assert;
 import org.junit.Before;
 
 public class ExcepcionesTest {
-	  Prenda prenda1, prenda2,prenda3;
+	  Prenda prenda1, prenda2;
 	  TipoPrenda pantalon, remera, zapatillas;
 	  ArrayList<Color> blancoYNegro, azul, vacio;
 	  HashSet<Material> materialRemera, materialPantalon, materialCalzado;
-	   
-	  
-	
-	
+
     @Before
     public void init(){
     	 materialRemera = new HashSet<Material>();
@@ -40,20 +37,15 @@ public class ExcepcionesTest {
          pantalon = new TipoPrenda(Categoria.PARTEINFERIOR, "Pantalon", materialPantalon);
          remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera);
          zapatillas = new TipoPrenda(Categoria.CALZADO, "Zapatillas", materialCalzado);
-        
-         
+
          blancoYNegro = new ArrayList<Color>();
          blancoYNegro.add(Color.Blanco);
          blancoYNegro.add(Color.Negro);
+
          azul = new ArrayList<Color>();
          azul.add(Color.Azul);
-         
+
          vacio = new ArrayList<Color>();
-         
-         
-         
-       
-         
     }
 
     @Test(expected=SoloTieneUnColor.class) 

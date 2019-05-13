@@ -1,9 +1,7 @@
 package ar.utn.dds.modelo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Guardaropa {
@@ -15,7 +13,7 @@ public class Guardaropa {
     }
 
     public Atuendo sugerirAtuendo(){
-        Atuendo atuendo = new Atuendo();
+        Atuendo atuendo;
         if(atuendosMostrados.size()!= this.cantidadDeAtuendosPosibles())
         {
             atuendo = this.generarAtuendo();
@@ -72,5 +70,9 @@ public class Guardaropa {
             j=this.prendasPorCategoria().get(i).size()*j;
         }
         return j;
+    }
+
+    public List<Prenda> getPrendas() {
+        return this.prendas;
     }
 }
