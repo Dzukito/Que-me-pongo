@@ -3,7 +3,7 @@
     "ropero": "prueba1",
     "prendas": [
       {
-        "tipo": {
+        "tipoDePrenda": {
           "tipo": "Remera",
           "categoria": "Torso",
           "materiasles": ["Algodhon","Franella","Pikachu"]
@@ -13,19 +13,31 @@
         "Color": ["Amarilla"]
       },
       {
-        "tipo": "Vermuda",
+        "tipoDePrenda": {
+          "tipo": "Vermuda",
+          "categoria": "ParteInferior",
+          "materiasles": ["Algodhon","Franella","Pikachu"]
+        },
         "nombre": "Vermuda verde",
         "Material": "Gabardina",
         "Color": ["Verde","Negro"]
       },
       {
-        "tipo": "Alpargatas",
+        "tipoDePrenda": {
+          "tipo": "Alpargatas",
+          "categoria": "Calzado",
+          "materiasles": ["Algodhon","Franella","Pikachu"]
+        },
         "nombre": "Alpargatas azules",
         "Material": "Lino",
         "Color": ["Azul"]
       },
       {
-        "tipo": "Collar",
+        "tipoDePrenda": {
+          "tipo": "Collar",
+          "categoria": "Accesorio",
+          "materiasles": ["Algodhon","Franella","Pikachu"]
+        },
         "nombre": "Collar de Plata",
         "Material": "Acero quirurgico",
         "Color": ["Plateado"]
@@ -36,55 +48,91 @@
     "ropero": "Verano",
     "prendas":[
             {
-              "tipo": "Remera",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Remera Amarilla",
               "Material": "Lino",
               "Color": "Amarillo"
             },
             {
-              "tipo": "Remera",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Remera que me regalo la tia pocha",
               "Material": "Lino",
               "Color": ["Azul","Naranja"]
             },
             {
-              "tipo": "Remera",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Remera de pandas",
               "Material": "Algodon",
               "Color": ["Negro","Blanco"]
             },
             {
-              "tipo": "Remera manga corta",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Tyrion",
               "Material": "Franela",
               "Color": ["Rojo"]
             },
             {
-              "tipo": "Remera musculosa",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Musculosa palmeras",
               "Material": "Lino",
               "Color": ["Blanco"]
             },
             {
-              "tipo": "Remera Top",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Top negro y blanco",
               "Material": "Franela",
               "Color": ["Negro","Blanco"]
             },
             {
-              "tipo": "Campera",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Campera Deadpool",
               "Material": "Cuero",
               "Color": ["Rojo","Negro"]
             },
             {
-              "tipo": "Pantalon largo",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Jean Azul",
               "Material": ["Jean"],
               "Color": ["Azul"]
             },
             {
-              "tipo": "Pantalon corto",
+              "tipoDePrenda": {
+                "tipo": "Remera",
+                "categoria": "Torso",
+                "materiasles": ["Algodhon","Franella","Pikachu"]
+              },
               "nombre": "Vermuda Verde",
               "Material": ["Gabardina"],
               "Color": ["Verde"]

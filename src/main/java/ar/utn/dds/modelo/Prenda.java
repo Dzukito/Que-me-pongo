@@ -11,6 +11,7 @@ public class Prenda{
     private TipoPrenda tipoPrenda;
     private String nombrePrenda;
     private Material material;
+    private Estilo estilo;
     
     Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material){
         this.tipoPrenda = tipoPrenda;

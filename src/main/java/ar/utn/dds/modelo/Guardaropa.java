@@ -75,4 +75,8 @@ public class Guardaropa {
     public List<Prenda> getPrendas() {
         return this.prendas;
     }
+
+    public int cantidadDePrendasEnCategoria(String categoria) {
+        return this.prendasPorCategoria(categoria, this.prendas).size();
+    }
 }

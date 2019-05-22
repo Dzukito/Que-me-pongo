@@ -130,7 +130,14 @@ public class UsuarioTest {
         this.setup();
         Assert.assertEquals(ropero1.cantidadCategorioas(ropero1.getPrendas()),4);
     }
-    
+    @Test
+    public void pasarUsuarioDePremiumAGratuito(){
+        this.setup();
+    }
+    @Test
+    public void pasarUsuarioDeGratuitoAPremium(){
+        this.setup();
+    }
   /*  @Test
     public void atundosDisponiblesParaUnGuardarropa(){
         this.setup();
