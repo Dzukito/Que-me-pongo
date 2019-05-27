@@ -30,12 +30,12 @@ public class Gratuito extends Membrecia {
 
     @Override
     public void cambiarAPremium(Usuario usuario) {
-
+    	usuario.cambiarMembrecia(new Premium());
     }
 
     @Override
     public void cambiarAGratuito(Usuario usuario) {
-
+    	//tiene sentido?
     }
 
     Gratuito(){}
