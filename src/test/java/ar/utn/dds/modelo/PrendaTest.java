@@ -47,12 +47,30 @@ public class PrendaTest {
          rojoYVerde.add(Color.Rojo);
          rojoYVerde.add(Color.Verde);
          
-         prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO);
-         prenda2 = new Prenda(pantalon, "PantalonX", azul, Material.JEAN);
-         prenda3 = new Prenda(zapatillas, "ZapatillasRaras", rojoYVerde, Material.CUERO);
+         prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO, Estilo.NORMAL);
+         prenda2 = new Prenda(pantalon, "PantalonX", azul, Material.JEAN, Estilo.NORMAL);
+         prenda3 = new Prenda(zapatillas, "ZapatillasRaras", rojoYVerde, Material.CUERO, Estilo.ELEGANTSPORT);
          
     }
 
+
+
+    @Test
+    public void cambiarABloqueado(){
+        assertTrue(prenda1.disponible());
+        prenda1.bloquearse();
+        assertFalse(prenda1.disponible());
+    }
+
+    @Test
+    public void cambiarADesbloqueado(){
+        assertTrue(prenda1.disponible());
+        prenda1.bloquearse();
+        assertFalse(prenda1.disponible());
+        prenda1.desbloquearse();
+        assertTrue(prenda1.disponible());
+
+    }
     @Test
     public void getMaterial() {
     	this.init();

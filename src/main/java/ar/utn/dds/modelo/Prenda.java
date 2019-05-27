@@ -2,7 +2,6 @@ package ar.utn.dds.modelo;
 
 import ar.utn.dds.excepciones.AlMenosUnColor;
 import ar.utn.dds.excepciones.SoloTieneUnColor;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,12 +11,40 @@ public class Prenda{
     private String nombrePrenda;
     private Material material;
     private Estilo estilo;
-    
+    private Boolean disponibilidad;
+
+
+    public Estilo getEstilo(){
+        return estilo;
+    }
+    public boolean disponible(){
+       return this.disponibilidad;
+    }
+    public void bloquearse(){
+        this.disponibilidad = false;
+    }
+    public void desbloquearse(){
+        this.disponibilidad = true;
+    }
     Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material){
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
         this.colores = colores;
         this.material = material;
+        this.disponibilidad = true;
+        this.estilo = Estilo.NORMAL;
+        this.tipoPrenda.perteneceMaterial(material);
+        if(colores.isEmpty()){
+            throw new AlMenosUnColor();
+        }
+    }
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material, Estilo estilo){
+        this.tipoPrenda = tipoPrenda;
+        this.nombrePrenda = nombrePrenda;
+        this.colores = colores;
+        this.material = material;
+        this.disponibilidad = true;
+        this.estilo = estilo;
         this.tipoPrenda.perteneceMaterial(material);
             if(colores.isEmpty()){
                 throw new AlMenosUnColor();
@@ -48,5 +75,13 @@ public class Prenda{
     }
     public String categoria() {
         return this.tipoPrenda.categoria();
+    }
+
+    public boolean esSuperponible(Prenda prenda){
+       return this.tipoPrenda.esSuperponible(prenda);
+    }
+
+    public TipoPrenda tipoDePrenda() {
+        return this.tipoPrenda;
     }
 }

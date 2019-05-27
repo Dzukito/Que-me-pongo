@@ -12,6 +12,8 @@ public class Guardaropa {
         this.atuendosMostrados = new ArrayList<Atuendo>();
     }
 
+
+
     public Atuendo sugerirAtuendo(){
         Atuendo atuendo;
         if(atuendosMostrados.size()!= this.cantidadDeAtuendosPosibles())

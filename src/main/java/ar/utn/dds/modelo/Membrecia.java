@@ -1,9 +1,7 @@
 package ar.utn.dds.modelo;
 
 public abstract class Membrecia {
-   public void cambiarMembrecia(Membrecia membrecia, Usuario usuario){
-       usuario.cambiarMembrecia(membrecia);
-   }
+
    public void agregarPrenda(Prenda prenda, Usuario usuario, int i){
        usuario.agregarPreda(prenda,usuario.guardaropa(i));
    }

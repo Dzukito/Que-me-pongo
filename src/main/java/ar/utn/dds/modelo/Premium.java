@@ -8,7 +8,7 @@ public class Premium extends Membrecia{
 
     @Override
     public void cambiarAGratuito(Usuario usuario) {
-
+        usuario.cambiarMembrecia(new Gratuito());
     }
 
     Premium(){}

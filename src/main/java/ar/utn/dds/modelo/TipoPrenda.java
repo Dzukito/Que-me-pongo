@@ -2,19 +2,29 @@ package ar.utn.dds.modelo;
 
 import ar.utn.dds.excepciones.ElMaterialNoPerteneceALaPrenda;
 
-import java.util.Set;
+import java.util.*;
 
 public class TipoPrenda {
     private String tipo;
     private Categoria categoria;
     private Set<Material> materiales;
+    private Set<TipoPrenda> superponibles;
 
     TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales){
         this.tipo = tipo;
         this.materiales = materiales;
         this.categoria = categoria;
+        this.superponibles = new HashSet<TipoPrenda>();
     }
-    
+    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales,Set<TipoPrenda> superponibles){
+        this.tipo = tipo;
+        this.materiales = materiales;
+        this.categoria = categoria;
+        this.superponibles = superponibles;
+    }
+    public boolean esSuperponible(Prenda prenda){
+        return superponibles.contains(prenda.tipoDePrenda());
+    }
     public String categoria(){
         return this.categoria.getCategoria();
     }
