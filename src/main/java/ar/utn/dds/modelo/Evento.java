@@ -25,7 +25,12 @@ public class Evento {
         return this.horaComienzo;
     }
 
-    public boolean estoyEnEseHorario(Evento evento) {
-        return (this.horaComienzo.after(evento.horaTermino()) && this.horaTermino.before(evento.horaComienzo()));
+    public boolean estoyEnEseHorario(Evento evento) { return (this.horaComienzo.after(evento.horaTermino()) && this.horaTermino.before(evento.horaComienzo())); }
+
+    public Calendar getHoraComienzo(){
+        return this.horaComienzo;
+    }
+    public Calendar getHoraTermino(){
+        return this.horaTermino;
     }
 }

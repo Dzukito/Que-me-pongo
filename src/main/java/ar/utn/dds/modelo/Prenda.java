@@ -88,7 +88,7 @@ public class Prenda{
     }
 
     public boolean esSuperponible(Prenda prenda){
-       return this.tipoPrenda.esSuperponible(prenda);
+       return this.tipoPrenda.esSuperponible(prenda.tipoDePrenda());
     }
 
     public TipoPrenda tipoDePrenda() {

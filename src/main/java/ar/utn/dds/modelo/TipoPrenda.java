@@ -22,8 +22,8 @@ public class TipoPrenda {
         this.categoria = categoria;
         this.superponibles = superponibles;
     }
-    public boolean esSuperponible(Prenda prenda){
-        return superponibles.contains(prenda.tipoDePrenda());
+    public boolean esSuperponible(TipoPrenda prenda){
+        return superponibles.contains(prenda);
     }
     public String categoria(){
         return this.categoria.getCategoria();
