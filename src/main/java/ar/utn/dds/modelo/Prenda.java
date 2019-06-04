@@ -21,7 +21,7 @@ public class Prenda{
     private Material material;
     private Estilo estilo;
     private Boolean disponibilidad;
-    //private File imagen;
+    private File imagenPrenda;
 
 
     public Estilo getEstilo(){
@@ -54,13 +54,16 @@ public class Prenda{
         this.colores = colores;
         this.material = material;
         this.disponibilidad = true;
-        this.estilo = estilo;      
+        this.estilo = estilo;
         this.tipoPrenda.perteneceMaterial(material);
             if(colores.isEmpty()){
                 throw new AlMenosUnColor();
             }
+        this.imagenPrenda= new File("2019-ma-ma-group-07\\Imagenes\\default.jpg"); 
+        //Prenda es generico, no puede tener una img default para las distintas prendas. Default.jpg sirve para darle un file con que empezar a todas 
 
     }
+   
     public String tipo(){
         return this.tipoPrenda.tipo();
     }
@@ -94,28 +97,31 @@ public class Prenda{
     public TipoPrenda tipoDePrenda() {
         return this.tipoPrenda;
     }
+	
+    public File imagen(){
+        return this.imagenPrenda;
+    }
     
     
     
-    //Normaliza la imagen que tenga mi prenda
-    public static void normalizarMiImagen(File imagenOriginal,File imagenNormalizada, int width, int hight, String format) {
+    public void cargarImagen(File nuevaImagen) {
+    	normalizarImagen(nuevaImagen,600,600,"jpg");
+        this.imagenPrenda= nuevaImagen;
+    }
+    
+    public  void normalizarImagen(File imagenOriginal, int width, int hight, String format) {
     	try {
     		BufferedImage original= ImageIO.read(imagenOriginal); //Lee la imagen que ya tengo, por parametro
     		BufferedImage normalizada = new BufferedImage(width, hight, original.getType()); //Prepara la normalizada
     		Graphics2D g2= normalizada.createGraphics(); 
     		g2.drawImage(original, 0, 0, width, hight, null);  //Modifica la original
     		g2.dispose();
-    		ImageIO.write(normalizada, format, imagenNormalizada); //Reescribe la normalizada por parametro
+    		ImageIO.write(normalizada, format, imagenOriginal); //Reescribe la original por la normalizada 
     	}
     	catch(IOException ex) {
-    		ex.printStackTrace(); //revisar
+    		ex.printStackTrace();}
     	}
-    	}
-    /*Ejemplo de main(como funciona):
-    	File pngOriginal= new File("C:\\Users\\Usuario\\Desktop\\miImagen.png");              //la imagen original que tengo
-		File pngResize= new File("C:\\Users\\Usuario\\Desktop\\resized.png");                 //la futura imagen normalizada
-		normalizarMiImagen(pngOriginal,pngResize,111,111,"png"); //aplico la funcion y se sobreescribe la normalizada como 111x111
-	*/
+    
     
     
 }
