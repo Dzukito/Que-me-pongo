@@ -30,7 +30,7 @@ public class TipoPrendaTest {
         campera = new TipoPrenda(Categoria.TORSO, "campera", materialPantalon);
         superponiblesRemera = new HashSet<TipoPrenda>();
         superponiblesRemera.add(campera);
-        remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera,superponiblesRemera);
+        remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera,superponiblesRemera,null);
         zapatillas = new TipoPrenda(Categoria.CALZADO, "Zapatillas", materialCalzado);
         blancoYNegro = new ArrayList<Color>();
         blancoYNegro.add(Color.Blanco);
