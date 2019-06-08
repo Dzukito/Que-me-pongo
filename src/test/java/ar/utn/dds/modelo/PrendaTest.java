@@ -23,21 +23,13 @@ public class PrendaTest {
     public void init(){
     	 materialRemera = new HashSet<Material>();
          materialRemera.add(Material.LINO);
-         
-         
          materialPantalon = new HashSet<Material>();
          materialPantalon.add(Material.JEAN);
-         
-         
          materialCalzado = new HashSet<Material>();
          materialCalzado.add(Material.CUERO);
-         
-         
          pantalon = new TipoPrenda(Categoria.PARTEINFERIOR, "Pantalon", materialPantalon);
          remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera);
          zapatillas = new TipoPrenda(Categoria.CALZADO, "Zapatillas", materialCalzado);
-        
-         
          blancoYNegro = new ArrayList<Color>();
          blancoYNegro.add(Color.Blanco);
          blancoYNegro.add(Color.Negro);
@@ -46,11 +38,9 @@ public class PrendaTest {
          rojoYVerde = new ArrayList<Color>();
          rojoYVerde.add(Color.Rojo);
          rojoYVerde.add(Color.Verde);
-         
          prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO, Estilo.NORMAL);
          prenda2 = new Prenda(pantalon, "PantalonX", azul, Material.JEAN, Estilo.NORMAL);
          prenda3 = new Prenda(zapatillas, "ZapatillasRaras", rojoYVerde, Material.CUERO, Estilo.ELEGANTSPORT);
-         
     }
 
 
