@@ -2,6 +2,7 @@ package ar.utn.dds.modelo;
 
 import static org.junit.Assert.*;
 
+import ar.utn.dds.services.ServicioWeather;
 import org.junit.Before;
 import org.junit.Test;
 

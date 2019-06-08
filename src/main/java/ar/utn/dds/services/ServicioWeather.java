@@ -1,11 +1,14 @@
-package ar.utn.dds.modelo;
+package ar.utn.dds.services;
+
+import ar.utn.dds.modelo.Meteorologo;
+import ar.utn.dds.modelo.Pronostico;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class ServicioWeather implements Meteorologo{
+public class ServicioWeather implements Meteorologo {
 	
 	@Override
 	public Pronostico getPronostico(String ciudad, String pais) {

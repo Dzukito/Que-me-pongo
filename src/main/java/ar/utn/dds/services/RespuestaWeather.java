@@ -1,4 +1,4 @@
-package ar.utn.dds.modelo;
+package ar.utn.dds.services;
 
 
 public class RespuestaWeather {
