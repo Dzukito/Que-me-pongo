@@ -23,17 +23,21 @@ public class ImagenTest {
 	  TipoPrenda remera;
 	  ArrayList<Color> blancoYNegro;
 	  HashSet<Material> materialRemera;
-	  File standar; 
+	  String standar, zebra;
 	   
 	  
 	
 	
     @Before
     public void init(){
+    	
+    	standar="Imagenes/default.jpg"; 
+    	zebra= "Imagenes/test.jpg";
+    	
     	 materialRemera = new HashSet<Material>();
          materialRemera.add(Material.LINO);
          
-         remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera);
+         remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera,null,standar);
                
          blancoYNegro = new ArrayList<Color>();
          blancoYNegro.add(Color.Blanco);
@@ -41,24 +45,26 @@ public class ImagenTest {
         
          prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO, Estilo.NORMAL);
          
-         standar= new File("2019-ma-ma-group-07\\Imagenes\\default.jpg"); //imagen que el constructor pone por defecto en prenda1
+         
     }
 
 
     @Test
     public void imagenStandar(){
+    	
     	this.init();
-    	Assert.assertEquals(standar,prenda1.imagen());
+    	Assert.assertEquals(standar,remera.imagen());
     }
-
+    
     @Test
     public void cambiarImagenPrenda(){ 
     	this.init();
-    	File zebra= new File("2019-ma-ma-group-07\\Imagenes\\test.jpg");
-        prenda1.cargarImagen(zebra);
+    	remera.cargarImagen(zebra);
         
-        Assert.assertNotEquals(standar,prenda1.imagen());
-        Assert.assertEquals(zebra,prenda1.imagen());
+        System.out.print(remera.imagen());
+        
+       Assert.assertNotEquals(standar,remera.imagen());
+       Assert.assertEquals(zebra,remera.imagen());
 
     }
 }
