@@ -49,4 +49,10 @@ public class TipoPrendaTest {
     public void esSuperponible() {
         assertTrue(prenda1.esSuperponible(prenda4));
     }
+    @Test
+    public void noEsSuperponible() {
+        assertFalse(prenda2.esSuperponible(prenda3));
+    }
+
+
 }
