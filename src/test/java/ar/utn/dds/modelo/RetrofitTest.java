@@ -17,7 +17,7 @@ public class RetrofitTest {
 		Meteorologo meteorologo = new ServicioWeather();
 //		Pronostico prono = meteorologo.getPronostico("Buenos Aires", "ar");
 		Pronostico pronostico = meteorologo.getPronostico(buenosAires.ciudad(), buenosAires.pais());
-		assertEquals(pronostico.cod, "200");
+		assertEquals(pronostico.cod(), "200");
 		
 	}
 

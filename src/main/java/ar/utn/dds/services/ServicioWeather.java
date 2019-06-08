@@ -26,8 +26,7 @@ public class ServicioWeather implements Meteorologo {
 	        Response<RespuestaWeather> response = call.execute();
 	        RespuestaWeather pronosticoWeather = response.body();
 	        Pronostico pronostico = new Pronostico();
-			pronostico.cod= pronosticoWeather.cod;
-			
+			pronostico.setCod(pronosticoWeather.cod);
 	        System.out.print(pronosticoWeather.cod);
 	        return pronostico;
 	    }
