@@ -21,7 +21,7 @@ public class Prenda{
     private Material material;
     private Estilo estilo;
     private Boolean disponibilidad;
-    private File imagenPrenda;
+   
 
 
     public Estilo getEstilo(){
@@ -59,8 +59,7 @@ public class Prenda{
             if(colores.isEmpty()){
                 throw new AlMenosUnColor();
             }
-        this.imagenPrenda= new File("2019-ma-ma-group-07\\Imagenes\\default.jpg"); 
-        //Prenda es generico, no puede tener una img default para las distintas prendas. Default.jpg sirve para darle un file con que empezar a todas 
+        
 
     }
    
@@ -98,30 +97,7 @@ public class Prenda{
         return this.tipoPrenda;
     }
 	
-    public File imagen(){
-        return this.imagenPrenda;
-    }
-    
-    
-    
-    public void cargarImagen(File nuevaImagen) {
-    	normalizarImagen(nuevaImagen,600,600,"jpg");
-        this.imagenPrenda= nuevaImagen;
-    }
-    
-    public  void normalizarImagen(File imagenOriginal, int width, int hight, String format) {
-    	try {
-    		BufferedImage original= ImageIO.read(imagenOriginal); //Lee la imagen que ya tengo, por parametro
-    		BufferedImage normalizada = new BufferedImage(width, hight, original.getType()); //Prepara la normalizada
-    		Graphics2D g2= normalizada.createGraphics(); 
-    		g2.drawImage(original, 0, 0, width, hight, null);  //Modifica la original
-    		g2.dispose();
-    		ImageIO.write(normalizada, format, imagenOriginal); //Reescribe la original por la normalizada 
-    	}
-    	catch(IOException ex) {
-    		ex.printStackTrace();}
-    	}
-    
+   
     
     
 }
