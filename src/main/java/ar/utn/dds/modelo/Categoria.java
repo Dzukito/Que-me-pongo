@@ -4,7 +4,10 @@ public enum Categoria {
     TORSO("Torso"),
     PARTEINFERIOR("Parte Inferior"),
     CALZADO("Calzado"),
-    ACCESORIOS("Accesorios");
+    ACCESORIOS("Accesorios"),
+    CUELLO("Cuello"),
+    MANOS("Manos"),
+    CABEZA("Cabeza");
     private String categoria;
 
     public String getCategoria(){

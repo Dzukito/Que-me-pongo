@@ -3,11 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueMePongo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QueMePongo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/Constantes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/data/TiposDePrendas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/data/TiposDePrendas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Categoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ubicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ubicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/RetrofitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/RetrofitTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,40 +24,54 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Meteorologo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Premium.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
-                <element signature="e#2538#2539#0" expanded="true" />
-                <element signature="e#2613#2614#0" expanded="true" />
+                <element signature="e#416#417#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Guardaropa.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/UsuarioTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="85">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/RetrofitTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+              <folding>
+                <element signature="e#193#194#0" expanded="true" />
+                <element signature="e#206#207#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/PrendaTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,41 +80,76 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#818#819#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="35" selection-end-column="10" />
+            <state relative-caret-position="153">
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ubicacion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+            <state relative-caret-position="328">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
               <folding>
-                <element signature="e#824#825#0" expanded="true" />
-                <element signature="e#877#878#0" expanded="true" />
+                <element signature="e#168#169#0" expanded="true" />
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#218#219#0" expanded="true" />
+                <element signature="e#242#243#0" expanded="true" />
+                <element signature="e#264#265#0" expanded="true" />
+                <element signature="e#280#281#0" expanded="true" />
+                <element signature="e#308#309#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/TipoPrendaDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="37" column="3" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EventoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="17" column="92" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/PedidoPronosticoWeather.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
@@ -104,24 +158,44 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/services/MeteorologoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Pronostico.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ciudad.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/data/weather_14.json" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/dao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/DAO.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/Constantes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Categoria.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EventoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/data/TiposDePrendas.json" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Usuario.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/TipoPrendaDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ubicacion.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/RetrofitTest.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="417" />
-    <option name="y" value="5" />
-    <option name="width" value="697" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="242" />
+    <option name="y" value="-25" />
+    <option name="width" value="892" />
     <option name="height" value="735" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -162,19 +236,78 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="dds" type="462c0819:PsiDirectoryNode" />
+              <item name="DAO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-ma-ma-group-07" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-ma-ma-group-07" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dds" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-ma-ma-group-07" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-ma-ma-group-07" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dds" type="462c0819:PsiDirectoryNode" />
+              <item name="modelo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-ma-ma-group-07" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-ma-ma-group-07" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dds" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-ma-ma-group-07" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-ma-ma-group-07" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-ma-ma-group-07" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-ma-ma-group-07" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-ma-ma-group-07" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-ma-ma-group-07" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="modelo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555196065424" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560001068663" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../retrofit/retrofit-example" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ar.utn.dds.modelo" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\java\ar\utn\dds\data" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -188,6 +321,68 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="JUnit.All in QueMePongo">
+    <configuration name="All in QueMePongo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueMePongo" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueMePongo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.utn.dds.modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.utn.dds.modelo" />
+      <option name="MAIN_CLASS_NAME" value="ar.utn.dds.modelo.EventoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RetrofitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueMePongo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.utn.dds.modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.utn.dds.modelo" />
+      <option name="MAIN_CLASS_NAME" value="ar.utn.dds.modelo.RetrofitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ar.utn.dds.modelo in QueMePongo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueMePongo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.utn.dds.modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.utn.dds.modelo" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in QueMePongo" />
+        <item itemvalue="JUnit.RetrofitTest" />
+        <item itemvalue="JUnit.ar.utn.dds.modelo in QueMePongo" />
+        <item itemvalue="JUnit.EventoTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -199,12 +394,81 @@
       <option name="presentableId" value="Default" />
       <updated>1554567908829</updated>
     </task>
+    <task id="LOCAL-00001" summary="Agrego Dependencias Retrofit y Gson">
+      <created>1559429868219</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559429868219</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="EventoTest - 2019.06.03 at 23h 21m 45s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.03 at 23h 23m 03s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.03 at 23h 24m 07s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.03 at 23h 24m 35s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.03 at 23h 24m 55s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.03 at 23h 25m 22s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.03 at 23h 26m 11s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.03 at 23h 53m 47s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EventoTest - 2019.06.05 at 23h 06m 54s.xml">
+      <configuration name="EventoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RetrofitTest - 2019.06.08 at 10h 32m 48s.xml">
+      <configuration name="RetrofitTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="417" y="5" width="697" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34379905" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33387887" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49921507" weight="0.32405892" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50078493" side_tool="true" weight="0.32890365" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20272315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -219,8 +483,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" visible="true" weight="0.33388704" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49921507" visible="true" weight="0.32405892" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50078493" side_tool="true" weight="0.32890365" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -230,18 +494,15 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout>
+    </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Agrego Dependencias Retrofit y Gson" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrego Dependencias Retrofit y Gson" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/UML.drawio">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Meteorologo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Premium.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -250,20 +511,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java">
+    <entry file="file://$PROJECT_DIR$/QueMePongo.iws">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QueMePongo.ipr">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
-          <folding>
-            <element signature="e#2538#2539#0" expanded="true" />
-            <element signature="e#2613#2614#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Estilo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/data/weather_14.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="22356" column="344" selection-start-line="22356" selection-start-column="344" selection-end-line="22356" selection-end-column="344" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/excepciones/AlMenosUnColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/Constantes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/ImagenTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/AtuendoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Categoria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Guardaropa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -272,30 +589,173 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="714">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
           <folding>
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
+            <element signature="method#cambiarPrenda#0;class#Atuendo#0" />
+            <element signature="method#somosIguales#0;class#Atuendo#0" />
+            <element signature="method#tengoTusPrendas#0;class#Atuendo#0" />
+            <element signature="method#tengoPrenda#0;class#Atuendo#0" />
+            <element signature="method#agregarPrenda#0;class#Atuendo#0" />
+            <element signature="method#getPrenda#0;class#Atuendo#0" />
+            <element signature="method#esaPrendaYaLaTengo#0;class#Atuendo#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/data/TiposDePrendas.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/data/PrendasRopero.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Pronostico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/services/MeteorologoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Meteorologo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/PedidoPronosticoWeather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/UsuarioTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+        <state relative-caret-position="153">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/TipoPrendaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="37" column="3" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
           <folding>
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#877#878#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/PrendaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="35" selection-end-column="10" />
+        <state relative-caret-position="202">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EventoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="92" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ubicacion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding>
+            <element signature="e#168#169#0" expanded="true" />
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#264#265#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/RetrofitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#206#207#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

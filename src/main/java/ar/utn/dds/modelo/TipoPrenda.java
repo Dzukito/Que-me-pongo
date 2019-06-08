@@ -9,7 +9,15 @@ public class TipoPrenda {
     private Categoria categoria;
     private Set<Material> materiales;
     private Set<TipoPrenda> superponibles;
+    //private NivelDeCalor nivelDeCalor;
 
+
+
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(this.tipo, this.categoria, this.materiales, this.superponibles);
+    }
     TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales){
         this.tipo = tipo;
         this.materiales = materiales;

@@ -1,62 +1,257 @@
 [
-  {
-    "tipo": "Remera",
-    "Material": ["Lino", "Algodon", "Franela"],
-    "Categoria": "Torso"
-  },
-  {
-    "tipo": "Campera",
-    "Material": ["Cuero", "Gabardina", "Jean"],
-    "Categoria": "Torso"
-  },
-  {
-    "tipo": "Pantalon largo",
-    "Material": ["Cuero", "Gabardina", "Jean"],
-    "Categoria": "ParteInferior"
-  },
-  {
-    "tipo": "Pantalon corto",
-    "Material": ["Cuero", "Gabardina", "Jean"],
-    "Categoria": "ParteInferior"
-  },
-  {
-    "tipo": "Malla",
-    "Material": ["Malla", "Lino"],
-    "Categoria": "ParteInferior"
-  },
-  {
-    "tipo": "Malla enteriza",
-    "Material": ["Laicra"],
-    "Categoria": "Torso"
-  },
-  {
-    "tipo": "Pulsera",
-    "Material": ["Cuero", "Oro", "Plata", "Plastico", "Fibras textiles"],
-    "Categoria": "Accesorio"
-  },
-  {
-    "tipo": "Ojota",
-    "Material": ["Goma","Madera"],
-    "Categoria": "Calzado"
-  },
-  {
-    "tipo": "Sandalia",
-    "Material": ["Goma","Madera"],
-    "Categoria": "Calzado"
-  },
-  {
-    "tipo": "Zapatilla",
-    "Material": ["Goma","Tela","Cuero"],
-    "Categoria": "Calzado"
-  },
-  {
-    "tipo": "Gorro",
-    "Material": ["Goma","Tela","Cuero","Paja","Lana"],
-    "Categoria": "Accesorio"
-  },
-  {
-    "tipo": "Guantes",
-    "Material": ["Algodon","Lana","Cuero"],
-    "Categoria": "Accesorio"
-  }
+    {
+      "tipo": "Sobretodo",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": []
+    },
+    {
+      "tipo": "Rompevientos",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": []
+    },
+    {
+      "tipo": "Piloto",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": []
+    },
+    {
+      "tipo": "Saco",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": [
+        {
+          "tipo": "Sobretodo",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        },
+        {
+          "tipo": "Rompevientos",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        },
+        {
+          "tipo": "Piloto",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        }
+      ]
+    },
+    {
+      "tipo": "Campera",
+      "Material": ["Cuero", "Gabardina", "Jean"],
+      "Categoria": "Torso",
+      "superponibles": [
+        {
+          "t0ipo": "Sobretodo",
+          "0Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        },
+        {
+          "tipo": "Rompevientos",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        },
+        {
+          "tipo": "Piloto",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        }
+      ]
+    },
+    {
+      "tipo": "Buzo",
+      "Material": ["Cuero", "Gabardina", "Jean"],
+      "Categoria": "Torso",
+      "superponibles": [
+        {
+          "tipo": "Sobretodo",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        },
+        {
+          "tipo": "Rompevientos",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        },
+        {
+          "tipo": "Piloto",
+          "Material": ["Lino", "Algodon", "Franela"],
+          "Categoria": "Torso",
+          "superponibles": []
+        },
+        {
+          "tipo": "Campera",
+          "Material": ["Cuero", "Gabardina", "Jean"],
+          "Categoria": "Torso",
+          "superponibles": [
+            {
+              "t0ipo": "Sobretodo",
+              "0Material": ["Lino", "Algodon", "Franela"],
+              "Categoria": "Torso",
+              "superponibles": []
+            },
+            {
+              "tipo": "Rompevientos",
+              "Material": ["Lino", "Algodon", "Franela"],
+              "Categoria": "Torso",
+              "superponibles": []
+            },
+            {
+              "tipo": "Piloto",
+              "Material": ["Lino", "Algodon", "Franela"],
+              "Categoria": "Torso",
+              "superponibles": []
+            }
+          ]
+        }]
+    },
+    {
+      "tipo": "Chaleco",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": ["Saco","Sobretodo","Piloto","Rompevientos","Campera","Buso"]
+    },
+    {
+      "tipo": "Chaleco",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": ["Saco","Sobretodo","Piloto","Rompevientos","Campera","Buso","Chaleco"]
+    },
+    {
+      "tipo": "Remera",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": ["Saco","Sobretodo","Piloto","Rompevientos","Campera","Buso","Chaleco","Camisa"]
+    },
+    {
+      "tipo": "Corpiño",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Torso",
+      "superponibles": ["Saco","Sobretodo","Piloto","Rompevientos","Campera","Buso","Chaleco","Camisa","Remera"]
+    },
+    {
+      "tipo": "Bikini",
+      "Material": ["Laicra"],
+      "Categoria": "Torso",
+      "superponibles": ["Saco","Sobretodo","Piloto","Rompevientos","Campera","Buso","Chaleco","Camisa","Remera"]
+    },
+    {
+      "tipo": "Malla enteriza",
+      "Material": ["Laicra"],
+      "Categoria": "Torso",
+      "superponibles": ["Saco","Sobretodo","Piloto","Rompevientos","Campera","Buso","Chaleco","Camisa","Remera"]
+    },
+    {
+      "tipo": "Pantalon largo",
+      "Material": ["Cuero", "Gabardina", "Jean"],
+      "Categoria": "ParteInferior",
+      "superponibles": []
+    },
+    {
+      "tipo": "Pantalon corto",
+      "Material": ["Cuero", "Gabardina", "Jean"],
+      "Categoria": "ParteInferior",
+      "superponibles": []
+    },
+    {
+      "tipo": "Malla",
+      "Material": ["Malla", "Lino"],
+      "Categoria": "ParteInferior",
+      "superponibles": ["Pantalon largo"]
+    },
+    {
+      "tipo": "Pollera",
+      "Material": ["Cuero", "Gabardina", "Jean"],
+      "Categoria": "ParteInferior",
+      "superponibles": []
+    },
+    {
+      "tipo": "Calzoncillos",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Parte Inferior",
+      "superponibles": ["Malla","Pantalon corto","Pantalon largo"]
+    },
+    {
+      "tipo": "Bombacha",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Parte Inferior",
+      "superponibles": ["Pantalon corto","Pantalon largo"]
+    },
+    {
+      "tipo": "Ojota",
+      "Material": ["Goma", "Madera"],
+      "Categoria": "Calzado",
+      "superponibles": []
+    },
+    {
+      "tipo": "Sandalia",
+      "Material": ["Goma", "Madera"],
+      "Categoria": "Calzado",
+      "superponibles": []
+    },
+    {
+      "tipo": "Zapatilla",
+      "Material": ["Goma", "Tela", "Cuero"],
+      "Categoria": "Calzado",
+      "superponibles": []
+    },
+    {
+      "tipo": "Medias",
+      "Material": ["Lino", "Algodon", "Franela"],
+      "Categoria": "Calzado",
+      "superponibles": ["Sandalia","Zapatilla"]
+    },
+    {
+      "tipo": "Gorro",
+      "Material": ["Goma", "Tela", "Cuero", "Paja", "Lana"],
+      "Categoria": "Cabeza",
+      "superponibles": []
+    },
+    {
+      "tipo":0 "Guantes",
+      "Material": ["Algodon", "Lana", "Cuero"],
+      "Categ0oria": "Accesorio",
+      "superponibles": []
+    },
+    {
+      "tipo": "Pulsera",
+      "Material": ["Cuero", "Oro", "Plata", "Plastico", "Fibras textiles"],
+      "Categoria": "Accesorio",
+      "superponibles": []
+    },
+    {
+      "tipo": "Anillo",
+      "Material": ["Oro", "Plata", "Plastico", "Fibras textiles"],
+      "Categoria": "Accesorio",
+      "superponibles": []
+    },
+    {
+      "tipo": "Paraguas",
+      "Material": ["Plastico"],
+      "Categoria": "Accesorio",
+      "superponibles": []
+    },
+    {
+      "tipo": "Anteojos",
+      "Material": ["Plastico"],
+      "Categoria": "Accesorio",
+      "superponibles": []
+    },
+    {
+      "tipo": "Gorro",
+      "Material": ["Plastico", "Lino", "Paja"],
+      "Categoria": "Accesorio",
+      "superponibles": []
+    }
 ]
