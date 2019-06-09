@@ -21,6 +21,7 @@ public class Prenda{
     private Material material;
     private Estilo estilo;
     private Boolean disponibilidad;
+    private String imagen;
    
 
 
@@ -44,23 +45,23 @@ public class Prenda{
         this.disponibilidad = true;
         this.estilo = Estilo.NORMAL;
         this.tipoPrenda.perteneceMaterial(material);
+        this.imagen=this.tipoPrenda.imagen();
         if(colores.isEmpty()){
             throw new AlMenosUnColor();
         }
     }
-    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material, Estilo estilo){
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material, Estilo estilo,String path){
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
         this.colores = colores;
         this.material = material;
         this.disponibilidad = true;
         this.estilo = estilo;
+        this.imagen=path;
         this.tipoPrenda.perteneceMaterial(material);
             if(colores.isEmpty()){
                 throw new AlMenosUnColor();
             }
-        
-
     }
    
     public String tipo(){
@@ -96,6 +97,40 @@ public class Prenda{
     public TipoPrenda tipoDePrenda() {
         return this.tipoPrenda;
     }
+    
+    
+    
+   //-------------------------
+    
+    public String imagen(){
+        return this.imagen;
+    }
+    
+    public void cargarImagen(String path) {
+    	String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg";//nombre para la imagen en la carpeta 
+    	normalizarImagen(path,destino, 600,600,"jpg");
+        this.imagen= destino;
+    }
+    
+    public  void normalizarImagen(String path,String destino, int width, int hight, String format) {
+    	
+    	File pathOrigen= new File(path);
+    	File pathDestino= new File(destino); 
+    	
+    	
+    	try {
+    		BufferedImage original= ImageIO.read(pathOrigen);
+    		BufferedImage normalizada = new BufferedImage(width, hight, original.getType()); 
+    		
+    		Graphics2D g2= normalizada.createGraphics(); 
+    		g2.drawImage(original, 0, 0, width, hight, null);  
+    		g2.dispose();
+    		
+    		ImageIO.write(normalizada, format, pathDestino);  
+    	}
+    	catch(IOException ex) {
+    		ex.printStackTrace();}
+    	}
 	
    
     
