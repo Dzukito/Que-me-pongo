@@ -64,31 +64,6 @@ public class TipoPrenda {
         return this.imagen;
     }
     
-    
-    public void cargarImagen(String path) {
-    	String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg"; //guardo la imagen siempre en la carpeta Imagenes nombrandola con su path
-    	normalizarImagen(path,destino, 600,600,"jpg");
-        this.imagen= destino;
-    }
-    
-    public  void normalizarImagen(String path,String destino, int width, int hight, String format) {
-    	
-    	File pathOrigen= new File(path);
-    	File pathDestino= new File(destino); 
-    	
-    	
-    	try {
-    		BufferedImage original= ImageIO.read(pathOrigen);
-    		BufferedImage normalizada = new BufferedImage(width, hight, original.getType()); 
-    		
-    		Graphics2D g2= normalizada.createGraphics(); 
-    		g2.drawImage(original, 0, 0, width, hight, null);  
-    		g2.dispose();
-    		
-    		ImageIO.write(normalizada, format, pathDestino);  
-    	}
-    	catch(IOException ex) {
-    		ex.printStackTrace();}
-    	}
+   
     
 }
