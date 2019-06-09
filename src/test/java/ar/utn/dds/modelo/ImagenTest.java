@@ -25,25 +25,23 @@ public class ImagenTest {
 	  HashSet<Material> materialRemera;
 	  String standar, zebra;
 	   
-	  
-	
 	
     @Before
     public void init(){
-    	
-    	standar="Imagenes/default.jpg"; 
-    	zebra= "Imagenes/test.jpg";
-    	
+    	   	    	
     	 materialRemera = new HashSet<Material>();
          materialRemera.add(Material.LINO);
          
-         remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera,null,standar);
+         remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera,null,"Imagenes/defaultTorso.jpg");
                
          blancoYNegro = new ArrayList<Color>();
          blancoYNegro.add(Color.Blanco);
          blancoYNegro.add(Color.Negro);
         
-         prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO, Estilo.NORMAL);
+         prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO);
+         
+         standar= "Imagenes/defaultTorso.jpg";
+         zebra= "Imagenes/test.jpg";
          
          
     }
@@ -54,17 +52,18 @@ public class ImagenTest {
     	
     	this.init();
     	Assert.assertEquals(standar,remera.imagen());
+    	
     }
     
     @Test
     public void cambiarImagenPrenda(){ 
     	this.init();
-    	remera.cargarImagen(zebra);
+    	prenda1.cargarImagen(zebra);
         
-        System.out.print(remera.imagen());
+        System.out.print(prenda1.imagen());
         
-       Assert.assertNotEquals(standar,remera.imagen());
-       //Assert.assertEquals(zebra,remera.imagen());
+       Assert.assertNotEquals(standar,prenda1.imagen());
+       Assert.assertEquals("Imagenes/Imagenes-test.jpg",prenda1.imagen());
 
     }
 }
