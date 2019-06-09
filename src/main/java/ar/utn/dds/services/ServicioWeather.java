@@ -2,14 +2,22 @@ package ar.utn.dds.services;
 
 import ar.utn.dds.modelo.Meteorologo;
 import ar.utn.dds.modelo.Pronostico;
+import ar.utn.dds.modelo.Ubicacion;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.util.Calendar;
+
 
 public class ServicioWeather implements Meteorologo {
-	
+
+	@Override
+	public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion) {
+		return null;
+	}
+
 	@Override
 	public Pronostico getPronostico(String ciudad, String pais) {
 		

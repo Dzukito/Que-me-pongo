@@ -1,7 +1,8 @@
 package ar.utn.dds.modelo;
 
+import java.util.Calendar;
+
 public interface Meteorologo {
-	
-	
-public Pronostico getPronostico(String ciudad, String Pais);
+    public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion);
+    public Pronostico getPronostico(String ciudad, String Pais);
 }

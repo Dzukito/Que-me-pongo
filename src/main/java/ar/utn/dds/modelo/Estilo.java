@@ -5,6 +5,7 @@ public enum Estilo {
     ELEGANTSPORT,
     DEPORTIVO,
     ENTRECASA,
+    NAVIDENIO,
     NORMAL,
     PLAYERO;
 }

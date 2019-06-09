@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Guardaropa {
+public class Guardaropa implements EventoProximoObservador{
     private List<Prenda> prendas;
     private List<Atuendo> atuendosMostrados;
     Guardaropa(ArrayList<Prenda> prendas){
@@ -80,5 +80,15 @@ public class Guardaropa {
 
     public int cantidadDePrendasEnCategoria(String categoria) {
         return this.prendasPorCategoria(categoria, this.prendas).size();
+    }
+
+    @Override
+    public void updateEventoProximo(Pronostico pronostico, Evento evento, Usuario usuario) {
+        this.sugerirAtuendo(pronostico,evento,usuario);
+    }
+
+    private Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
+        Atuendo atuendo = new Atuendo();
+        return atuendo;
     }
 }

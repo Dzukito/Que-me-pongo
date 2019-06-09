@@ -12,6 +12,7 @@ public class Evento {
     private Estilo estilo;
     private int tiempoAviso;
 
+
     public long duracion(){ return Duration.between(horaComienzo.toInstant(),horaTermino.toInstant()).toHours(); }
     public Estilo estilo(){
         return this.estilo;

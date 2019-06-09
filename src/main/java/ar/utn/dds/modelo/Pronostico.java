@@ -8,8 +8,11 @@ public class Pronostico {
 	private float humedad;
 	private String cod;
 
-	public void setCod(String cod) {
-		this.cod = cod;
+	public Pronostico(){};
+	public Pronostico(Float temperatura, List<TipoClima> clima, Float humedad){
+		this.temperatura = temperatura;
+		this.clima = clima;
+		this.humedad = humedad;
 	}
 
 	public float temperatura() {
@@ -28,5 +31,8 @@ public class Pronostico {
 		return cod;
 	}
 
+	public void setCod(String cod) {
+		this.cod = cod;
+	}
 
 }

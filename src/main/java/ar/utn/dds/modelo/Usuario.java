@@ -3,7 +3,9 @@ package ar.utn.dds.modelo;
 import ar.utn.dds.excepciones.HorarioYaOcupado;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Usuario {
     private List<Guardaropa> roperos;
@@ -12,8 +14,15 @@ public class Usuario {
     private ArrayList<Evento> eventos;
     private Meteorologo meteorologo;
     private List<Atuendo> atuendosUsados;
+    private List<Meteorologo> meteorologos;
 
 
+    public void cambiarMeteorologo(){
+        this.meteorologo = this.meteorologos.stream().filter(meteorologo1 -> meteorologo1 !=this.meteorologo).collect(Collectors.toList()).get((int) (Math.random() * this.meteorologos.size()-1));
+    }
+    public Pronostico obtenerPronostico(Calendar tiempo, Ubicacion lugar){
+        return meteorologo.getPronosticoTiempoYUbicacion(tiempo,lugar);
+    }
     public void usarAtuendo(Atuendo atuendo){
         this.atuendosUsados.add(atuendo);
     }

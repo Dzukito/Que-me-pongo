@@ -8,10 +8,20 @@ import java.util.stream.Collectors;
 
 public class Atuendo {
     private ArrayList<Prenda> prendas;
+    private int likes;
 
-    Atuendo(){}
+
+    public boolean tieneEstilo(){
+        return this.prendas.stream().map(prenda -> prenda.getEstilo()).distinct().collect(Collectors.toList()).size() == 1;
+    }
+
+    Atuendo(){
+        this.prendas = new ArrayList<Prenda>();
+        this.likes = 0;
+    }
     Atuendo(ArrayList<Prenda> prendas){
        this.prendas = prendas;
+       this.likes = 0;
     }
     public void cambiarPrenda(Prenda prendaNueva){
         this.prendas = (ArrayList<Prenda>) this.prendas.stream().filter(prenda -> prenda.categoria() != prendaNueva.categoria()).collect(Collectors.toList());
