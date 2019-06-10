@@ -26,10 +26,6 @@ public class RetrofitTest {
 		System.out.println(fecha1);
 		assertEquals(pronostico.getFecha(), fecha1);
 		assertEquals(pronostico.temperatura(), 289.63, 289.63);
-		
-	
-		
-		
 	}
 
 }

@@ -34,7 +34,7 @@ public class Evento implements AceptarSuegerenciaObservador{
         this.horaTermino = horaTermino;
         this.ubicacion = ubicacion;
         this.estilo = estilo;
-        this.tiempoAviso = Constantes.proximidadEstandarEvento;
+        this.tiempoAviso = Constantes.proximidadEstandarEventoEnDiaz;
     }
     Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo, int tiempoAviso){
         this.horaComienzo= horaComienzo;

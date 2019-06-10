@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.List;
 
-/*public class TipoPrendaDAO implements DAO<TipoPrenda, String> {
+public class TipoPrendaDAO implements DAO<TipoPrenda, String> {
     @Override
     public void insertar(TipoPrenda a) {
 
@@ -27,16 +27,16 @@ import java.util.List;
 
     @Override
     public List<TipoPrenda> obtenerTodos() {
-        FileReader fr = new FileReader("TiposDePrendas.json");
+        /*FileReader fr = new FileReader("TiposDePrendas.json");
         Gson gson = new Gson();
         Type tipoListaTipoPrenda = new TypeToken<List<TipoPrenda>> (){}.getType();
-        List<TipoPrenda> tiposDePrendas = gson.fromJson(fr,tipoListaTipoPrenda);
-        return tiposDePrendas;
+        List<TipoPrenda> tiposDePrendas = gson.fromJson(fr,tipoListaTipoPrenda);*/
+
+        return null;
     }
 
- /*   @Override*/
- /*   public TipoPrenda obtener(String id) {
+    @Override
+    public TipoPrenda obtener(String id) {
         return null;
     }
 }
-*/

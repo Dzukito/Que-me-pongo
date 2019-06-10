@@ -8,8 +8,8 @@ public enum TipoClima {
 
     LLUVIOSO("Lluvioso",new ArrayList<String>(Arrays.asList("Paraguas","Piloto","Rompevientos")),new ArrayList<String>()),
     NUBLADO("Nublado",new ArrayList<String>(),new ArrayList<String>()),
-    NEVANDO("NEVANDO",new ArrayList<String>(Arrays.asList("Bufanda","Guantes","Gorro")),new ArrayList<String>()),
-    SOLEADO("Soleado",new ArrayList<String>(Arrays.asList("Gorro","Lentes")),new ArrayList<String>()),
+    NEVANDO("NEVANDO",new ArrayList<String>(Arrays.asList("Bufanda","Guantes","Gorro")),new ArrayList<String>(Arrays.asList("Paraguas"))),
+    SOLEADO("Soleado",new ArrayList<String>(Arrays.asList("Gorro","Lentes")),new ArrayList<String>(Arrays.asList("Paraguas"))),
     VENTOSO("VENTOSO",new ArrayList<String>(Arrays.asList("Rompevientos","Piloto")),new ArrayList<String>(Arrays.asList("Pollera","Gorro","Paraguas")));
 
 

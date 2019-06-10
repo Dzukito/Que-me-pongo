@@ -11,7 +11,9 @@ public class Pronostico {
 	protected float nubosidad;
 	protected float viento;
 	protected float precipitacion;
-	
+
+
+
 	public Pronostico(){};
 	public Pronostico(Float temperatura, List<TipoClima> clima, Float humedad){
 		this.temperatura = temperatura;
@@ -22,14 +24,13 @@ public class Pronostico {
 	public float temperatura() {
 		return temperatura;
 	}
-
 	public List<TipoClima> clima() {
 		return clima;
 	}
-
 	public float humedad() {
 		return humedad;
 	}
+
 
 	public Date getFecha() {
 		return this.fecha;
@@ -63,4 +64,11 @@ public class Pronostico {
 		this.precipitacion = precipitacion;
 	}
 
+	public void agregarClimatologia(TipoClima tipoClima) {
+		this.clima.add(tipoClima);
+	}
+
+	public void setHumerdad(float humidity) {
+		this.humedad = humidity;
+	}
 }

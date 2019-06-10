@@ -84,7 +84,7 @@ public class Usuario implements EventoProximoObservador{
         return this.roperos.contains(ropero);
     }
     @Override
-    public void updateEventoProximo(Pronostico pronostico, Evento evento, Usuario usuario) {
-        this.roperos.stream().map(ropero -> ropero.sugerirAtuendo(pronostico,evento,usuario));
+    public void updateEventoProximo(Evento evento) {
+        this.roperos.stream().map(ropero -> ropero.sugerirAtuendo(meteorologo.getPronosticoTiempoYUbicacion(evento.horaComienzo(),evento.ubicacion()),evento,this));
     }
 }

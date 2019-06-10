@@ -11,8 +11,8 @@ public class EventoProximoObserver {
     public  void deattach(EventoProximoObservador observador){
         this.observadores.remove(observador);
     }
-    public void notifyEventoProximoObserver(Pronostico pronostico, Evento evento, Usuario usuario){
-        this.observadores.forEach(observador -> observador.updateEventoProximo(pronostico, evento, usuario) );
+    public void notifyEventoProximoObserver(Evento evento){
+        this.observadores.forEach(observador -> observador.updateEventoProximo( evento ));
     }
     EventoProximoObserver(){
         this.observadores = new ArrayList<EventoProximoObservador>(){};
