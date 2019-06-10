@@ -9,6 +9,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Optional;
 
 
 public class ServicioWeather implements Meteorologo {
@@ -33,12 +35,29 @@ public class ServicioWeather implements Meteorologo {
 	        Response<RespuestaWeather> response = call.execute();
 	        RespuestaWeather pronosticoWeather = response.body();
 	        Pronostico pronostico = new Pronostico();
-			pronostico.setCod(pronosticoWeather.cod);
-	        System.out.print(pronosticoWeather.cod);
+	       	Date fechaAux = new Date(pronosticoWeather.list.get(0).dt*1000);    
+	        pronostico.setFecha(fechaAux);
+	        System.out.println(pronostico.getFecha());
+	        pronostico.setTemperatura(pronosticoWeather.list.get(0).main.temp);
+	        System.out.println(pronostico.temperatura());
+	        pronostico.setNubosidad(pronosticoWeather.list.get(0).clouds.all);
+	        System.out.println(pronostico.nubosidad());
+	        pronostico.setViento(pronosticoWeather.list.get(0).wind.speed);
+	        System.out.println(pronostico.getViento());
+//este if es xq el json puede no traer la cantidad de agua al llover
+	        if(pronosticoWeather.list.get(0).rain==null) {
+	        	pronostico.setPrecipitacion(0);
+	        }
+	        else {
+	        	pronostico.setPrecipitacion(pronosticoWeather.list.get(0).rain.precititacion);
+	        }
+	        System.out.println(pronostico.getPrecipitacion());
 	        return pronostico;
+	       
 	    }
 	    catch (Exception ex){
-	        System.out.print(ex.getMessage());
+	    	System.out.println("Error");
+	        System.out.println(ex.getMessage());
 	    }
 		
 		return null;
