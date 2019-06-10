@@ -1,7 +1,6 @@
 package ar.utn.dds.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Guardaropa implements AceptarSuegerenciaObservador{
@@ -89,12 +88,22 @@ public class Guardaropa implements AceptarSuegerenciaObservador{
         return atuendo.todasLasPrendas().stream().allMatch(prenda -> this.prendas.stream().anyMatch(prenda1 -> prenda.somosIguales(prenda1)));
     }
     public Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
-        Atuendo atuendo = new Atuendo();
-        return atuendo;
+        Atuendo atuendo = this.sugerirAtuendo();
+         return atuendo;
     }
     public boolean yaMostreAtuendo(Atuendo atuendo){
         return this.atuendosMostrados.stream().anyMatch(atuendo1 -> atuendo.somosIguales(atuendo1));
     }
+
+
+    public void agregarPrendas(ArrayList<Prenda> prendas){
+        prendas.forEach(prenda -> this.agregarPrenda(prenda));
+    }
+    Guardaropa(){
+        this.prendas = new ArrayList<Prenda>();
+        this.atuendosMostrados = new ArrayList<Atuendo>();
+        }
+
     @Override
     public void updateAceptarSugerencia(Atuendo atuendo) {
         if(this.puedoCrear(atuendo)){

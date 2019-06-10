@@ -34,9 +34,9 @@ public class AtuendoTest {
         materialAccesorio.add(Material.PLASTICO);
         materialAccesorio.add(Material.ACEROINOXIDABLE);
         materialAccesorio.add(Material.CUERO);
+        remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera);
         pantalon = new TipoPrenda(Categoria.PARTEINFERIOR, "Pantalon", materialPantalon);
         pantalonCorto = new TipoPrenda(Categoria.PARTEINFERIOR, "PantalonCorto", materialPantalon);
-        remera = new TipoPrenda(Categoria.TORSO, "Remera", materialRemera);
         top = new TipoPrenda(Categoria.TORSO, "Top", materialRemera);
         zapatillas = new TipoPrenda(Categoria.CALZADO, "Zapatillas", materialCalzado);
         zapatos = new TipoPrenda(Categoria.CALZADO, "Zapatos", materialCalzado);

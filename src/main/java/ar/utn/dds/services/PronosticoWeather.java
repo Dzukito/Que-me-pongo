@@ -2,10 +2,10 @@ package ar.utn.dds.services;
 
 
 public class PronosticoWeather {
-	protected Long dt;
-	protected TemperaturaWeather main;
-	protected NubosidadWeather clouds;
-	protected VientoWeather wind;
-	protected LluviaWeather rain;
+	public Long dt;
+	public TemperaturaWeather main;
+	public NubosidadWeather clouds;
+	public VientoWeather wind;
+	public LluviaWeather rain;
 	
 }

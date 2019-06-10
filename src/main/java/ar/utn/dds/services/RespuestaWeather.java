@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class RespuestaWeather {
 	protected String cod;
-	protected List<PronosticoWeather> list;
+	public List<PronosticoWeather> list;
 	
 
 }

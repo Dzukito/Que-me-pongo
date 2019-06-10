@@ -18,6 +18,12 @@ public class Usuario implements EventoProximoObservador{
     private String sexo;
     private ArrayList<Enviador> enviadores;
 
+    public void agregarMeteorolo(Meteorologo meteorologo){
+        if(this.meteorologo == null){
+            this.meteorologo = meteorologo;
+        }
+        this.meteorologos.add(meteorologo);
+    }
     public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
         observadores.forEach(observador -> observer.attach(observador));
@@ -52,6 +58,8 @@ public class Usuario implements EventoProximoObservador{
         this.userName = userName;
         this.roperos = roperos;
         this.membrecia = new Gratuito();
+        this.eventos = new ArrayList<Evento>();
+        this.meteorologos = new ArrayList<Meteorologo>();
     }
     public int cantidadPrendas(int guardaropa){
         return this.roperos.get(guardaropa).cantidadDePrendas();
@@ -85,6 +93,9 @@ public class Usuario implements EventoProximoObservador{
     }
     @Override
     public void updateEventoProximo(Evento evento) {
-        this.roperos.stream().map(ropero -> ropero.sugerirAtuendo(meteorologo.getPronosticoTiempoYUbicacion(evento.horaComienzo(),evento.ubicacion()),evento,this));
+        List<Atuendo> atuendos = this.roperos.stream()
+                .map(ropero -> ropero.sugerirAtuendo(this.meteorologo.getPronosticoTiempoYUbicacion(evento.horaComienzo(),evento.ubicacion()),evento,this))
+                .collect(Collectors.toList());
+        evento.agregarSugerencias(atuendos);
     }
 }

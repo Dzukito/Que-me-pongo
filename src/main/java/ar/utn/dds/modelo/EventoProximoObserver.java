@@ -12,7 +12,9 @@ public class EventoProximoObserver {
         this.observadores.remove(observador);
     }
     public void notifyEventoProximoObserver(Evento evento){
-        this.observadores.forEach(observador -> observador.updateEventoProximo( evento ));
+    //    try {
+            this.observadores.forEach(observador -> observador.updateEventoProximo(evento));
+    //    }catch (Exception e){}
     }
     EventoProximoObserver(){
         this.observadores = new ArrayList<EventoProximoObservador>(){};

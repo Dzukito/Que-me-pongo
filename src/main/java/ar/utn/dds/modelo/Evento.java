@@ -5,6 +5,7 @@ import ar.utn.dds.Constantes;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Evento implements AceptarSuegerenciaObservador{
     private Calendar horaComienzo;
@@ -15,7 +16,18 @@ public class Evento implements AceptarSuegerenciaObservador{
     private ArrayList<Atuendo> atuendosSugeridos;
     private int tiempoAviso;
 
-
+    public void agregarSugerencias(List<Atuendo> atuendosSugeridos){
+        atuendosSugeridos.stream()
+                .filter(atuendo1 -> !this.atuendosSugeridos.stream()
+                        .anyMatch(atuendo2 -> atuendo1.somosIguales(atuendo2)))
+                .forEach(atuendo1 -> this.agregarSugerencia(atuendo1));
+    }
+    public void agregarSugerencia(Atuendo atuendo){
+        this.atuendosSugeridos.add(atuendo);
+    }
+    public boolean tengoSugerencias(){
+        return this.sugerencias().size() != 0;
+    }
     public long duracion(){ return Duration.between(horaComienzo.toInstant(),horaTermino.toInstant()).toHours(); }
     public Estilo estilo(){
         return this.estilo;
@@ -35,6 +47,7 @@ public class Evento implements AceptarSuegerenciaObservador{
         this.ubicacion = ubicacion;
         this.estilo = estilo;
         this.tiempoAviso = Constantes.proximidadEstandarEventoEnDiaz;
+        this.atuendosSugeridos = new ArrayList<Atuendo>();
     }
     Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo, int tiempoAviso){
         this.horaComienzo= horaComienzo;
@@ -42,6 +55,7 @@ public class Evento implements AceptarSuegerenciaObservador{
         this.ubicacion = ubicacion;
         this.estilo = estilo;
         this.tiempoAviso = tiempoAviso;
+        this.atuendosSugeridos = new ArrayList<Atuendo>();
     }
     Evento(Calendar horaComienzo, int duracion, Ubicacion ubicacion, Estilo estilo, int tiempoAviso){
         Calendar horaTermino2 = Calendar.getInstance();
@@ -51,10 +65,15 @@ public class Evento implements AceptarSuegerenciaObservador{
         this.ubicacion = ubicacion;
         this.estilo = estilo;
         this.tiempoAviso = tiempoAviso;
+        this.atuendosSugeridos = new ArrayList<Atuendo>();
     }
 
     @Override
     public void updateAceptarSugerencia(Atuendo atuendo) {
         this.atuendo = atuendo;
+    }
+
+    public ArrayList<Atuendo> sugerencias() {
+        return this.atuendosSugeridos;
     }
 }

@@ -1,6 +1,6 @@
 package ar.utn.dds.services;
 
 public class NubosidadWeather {
-	protected float all;
+	public float all;
 
 }
