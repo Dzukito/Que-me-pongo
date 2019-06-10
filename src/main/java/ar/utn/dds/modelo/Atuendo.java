@@ -8,20 +8,35 @@ import java.util.stream.Collectors;
 
 public class Atuendo {
     private ArrayList<Prenda> prendas;
-    private int likes;
+    private int usabilidad;//Cantidad de veces que fue usado
+    private CalificacionAtuendo calificacion;
 
 
+    public int nivelDeCalor(Categoria categoria){
+        return this.prendas.stream().filter(prenda -> prenda.categoria() == categoria.getCategoria()).collect(Collectors.toList()).size();
+    }
     public boolean tieneEstilo(){
         return this.prendas.stream().map(prenda -> prenda.getEstilo()).distinct().collect(Collectors.toList()).size() == 1;
     }
-
     Atuendo(){
         this.prendas = new ArrayList<Prenda>();
-        this.likes = 0;
+        this.usabilidad = 0;
+        this.calificacion = new CalificacionAtuendo();
     }
     Atuendo(ArrayList<Prenda> prendas){
        this.prendas = prendas;
-       this.likes = 0;
+       this.usabilidad = 0;
+       this.calificacion = new CalificacionAtuendo();
+    }
+    Atuendo(ArrayList<Prenda> prendas, int usabilidad){
+        this.prendas = prendas;
+        this.usabilidad = usabilidad;
+        this.calificacion = new CalificacionAtuendo();
+    }
+    Atuendo(ArrayList<Prenda> prendas, int usabilidad, CalificacionAtuendo calificacion){
+        this.prendas = prendas;
+        this.usabilidad = usabilidad;
+        this.calificacion = calificacion;
     }
     public void cambiarPrenda(Prenda prendaNueva){
         this.prendas = (ArrayList<Prenda>) this.prendas.stream().filter(prenda -> prenda.categoria() != prendaNueva.categoria()).collect(Collectors.toList());
@@ -34,7 +49,7 @@ public class Atuendo {
         return this.prendas.stream().allMatch(prenda -> atuendo.tengoPrenda(prenda));
     }
     public boolean tengoPrenda(Prenda prenda){
-        return this.prendas.stream().anyMatch(prenda1 -> prenda1.hashCode() == prenda.hashCode());
+        return this.prendas.stream().anyMatch(prenda1 -> prenda1.somosIguales(prenda));
     }
     public void agregarPrenda(Prenda prenda){
         try {
@@ -52,5 +67,10 @@ public class Atuendo {
             throw new EsaPrendaYaLaTengo();
         }
     }
-
+    public ArrayList<Prenda> todasLasPrendas(){
+        return this.prendas;
+    }
+    public void sumarUsabilidad() {
+        this.usabilidad = this.usabilidad +1;
+    }
 }

@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Guardaropa implements EventoProximoObservador{
+public class Guardaropa implements AceptarSuegerenciaObservador{
     private List<Prenda> prendas;
     private List<Atuendo> atuendosMostrados;
+
     Guardaropa(ArrayList<Prenda> prendas){
         this.prendas = prendas;
         this.atuendosMostrados = new ArrayList<Atuendo>();
     }
-
-
-
     public Atuendo sugerirAtuendo(){
         Atuendo atuendo;
         if(atuendosMostrados.size()!= this.cantidadDeAtuendosPosibles())
@@ -58,11 +56,9 @@ public class Guardaropa implements EventoProximoObservador{
     public ArrayList<Atuendo> atuendosGenerados(){
         return (ArrayList<Atuendo>) this.atuendosMostrados;
     }
-
     public int cantidadAtuendosGenerados() {
         return this.atuendosMostrados.size();
     }
-
     public void agregarPrenda(Prenda prenda) {
         this.prendas.add(prenda);
     }
@@ -73,22 +69,41 @@ public class Guardaropa implements EventoProximoObservador{
         }
         return j;
     }
-
     public List<Prenda> getPrendas() {
         return this.prendas;
     }
-
     public int cantidadDePrendasEnCategoria(String categoria) {
         return this.prendasPorCategoria(categoria, this.prendas).size();
     }
-
-    @Override
-    public void updateEventoProximo(Pronostico pronostico, Evento evento, Usuario usuario) {
-        this.sugerirAtuendo(pronostico,evento,usuario);
+    public void reservarPrendas(Atuendo atuendo){
+        this.prendas.stream()
+                .filter(prenda -> atuendo.tengoPrenda(prenda))
+                .forEach(prenda -> prenda.bloquearse());
     }
-
-    private Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
+    public void desbloquearPrendas(Atuendo atuendo){
+        this.prendas.stream()
+                .filter(prenda -> atuendo.tengoPrenda(prenda))
+                .forEach(prenda -> prenda.desbloquearse());
+    }
+    public boolean puedoCrear(Atuendo atuendo){
+        return atuendo.todasLasPrendas().stream().allMatch(prenda -> this.prendas.stream().anyMatch(prenda1 -> prenda.somosIguales(prenda1)));
+    }
+    public Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
         Atuendo atuendo = new Atuendo();
         return atuendo;
+    }
+    public boolean yaMostreAtuendo(Atuendo atuendo){
+        return this.atuendosMostrados.stream().anyMatch(atuendo1 -> atuendo.somosIguales(atuendo1));
+    }
+    @Override
+    public void updateAceptarSugerencia(Atuendo atuendo) {
+        if(this.puedoCrear(atuendo)){
+            if(this.yaMostreAtuendo(atuendo)){
+                this.atuendosMostrados.stream().filter(atuendo1 -> this.yaMostreAtuendo(atuendo)).collect(Collectors.toList()).get(0).sumarUsabilidad();
+            }else{
+                this.atuendosMostrados.add(atuendo);
+                this.atuendosMostrados.stream().filter(atuendo1 -> this.yaMostreAtuendo(atuendo)).collect(Collectors.toList()).get(0).sumarUsabilidad();
+            }
+        }
     }
 }

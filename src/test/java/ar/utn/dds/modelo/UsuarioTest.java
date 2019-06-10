@@ -90,7 +90,12 @@ public class UsuarioTest {
         usuario3 = new Usuario("Gabriela", new ArrayList<Guardaropa>());
         usuario3.agregarRopero(ropero3);
     }
-
+    @Test
+    public void  compartirGuardaropa(){
+        this.setup();
+        usuario1.compartirGuardaropas(0,usuario2);
+        Assert.assertTrue(usuario2.tengoGuardaropas(usuario1.guardaropa(0)));
+    }
 
     @Test
     public void cantidadDeAtuendosCon4Prendas() {

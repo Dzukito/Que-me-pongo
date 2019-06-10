@@ -22,9 +22,12 @@ public class Prenda{
     private Estilo estilo;
     private Boolean disponibilidad;
     private String imagen;
-   
+    private String sexo;
 
 
+    public boolean somosIguales(Prenda prenda){
+        return this.hashCode() == prenda.hashCode();
+    }
     public Estilo getEstilo(){
         return estilo;
     }
@@ -46,6 +49,19 @@ public class Prenda{
         this.estilo = Estilo.NORMAL;
         this.tipoPrenda.perteneceMaterial(material);
         this.imagen=this.tipoPrenda.imagen();
+        if(colores.isEmpty()){
+            throw new AlMenosUnColor();
+        }
+    }
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material, Estilo estilo){
+        this.tipoPrenda = tipoPrenda;
+        this.nombrePrenda = nombrePrenda;
+        this.colores = colores;
+        this.material = material;
+        this.disponibilidad = true;
+        this.estilo = estilo;
+        this.imagen=this.tipoPrenda.imagen();
+        this.tipoPrenda.perteneceMaterial(material);
         if(colores.isEmpty()){
             throw new AlMenosUnColor();
         }
@@ -100,18 +116,16 @@ public class Prenda{
     
     
     
-   //-------------------------
+   //----Imagen---------------------
     
     public String imagen(){
         return this.imagen;
     }
-    
     public void cargarImagen(String path) {
     	String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg";//nombre para la imagen en la carpeta 
     	normalizarImagen(path,destino, 600,600,"jpg");
         this.imagen= destino;
     }
-    
     public  void normalizarImagen(String path,String destino, int width, int hight, String format) {
     	
     	File pathOrigen= new File(path);
@@ -131,8 +145,4 @@ public class Prenda{
     	catch(IOException ex) {
     		ex.printStackTrace();}
     	}
-	
-   
-    
-    
 }

@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Usuario {
+public class Usuario implements EventoProximoObservador{
     private List<Guardaropa> roperos;
     private String userName;
     private Membrecia membrecia;
@@ -15,8 +15,22 @@ public class Usuario {
     private Meteorologo meteorologo;
     private List<Atuendo> atuendosUsados;
     private List<Meteorologo> meteorologos;
+    private String sexo;
+    private ArrayList<Enviador> enviadores;
 
-
+    public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo){
+        AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
+        observadores.forEach(observador -> observer.attach(observador));
+        observer.notifyAceptarSugerencia(atuendo);
+    }
+    public void rechazarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo){
+        AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
+        observadores.forEach(observador -> observer.attach(observador));
+        observer.notifyAceptarSugerencia(atuendo);
+    }
+    public void compartirGuardaropas(int i, Usuario usuario){
+        usuario.agregarRopero(this.guardaropa(i));
+    }
     public void cambiarMeteorologo(){
         this.meteorologo = this.meteorologos.stream().filter(meteorologo1 -> meteorologo1 !=this.meteorologo).collect(Collectors.toList()).get((int) (Math.random() * this.meteorologos.size()-1));
     }
@@ -66,4 +80,11 @@ public class Usuario {
         this.membrecia = membrecia;
     }
     public int cantidadDeRoperos() { return this.roperos.size(); }
+    public boolean tengoGuardaropas(Guardaropa ropero){
+        return this.roperos.contains(ropero);
+    }
+    @Override
+    public void updateEventoProximo(Pronostico pronostico, Evento evento, Usuario usuario) {
+        this.roperos.stream().map(ropero -> ropero.sugerirAtuendo(pronostico,evento,usuario));
+    }
 }

@@ -20,7 +20,6 @@ public class ServicioWeather implements Meteorologo {
 
 	@Override
 	public Pronostico getPronostico(String ciudad, String pais) {
-		
 		Retrofit retrofit = new Retrofit.Builder()
 	            .baseUrl("https://api.openweathermap.org")
 	            .addConverterFactory(GsonConverterFactory.create())

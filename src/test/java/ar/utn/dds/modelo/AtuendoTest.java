@@ -1,5 +1,6 @@
 package ar.utn.dds.modelo;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -78,7 +79,10 @@ public class AtuendoTest {
         atuendo3 = new Atuendo(prendas2);
         atuendo4 = new Atuendo(prendas3);
     }
-
+    @Test
+    public void nivelDeCalor(){
+        Assert.assertEquals(atuendo1.nivelDeCalor(Categoria.TORSO),1);
+    }
 
     @Test
     public void cambiarPrenda() {

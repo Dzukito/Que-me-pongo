@@ -18,9 +18,6 @@ public class TipoPrenda {
     //private NivelDeCalor nivelDeCalor;
     private String imagen;
 
-
-
-
     @Override
     public int hashCode(){
         return Objects.hash(this.tipo, this.categoria, this.materiales, this.superponibles);
@@ -47,23 +44,16 @@ public class TipoPrenda {
     public String tipo(){
         return this.tipo;
     }
-    
     public Set<Material> materiales() {
         return materiales;
     }
-
     public Boolean perteneceMaterial(Material material) {
         if(!this.materiales().contains(material)) {
             throw new ElMaterialNoPerteneceALaPrenda();
         }
         return true;
     }
-    
-    
     public String imagen(){
         return this.imagen;
     }
-    
-   
-    
 }

@@ -16,8 +16,6 @@ public class TipoPrendaTest {
     HashSet<Material> materialRemera, materialPantalon, materialCalzado;
     Set<TipoPrenda> superponiblesRemera;
 
-
-
     @Before
     public void init(){
         materialRemera = new HashSet<Material>();

@@ -1,16 +1,16 @@
 package ar.utn.dds.modelo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public enum TipoClima {
-    ArrayList<String> lluviosoSatisface, nubladoSatisface;
 
-    LLUVIOSO("Lluvioso",new ArrayList<String>(["Piloto","Paraguas"]),[]),
-    NUBLADO("Nublado",[],[]),
-    NEVANDO("NEVANDO",["Bufanda"],[]),
-    SOLEADO("Soleado",[],[]),
-    VENTOSO("VENTOSO",[],[]);
+    LLUVIOSO("Lluvioso",new ArrayList<String>(Arrays.asList("Paraguas","Piloto","Rompevientos")),new ArrayList<String>()),
+    NUBLADO("Nublado",new ArrayList<String>(),new ArrayList<String>()),
+    NEVANDO("NEVANDO",new ArrayList<String>(Arrays.asList("Bufanda","Guantes","Gorro")),new ArrayList<String>()),
+    SOLEADO("Soleado",new ArrayList<String>(Arrays.asList("Gorro","Lentes")),new ArrayList<String>()),
+    VENTOSO("VENTOSO",new ArrayList<String>(Arrays.asList("Rompevientos","Piloto")),new ArrayList<String>(Arrays.asList("Pollera","Gorro","Paraguas")));
 
 
     private final String tipoClima;
@@ -21,5 +21,11 @@ public enum TipoClima {
         this.prendasNegadas = prendasNegadas;
         this.prendasSatisfacen = prendasSatisfacen;
 
+    }
+    public List<String> prendasSatisfacen(){
+        return this.prendasSatisfacen;
+    }
+    public List<String> prendasNegadas(){
+        return this.prendasNegadas;
     }
 }

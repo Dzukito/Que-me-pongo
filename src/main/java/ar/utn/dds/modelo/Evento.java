@@ -3,13 +3,16 @@ package ar.utn.dds.modelo;
 import ar.utn.dds.Constantes;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Evento {
+public class Evento implements AceptarSuegerenciaObservador{
     private Calendar horaComienzo;
     private Calendar horaTermino;
     private Ubicacion ubicacion;
     private Estilo estilo;
+    private Atuendo atuendo;
+    private ArrayList<Atuendo> atuendosSugeridos;
     private int tiempoAviso;
 
 
@@ -48,5 +51,10 @@ public class Evento {
         this.ubicacion = ubicacion;
         this.estilo = estilo;
         this.tiempoAviso = tiempoAviso;
+    }
+
+    @Override
+    public void updateAceptarSugerencia(Atuendo atuendo) {
+        this.atuendo = atuendo;
     }
 }

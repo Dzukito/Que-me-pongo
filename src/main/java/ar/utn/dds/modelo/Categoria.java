@@ -13,7 +13,6 @@ public enum Categoria {
     public String getCategoria(){
         return this.categoria;
     }
-
     Categoria(String categoria){
         this.categoria = categoria;
     }
