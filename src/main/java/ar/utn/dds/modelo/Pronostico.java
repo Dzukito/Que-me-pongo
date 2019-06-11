@@ -1,7 +1,9 @@
 package ar.utn.dds.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Pronostico {
 	private float temperatura;
@@ -14,13 +16,29 @@ public class Pronostico {
 
 
 
+	private boolean esUnaPrendaNegadaDeAlgunoDeMisClimas(String prenda){
+		return this.clima.stream().anyMatch(clima -> clima.esUnaPrendaNegada(prenda));
+	}
+	public ArrayList<String> prendasNegadas(){
+		ArrayList<String> prendasNegadas = new ArrayList<String>();
+		this.clima.forEach(tipoClima -> tipoClima.prendasNegadas().forEach(prenda -> prendasNegadas.add(prenda)));
+		return prendasNegadas;
+	}
+	public ArrayList<String> prendasSatisfacen() {
+		ArrayList<String> prendasSatisfacen = new ArrayList<String>();
+		ArrayList<String> prendasSatisfacen2;
+		this.clima.forEach(tipoClima -> tipoClima.prendasSatisfacen().forEach(prenda -> prendasSatisfacen.add(prenda)));
+		prendasSatisfacen2 = (ArrayList<String>) prendasSatisfacen.stream().filter(prenda-> !this.esUnaPrendaNegadaDeAlgunoDeMisClimas(prenda)).distinct().collect(Collectors.toList());
+		return prendasSatisfacen2;
+	}
+
+
 	public Pronostico(){};
 	public Pronostico(Float temperatura, List<TipoClima> clima, Float humedad){
 		this.temperatura = temperatura;
 		this.clima = clima;
 		this.humedad = humedad;
 	}
-
 	public float temperatura() {
 		return temperatura;
 	}
@@ -52,22 +70,18 @@ public class Pronostico {
 		this.viento = viento;
 		
 	}
-	
 	public float getViento() {
 		return viento;
 	}
-	
 	public float getPrecipitacion() {
 		return precipitacion;
 	}
 	public void setPrecipitacion(float precipitacion) {
 		this.precipitacion = precipitacion;
 	}
-
 	public void agregarClimatologia(TipoClima tipoClima) {
 		this.clima.add(tipoClima);
 	}
-
 	public void setHumerdad(float humidity) {
 		this.humedad = humidity;
 	}
