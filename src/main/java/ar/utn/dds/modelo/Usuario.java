@@ -76,6 +76,7 @@ public class Usuario implements EventoProximoObservador{
     }
     public void agregarPreda(Prenda prenda, Guardaropa ropero){
         ropero.agregarPrenda(prenda);
+        
     }
     public void agregarRopero(Guardaropa ropero){
         this.roperos.add(ropero);
@@ -91,6 +92,9 @@ public class Usuario implements EventoProximoObservador{
     public boolean tengoGuardaropas(Guardaropa ropero){
         return this.roperos.contains(ropero);
     }
+    public List<Guardaropa> misRoperos(){ return this.roperos;}
+    public Membrecia miMembrecia(){ return this.membrecia;}
+    
     @Override
     public void updateEventoProximo(Evento evento) {
         List<Atuendo> atuendos = this.roperos.stream()
