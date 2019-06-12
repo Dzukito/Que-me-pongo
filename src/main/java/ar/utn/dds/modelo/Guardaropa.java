@@ -92,7 +92,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador{
     }
     public void bloquearExcedente(int excedente) { //Bloquea un determinado excedente de prendas
     	if(this.cantidadDePrendas()>excedente) { 
-    		for(int j= this.cantidadDePrendas(); j>=14; j--) {
+    		for(int j= this.cantidadDePrendas()-1; j>=excedente; j--) {
     			this.bloquearPrenda(j);}
     	}
     }
