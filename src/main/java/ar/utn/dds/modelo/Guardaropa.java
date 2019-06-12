@@ -3,6 +3,8 @@ package ar.utn.dds.modelo;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import ar.utn.dds.Constantes;
+
 public class Guardaropa implements AceptarSuegerenciaObservador{
     private List<Prenda> prendas;
     private List<Atuendo> atuendosMostrados;
@@ -84,6 +86,18 @@ public class Guardaropa implements AceptarSuegerenciaObservador{
                 .filter(prenda -> atuendo.tengoPrenda(prenda))
                 .forEach(prenda -> prenda.desbloquearse());
     }
+    
+    public void bloquearPrenda(int i) {  //Bloquea una prenda
+    	this.prendas.get(i).bloquearse();
+    }
+    public void bloquearExcedente(int excedente) { //Bloquea un determinado excedente de prendas
+    	if(this.cantidadDePrendas()>excedente) { 
+    		for(int j= this.cantidadDePrendas(); j>=14; j--) {
+    			this.bloquearPrenda(j);}
+    	}
+    }
+    
+    
     public boolean puedoCrear(Atuendo atuendo){
         return atuendo.todasLasPrendas().stream().allMatch(prenda -> this.prendas.stream().anyMatch(prenda1 -> prenda.somosIguales(prenda1)));
     }
