@@ -96,6 +96,10 @@ public class Guardaropa implements AceptarSuegerenciaObservador{
     			this.bloquearPrenda(j);}
     	}
     }
+    public void desbloquearTodo() { //Desbloquea todas las prendas que tiene dentro
+    	this.prendas.forEach(prenda->prenda.desbloquearse());
+    	}
+    
     
     
     public boolean puedoCrear(Atuendo atuendo){
