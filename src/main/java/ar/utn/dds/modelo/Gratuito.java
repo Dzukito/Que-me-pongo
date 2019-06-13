@@ -31,12 +31,17 @@ public class Gratuito extends Membrecia {
     @Override
     public void cambiarAPremium(Usuario usuario) {
     	usuario.cambiarMembrecia(new Premium());
+    	usuario.misRoperos().forEach(ropero->ropero.desbloquearTodo());
     }
 
     @Override
     public void cambiarAGratuito(Usuario usuario) {
     	//tiene sentido?
     }
+    
+   
+    
+    
 
     Gratuito(){}
 }
