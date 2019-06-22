@@ -12,4 +12,8 @@ public class MeteorologoMockTwAdapter implements Meteorologo{
     public Pronostico getPronostico(String ciudad, String Pais) {
         return null;
     }
+    
+    @Override
+    public void getPronosticos(Ubicacion ubicacion) {     
+    }
 }

@@ -1,4 +1,4 @@
-package ar.utn.dds.services;
+package ar.utn.dds.services.apiAccuWeather;
 
 public class CabeceraAccuWeather {
 	

@@ -1,17 +1,18 @@
 package ar.utn.dds.modelo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Pronostico {
-	private float temperatura;
+	private double temperatura;
 	private List<TipoClima> clima;
 	private float humedad;
-	protected Date fecha;
+	protected Calendar fecha;
 	protected float nubosidad;
-	protected float viento;
+	protected double viento;
 	protected float precipitacion;
 
 
@@ -39,7 +40,7 @@ public class Pronostico {
 		this.clima = clima;
 		this.humedad = humedad;
 	}
-	public float temperatura() {
+	public double getTemperatura() {
 		return temperatura;
 	}
 	public List<TipoClima> clima() {
@@ -50,27 +51,27 @@ public class Pronostico {
 	}
 
 
-	public Date getFecha() {
+	public Calendar getFecha() {
 		return this.fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(Calendar fecha) {
 		this.fecha = fecha;
 	}
-	public void setTemperatura(float temperatura) {
+	public void setTemperatura(double temperatura) {
 		this.temperatura = temperatura;
 	}
 	public void setNubosidad(float nubosidad) {
 		this.nubosidad = nubosidad;
 		
 	}
-	public float nubosidad() {
+	public float getNubosidad() {
 		return this.nubosidad;
 	}
-	public void setViento(float viento) {
+	public void setViento(double viento) {
 		this.viento = viento;
 		
 	}
-	public float getViento() {
+	public double getViento() {
 		return viento;
 	}
 	public float getPrecipitacion() {
@@ -80,6 +81,9 @@ public class Pronostico {
 		this.precipitacion = precipitacion;
 	}
 	public void agregarClimatologia(TipoClima tipoClima) {
+		if(this.clima==null) {
+			this.clima=new ArrayList<TipoClima>();
+		}
 		this.clima.add(tipoClima);
 	}
 	public void setHumerdad(float humidity) {

@@ -1,50 +1,54 @@
-package ar.utn.dds.modelo;
+package ar.utn.dds.services.apiAccuWeather;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Optional;
-
-import ar.utn.dds.services.apiAccuWeather.PedidoPronosticoAccuWeather;
-import ar.utn.dds.services.apiAccuWeather.PronosticoAccuWeather;
-import ar.utn.dds.services.apiAccuWeather.RespuestaAccuWeather;
-import ar.utn.dds.services.apiAccuWeather.ServicioAccuWeather;
-import ar.utn.dds.services.apiAccuWeather.TemperaturaAccuWeather;
+import ar.utn.dds.modelo.Meteorologo;
+import ar.utn.dds.modelo.Pronostico;
+import ar.utn.dds.modelo.TipoClima;
+import ar.utn.dds.modelo.Ubicacion;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MeteorologoAccuWeatherAdapter extends ServicioAccuWeather implements Meteorologo {
-	
-	MeteorologoAccuWeatherAdapter(){
-        super();
-    }
-	
-	@Override
-    public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion) {
-		
-		 try{	
-		    	
-		    	Optional<Pronostico> pronosticoOpcional = this.getPronosticosPorCincoDias().stream().filter(pronostico->pronostico.getFecha().get(Calendar.YEAR) == tiempo.get(Calendar.YEAR)
-		    			&& pronostico.getFecha().get(Calendar.MONTH)==tiempo.get(Calendar.MONTH) &&
-		    			pronostico.getFecha().get(Calendar.DATE)==tiempo.get(Calendar.DATE)).findFirst();
-		    	
-		    	if(pronosticoOpcional.isPresent()) {
-		    		return pronosticoOpcional.get();
-		    	}
-		    	
-		    	return null;
-		    	       
-		    }
-		    catch (Exception ex){
-		    	System.out.println("Error al obtener pronostico");
-		        System.out.println(ex.getMessage());
-		    }
-			
-			return null;
-    }
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+import java.util.List;
+import java.util.Optional;
+
+public class ServicioAccuWeather implements Meteorologo{
+	
+	public List<Pronostico> pronosticosPorCincoDias;
+	
+	public List<Pronostico> getPronosticosPorCincoDias() {
+		return pronosticosPorCincoDias;
+	}
+	
+	@Override      
+	public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion) {
+		
+	    try{	
+	    	
+	    	Optional<Pronostico> pronosticoOpcional = this.getPronosticosPorCincoDias().stream().filter(pronostico->pronostico.getFecha().get(Calendar.YEAR) == tiempo.get(Calendar.YEAR)
+	    			&& pronostico.getFecha().get(Calendar.MONTH)==tiempo.get(Calendar.MONTH) &&
+	    			pronostico.getFecha().get(Calendar.DATE)==tiempo.get(Calendar.DATE)).findFirst();
+	    	
+	    	if(pronosticoOpcional.isPresent()) {
+	    		return pronosticoOpcional.get();
+	    	}
+	    	
+	    	return null;
+	    	       
+	    }
+	    catch (Exception ex){
+	    	System.out.println("Error al obtener pronostico");
+	        System.out.println(ex.getMessage());
+	    }
+		
+		return null;
+	}
+	
 	@Override
 	public void getPronosticos(Ubicacion ubicacion) {
 		
@@ -72,7 +76,7 @@ public class MeteorologoAccuWeatherAdapter extends ServicioAccuWeather implement
 	        	Date fechaAux = new Date(pronosticoAccuWeather.DailyForecasts.get(i).EpochDate*1000);
 	        	Calendar fecha = Calendar.getInstance();
 	        	fecha.setTime(fechaAux);
-		        pronostico.setFecha(fecha);		     
+		        pronostico.setFecha(fecha);
 		        
 		        double temperatura=calcularTemperaturaPromedio(pronosticoAccuWeather.DailyForecasts.get(i).Temperature);
 		        pronostico.setTemperatura(temperatura);
@@ -85,7 +89,7 @@ public class MeteorologoAccuWeatherAdapter extends ServicioAccuWeather implement
 		        
 		        int rain=calcularLluviaPromedio(pronosticoAccuWeather.DailyForecasts.get(i));
 		        pronostico.setPrecipitacion(rain);
-/*		        
+/*
 		        System.out.println(pronostico.getFecha().getTime());
 		        System.out.println(pronostico.getTemperatura());
 		        System.out.println(pronostico.getNubosidad());
@@ -133,9 +137,32 @@ public class MeteorologoAccuWeatherAdapter extends ServicioAccuWeather implement
 		return (temperaturaMax+temperaturaMin)/2;
 	}
 	
-    @Override
-    public Pronostico getPronostico(String ciudad, String Pais) {
-        return null;
-    }
+	
+	
+	@Override
+	public Pronostico getPronostico(String ciudad, String pais) {
+	 
+	    try{
+	    	
+	    	Calendar tiempo =Calendar.getInstance();
+	    	 	
+	    	Optional<Pronostico> pronosticoOpcional = this.getPronosticosPorCincoDias().stream().filter(pronostico->pronostico.getFecha().get(Calendar.YEAR) == tiempo.get(Calendar.YEAR)
+	    			&& pronostico.getFecha().get(Calendar.MONTH)==tiempo.get(Calendar.MONTH) &&
+	    			pronostico.getFecha().get(Calendar.DATE)==tiempo.get(Calendar.DATE)).findFirst();
+	    	
+	    	if(pronosticoOpcional.isPresent()) {
+	    		return pronosticoOpcional.get();
+	    	}
+	    	
+	    	return null;
+	    	       
+	    }
+	    catch (Exception ex){
+	    	System.out.println("ErrorX");
+	        System.out.println(ex.getMessage());
+	    }
+		
+		return null;
+	}
 
 }
