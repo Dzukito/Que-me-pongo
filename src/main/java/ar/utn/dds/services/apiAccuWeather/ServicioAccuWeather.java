@@ -2,7 +2,6 @@ package ar.utn.dds.services.apiAccuWeather;
 
 import ar.utn.dds.modelo.Meteorologo;
 import ar.utn.dds.modelo.Pronostico;
-import ar.utn.dds.modelo.TipoClima;
 import ar.utn.dds.modelo.Ubicacion;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -65,7 +64,7 @@ public class ServicioAccuWeather implements Meteorologo{
 	
 		PedidoPronosticoAccuWeather service = retrofit.create(PedidoPronosticoAccuWeather.class);
 	
-	    Call<RespuestaAccuWeather> call = service.getPronosticoClima("7894", "G39EfxP92l61brpxjQUED4oQdpodARKH", true);
+	    Call<RespuestaAccuWeather> call = service.getPronosticoClima("7894", "KJ3wprAzf3OnuS9ACuOsWpe1eFDerpQG", true);
 	   
 	    try{
 	        Response<RespuestaAccuWeather> response = call.execute();
