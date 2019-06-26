@@ -67,6 +67,9 @@ public class Atuendo {
             throw new EsaPrendaYaLaTengo();
         }
     }
+    public boolean noPuedoAgregarPrenda(Prenda prenda){
+        return !this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda));
+    }
     public ArrayList<Prenda> todasLasPrendas(){
         return this.prendas;
     }

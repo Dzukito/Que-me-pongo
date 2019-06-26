@@ -2,7 +2,12 @@ package ar.utn.dds.modelo;
 
 public class Masculino implements Sexo {
     @Override
-    public boolean masculino(){return true;}
+    public boolean masculino(String sexo) {
+        return sexo == "Masculino";
+    }
+
     @Override
-    public boolean femenino(){return false;}
+    public boolean femenino(String sexo) {
+        return sexo == "Femenino";
+    }
 }

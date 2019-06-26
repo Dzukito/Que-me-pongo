@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class Evento implements AceptarSuegerenciaObservador{
+public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaObservador{
     private Calendar horaComienzo;
     private Calendar horaTermino;
     private Ubicacion ubicacion;
@@ -73,7 +73,21 @@ public class Evento implements AceptarSuegerenciaObservador{
         this.atuendo = atuendo;
     }
 
+    @Override
+    public void downdateAceptarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
+
+    }
     public ArrayList<Atuendo> sugerencias() {
         return this.atuendosSugeridos;
     }
+    @Override
+    public void updateRechazarSugerencia(Atuendo atuendo) {
+    }
+
+    @Override
+    public void downdateRechazarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
+
+    }
+
+
 }

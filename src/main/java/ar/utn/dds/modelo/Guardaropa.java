@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import ar.utn.dds.Constantes;
 
-public class Guardaropa implements AceptarSuegerenciaObservador{
+public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugerenciaObservador{
     private List<Prenda> prendas;
     private List<Atuendo> atuendosMostrados;
 
@@ -132,5 +132,20 @@ public class Guardaropa implements AceptarSuegerenciaObservador{
                 this.atuendosMostrados.stream().filter(atuendo1 -> this.yaMostreAtuendo(atuendo)).collect(Collectors.toList()).get(0).sumarUsabilidad();
             }
         }
+    }
+
+    @Override
+    public void downdateAceptarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
+
+    }
+
+    @Override
+    public void updateRechazarSugerencia(Atuendo atuendo) {
+
+    }
+
+    @Override
+    public void downdateRechazarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
+
     }
 }

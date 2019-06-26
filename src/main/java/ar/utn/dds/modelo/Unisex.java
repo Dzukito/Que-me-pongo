@@ -3,12 +3,12 @@ package ar.utn.dds.modelo;
 public class Unisex implements Sexo {
 
     @Override
-    public boolean masculino() {
+    public boolean masculino(String sexo) {
         return true;
     }
 
     @Override
-    public boolean femenino() {
+    public boolean femenino(String sexo) {
         return true;
     }
 }

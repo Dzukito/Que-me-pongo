@@ -38,10 +38,6 @@ public class Gratuito extends Membrecia {
     public void cambiarAGratuito(Usuario usuario) {
     	//tiene sentido?
     }
-    
-   
-    
-    
 
     Gratuito(){}
 }

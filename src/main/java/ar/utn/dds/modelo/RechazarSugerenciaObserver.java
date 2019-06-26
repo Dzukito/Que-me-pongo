@@ -17,8 +17,10 @@ public class RechazarSugerenciaObserver {
     public void notifyRechazarSugerencia(Atuendo atuendo) {
         this.observadores.forEach(observador -> observador.updateRechazarSugerencia(atuendo));
     }
+    public void notifyDesRechazarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
+        this.observadores.forEach(observador -> observador.downdateRechazarSugerencia(atuendo,atuendoViejo));
+    }
     RechazarSugerenciaObserver(){
         this.observadores = new ArrayList<RechazarSugerenciaObservador>(){};
     }
 }
-

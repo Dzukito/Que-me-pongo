@@ -17,6 +17,10 @@ public class AceptarSugerenciaObserver {
     public void notifyAceptarSugerencia(Atuendo atuendo) {
         this.observadores.forEach(observador -> observador.updateAceptarSugerencia(atuendo));
     }
+
+    public void notifyDesAceptarSugerencia(Atuendo atuendo, Atuendo atuendoViejo){
+        this.observadores.forEach(observador -> observador.downdateAceptarSugerencia(atuendo, atuendoViejo));
+    }
     AceptarSugerenciaObserver(){
         this.observadores = new ArrayList<AceptarSuegerenciaObservador>(){};
     }
