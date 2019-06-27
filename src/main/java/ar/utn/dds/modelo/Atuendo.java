@@ -2,6 +2,7 @@ package ar.utn.dds.modelo;
 
 
 import ar.utn.dds.excepciones.EsaPrendaYaLaTengo;
+import ar.utn.dds.excepciones.noPuedeSuperponerse;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -54,22 +55,27 @@ public class Atuendo {
     public void agregarPrenda(Prenda prenda){
         try {
             this.esaPrendaYaLaTengo(prenda);
+            this.noPuedoAgregarPrenda(prenda);
             this.prendas.add(prenda);
+            
         }catch (EsaPrendaYaLaTengo e){
+            this.cambiarPrenda(prenda);
+        }catch (noPuedeSuperponerse e){
             this.cambiarPrenda(prenda);
         }
     }
     public Prenda getPrenda(String categoria) {
     	return this.prendas.stream().filter(prenda -> prenda.categoria() == categoria).collect(Collectors.toList()).get(0);
     }
-    private void esaPrendaYaLaTengo(Prenda nuevaPrenda){
-        if (this.prendas.stream().anyMatch(prenda -> prenda.categoria() == nuevaPrenda.categoria())) {
+    private void esaPrendaYaLaTengo(Prenda nuevaPrenda){ //Ya no evalua la categoria, sino el tipo, porque puedo tener una remera y un buso-ambos son de la misma categoria
+        if (this.prendas.stream().anyMatch(prenda -> prenda.tipoDePrenda().tipo() == nuevaPrenda.tipoDePrenda().tipo() )) { 
             throw new EsaPrendaYaLaTengo();
         }
     }
-    public boolean noPuedoAgregarPrenda(Prenda prenda){
-        return !this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda));
+    public void noPuedoAgregarPrenda(Prenda prenda){ //En lugar de un boolean que tire una nueva excepcion
+        if(this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda))) {throw new noPuedeSuperponerse();}
     }
+    
     public ArrayList<Prenda> todasLasPrendas(){
         return this.prendas;
     }
