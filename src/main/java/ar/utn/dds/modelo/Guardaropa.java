@@ -6,9 +6,13 @@ import java.util.stream.Collectors;
 import ar.utn.dds.Constantes;
 
 public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugerenciaObservador{
+	
     private List<Prenda> prendas;
     private List<Atuendo> atuendosMostrados;
 
+    
+    
+    
     Guardaropa(ArrayList<Prenda> prendas){
         this.prendas = prendas;
         this.atuendosMostrados = new ArrayList<Atuendo>();
@@ -105,9 +109,18 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     public boolean puedoCrear(Atuendo atuendo){
         return atuendo.todasLasPrendas().stream().allMatch(prenda -> this.prendas.stream().anyMatch(prenda1 -> prenda.somosIguales(prenda1)));
     }
+    
+    /* Nueva Sugerencia de atuendos*/
+    
     public Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
         Atuendo atuendo = this.sugerirAtuendo();
-         return atuendo;
+        
+        if(atuendo.tieneEstiloEnParticular(evento.estilo()) && atuendo.compatibleConTiempo(pronostico))
+        {
+        	return atuendo;
+        }
+        else return sugerirAtuendo(pronostico, evento, usuario);
+         
     }
     public boolean yaMostreAtuendo(Atuendo atuendo){
         return this.atuendosMostrados.stream().anyMatch(atuendo1 -> atuendo.somosIguales(atuendo1));
