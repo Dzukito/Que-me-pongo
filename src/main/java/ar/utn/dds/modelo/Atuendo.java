@@ -16,8 +16,20 @@ public class Atuendo {
     public int nivelDeCalor(Categoria categoria){
         return this.prendas.stream().filter(prenda -> prenda.categoria() == categoria.getCategoria()).collect(Collectors.toList()).size();
     }
+    public int nivelDeCalorTotal(){
+         return prendas.size();
+    }
+    public boolean compatibleConTiempo(Pronostico pronostico) {
+    	return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
+    			prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo())) &&
+    			this.nivelDeCalorTotal()<pronostico.getTemperatura(); //para que no esté super abrigado
+    }
+    
     public boolean tieneEstilo(){
         return this.prendas.stream().map(prenda -> prenda.getEstilo()).distinct().collect(Collectors.toList()).size() == 1;
+    }
+    public boolean tieneEstiloEnParticular(Estilo estilo){
+        return this.prendas.stream().anyMatch(prenda -> prenda.getEstilo()== estilo);
     }
     Atuendo(){
         this.prendas = new ArrayList<Prenda>();
@@ -75,6 +87,8 @@ public class Atuendo {
     public void noPuedoAgregarPrenda(Prenda prenda){ //En lugar de un boolean que tire una nueva excepcion
         if(this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda))) {throw new noPuedeSuperponerse();}
     }
+    
+     
     
     public ArrayList<Prenda> todasLasPrendas(){
         return this.prendas;
