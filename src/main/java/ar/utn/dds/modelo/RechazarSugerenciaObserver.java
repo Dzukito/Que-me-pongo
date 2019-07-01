@@ -3,7 +3,7 @@ package ar.utn.dds.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RechazarSugerenciaObserver {
+public class RechazarSugerenciaObserver implements OpcionPorSugerenciaCommand{
     private List<RechazarSugerenciaObservador> observadores;
 
     public void attach(RechazarSugerenciaObservador observador) {
@@ -23,4 +23,12 @@ public class RechazarSugerenciaObserver {
     RechazarSugerenciaObserver(){
         this.observadores = new ArrayList<RechazarSugerenciaObservador>(){};
     }
+
+	@Override
+	public void ejecutar(Atuendo atuendo) {
+		this.notifyRechazarSugerencia(atuendo);
+	
+	}
+	
 }
+

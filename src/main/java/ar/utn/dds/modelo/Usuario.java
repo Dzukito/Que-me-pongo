@@ -27,7 +27,8 @@ public class Usuario implements EventoProximoObservador{
     public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
         observadores.forEach(observador -> observer.attach(observador));
-        observer.notifyAceptarSugerencia(atuendo);
+        observer.ejecutar(atuendo);
+//        observer.notifyAceptarSugerencia(atuendo);
     }
     public void rechazarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, Evento evento){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
