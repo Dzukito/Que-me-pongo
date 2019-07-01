@@ -2,7 +2,6 @@ package ar.utn.dds.modelo;
 
 import ar.utn.dds.services.PedidoPronosticoWeather;
 import ar.utn.dds.services.RespuestaWeather;
-import ar.utn.dds.services.ServicioWeather;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -13,13 +12,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MeteorologoWeatherAdapter extends ServicioWeather implements Meteorologo {
+public class MeteorologoWeatherAdapter implements Meteorologo {
 
-
+	public List<Pronostico> pronosticosPorCincoDias;
+	
     MeteorologoWeatherAdapter(){
         super();
     }
 
+    public List<Pronostico> getPronosticosPorCincoDias() {
+		return pronosticosPorCincoDias;
+	}
+    
     @Override
     public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion) {
     	
@@ -33,9 +37,11 @@ try{
 	    		System.out.println("No se encontro pronostico");
 	    		return null;
 	    	}
-
+	    	
 	    	int i=0;
-	    	for(i=0;pronosticosDelDia.get(i).getFecha().before(tiempo) && pronosticosDelDia.size()<i;i++) ;
+
+	    	for(i=0;pronosticosDelDia.get(i).getFecha().before(tiempo) && pronosticosDelDia.size()>i;i++);
+	    	
 	    	if(i==0) {
 	    	i=i+1; 
 	    	}
@@ -49,51 +55,6 @@ try{
 		
 		return null;
     	
-/*
-    	int hora = (int)(Duration.between(Calendar.getInstance().toInstant(),tiempo.toInstant()).toHours()/3);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.openweathermap.org")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        PedidoPronosticoWeather service = retrofit.create(PedidoPronosticoWeather.class);
-        Call<RespuestaWeather> call = service.getPronosticoClima(ubicacion.ciudad()+","+ubicacion.pais(), "09f619848d8f17af4cdfc78973198187");
-        try{
-            Response<RespuestaWeather> response = call.execute();
-            RespuestaWeather pronosticoWeather = response.body();
-            Pronostico pronostico = new Pronostico();
-            Date fechaAux = new Date(pronosticoWeather.list.get(hora).dt*1000);
-            pronostico.setTemperatura(pronosticoWeather.list.get(hora).main.temp);
-            pronostico.setHumerdad(pronosticoWeather.list.get(hora).main.humidity);
-            if(pronosticoWeather.list.get(hora).clouds.all > 50){
-                pronostico.agregarClimatologia(TipoClima.NUBLADO);
-            }
-            if(pronosticoWeather.list.get(hora).clouds.all <= 50){
-                pronostico.agregarClimatologia(TipoClima.SOLEADO);
-            }
-            if(pronosticoWeather.list.get(hora).wind.speed > 40){
-                pronostico.agregarClimatologia(TipoClima.VENTOSO);
-            }
-            if(pronosticoWeather.list.get(hora).rain!=null) {
-                if(pronosticoWeather.list.get(hora).main.temp < 273){
-                    pronostico.agregarClimatologia(TipoClima.NEVANDO);
-                }else {
-                    pronostico.agregarClimatologia(TipoClima.LLUVIOSO);
-                }
-            }
-            return pronostico;
-        }
-        catch (Exception ex){
-            System.out.println("Error");
-            System.out.println(ex.getMessage());
-        }
-        return null;
-        
-*/
-    }
-
-    @Override
-    public Pronostico getPronostico(String ciudad, String Pais) {
-        return null;
     }
     
     @Override
@@ -165,11 +126,11 @@ try{
 				
 		        this.pronosticosPorCincoDias.add(pronostico);
 
-		        System.out.println(pronostico.getFecha().getTime());
-		        System.out.println(pronostico.getTemperatura());
-		        System.out.println(pronostico.getNubosidad());
-		        System.out.println(pronostico.getViento());
-		        System.out.println(pronostico.getPrecipitacion());
+//		        System.out.println(pronostico.getFecha().getTime());
+//		        System.out.println(pronostico.getTemperatura());
+//		        System.out.println(pronostico.getNubosidad());
+//		        System.out.println(pronostico.getViento());
+//		        System.out.println(pronostico.getPrecipitacion());
 		        
 	        }
 	       
@@ -180,4 +141,9 @@ try{
 	    }
 		
 	}
+    
+    @Override
+    public Pronostico getPronostico(String ciudad, String Pais) {
+        return null;
+    }
 }

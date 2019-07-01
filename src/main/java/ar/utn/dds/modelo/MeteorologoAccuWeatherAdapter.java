@@ -3,30 +3,36 @@ package ar.utn.dds.modelo;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import ar.utn.dds.services.apiAccuWeather.PedidoPronosticoAccuWeather;
 import ar.utn.dds.services.apiAccuWeather.PronosticoAccuWeather;
 import ar.utn.dds.services.apiAccuWeather.RespuestaAccuWeather;
-import ar.utn.dds.services.apiAccuWeather.ServicioAccuWeather;
 import ar.utn.dds.services.apiAccuWeather.TemperaturaAccuWeather;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MeteorologoAccuWeatherAdapter extends ServicioAccuWeather implements Meteorologo {
+public class MeteorologoAccuWeatherAdapter implements Meteorologo {
+	
+	public List<Pronostico> pronosticosPorCincoDias;
 	
 	MeteorologoAccuWeatherAdapter(){
         super();
     }
+	
+	public List<Pronostico> getPronosticosPorCincoDias() {
+		return pronosticosPorCincoDias;
+	}
 	
 	@Override
     public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion) {
 		
 		 try{	
 		    	
-		    	Optional<Pronostico> pronosticoOpcional = this.getPronosticosPorCincoDias().stream().filter(pronostico->pronostico.getFecha().get(Calendar.YEAR) == tiempo.get(Calendar.YEAR)
+		    Optional<Pronostico> pronosticoOpcional = this.getPronosticosPorCincoDias().stream().filter(pronostico->pronostico.getFecha().get(Calendar.YEAR) == tiempo.get(Calendar.YEAR)
 		    			&& pronostico.getFecha().get(Calendar.MONTH)==tiempo.get(Calendar.MONTH) &&
 		    			pronostico.getFecha().get(Calendar.DATE)==tiempo.get(Calendar.DATE)).findFirst();
 		    	
@@ -61,7 +67,7 @@ public class MeteorologoAccuWeatherAdapter extends ServicioAccuWeather implement
 	
 		PedidoPronosticoAccuWeather service = retrofit.create(PedidoPronosticoAccuWeather.class);
 	
-	    Call<RespuestaAccuWeather> call = service.getPronosticoClima("7894", "G39EfxP92l61brpxjQUED4oQdpodARKH", true);
+	    Call<RespuestaAccuWeather> call = service.getPronosticoClima("7894", "KJ3wprAzf3OnuS9ACuOsWpe1eFDerpQG", true);
 	   
 	    try{
 	        Response<RespuestaAccuWeather> response = call.execute();
