@@ -22,9 +22,15 @@ public class Prenda{
     private Estilo estilo;
     private Boolean disponibilidad;
     private String imagen;
-    private String sexo;
+    private Sexo sexo;
+    private int nivelDeCalor;
 
-
+    public boolean masculino(String sexo){ return this.sexo.masculino(sexo); }
+    public boolean femenino(String sexo){ return this.sexo.femenino(sexo); }
+    public Sexo sexo(){ return sexo; }
+    public int nivelDeCalor(){
+        return this.nivelDeCalor;
+    }
     public boolean somosIguales(Prenda prenda){
         return this.hashCode() == prenda.hashCode();
     }
@@ -79,7 +85,6 @@ public class Prenda{
                 throw new AlMenosUnColor();
             }
     }
-   
     public String tipo(){
         return this.tipoPrenda.tipo();
     }
@@ -105,17 +110,13 @@ public class Prenda{
     public String categoria() {
         return this.tipoPrenda.categoria();
     }
-
     public boolean esSuperponible(Prenda prenda){
        return this.tipoPrenda.esSuperponible(prenda.tipoDePrenda());
     }
-
     public TipoPrenda tipoDePrenda() {
         return this.tipoPrenda;
     }
-    
-    
-    
+
    //----Imagen---------------------
     
     public String imagen(){
@@ -127,11 +128,8 @@ public class Prenda{
         this.imagen= destino;
     }
     public  void normalizarImagen(String path,String destino, int width, int hight, String format) {
-    	
     	File pathOrigen= new File(path);
-    	File pathDestino= new File(destino); 
-    	
-    	
+    	File pathDestino= new File(destino);
     	try {
     		BufferedImage original= ImageIO.read(pathOrigen);
     		BufferedImage normalizada = new BufferedImage(width, hight, original.getType()); 
@@ -145,4 +143,12 @@ public class Prenda{
     	catch(IOException ex) {
     		ex.printStackTrace();}
     	}
+
+    public int cantidadSuperponibles() {
+        if ( 0 !=this.tipoPrenda.cantidadSuperponibles()) {
+            return this.tipoPrenda.cantidadSuperponibles();
+        }else{
+            return 0;
+        }
+    }
 }

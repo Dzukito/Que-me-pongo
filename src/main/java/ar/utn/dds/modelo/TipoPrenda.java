@@ -28,6 +28,12 @@ public class TipoPrenda {
         this.categoria = categoria;
         this.superponibles = new HashSet<TipoPrenda>();
     }
+    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales,Set<TipoPrenda> superponibles){
+        this.tipo = tipo;
+        this.materiales = materiales;
+        this.categoria = categoria;
+        this.superponibles = superponibles;
+    }
     TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales,Set<TipoPrenda> superponibles,String pathImg){
         this.tipo = tipo;
         this.materiales = materiales;
@@ -55,5 +61,9 @@ public class TipoPrenda {
     }
     public String imagen(){
         return this.imagen;
+    }
+
+    public int cantidadSuperponibles() {
+        return  this.superponibles.size();
     }
 }

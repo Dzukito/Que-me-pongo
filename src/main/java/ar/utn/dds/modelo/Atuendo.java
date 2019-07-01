@@ -67,14 +67,15 @@ public class Atuendo {
     public void agregarPrenda(Prenda prenda){
         try {
             this.esaPrendaYaLaTengo(prenda);
-            this.noPuedoAgregarPrenda(prenda);
+          //  this.noPuedoAgregarPrenda(prenda);
             this.prendas.add(prenda);
             
         }catch (EsaPrendaYaLaTengo e){
             this.cambiarPrenda(prenda);
-        }catch (noPuedeSuperponerse e){
-            this.cambiarPrenda(prenda);
         }
+       /* }catch (noPuedeSuperponerse e){
+            this.cambiarPrenda(prenda);
+        }*/
     }
     public Prenda getPrenda(String categoria) {
     	return this.prendas.stream().filter(prenda -> prenda.categoria() == categoria).collect(Collectors.toList()).get(0);
@@ -87,13 +88,20 @@ public class Atuendo {
     public void noPuedoAgregarPrenda(Prenda prenda){ //En lugar de un boolean que tire una nueva excepcion
         if(this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda))) {throw new noPuedeSuperponerse();}
     }
-    
-     
-    
     public ArrayList<Prenda> todasLasPrendas(){
         return this.prendas;
     }
     public void sumarUsabilidad() {
         this.usabilidad = this.usabilidad +1;
+    }
+
+    public List<String> NombresPrendas() {
+        return prendas.stream().map(prenda -> prenda.getNombrePrenda()).collect(Collectors.toList());
+    }
+    public List<String> TiposDePrendas() {
+        return prendas.stream().map(prenda -> prenda.tipoDePrenda().categoria()).collect(Collectors.toList());
+    }
+    public List<String> Imagenes() {
+        return prendas.stream().map(prenda -> prenda.imagen()).collect(Collectors.toList());
     }
 }

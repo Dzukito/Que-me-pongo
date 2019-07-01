@@ -29,7 +29,7 @@ public class Usuario implements EventoProximoObservador{
         observadores.forEach(observador -> observer.attach(observador));
         observer.notifyAceptarSugerencia(atuendo);
     }
-    public void rechazarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo){
+    public void rechazarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, Evento evento){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
         observadores.forEach(observador -> observer.attach(observador));
         observer.notifyAceptarSugerencia(atuendo);
@@ -74,10 +74,7 @@ public class Usuario implements EventoProximoObservador{
     public int cantidadAtuendos(int i){
         return roperos.get(i).cantidadAtuendosGenerados();
     }
-    public void agregarPreda(Prenda prenda, Guardaropa ropero){
-        ropero.agregarPrenda(prenda);
-        
-    }
+    public void agregarPreda(Prenda prenda, Guardaropa ropero){ ropero.agregarPrenda(prenda); }
     public void agregarRopero(Guardaropa ropero){
         this.roperos.add(ropero);
     }

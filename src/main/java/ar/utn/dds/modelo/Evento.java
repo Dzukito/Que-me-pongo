@@ -82,8 +82,8 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     }
     @Override
     public void updateRechazarSugerencia(Atuendo atuendo) {
-    }
 
+    }
     @Override
     public void downdateRechazarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
 
