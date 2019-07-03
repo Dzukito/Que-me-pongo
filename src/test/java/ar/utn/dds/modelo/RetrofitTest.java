@@ -66,7 +66,7 @@ public class RetrofitTest {
 		System.out.println(pronostico.getTemperatura());
 		System.out.println(pronostico.getFecha().getTime());
 		
-		assertEquals(33,pronostico.getNubosidad(), 30);
+		assertEquals(3,pronostico.getNubosidad(), 30);
 		assertEquals(7,pronostico.getViento(), 10);
 		assertEquals(0,pronostico.getPrecipitacion(), 10);
 		assertEquals(10,pronostico.getTemperatura(), 10);
