@@ -24,6 +24,7 @@ public class ImagenTest {
 	  ArrayList<Color> blancoYNegro;
 	  HashSet<Material> materialRemera;
 	  String standar, zebra;
+	  AdministradorDeImagenes normaliz;
 	   
 	
     @Before
@@ -42,28 +43,29 @@ public class ImagenTest {
          
          standar= "Imagenes/defaultTorso.jpg";
          zebra= "Imagenes/test.jpg";
+         normaliz= new AdministradorDeImagenes();
          
          
     }
 
 
     @Test
-    public void imagenStandar(){
+    public void sinImagen(){
     	
     	this.init();
-    	Assert.assertEquals(standar,remera.imagen());
+    	Assert.assertEquals(0,prenda1.imagenes().size());
     	
     }
     
     @Test
-    public void cambiarImagenPrenda(){ 
+    public void agregarImagenPrenda(){ 
     	this.init();
-    	prenda1.cargarImagen(zebra);
+    	prenda1.cargarImagen(zebra,normaliz);
         
-        System.out.print(prenda1.imagen());
-        
-       Assert.assertNotEquals(standar,prenda1.imagen());
-       Assert.assertEquals("Imagenes/Imagenes-test.jpg",prenda1.imagen());
+        System.out.print(prenda1.imagenes());
+       
+       Assert.assertTrue(prenda1.imagenes().contains("Imagenes/Imagenes-test.jpg"));
+      
 
     }
 }
