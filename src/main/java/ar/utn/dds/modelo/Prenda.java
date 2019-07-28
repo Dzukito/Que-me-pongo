@@ -3,7 +3,9 @@ package ar.utn.dds.modelo;
 import ar.utn.dds.excepciones.AlMenosUnColor;
 import ar.utn.dds.excepciones.SoloTieneUnColor;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 //Para las imagenes:
 
@@ -21,7 +23,7 @@ public class Prenda{
     private Material material;
     private Estilo estilo;
     private Boolean disponibilidad;
-    private String imagen;
+    private ArrayList<String> imagen;
     private Sexo sexo;
     private int nivelDeCalor;
 
@@ -54,7 +56,7 @@ public class Prenda{
         this.disponibilidad = true;
         this.estilo = Estilo.NORMAL;
         this.tipoPrenda.perteneceMaterial(material);
-        this.imagen=this.tipoPrenda.imagen();
+        this.imagen= new ArrayList<String>();
         if(colores.isEmpty()){
             throw new AlMenosUnColor();
         }
@@ -66,25 +68,13 @@ public class Prenda{
         this.material = material;
         this.disponibilidad = true;
         this.estilo = estilo;
-        this.imagen=this.tipoPrenda.imagen();
+        this.imagen= new ArrayList<String>();
         this.tipoPrenda.perteneceMaterial(material);
         if(colores.isEmpty()){
             throw new AlMenosUnColor();
         }
     }
-    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material, Estilo estilo,String path){
-        this.tipoPrenda = tipoPrenda;
-        this.nombrePrenda = nombrePrenda;
-        this.colores = colores;
-        this.material = material;
-        this.disponibilidad = true;
-        this.estilo = estilo;
-        this.imagen=path;
-        this.tipoPrenda.perteneceMaterial(material);
-            if(colores.isEmpty()){
-                throw new AlMenosUnColor();
-            }
-    }
+   
     public String tipo(){
         return this.tipoPrenda.tipo();
     }
@@ -119,30 +109,22 @@ public class Prenda{
 
    //----Imagen---------------------
     
-    public String imagen(){
-        return this.imagen;
+    public String unaImagen(int path){ //devuelve una imagen
+        return this.imagen.get(path);
     }
-    public void cargarImagen(String path) {
-    	String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg";//nombre para la imagen en la carpeta 
-    	normalizarImagen(path,destino, 600,600,"jpg");
-        this.imagen= destino;
+    
+    public List<String> imagenes(){ //devuelve todas las imagenes
+        return this.imagen.stream().collect(Collectors.toList());
     }
-    public  void normalizarImagen(String path,String destino, int width, int hight, String format) {
-    	File pathOrigen= new File(path);
-    	File pathDestino= new File(destino);
-    	try {
-    		BufferedImage original= ImageIO.read(pathOrigen);
-    		BufferedImage normalizada = new BufferedImage(width, hight, original.getType()); 
-    		
-    		Graphics2D g2= normalizada.createGraphics(); 
-    		g2.drawImage(original, 0, 0, width, hight, null);  
-    		g2.dispose();
-    		
-    		ImageIO.write(normalizada, format, pathDestino);  
-    	}
-    	catch(IOException ex) {
-    		ex.printStackTrace();}
-    	}
+    
+    public void cargarImagen(String path,AdministradorDeImagenes normalizador) {
+    	String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg";//nombre para la imagen en la carpeta donde se almacena
+    	//normalizarUnaImagen(path,destino, 600,600,"jpg");
+    	normalizador.normalizarUnaImagen(path, destino, 600, 600, ".jpg"); //el adminImg normaliza la imagen 
+    	this.imagen.add(destino); 
+    	
+        
+    }
 
     public int cantidadSuperponibles() {
         if ( 0 !=this.tipoPrenda.cantidadSuperponibles()) {
