@@ -16,7 +16,7 @@ public class TipoPrenda {
     private Set<Material> materiales;
     private Set<TipoPrenda> superponibles;
     //private NivelDeCalor nivelDeCalor;
-    private String imagen;
+    //private String imagen;
 
     @Override
     public int hashCode(){
@@ -39,7 +39,7 @@ public class TipoPrenda {
         this.materiales = materiales;
         this.categoria = categoria;
         this.superponibles = superponibles;
-        this.imagen=pathImg;
+        //this.imagen=pathImg;
     }
     public boolean esSuperponible(TipoPrenda prenda){
         return superponibles.contains(prenda);
@@ -59,9 +59,9 @@ public class TipoPrenda {
         }
         return true;
     }
-    public String imagen(){
+    /*public String imagen(){
         return this.imagen;
-    }
+    }*/
 
     public int cantidadSuperponibles() {
         return  this.superponibles.size();
