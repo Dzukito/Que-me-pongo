@@ -22,7 +22,7 @@ public class Atuendo {
     public boolean compatibleConTiempo(Pronostico pronostico) {
     	return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
     			prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo())) &&
-    			this.nivelDeCalorTotal()<pronostico.getTemperatura(); //para que no esté super abrigado
+    			this.nivelDeCalorTotal()<pronostico.getTemperatura(); //para que no estÃ© super abrigado
     }
     
     public boolean tieneEstilo(){
@@ -101,7 +101,7 @@ public class Atuendo {
     public List<String> TiposDePrendas() {
         return prendas.stream().map(prenda -> prenda.tipoDePrenda().categoria()).collect(Collectors.toList());
     }
-    public List<String> Imagenes() {
-        return prendas.stream().map(prenda -> prenda.imagen()).collect(Collectors.toList());
+    public List<List<String>> Imagenes() { //lista con las listas de imagenes de c/prenda
+        return prendas.stream().map(prenda -> prenda.imagenes()).collect(Collectors.toList());
     }
 }
