@@ -104,4 +104,7 @@ public class Atuendo {
     public List<List<String>> Imagenes() { //lista con las listas de imagenes de c/prenda
         return prendas.stream().map(prenda -> prenda.imagenes()).collect(Collectors.toList());
     }
+    public void agregarCalificacion(CalificacionAtuendo calif) { 
+    	this.calificacion= calif;
+    }
 }
