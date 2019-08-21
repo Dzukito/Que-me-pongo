@@ -24,11 +24,18 @@ public class Usuario implements EventoProximoObservador{
         }
         this.meteorologos.add(meteorologo);
     }
-    public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo){
+    
+    
+   public void calificar(Atuendo atuendo, CalificacionAtuendo calif) {
+    	atuendo.agregarCalificacion(calif); //calificar es agregar una calificacion al atuendo
+    }
+    
+    public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, CalificacionAtuendo calificacion){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
         observadores.forEach(observador -> observer.attach(observador));
         observer.ejecutar(atuendo);
-//        observer.notifyAceptarSugerencia(atuendo);
+        this.calificar(atuendo, calificacion); //Cuando acepto la sugerencia la califico
+        
     }
     public void rechazarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, Evento evento){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
