@@ -16,6 +16,9 @@ public class Pronostico {
 	protected float precipitacion;
 
 
+	public boolean haceFrio() {
+		return this.temperatura<16;
+	}
 
 	private boolean esUnaPrendaNegadaDeAlgunoDeMisClimas(String prenda){
 		return this.clima.stream().anyMatch(clima -> clima.esUnaPrendaNegada(prenda));
