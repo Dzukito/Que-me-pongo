@@ -13,25 +13,23 @@ public class Atuendo {
     private CalificacionAtuendo calificacion;
     
     
-    
     public boolean cumpleSensacionTermica(Pronostico pronostico, Usuario usuario) {
-    	return !(this.cumploParaCalurosos(pronostico, usuario) || this.aptoParaFriolentos(pronostico, usuario)) ||
-    			(usuario.getSensacionTermica()==5); //si el usuario no tiene preferencias es buena sugerencia y ya
-    }
-    public boolean cumploParaCalurosos(Pronostico pronostico, Usuario usuario) {
-    	//en obras 
-    	return true;
     	
+    //Se evalua si el atuendo se adapta a las subjetividad del usuario
+    	
+    	if(usuario.getSensacionTermica()<5)//si es friolento el nvl de calor debera aumentar en base a que tan friolento es
+    	return (pronostico.haceFrio() && this.nivelDeCalorTotal()>14+(6/usuario.getSensacionTermica())  && this.nivelDeCalorTotal()<30  
+	    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()<=pronostico.getTemperatura()));
+    	
+    	if(usuario.getSensacionTermica()>5)//si es caluroso el nvl de calor debera disminuir
+        	return (pronostico.haceFrio() && this.nivelDeCalorTotal()>14 && this.nivelDeCalorTotal()<30  
+    	    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()+(usuario.getSensacionTermica()-5)<=pronostico.getTemperatura()));
+    	
+    	else return true; 
+    	
+    	//EN OBRAS
     }
-    public boolean aptoParaFriolentos(Pronostico pronostico, Usuario usuario) {
-    	//en obras
-    	return true;
-    }
-    /*
-     * cumpleSensacionTermica: evalua si el atuendo se adapta a las subjetividad del usuario
-     *
-     */
-
+   
 
     public int nivelDeCalor(Categoria categoria){
         return this.prendas.stream().filter(prenda -> prenda.categoria() == categoria.getCategoria()).collect(Collectors.toList()).size();
