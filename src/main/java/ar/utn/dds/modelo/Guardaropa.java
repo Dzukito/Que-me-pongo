@@ -46,7 +46,8 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     public Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
         Atuendo atuendo = this.sugerirAtuendo();
 
-        if(atuendo.tieneEstiloEnParticular(evento.estilo()) && atuendo.compatibleConTiempo(pronostico))
+        if(atuendo.tieneEstiloEnParticular(evento.estilo()) && atuendo.compatibleConTiempo(pronostico)
+        		&& atuendo.cumpleSensacionTermica(pronostico, usuario))
         {
             return atuendo;
         }
@@ -107,7 +108,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     private List<Prenda> prendasSuperponibles(ArrayList<Prenda> prendas, List<Prenda> prendasAFiltrar){
               return prendasAFiltrar.stream().filter(prenda -> prendas.stream().allMatch(prenda1 -> prenda1.esSuperponible(prenda))).collect(Collectors.toList());
     }
-    // hasta acá hay que sacar todo
+    // hasta acÃ¡ hay que sacar todo
 
 
 
