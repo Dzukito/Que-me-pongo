@@ -11,6 +11,26 @@ public class Atuendo {
     private ArrayList<Prenda> prendas;
     private int usabilidad;//Cantidad de veces que fue usado
     private CalificacionAtuendo calificacion;
+    
+    
+    
+    public boolean cumpleSensacionTermica(Pronostico pronostico, Usuario usuario) {
+    	return !(this.cumploParaCalurosos(pronostico, usuario) || this.aptoParaFriolentos(pronostico, usuario)) ||
+    			(usuario.getSensacionTermica()==5); //si el usuario no tiene preferencias es buena sugerencia y ya
+    }
+    public boolean cumploParaCalurosos(Pronostico pronostico, Usuario usuario) {
+    	//en obras 
+    	return true;
+    	
+    }
+    public boolean aptoParaFriolentos(Pronostico pronostico, Usuario usuario) {
+    	//en obras
+    	return true;
+    }
+    /*
+     * cumpleSensacionTermica: evalua si el atuendo se adapta a las subjetividad del usuario
+     *
+     */
 
 
     public int nivelDeCalor(Categoria categoria){
@@ -22,7 +42,8 @@ public class Atuendo {
     public boolean compatibleConTiempo(Pronostico pronostico) {
     	return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
     			prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo())) &&
-    			this.nivelDeCalorTotal()<pronostico.getTemperatura(); //para que no estÃ© super abrigado
+    		    (pronostico.haceFrio() && this.nivelDeCalorTotal()>14  && this.nivelDeCalorTotal()<30  //MAX y MIN
+    		    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()<=pronostico.getTemperatura())); 
     }
     
     public boolean tieneEstilo(){
