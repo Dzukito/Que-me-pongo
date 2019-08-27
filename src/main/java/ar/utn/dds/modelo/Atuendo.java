@@ -13,35 +13,17 @@ public class Atuendo {
     private CalificacionAtuendo calificacion;
     
     
-    public boolean cumpleSensacionTermica(Pronostico pronostico, Usuario usuario) {
-    	
-    //Se evalua si el atuendo se adapta a las subjetividad del usuario
-    	
-    	if(usuario.getSensacionTermica()<5)//si es friolento el nvl de calor debera aumentar en base a que tan friolento es
-    	return (pronostico.haceFrio() && this.nivelDeCalorTotal()>14+(6/usuario.getSensacionTermica())  && this.nivelDeCalorTotal()<30  
-	    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()<=pronostico.getTemperatura()));
-    	
-    	if(usuario.getSensacionTermica()>5)//si es caluroso el nvl de calor debera disminuir
-        	return (pronostico.haceFrio() && this.nivelDeCalorTotal()>14 && this.nivelDeCalorTotal()<30  
-    	    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()+(usuario.getSensacionTermica()-5)<=pronostico.getTemperatura()));
-    	
-    	else return true; 
-    	
-    	//EN OBRAS
-    }
-   
-
     public int nivelDeCalor(Categoria categoria){
         return this.prendas.stream().filter(prenda -> prenda.categoria() == categoria.getCategoria()).collect(Collectors.toList()).size();
     }
     public int nivelDeCalorTotal(){
          return prendas.size();
     }
-    public boolean compatibleConTiempo(Pronostico pronostico) {
+    public boolean compatibleConTiempo(Pronostico pronostico,Usuario usuario) {
     	return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
     			prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo())) &&
-    		    (pronostico.haceFrio() && this.nivelDeCalorTotal()>14  && this.nivelDeCalorTotal()<30  //MAX y MIN
-    		    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()<=pronostico.getTemperatura())); 
+    		    (pronostico.haceFrio() && this.nivelDeCalorTotal()>14-usuario.getSensacionTermica()  && this.nivelDeCalorTotal()<30  //MAX y MIN
+    		    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()<=pronostico.getTemperatura()+usuario.getSensacionTermica())); 
     }
     
     public boolean tieneEstilo(){
