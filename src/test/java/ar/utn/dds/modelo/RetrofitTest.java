@@ -24,7 +24,7 @@ public class RetrofitTest {
 	public void test1() {
 		Meteorologo meteorologo = new MeteorologoAccuWeatherAdapter();
 		meteorologo.getPronosticos(buenosAires);
-		Long fechaFormatoJson=(long) 1562148000;
+		Long fechaFormatoJson=(long) 1566939600;
 		//x1000  para instanciar fecha de UNIX TimeStamp a fecha
 		Date fecha1 = new Date(fechaFormatoJson*1000);
 		Calendar fecha = Calendar.getInstance();
@@ -39,10 +39,10 @@ public class RetrofitTest {
 		System.out.println(pronostico.getTemperatura());
 		System.out.println(pronostico.getFecha().getTime());
 
-		assertEquals(15.0,pronostico.getNubosidad(), 30);
-		assertEquals(14,pronostico.getViento(), 10);
-		assertEquals(3.0,pronostico.getPrecipitacion(), 10);
-		assertEquals(9,pronostico.getTemperatura(), 10);
+		assertEquals(67.0,pronostico.getNubosidad(), 30);
+		assertEquals(7.5,pronostico.getViento(), 10);
+		assertEquals(6.0,pronostico.getPrecipitacion(), 5);
+		assertEquals(15,pronostico.getTemperatura(), 10);
 //		assertEquals( fecha1,pronostico.getFecha().getTime());
 	}
 	
@@ -52,8 +52,7 @@ public class RetrofitTest {
 		System.out.println("test 2");
 		Meteorologo meteorologo = new MeteorologoWeatherAdapter();
 		meteorologo.getPronosticos(buenosAires);
-//		Long fechaFormatoJson=(long) 1561226400;1562061600
-		Long fechaFormatoJson=(long) 1562361600;
+		Long fechaFormatoJson=(long) 1566939600;
 		Date fecha1 = new Date(fechaFormatoJson*1000);
 		Calendar fecha = Calendar.getInstance();
     	fecha.setTime(fecha1);
@@ -66,10 +65,10 @@ public class RetrofitTest {
 		System.out.println(pronostico.getTemperatura());
 		System.out.println(pronostico.getFecha().getTime());
 		
-		assertEquals(33,pronostico.getNubosidad(), 30);
-		assertEquals(7,pronostico.getViento(), 10);
-		assertEquals(0,pronostico.getPrecipitacion(), 10);
-		assertEquals(10,pronostico.getTemperatura(), 10);
+		assertEquals(80,pronostico.getNubosidad(), 30);
+		assertEquals(3,pronostico.getViento(), 10);
+		assertEquals(2,pronostico.getPrecipitacion(), 5);
+		assertEquals(17,pronostico.getTemperatura(), 10);
 //		assertEquals( fecha1,pronostico.getFecha().getTime());
 	}
 
