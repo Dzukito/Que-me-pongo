@@ -15,5 +15,9 @@ public class MeteorologoMockTwAdapter implements Meteorologo{
     
     @Override
     public void getPronosticos(Ubicacion ubicacion) {     
+    }	@Override
+    public boolean alertaMeteorologica(Pronostico pronosticoEvento, Pronostico nuevoPronostico) {
+        return !pronosticoEvento.somosSimilares(nuevoPronostico);
     }
+
 }

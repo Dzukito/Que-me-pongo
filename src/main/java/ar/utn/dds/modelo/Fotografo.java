@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class AdministradorDeImagenes {
+public class Fotografo {
 	
 	//Si la imagen no se encarga de normalizar, que haya una entidad que lo haga. 
 	//Crear esta entidad podria hacer más cosas con las imagenes si el sistema lo necesita (de ahi que no se llame solo 'normalizador')...

@@ -2,8 +2,6 @@ package ar.utn.dds.modelo;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -11,11 +9,7 @@ import org.junit.Assert;
 import org.junit.Before;
 
 //Para las imagenes:
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+
 //
 
 public class ImagenTest {
@@ -24,7 +18,7 @@ public class ImagenTest {
 	  ArrayList<Color> blancoYNegro;
 	  HashSet<Material> materialRemera;
 	  String standar, zebra;
-	  AdministradorDeImagenes normaliz;
+	  Fotografo normaliz;
 	   
 	
     @Before
@@ -43,7 +37,7 @@ public class ImagenTest {
          
          standar= "Imagenes/defaultTorso.jpg";
          zebra= "Imagenes/test.jpg";
-         normaliz= new AdministradorDeImagenes();
+         normaliz= new Fotografo();
          
          
     }

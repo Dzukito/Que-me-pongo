@@ -23,7 +23,10 @@ public class MeteorologoWeatherAdapter implements Meteorologo {
     public List<Pronostico> getPronosticosPorCincoDias() {
 		return pronosticosPorCincoDias;
 	}
-    
+	@Override
+	public boolean alertaMeteorologica(Pronostico pronosticoEvento, Pronostico nuevoPronostico) {
+		return !pronosticoEvento.somosSimilares(nuevoPronostico);
+	}
     @Override
     public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion) {
     	

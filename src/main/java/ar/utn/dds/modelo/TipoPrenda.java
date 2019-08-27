@@ -62,7 +62,6 @@ public class TipoPrenda {
     /*public String imagen(){
         return this.imagen;
     }*/
-
     public int cantidadSuperponibles() {
         return  this.superponibles.size();
     }

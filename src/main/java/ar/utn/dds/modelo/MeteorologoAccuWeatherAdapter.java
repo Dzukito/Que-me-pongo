@@ -109,8 +109,13 @@ public class MeteorologoAccuWeatherAdapter implements Meteorologo {
 	        System.out.println(ex.getMessage());
 	    }
 	}
-		
-	
+
+	@Override
+	public boolean alertaMeteorologica(Pronostico pronosticoEvento, Pronostico nuevoPronostico) {
+		return !pronosticoEvento.somosSimilares(nuevoPronostico);
+	}
+
+
 	private int calcularLluviaPromedio(PronosticoAccuWeather pronosticoAccuWeather) {
 		int rainDay=pronosticoAccuWeather.Day.RainProbability;
 		int rainNight=pronosticoAccuWeather.Night.RainProbability;

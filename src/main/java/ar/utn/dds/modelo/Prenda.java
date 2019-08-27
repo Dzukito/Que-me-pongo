@@ -9,11 +9,6 @@ import java.util.stream.Collectors;
 
 //Para las imagenes:
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 //
 
 public class Prenda{
@@ -117,7 +112,7 @@ public class Prenda{
         return this.imagen.stream().collect(Collectors.toList());
     }
     
-    public void cargarImagen(String path,AdministradorDeImagenes normalizador) {
+    public void cargarImagen(String path, Fotografo normalizador) {
     	String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg";//nombre para la imagen en la carpeta donde se almacena
     	//normalizarUnaImagen(path,destino, 600,600,"jpg");
     	normalizador.normalizarUnaImagen(path, destino, 600, 600, ".jpg"); //el adminImg normaliza la imagen 

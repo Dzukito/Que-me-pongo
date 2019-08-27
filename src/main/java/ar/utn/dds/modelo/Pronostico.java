@@ -1,9 +1,6 @@
 package ar.utn.dds.modelo;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Pronostico {
@@ -15,11 +12,13 @@ public class Pronostico {
 	protected double viento;
 	protected float precipitacion;
 
+	@Override
+	public int hashCode() { return Objects.hash(clima); }
 
-	public boolean haceFrio() {
-		return this.temperatura<16;
+	public boolean somosSimilares(Pronostico pronostico){
+		return pronostico.hashCode() == this.hashCode();
 	}
-
+	public boolean haceFrio() {	return this.temperatura<16; }
 	private boolean esUnaPrendaNegadaDeAlgunoDeMisClimas(String prenda){
 		return this.clima.stream().anyMatch(clima -> clima.esUnaPrendaNegada(prenda));
 	}

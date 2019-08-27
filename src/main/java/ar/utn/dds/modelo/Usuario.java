@@ -19,26 +19,28 @@ public class Usuario implements EventoProximoObservador{
     private ArrayList<Enviador> enviadores;
     private int sensacionTermica; //arranca en 0. Para los negativos es friolento para los positivos caluroso
 
+
+    public ArrayList<Enviador> getEnviadores() {
+        return enviadores;
+    }
+
+
     public void agregarMeteorolo(Meteorologo meteorologo){
-    	
         if(this.meteorologo == null){
             this.meteorologo = meteorologo;
         }
         this.meteorologos.add(meteorologo);
     }
-    
-    
-   public void calificar(Atuendo atuendo, CalificacionAtuendo calif) {
-    	atuendo.agregarCalificacion(calif); 
-    	calif.ajustarPreferencia(this);
+    public void calificar(Atuendo atuendo, CalificacionAtuendo calif) {
+        atuendo.agregarCalificacion(calif);
+        calif.ajustarPreferencia(this);
     }
-    
     public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, CalificacionAtuendo calificacion){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
         observadores.forEach(observador -> observer.attach(observador));
         observer.ejecutar(atuendo);
         this.calificar(atuendo, calificacion); //Cuando acepto la sugerencia la califico
-        
+
     }
     public void rechazarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, Evento evento){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
@@ -51,9 +53,6 @@ public class Usuario implements EventoProximoObservador{
     public void cambiarMeteorologo(){
         this.meteorologo = this.meteorologos.stream().filter(meteorologo1 -> meteorologo1 !=this.meteorologo).collect(Collectors.toList()).get((int) (Math.random() * this.meteorologos.size()-1));
     }
-    public Pronostico obtenerPronostico(Calendar tiempo, Ubicacion lugar){
-        return meteorologo.getPronosticoTiempoYUbicacion(tiempo,lugar);
-    }
     public void usarAtuendo(Atuendo atuendo){
         this.atuendosUsados.add(atuendo);
     }
@@ -65,7 +64,7 @@ public class Usuario implements EventoProximoObservador{
         }
     }
     public boolean puedoAsistir(Evento evento){ return !eventos.stream().anyMatch(evento1 -> evento1.estoyEnEseHorario(evento)); }
-   
+
     Usuario(String userName, ArrayList<Guardaropa> roperos){
         this.userName = userName;
         this.roperos = roperos;
@@ -104,7 +103,7 @@ public class Usuario implements EventoProximoObservador{
     }
     public List<Guardaropa> misRoperos(){ return this.roperos;}
     public Membrecia miMembrecia(){ return this.membrecia;}
-    
+
     @Override
     public void updateEventoProximo(Evento evento) {
         List<Atuendo> atuendos = this.roperos.stream()
@@ -113,10 +112,9 @@ public class Usuario implements EventoProximoObservador{
         evento.agregarSugerencias(atuendos);
     }
     public int getSensacionTermica() {
-         return this.sensacionTermica;
+        return this.sensacionTermica;
     }
     public void setSensacionTermica(int sensacion) {
         this.sensacionTermica = sensacion;
     }
-    
 }

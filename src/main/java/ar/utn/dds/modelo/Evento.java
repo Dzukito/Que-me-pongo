@@ -16,6 +16,14 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     private ArrayList<Atuendo> atuendosSugeridos;
     private int tiempoAviso;
 
+    public void alertaMeteorologica(Usuario usuario, Guardaropa guardaropa, Pronostico pronostico){
+        usuario.getEnviadores().forEach(enviador -> enviador.enviarAlertaMeteorologica(
+                enviador.getDireccion(),
+                "Alerta meteorologica",
+                "Desea cambiar su atuendo a uno mas adecuado a las nuevas condiciones meteorologicas, le sugerimos:",
+                guardaropa.sugerirAtuendo(pronostico,this,usuario).Imagenes()));
+    }
+
     public void agregarSugerencias(List<Atuendo> atuendosSugeridos){
         atuendosSugeridos.stream()
                 .filter(atuendo1 -> !this.atuendosSugeridos.stream()
@@ -72,22 +80,16 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     public void updateAceptarSugerencia(Atuendo atuendo) {
         this.atuendo = atuendo;
     }
-
     @Override
     public void downdateAceptarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
-
     }
     public ArrayList<Atuendo> sugerencias() {
         return this.atuendosSugeridos;
     }
     @Override
     public void updateRechazarSugerencia(Atuendo atuendo) {
-
     }
     @Override
     public void downdateRechazarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
-
     }
-
-
 }

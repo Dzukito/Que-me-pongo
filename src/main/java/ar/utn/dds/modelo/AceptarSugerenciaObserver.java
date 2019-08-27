@@ -28,7 +28,6 @@ public class AceptarSugerenciaObserver implements OpcionPorSugerenciaCommand{
 	@Override
 	public void ejecutar(Atuendo atuendo) {
 		this.notifyAceptarSugerencia(atuendo);
-		
 	}
 
 	

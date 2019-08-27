@@ -63,18 +63,6 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
         return atuendo;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public Atuendo generarAtuendo(ArrayList<NivelDeCalor> nivelesDeCalor, Evento evento){
         Atuendo atuendo = new Atuendo();
             nivelesDeCalor.forEach(nivelDeCalor ->
