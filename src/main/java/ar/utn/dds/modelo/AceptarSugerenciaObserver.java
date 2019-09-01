@@ -24,11 +24,8 @@ public class AceptarSugerenciaObserver implements OpcionPorSugerenciaCommand{
     AceptarSugerenciaObserver(){
         this.observadores = new ArrayList<AceptarSuegerenciaObservador>(){};
     }
-
-	@Override
-	public void ejecutar(Atuendo atuendo) {
-		this.notifyAceptarSugerencia(atuendo);
-	}
-
-	
+    @Override
+    public void ejecutar(Atuendo atuendo) {
+        this.notifyAceptarSugerencia(atuendo);
+    }
 }

@@ -97,27 +97,6 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     }
     // hasta acÃ¡ hay que sacar todo
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private ArrayList<ArrayList<Prenda>> prendasPorCategoria(){
         ArrayList<ArrayList<Prenda>> retorno = new ArrayList<ArrayList<Prenda>>();
         for (int i = 0;i< this.cantidadCategorioas(prendas);i=i+1){
