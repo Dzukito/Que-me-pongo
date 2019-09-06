@@ -17,7 +17,7 @@ public class Usuario implements EventoProximoObservador{
     private List<Meteorologo> meteorologos;
     private String sexo;
     private ArrayList<Enviador> enviadores;
-    private int sensacionTermica; //arranca en 0. Para los negativos es friolento para los positivos caluroso
+    private Sensibilidad sensibilidad; //arranca en 0. Para los negativos es friolento para los positivos caluroso
 
 
     public ArrayList<Enviador> getEnviadores() {
@@ -71,7 +71,7 @@ public class Usuario implements EventoProximoObservador{
         this.membrecia = new Gratuito();
         this.eventos = new ArrayList<Evento>();
         this.meteorologos = new ArrayList<Meteorologo>();
-        this.sensacionTermica=0;
+        this.sensibilidad= new Sensibilidad(0,0,0);
     }
     public int cantidadPrendas(int guardaropa){
         return this.roperos.get(guardaropa).cantidadDePrendas();
@@ -111,10 +111,10 @@ public class Usuario implements EventoProximoObservador{
                 .collect(Collectors.toList());
         evento.agregarSugerencias(atuendos);
     }
-    public int getSensacionTermica() {
-        return this.sensacionTermica;
+    public Sensibilidad getSensibilidad() {
+        return this.sensibilidad;
     }
-    public void setSensacionTermica(int sensacion) {
-        this.sensacionTermica = sensacion;
+    public void setSensibilidad(Sensibilidad sens) {
+        this.sensibilidad = sens;
     }
 }
