@@ -4,27 +4,40 @@ public class CalificacionAtuendo {
     private Pronostico pronostico;
     private Evento evento;
     private Usuario usuario;
-    private int calificacion; // del 1-10 si es muy baja no le abrigo lo suficiente, si es mucho abrigo
-
+    private int calificacionSuperior;
+    private int calificacionManos;
+    private int calificacionInferior;
+    
     CalificacionAtuendo(){}
-    CalificacionAtuendo(Pronostico pronostico, Evento evento, Usuario usuario, int calificacion){
+    CalificacionAtuendo(Pronostico pronostico, Evento evento, Usuario usuario){
         this.pronostico = pronostico;
         this.evento = evento;
-        this.calificacion = calificacion;
+        this.calificacionSuperior = 0;
+        this.calificacionInferior = 0;
+        this.calificacionManos = 0;
         this.usuario = usuario;
     }
     
     public void ajustarPreferencia(Usuario usuario) {
-    	if(calificacion<4) 
-    		usuario.setSensacionTermica(usuario.getSensacionTermica()-1); //supone que el usuario es mas friolento
-    	else if(calificacion>6)
-    		usuario.setSensacionTermica(usuario.getSensacionTermica()+1);//supone que es caluroso
+    	
+    	if(calificacionSuperior<0) 
+    		usuario.getSensibilidad().setFriolentoSuperior(); 
+    	else if(calificacionSuperior>0)
+    		usuario.getSensibilidad().setCalurosoSuperior();
+    	
+    	//--------------
+    	
+    	if(calificacionInferior<0) 
+    		usuario.getSensibilidad().setFriolentoInferior(); 
+    	else if(calificacionInferior>0)
+    		usuario.getSensibilidad().setCalurosoInferior(); 
+    	
+    	//------------
+    	if(calificacionManos<0) 
+    		usuario.getSensibilidad().setFriolentoManos();
+    	else if(calificacionManos>0)
+    		usuario.getSensibilidad().setCalurosoManos(); 
+    	
+    	
     }
-    
-    /*
-     * ajustarPreferencia: Si la puntuacion es <4 le restara un punto de sensacion suponiendo
-     * que es mas friolento. Si la puntuacion es >6 considera que es mas caluroso.
-     * Si la puntuacion esta entre 4 5 6 el sistema considera que el usuario esta satisfecho 
-     * Asi se va actualizando y aprende del usuario ajustando su medidor subjetivo de T°
-     */
 }
