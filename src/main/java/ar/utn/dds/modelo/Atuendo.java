@@ -21,10 +21,20 @@ public class Atuendo {
     }
     public boolean compatibleConTiempo(Pronostico pronostico,Usuario usuario) {
     	return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
-    			prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo())) &&
-    		    (pronostico.haceFrio() && this.nivelDeCalorTotal()>14-usuario.getSensacionTermica()  && this.nivelDeCalorTotal()<30  //MAX y MIN
-    		    		|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()<=pronostico.getTemperatura()+usuario.getSensacionTermica())); 
+    			prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo()));
+    	
+    			//(pronostico.haceFrio() && this.nivelDeCalorTotal()>14 && this.nivelDeCalorTotal()<30  //MAX y MIN
+	    		//|| (!pronostico.haceFrio() && this.nivelDeCalorTotal()<=pronostico.getTemperatura())); 
     }
+    public boolean compatibleConSensibilidad(Usuario usuario) {
+    	Sensibilidad sens= usuario.getSensibilidad();
+    	return sens.satisfaceSuperior(this.nivelDeCalor(Categoria.TORSO)) &&
+    			sens.satisfaceInferior(this.nivelDeCalor(Categoria.PARTEINFERIOR)) &&
+    			sens.satisfaceManos(this.nivelDeCalor(Categoria.MANOS));
+    }
+  
+    
+    
     
     public boolean tieneEstilo(){
         return this.prendas.stream().map(prenda -> prenda.getEstilo()).distinct().collect(Collectors.toList()).size() == 1;
