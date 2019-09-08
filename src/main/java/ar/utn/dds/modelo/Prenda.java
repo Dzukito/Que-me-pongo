@@ -114,7 +114,7 @@ public class Prenda{
     
     public void cargarImagen(String path, Fotografo normalizador) {
     	String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg";//nombre para la imagen en la carpeta donde se almacena
-    	//normalizarUnaImagen(path,destino, 600,600,"jpg");
+    	
     	normalizador.normalizarUnaImagen(path, destino, 600, 600, ".jpg"); //el adminImg normaliza la imagen 
     	this.imagen.add(destino); 
     	
