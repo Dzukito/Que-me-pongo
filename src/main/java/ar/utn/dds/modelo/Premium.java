@@ -16,11 +16,8 @@ public class Premium extends Membrecia{
     @Override
     public void cambiarAGratuito(Usuario usuario) {
     	
-    	Properties constantes = new Properties(); /*variable que lee las propiedades*/
-    	try { constantes.load(new FileReader("src/main/java/ar/utn/dds/config.properties"));
-		}catch (IOException e) {
-			 System.out.println("Error al abrir archivo de configuracion");
-		} 
+    	LectorConfig lc= new LectorConfig();
+    	Properties constantes=lc.leerConfig();
     	
     	int maxPrendasGuarda= Integer.valueOf(constantes.getProperty("maximoPrendasGuardaropa"));
     	//hay que pasarlo a int porque los archivos properties siempre te devuelven Strings :P
