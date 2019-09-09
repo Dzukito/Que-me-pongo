@@ -1,16 +1,18 @@
 package ar.utn.dds.modelo;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimerTask;
 
 public class TareaProgramada extends TimerTask  {
-	private Usuario usuario;
+	private List<Usuario> usuarios;
 
-	
-	public TareaProgramada(Usuario usuario){
-		this.usuario= usuario;
+//despues sacar esta lista de usuarios y agregar un metodo de buscar usuarios en la base
+	public TareaProgramada(List<Usuario> usuarios){
+		this.usuarios= usuarios;
 		
 	}
+	
 	@Override
 	public void run() {
 		this.encontrarSugerenciasParaEventosDelDia();
@@ -19,11 +21,14 @@ public class TareaProgramada extends TimerTask  {
 	
 	private void encontrarSugerenciasParaEventosDelDia() {
 		
-		for (int i = 0; i <usuario.getEventos().size(); i++) {
-			if(usuario.getEventos().get(i).diasRestantesParaElEvento()==0 || usuario.getEventos().get(i).estoyEnEvento(Calendar.getInstance())){
-				usuario.updateEventoProximo(usuario.getEventos().get(i));
-	        }
+		for (Usuario usuario : usuarios) {
+			for (Evento evento : usuario.getEventos()) {
+				if(evento.diasRestantesParaElEvento()==0 || evento.estoyEnEvento(Calendar.getInstance())){
+					usuario.updateEventoProximo(evento);					
+		        }
+			}
 		}
+		
 		
 	}
 
