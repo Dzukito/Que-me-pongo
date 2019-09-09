@@ -48,6 +48,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     }
     public boolean estoyEnEseHorario(Evento evento) { return (this.horaComienzo.before(evento.horaTermino()) && this.horaTermino.after(evento.horaComienzo())); }
     public long diasRestantesParaElEvento(){ return Duration.between(Calendar.getInstance().toInstant(),horaComienzo.toInstant()).toDays(); }
+    public boolean estoyEnEvento(Calendar fecha) { return (this.horaComienzo.before(fecha) && this.horaTermino.after(fecha)); }
     public Ubicacion ubicacion(){ return this.ubicacion; }
     Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo){
         this.horaComienzo= horaComienzo;

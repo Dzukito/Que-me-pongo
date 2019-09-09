@@ -117,4 +117,11 @@ public class Usuario implements EventoProximoObservador{
     public void setSensibilidad(Sensibilidad sens) {
         this.sensibilidad = sens;
     }
+
+    public ArrayList<Evento> getEventos() {
+		return eventos;
+	}
+	public void setEventos(ArrayList<Evento> eventos) {
+		this.eventos = eventos;
+	}
 }
