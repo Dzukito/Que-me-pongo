@@ -45,7 +45,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     }
     public Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
         Atuendo atuendo = this.sugerirAtuendo();
-
+  
         if(atuendo.tieneEstiloEnParticular(evento.estilo()) && atuendo.compatibleConTiempo(pronostico,usuario) 
         		&& atuendo.compatibleConSensibilidad(usuario))
         {

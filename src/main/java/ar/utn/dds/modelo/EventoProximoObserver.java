@@ -13,7 +13,7 @@ public class EventoProximoObserver {
     }
     public void notifyEventoProximoObserver(Evento evento){
     //    try {
-            this.observadores.forEach(observador -> observador.updateEventoProximo(evento));
+            this.observadores.forEach(observador -> observador.generaAtuendosParaEvento(evento));
     //    }catch (Exception e){}
     }
     EventoProximoObserver(){

@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Usuario implements EventoProximoObservador{
+public class Usuario{
     private List<Guardaropa> roperos;
     private String userName;
     private Membrecia membrecia;
@@ -20,8 +20,13 @@ public class Usuario implements EventoProximoObservador{
     private Sensibilidad sensibilidad; //arranca en 0. Para los negativos es friolento para los positivos caluroso
 
 
-    public ArrayList<Enviador> getEnviadores() {
-        return enviadores;
+    Usuario(String userName, ArrayList<Guardaropa> roperos){
+        this.userName = userName;
+        this.roperos = roperos;
+        this.membrecia = new Gratuito();
+        this.eventos = new ArrayList<Evento>();
+        this.meteorologos = new ArrayList<Meteorologo>();
+        this.sensibilidad= new Sensibilidad(0,0,0);
     }
 
 
@@ -65,14 +70,7 @@ public class Usuario implements EventoProximoObservador{
     }
     public boolean puedoAsistir(Evento evento){ return !eventos.stream().anyMatch(evento1 -> evento1.estoyEnEseHorario(evento)); }
 
-    Usuario(String userName, ArrayList<Guardaropa> roperos){
-        this.userName = userName;
-        this.roperos = roperos;
-        this.membrecia = new Gratuito();
-        this.eventos = new ArrayList<Evento>();
-        this.meteorologos = new ArrayList<Meteorologo>();
-        this.sensibilidad= new Sensibilidad(0,0,0);
-    }
+    
     public int cantidadPrendas(int guardaropa){
         return this.roperos.get(guardaropa).cantidadDePrendas();
     }
@@ -93,24 +91,26 @@ public class Usuario implements EventoProximoObservador{
     public Atuendo pedirAtuendo(int i){
         return this.roperos.get(i).sugerirAtuendo();
     }
+    
     public int cantidadDeAtuendosDisponibles(int i){ return this.roperos.get(i).cantidadDeAtuendosPosibles(); }
     public void cambiarMembrecia(Membrecia membrecia) {
         this.membrecia = membrecia;
     }
+    
     public int cantidadDeRoperos() { return this.roperos.size(); }
     public boolean tengoGuardaropas(Guardaropa ropero){
         return this.roperos.contains(ropero);
     }
-    public List<Guardaropa> misRoperos(){ return this.roperos;}
-    public Membrecia miMembrecia(){ return this.membrecia;}
-
-    @Override
-    public void updateEventoProximo(Evento evento) {
+   
+    public void generaAtuendosParaEvento(Evento evento) {
         List<Atuendo> atuendos = this.roperos.stream()
                 .map(ropero -> ropero.sugerirAtuendo(this.meteorologo.getPronosticoTiempoYUbicacion(evento.horaComienzo(),evento.ubicacion()),evento,this))
                 .collect(Collectors.toList());
         evento.agregarSugerencias(atuendos);
     }
+    
+    public List<Guardaropa> misRoperos(){ return this.roperos;}
+    public Membrecia miMembrecia(){ return this.membrecia;}
     public Sensibilidad getSensibilidad() {
         return this.sensibilidad;
     }
@@ -124,4 +124,8 @@ public class Usuario implements EventoProximoObservador{
 	public void setEventos(ArrayList<Evento> eventos) {
 		this.eventos = eventos;
 	}
+	
+	public ArrayList<Enviador> getEnviadores() {
+        return enviadores;
+    }
 }
