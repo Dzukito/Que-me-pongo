@@ -143,10 +143,5 @@ public class MeteorologoAccuWeatherAdapter implements Meteorologo {
 		}
 		return (temperaturaMax+temperaturaMin)/2;
 	}
-	
-    @Override
-    public Pronostico getPronostico(String ciudad, String Pais) {
-        return null;
-    }
 
 }

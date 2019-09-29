@@ -15,6 +15,34 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     private Atuendo atuendo;
     private ArrayList<Atuendo> atuendosSugeridos;
     private int tiempoAviso;
+    
+    Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo, int tiempoAviso){
+        this.horaComienzo= horaComienzo;
+        this.horaTermino = horaTermino;
+        this.ubicacion = ubicacion;
+        this.estilo = estilo;
+        this.tiempoAviso = tiempoAviso;
+        this.atuendosSugeridos = new ArrayList<Atuendo>();
+    }
+    Evento(Calendar horaComienzo, int duracion, Ubicacion ubicacion, Estilo estilo, int tiempoAviso){
+        Calendar horaTermino2 = Calendar.getInstance();
+        horaTermino2.add(Calendar.HOUR, duracion);
+        this.horaComienzo= horaComienzo;
+        this.horaTermino = horaTermino2;
+        this.ubicacion = ubicacion;
+        this.estilo = estilo;
+        this.tiempoAviso = tiempoAviso;
+        this.atuendosSugeridos = new ArrayList<Atuendo>();
+    }
+    
+    Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo){
+        this.horaComienzo= horaComienzo;
+        this.horaTermino = horaTermino;
+        this.ubicacion = ubicacion;
+        this.estilo = estilo;
+        this.tiempoAviso = Constantes.proximidadEstandarEventoEnDiaz;
+        this.atuendosSugeridos = new ArrayList<Atuendo>();
+    }
 
 
     public void alertaMeteorologica(Usuario usuario, Guardaropa guardaropa, Pronostico pronostico){
