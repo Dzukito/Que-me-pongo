@@ -9,26 +9,21 @@ public class AceptarSugerenciaObserver implements OpcionPorSugerenciaCommand{
     public void attach(AceptarSuegerenciaObservador observador) {
         this.observadores.add(observador);
     }
-
     public void deattach(AceptarSuegerenciaObservador observador) {
         this.observadores.remove(observador);
     }
-
     public void notifyAceptarSugerencia(Atuendo atuendo) {
         this.observadores.forEach(observador -> observador.updateAceptarSugerencia(atuendo));
     }
-
     public void notifyDesAceptarSugerencia(Atuendo atuendo, Atuendo atuendoViejo){
         this.observadores.forEach(observador -> observador.downdateAceptarSugerencia(atuendo, atuendoViejo));
     }
-    AceptarSugerenciaObserver(){
-        this.observadores = new ArrayList<AceptarSuegerenciaObservador>(){};
-    }
-
 	@Override
 	public void ejecutar(Atuendo atuendo) {
 		this.notifyAceptarSugerencia(atuendo);
 	}
-
-	
+    //Constructores-------------------------------------------
+    AceptarSugerenciaObserver(){
+        this.observadores = new ArrayList<AceptarSuegerenciaObservador>(){};
+    }
 }

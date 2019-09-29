@@ -10,4 +10,7 @@ public class Masculino implements Sexo {
     public boolean femenino(String sexo) {
         return sexo == "Femenino";
     }
+
+    @Override
+    public boolean unisex(String sexo){ return false;}
 }

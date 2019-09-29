@@ -1,10 +1,7 @@
 package ar.utn.dds.modelo;
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Properties;
 
-import ar.utn.dds.Constantes;
 import ar.utn.dds.excepciones.CantidadDeArmariosMaximo;
 import ar.utn.dds.excepciones.CantidadDePrendasMaxima;
 
@@ -47,8 +44,8 @@ public class Gratuito extends Membrecia {
 
     @Override
     public void cambiarAPremium(Usuario usuario) {
-    	usuario.cambiarMembrecia(new Premium());
-    	usuario.misRoperos().forEach(ropero->ropero.desbloquearTodo());
+    	usuario.setMembrecia(new Premium());
+    	usuario.getRoperos().forEach(ropero->ropero.desbloquearTodo());
     }
 
     @Override

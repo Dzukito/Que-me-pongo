@@ -16,14 +16,14 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     private ArrayList<Atuendo> atuendosSugeridos;
     private int tiempoAviso;
 
+
     public void alertaMeteorologica(Usuario usuario, Guardaropa guardaropa, Pronostico pronostico){
         usuario.getEnviadores().forEach(enviador -> enviador.enviarAlertaMeteorologica(
                 enviador.getDireccion(),
                 "Alerta meteorologica",
                 "Desea cambiar su atuendo a uno mas adecuado a las nuevas condiciones meteorologicas, le sugerimos:",
-                guardaropa.sugerirAtuendo(pronostico,this,usuario).Imagenes()));
+                guardaropa.sugerirAtuendo(pronostico,this,usuario).getImagenes()));
     }
-
     public void agregarSugerencias(List<Atuendo> atuendosSugeridos){
         atuendosSugeridos.stream()
                 .filter(atuendo1 -> !this.atuendosSugeridos.stream()
@@ -37,19 +37,24 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
         return this.sugerencias().size() != 0;
     }
     public long duracion(){ return Duration.between(horaComienzo.toInstant(),horaTermino.toInstant()).toHours(); }
-    public Estilo estilo(){
-        return this.estilo;
-    }
-    public Calendar horaTermino(){
-        return this.horaTermino;
-    }
-    public Calendar horaComienzo(){
-        return this.horaComienzo;
-    }
-    public boolean estoyEnEseHorario(Evento evento) { return (this.horaComienzo.before(evento.horaTermino()) && this.horaTermino.after(evento.horaComienzo())); }
+    public boolean estoyEnEseHorario(Evento evento) { return (this.horaComienzo.before(evento.getHoraTermino()) && this.horaTermino.after(evento.getHoraComienzo())); }
     public long diasRestantesParaElEvento(){ return Duration.between(Calendar.getInstance().toInstant(),horaComienzo.toInstant()).toDays(); }
     public boolean estoyEnEvento(Calendar fecha) { return (this.horaComienzo.before(fecha) && this.horaTermino.after(fecha)); }
-    public Ubicacion ubicacion(){ return this.ubicacion; }
+
+
+    //Getters-y-Setters-----------------------------------------------
+    public Calendar getHoraTermino(){
+        return this.horaTermino;
+    }
+    public Calendar getHoraComienzo(){
+        return this.horaComienzo;
+    }
+    public Ubicacion getUbicacion(){ return this.ubicacion; }
+    public Estilo getEstilo(){
+        return this.estilo;
+    }
+    public Atuendo getAtuendo(){ return this.atuendo; }
+    //Constructores---------------------------------------------------
     Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo){
         this.horaComienzo= horaComienzo;
         this.horaTermino = horaTermino;
@@ -77,6 +82,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
         this.atuendosSugeridos = new ArrayList<Atuendo>();
     }
 
+    //Methods-of-patters----------------------------------------------
     @Override
     public void updateAceptarSugerencia(Atuendo atuendo) {
         this.atuendo = atuendo;

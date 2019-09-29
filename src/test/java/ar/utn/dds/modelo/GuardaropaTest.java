@@ -1,5 +1,6 @@
 package ar.utn.dds.modelo;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -113,9 +114,24 @@ public class GuardaropaTest {
         irALaFacu = new Evento(pasadomaniana,pasadomaniana,buenosAires,Estilo.ELEGANTSPORT);
         entreCasa = new Evento(fechaDeHoyMenos2Hora,fechaDeHoy,buenosAires,Estilo.NORMAL);
     }
+
     @Test
-    public void generarAtuendo() {
+    public void agregarUsuario(){
         setup();
-        System.out.println(ropero2.generarAtuendo(nivelDeCalor1,entreCasa).NombresPrendas());
+        Usuario usuarioNuevo = new Usuario("UsuarioNuevo",new ArrayList<Guardaropa>());
+        ropero1.agregarUsuario(usuarioNuevo);
+        Assert.assertEquals(1, ropero1.getUsuarios().size());
+    }
+    @Test
+    public void quitarUsuario(){
+        setup();
+        Usuario usuarioNuevo = new Usuario("UsuarioNuevo",new ArrayList<Guardaropa>());
+        ropero1.agregarUsuario(usuarioNuevo);
+        ropero1.quitarUsuario(usuarioNuevo);
+        Assert.assertEquals(0, ropero1.getUsuarios().size());
+    }
+    @Test
+    public void prendasYaUsadasPorOtro(){
+
     }
 }

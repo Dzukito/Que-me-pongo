@@ -28,7 +28,9 @@ public enum TipoClima {
     public List<String> prendasNegadas(){
         return this.prendasNegadas;
     }
-
+    public boolean esUnaPrendaQueSatisface(String prenda){
+        return this.prendasSatisfacen.contains(prenda);
+    }
     public boolean esUnaPrendaNegada(String prenda) {
         return this.prendasNegadas.contains(prenda);
     }

@@ -71,13 +71,13 @@ public class PrendaTest {
     @Test
     public void colorPrimario() {
     	this.init();
-    	Assert.assertEquals(Color.Blanco, prenda1.colorPrimario());
+    	Assert.assertEquals(Color.Blanco, prenda1.getColorPrimario());
     }
 
     @Test
     public void colorSecundario() {
     	this.init();
-    	Assert.assertEquals(Color.Negro, prenda1.colorSecundario());
+    	Assert.assertEquals(Color.Negro, prenda1.getColorSecundario());
     }
     
 

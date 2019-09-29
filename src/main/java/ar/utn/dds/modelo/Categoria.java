@@ -12,6 +12,7 @@ public enum Categoria {
     private int nivelCalorMinimo;
     private int nivelCalorMaximo;
 
+    public int getPuntoMedio(){ return ((this.nivelCalorMaximo/2)-(this.nivelCalorMaximo%2)); }
     public int getNivelCalorMinimo(){
         return this.nivelCalorMinimo;
     }

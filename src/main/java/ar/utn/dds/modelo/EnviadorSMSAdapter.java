@@ -11,7 +11,6 @@ public class EnviadorSMSAdapter extends Enviador{
     @Override
     public void enviar(String direccion, String asunto, String mensaje) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-
         Message message = Message.creator(new PhoneNumber(twilioNumber),
                 new PhoneNumber(direccion),
                 asunto + " " + mensaje).create();
@@ -22,10 +21,8 @@ public class EnviadorSMSAdapter extends Enviador{
     @Override
     public void enviar(String direccion, String asunto, String mensaje, ArrayList<String> image) {
         }
-
     @Override
     public void enviarSugerencia(String direccion, String asunto, String mensaje, ArrayList<String> image) {
-
     }
 
     @Override

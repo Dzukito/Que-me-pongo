@@ -6,12 +6,9 @@ import ar.utn.dds.excepciones.AlMenosUnColor;
 import ar.utn.dds.excepciones.ElMaterialNoPerteneceALaPrenda;
 import ar.utn.dds.excepciones.SoloTieneUnColor;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import org.junit.Assert;
 import org.junit.Before;
 
 public class ExcepcionesTest {
@@ -52,7 +49,7 @@ public class ExcepcionesTest {
     public void soloUnColor() {
     	this.init();
     	prenda1 = new Prenda(pantalon, "PantalonAzulado", azul, Material.JEAN); //(solo tiene azul)
-    	prenda1.colorSecundario();
+    	prenda1.getColorSecundario();
     	
     
     }
