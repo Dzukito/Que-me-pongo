@@ -98,24 +98,6 @@ public class UsuarioTest {
     }
 
     @Test
-    public void cantidadDeAtuendosCon4Prendas() {
-        this.setup();
-        Assert.assertEquals(1, usuario1.cantidadDeAtuendosDisponibles(0));
-    }
-
-    @Test
-    public void cantidadDeAtuendosCon8Prendas() {
-        this.setup();
-       Assert.assertEquals(16, usuario2.cantidadDeAtuendosDisponibles(0));
-   }
-
-    @Test
-    public void cantidadDeAtuendosCon5Prendas() {
-        this.setup();
-        Assert.assertEquals(2, usuario3.cantidadDeAtuendosDisponibles(0));
-    }
-
-    @Test
     public void cantidadDePrendas(){
         this.setup();
         Assert.assertEquals(usuario1.cantidadPrendas(0),4);

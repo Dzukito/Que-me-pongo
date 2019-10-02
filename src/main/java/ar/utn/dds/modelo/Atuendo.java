@@ -5,6 +5,7 @@ import ar.utn.dds.excepciones.EsaPrendaYaLaTengo;
 import ar.utn.dds.excepciones.noPuedeSuperponerse;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 public class Atuendo {
@@ -13,7 +14,7 @@ public class Atuendo {
     private ArrayList<CalificacionAtuendo> calificaciones;
 
 
-    //Metodos-no-se-usan----------------------------------
+    //Metodos-no-se-usan--------------------------------------------------------------------
     public List<String> TiposDePrendas() {
         return prendas.stream().map(prenda -> prenda.getTipoDePrenda().categoria()).collect(Collectors.toList());
     }
@@ -30,7 +31,7 @@ public class Atuendo {
         return prendas.stream().map(prenda -> prenda.getNombrePrenda()).collect(Collectors.toList());
     }
 
-    //Metodos-privados------------------------------------
+    //Metodos-privados----------------------------------------------------------------------
     private void esaPrendaYaLaTengo(Prenda nuevaPrenda){ //Ya no evalua la categoria, sino el tipo, porque puedo tener una remera y un buso-ambos son de la misma categoria
         if (this.prendas.stream().anyMatch(prenda -> prenda.getTipoDePrenda().tipo() == nuevaPrenda.getTipoDePrenda().tipo() )) {
             throw new EsaPrendaYaLaTengo();
@@ -39,14 +40,19 @@ public class Atuendo {
     private boolean tengoTusPrendas(Atuendo atuendo){
         return this.prendas.stream().allMatch(prenda -> atuendo.tengoPrenda(prenda));
     }
-    public int nivelDeCalor(Categoria categoria){
-        return this.prendas.stream().filter(prenda -> prenda.getCategoria() == categoria.getCategoria()).collect(Collectors.toList()).size();
-    }
+
+    //Metodos-publicos----------------------------------------------------------------------
     public boolean compatibleConTiempo(Pronostico pronostico,Usuario usuario) {
-    	return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
-    			prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo()));
+        return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
+                prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo()));
     }
-    //Estilos
+    public boolean satisfaceNivelesDeCalor(ArrayList<NivelDeCalor>nivelesDeCalor){
+        return nivelesDeCalor.stream().allMatch( nivelDeCalor ->
+                this.prendas.stream().filter(
+                    prenda -> prenda.getTipoDePrenda().getCategoria() == nivelDeCalor.getCategoria())
+                    .collect(Collectors.toList()).size() == nivelDeCalor.getNivelDeCalor()
+        );
+    }
     public boolean tieneEstiloEnParticular(Estilo estilo){
         return this.prendas.stream().anyMatch(prenda -> prenda.tieneEstilo(estilo));
     }
@@ -60,36 +66,34 @@ public class Atuendo {
     public boolean tengoPrenda(Prenda prenda){
         return this.prendas.stream().anyMatch(prenda1 -> prenda1.somosIguales(prenda));
     }
+    public float promedioCalificaciones(Usuario usuario, Evento evento, Pronostico pronostico) {
+        AtomicReference<Integer> w= new AtomicReference<>(0);
+        this.getCalificacionesPor(usuario, pronostico, evento).stream().map(calificaicon -> w.updateAndGet(v -> v + calificaicon));
+        return  w.get() / this.getCalificacionesPor(usuario, pronostico, evento).size();
+    }
+    //Getters-y-Setters----------------------------------------------------------------------
     public void agregarPrenda(Prenda prenda){
         try {
             this.esaPrendaYaLaTengo(prenda);
             this.prendas.add(prenda);
-            
+
         }catch (EsaPrendaYaLaTengo e){
             this.cambiarPrenda(prenda);
         }
     }
-    public void agregarUsabilidad() {
-        this.usabilidad = this.usabilidad +1;
+    public void agregarUsabilidad() { this.usabilidad = this.usabilidad +1; }
+    public int nivelDeCalor(Categoria categoria){ return this.prendas.stream().filter(prenda -> prenda.getCategoria() == categoria.getCategoria()).collect(Collectors.toList()).size(); }
+    public List<Integer> getCalificacionesPor(Usuario usuario, Pronostico pronostico, Evento evento){
+        return  this.calificaciones.stream()
+                .filter(calificacionAtuendo -> calificacionAtuendo.mismasCondiciones(usuario,evento,pronostico))
+                .map(calificacionAtuendo -> calificacionAtuendo.getCalificacion())
+                .collect(Collectors.toList());
     }
-
-
-    //Getters-y-Setters----------------------------------------------
-    public ArrayList<Prenda> getPrendas(){
-        return this.prendas;
-    }
-    public ArrayList<TipoPrenda> getTiposDePrenda(){
-        return (ArrayList<TipoPrenda>) this.getPrendas().stream().map(prenda -> prenda.getTipoDePrenda()).collect(Collectors.toList());
-    }
-    public Prenda getPrenda(String categoria) {
-        return this.prendas.stream().filter(prenda -> prenda.getCategoria() == categoria).collect(Collectors.toList()).get(0);
-    }
-    public List<List<String>> getImagenes() { //lista con las listas de imagenes de c/prenda
-        return prendas.stream().map(prenda -> prenda.getFotografo().imagenes()).collect(Collectors.toList());
-    }
-    public void setterCalificacion(CalificacionAtuendo calif) {
-        this.calificaciones.add(calif);
-    }
+    public ArrayList<Prenda> getPrendas(){ return this.prendas; }
+    public ArrayList<TipoPrenda> getTiposDePrenda(){ return (ArrayList<TipoPrenda>) this.getPrendas().stream().map(prenda -> prenda.getTipoDePrenda()).collect(Collectors.toList()); }
+    public Prenda getPrenda(String categoria) { return this.prendas.stream().filter(prenda -> prenda.getCategoria() == categoria).collect(Collectors.toList()).get(0); }
+    public List<List<String>> getImagenes() { return prendas.stream().map(prenda -> prenda.getFotografo().imagenes()).collect(Collectors.toList()); }
+    public void setterCalificacion(CalificacionAtuendo calif) { this.calificaciones.add(calif); }
     //Constructores--------------------------------------------------
     Atuendo(){
         this.prendas = new ArrayList<Prenda>();

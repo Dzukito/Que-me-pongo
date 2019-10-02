@@ -40,7 +40,9 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     public boolean estoyEnEseHorario(Evento evento) { return (this.horaComienzo.before(evento.getHoraTermino()) && this.horaTermino.after(evento.getHoraComienzo())); }
     public long diasRestantesParaElEvento(){ return Duration.between(Calendar.getInstance().toInstant(),horaComienzo.toInstant()).toDays(); }
     public boolean estoyEnEvento(Calendar fecha) { return (this.horaComienzo.before(fecha) && this.horaTermino.after(fecha)); }
-
+    public boolean eventoSimilar(Evento evento) {
+        return this.estilo == evento.getEstilo();
+    }
 
     //Getters-y-Setters-----------------------------------------------
     public Calendar getHoraTermino(){
@@ -99,4 +101,5 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     @Override
     public void downdateRechazarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
     }
+
 }

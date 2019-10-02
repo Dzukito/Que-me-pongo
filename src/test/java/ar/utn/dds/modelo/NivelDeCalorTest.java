@@ -6,7 +6,8 @@ import static org.junit.Assert.*;
 
 public class NivelDeCalorTest {
     NivelDeCalor nivelDeCalor = new NivelDeCalor(Categoria.TORSO,3);
-    @Test
+
+/*    @Test
     public void reducirNivelDeCalor() {
         System.out.println();
     }
@@ -14,4 +15,5 @@ public class NivelDeCalorTest {
     @Test
     public void aumentarNivelDeCalor() {
     }
+ */
 }

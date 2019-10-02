@@ -4,6 +4,7 @@ import ar.utn.dds.excepciones.HorarioYaOcupado;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Usuario implements EventoProximoObservador{
@@ -11,10 +12,9 @@ public class Usuario implements EventoProximoObservador{
     private String userName;
     private Membrecia membrecia;
     private ArrayList<Evento> eventos;
-    private List<Atuendo> atuendosUsados;
     private String sexo;
     private ArrayList<Enviador> enviadores;
-    private Sensibilidad sensibilidad; //arranca en 0. Para los negativos es friolento para los positivos caluroso
+    private Sensibilidad sensibilidad;
 
 
     //Metodos-que-no-se-usan-------------------------------
@@ -30,24 +30,23 @@ public class Usuario implements EventoProximoObservador{
         observadores.forEach(observador -> observer.attach(observador));
         observer.notifyAceptarSugerencia(atuendo);
     }
-    public void usarAtuendo(Atuendo atuendo){
-        this.atuendosUsados.add(atuendo);
-    }
     public int cantidadAtuendos(int i){
         return roperos.get(i).cantidadAtuendosGenerados();
     }
-    public Membrecia getMembrecia(){ return this.membrecia;}
-    public Atuendo pedirAtuendo(int i){
-        return this.roperos.get(i).sugerirAtuendo();
-    }
+    public Membrecia getMembrecia(){ return this.membrecia; }
     public ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){
         return ropero.atuendosGenerados();
     }
     //Metodos-privados--------------------------------------
     //Metedos-publicos--------------------------------------
+    @Override
+    public int hashCode(){
+        return Objects.hash(this.roperos, this.userName, this.membrecia, this.enviadores, this.eventos, this.sexo, this.sensibilidad);
+    }
+    public boolean mismoUsuario(Usuario usuario) { return this.hashCode() == usuario.hashCode(); }
     public void calificar(Atuendo atuendo, CalificacionAtuendo calif) {
         atuendo.setterCalificacion(calif);
-        calif.ajustarPreferencia(this);
+//        calif.ajustarPreferencia(this);
     }
     public void compartirGuardaropas(int i, Usuario usuario){
         usuario.agregarRopero(this.getGuardaropa(i));
@@ -56,12 +55,13 @@ public class Usuario implements EventoProximoObservador{
     public int cantidadPrendas(int guardaropa){
         return this.roperos.get(guardaropa).cantidadDePrendas();
     }
-    public int cantidadDePrendasPorCategoria(Prenda prenda, int i){ return this.getGuardaropa(i).cantidadDePrendasEnCategoria(prenda.getCategoria()); }
-    public int cantidadDeAtuendosDisponibles(int i){ return this.roperos.get(i).cantidadDeAtuendosPosibles(); }
+    public int cantidadDePrendasPorCategoria(String categoria, int i){ return this.getGuardaropa(i).cantidadDePrendasEnCategoria(categoria); }
     public int cantidadDeRoperos() { return this.roperos.size(); }
     public boolean tengoGuardaropas(Guardaropa ropero){
         return this.roperos.contains(ropero);
     }
+
+
     //Getters-y-Setters--------------------------------------------
     public Guardaropa getGuardaropa(int i){
         return this.roperos.get(i);
@@ -113,4 +113,5 @@ public class Usuario implements EventoProximoObservador{
 	public void setEventos(ArrayList<Evento> eventos) {
 		this.eventos = eventos;
 	}
+
 }

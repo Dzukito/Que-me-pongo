@@ -16,7 +16,7 @@ public class Gratuito extends Membrecia {
     	int maxPrendasTipo= Integer.valueOf(constantes.getProperty("maximoPrendasPorTipo"));
     	
         if (usuario.cantidadPrendas(i) < maxPrendasGuarda){ //uso las propiedades
-            if (usuario.cantidadDePrendasPorCategoria(prenda,i) < maxPrendasTipo){
+            if (usuario.cantidadDePrendasPorCategoria(prenda.getCategoria(),i) < maxPrendasTipo){
               super.agregarPrenda(prenda,usuario,i);
             }else{
                 throw new CantidadDePrendasMaxima();
