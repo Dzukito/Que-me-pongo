@@ -14,32 +14,18 @@ public class TipoPrenda {
     private String tipo;
     private Categoria categoria;
     private Set<Material> materiales;
+    private Fotografo fotografo;
     private Set<TipoPrenda> superponibles;
     //private NivelDeCalor nivelDeCalor;
 
 
+    public Fotografo getFotografo() { return fotografo; }
     @Override
     public int hashCode(){
         return Objects.hash(this.tipo, this.categoria, this.materiales, this.superponibles);
     }
-    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales){
-        this.tipo = tipo;
-        this.materiales = materiales;
-        this.categoria = categoria;
-        this.superponibles = new HashSet<TipoPrenda>();
-    }
-    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales,Set<TipoPrenda> superponibles){
-        this.tipo = tipo;
-        this.materiales = materiales;
-        this.categoria = categoria;
-        this.superponibles = superponibles;
-    }
-    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales,Set<TipoPrenda> superponibles,String pathImg){
-        this.tipo = tipo;
-        this.materiales = materiales;
-        this.categoria = categoria;
-        this.superponibles = superponibles;
-       
+    public boolean mismoTipoDePrenda(TipoPrenda tipoPrenda){
+        return this.hashCode() == tipoPrenda.hashCode();
     }
     public boolean esSuperponible(TipoPrenda prenda){
         return superponibles.contains(prenda);
@@ -59,8 +45,27 @@ public class TipoPrenda {
         }
         return true;
     }
-  
     public int cantidadSuperponibles() {
         return  this.superponibles.size();
     }
+
+    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales){
+        this.tipo = tipo;
+        this.materiales = materiales;
+        this.categoria = categoria;
+        this.superponibles = new HashSet<TipoPrenda>();
+    }
+    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales,Set<TipoPrenda> superponibles){
+        this.tipo = tipo;
+        this.materiales = materiales;
+        this.categoria = categoria;
+        this.superponibles = superponibles;
+    }
+    TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales,Set<TipoPrenda> superponibles,String pathImg){
+        this.tipo = tipo;
+        this.materiales = materiales;
+        this.categoria = categoria;
+        this.superponibles = superponibles;
+    }
+
 }

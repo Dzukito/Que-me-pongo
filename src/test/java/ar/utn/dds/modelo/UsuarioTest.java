@@ -94,7 +94,7 @@ public class UsuarioTest {
     public void  compartirGuardaropa(){
         this.setup();
         usuario1.compartirGuardaropas(0,usuario2);
-        Assert.assertTrue(usuario2.tengoGuardaropas(usuario1.guardaropa(0)));
+        Assert.assertTrue(usuario2.tengoGuardaropas(usuario1.getGuardaropa(0)));
     }
 
     @Test

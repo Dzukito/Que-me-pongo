@@ -15,7 +15,6 @@ public class EnviadorEmailAdapter extends Enviador {
 
     @Override
     public void enviarSugerencia(String direccion, String asunto, String mensaje, ArrayList<String> image) {
-
     }
 
     @Override
@@ -45,7 +44,6 @@ public class EnviadorEmailAdapter extends Enviador {
             me.printStackTrace();   //Si se produce un error
         }
     }
-
     @Override
     public void enviar(String destinatario, String asunto, String mensaje) {
         String remitente = "tpdiseno2019@gmail.com";  //Para la dirección nomcuenta@gmail.com

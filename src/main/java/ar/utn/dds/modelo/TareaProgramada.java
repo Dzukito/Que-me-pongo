@@ -17,10 +17,8 @@ public class TareaProgramada extends TimerTask  {
 	public void run() {
 		this.encontrarSugerenciasParaEventosDelDia();
 	}
-	
-	
 	private void encontrarSugerenciasParaEventosDelDia() {
-		for (Usuario usuario : usuarios) {		
+		for (Usuario usuario : usuarios) {
 			for (Evento evento : usuario.getEventos()) {
 				if(evento.diasRestantesParaElEvento()==0 || evento.estoyEnEvento(Calendar.getInstance())){
 					usuario.generaAtuendosParaEvento(evento);					

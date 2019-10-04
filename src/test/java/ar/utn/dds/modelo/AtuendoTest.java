@@ -87,9 +87,9 @@ public class AtuendoTest {
     @Test
     public void cambiarPrenda() {
         this.setup();
-        assertEquals(remera2,atuendo3.getPrenda(remera2.categoria()));
+        assertEquals(remera2,atuendo3.getPrenda(remera2.getCategoria()));
         atuendo3.cambiarPrenda(remera1);
-        assertEquals(remera1,atuendo1.getPrenda(remera1.categoria()));
+        assertEquals(remera1,atuendo1.getPrenda(remera1.getCategoria()));
     }
 
     @Test
