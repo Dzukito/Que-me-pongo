@@ -91,6 +91,7 @@ public class EventoProximoObserverTest {
         ropero3.agregarPrendas(prendas3);
         meteorologo = new MeteorologoWeatherAdapter();
         usuario1 = new Usuario("Martin", new ArrayList<Guardaropa>());
+        usuario1.agregarMeteorolo(meteorologo);
         usuario1.agregarRopero(ropero1);
         usuario1.agregarRopero(ropero2);
         usuario1.agregarRopero(ropero3);

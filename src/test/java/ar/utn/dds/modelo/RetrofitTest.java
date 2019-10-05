@@ -24,24 +24,25 @@ public class RetrofitTest {
 	public void test1() {
 		Meteorologo meteorologo = new MeteorologoAccuWeatherAdapter();
 		meteorologo.getPronosticos(buenosAires);
-		Long fechaFormatoJson=(long) 1566939600;
+//		Long fechaFormatoJson=(long) 1566939600;
 		//x1000  para instanciar fecha de UNIX TimeStamp a fecha
-		Date fecha1 = new Date(fechaFormatoJson*1000);
+//		Date fecha1 = new Date(fechaFormatoJson*1000);
 		Calendar fecha = Calendar.getInstance();
-    	fecha.setTime(fecha1);
+		fecha.add(Calendar.HOUR, 3);
+//    	fecha.setTime(fecha1);
     	Pronostico pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires);
     	
 		System.out.println("test 1");
-		System.out.println(fecha1);
+		System.out.println(fecha.getTime());
 		System.out.println(pronostico.getNubosidad());
 		System.out.println(pronostico.getViento());
 		System.out.println(pronostico.getPrecipitacion());
 		System.out.println(pronostico.getTemperatura());
 		System.out.println(pronostico.getFecha().getTime());
 
-		assertEquals(67.0,pronostico.getNubosidad(), 30);
+		assertEquals(1.0,pronostico.getNubosidad(), 30);
 		assertEquals(7.5,pronostico.getViento(), 10);
-		assertEquals(6.0,pronostico.getPrecipitacion(), 5);
+		assertEquals(5.0,pronostico.getPrecipitacion(), 5);
 		assertEquals(15,pronostico.getTemperatura(), 10);
 //		assertEquals( fecha1,pronostico.getFecha().getTime());
 	}
@@ -52,13 +53,14 @@ public class RetrofitTest {
 		System.out.println("test 2");
 		Meteorologo meteorologo = new MeteorologoWeatherAdapter();
 		meteorologo.getPronosticos(buenosAires);
-		Long fechaFormatoJson=(long) 1566939600;
-		Date fecha1 = new Date(fechaFormatoJson*1000);
+//		Long fechaFormatoJson=(long) 1566939600;
+//		Date fecha1 = new Date(fechaFormatoJson*1000);
 		Calendar fecha = Calendar.getInstance();
-    	fecha.setTime(fecha1);
+		fecha.add(Calendar.HOUR, 3);
+
     	Pronostico pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires);
-    	
-		System.out.println(fecha1);
+
+		System.out.println(fecha.getTime());
 		System.out.println(pronostico.getNubosidad());
 		System.out.println(pronostico.getViento());
 		System.out.println(pronostico.getPrecipitacion());

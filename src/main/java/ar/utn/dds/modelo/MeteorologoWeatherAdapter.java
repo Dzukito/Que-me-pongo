@@ -23,17 +23,19 @@ public class MeteorologoWeatherAdapter implements Meteorologo {
     public List<Pronostico> getPronosticosPorCincoDias() {
 		return pronosticosPorCincoDias;
 	}
+    
 	@Override
 	public boolean alertaMeteorologica(Pronostico pronosticoEvento, Pronostico nuevoPronostico) {
 		return !pronosticoEvento.somosSimilares(nuevoPronostico);
 	}
+	
     @Override
     public Pronostico getPronosticoTiempoYUbicacion(Calendar tiempo, Ubicacion ubicacion) {
     	
-try{
+    	try{
 			
 	    	List<Pronostico> pronosticosDelDia =(List<Pronostico>) this.getPronosticosPorCincoDias().stream().filter(pronostico->pronostico.getFecha().get(Calendar.YEAR) == tiempo.get(Calendar.YEAR)
-	    			&& pronostico.getFecha().get(Calendar.MONTH)==tiempo.get(Calendar.MONTH) &&
+	    			&& pronostico.getFecha().get(Calendar.MONTH)+1==tiempo.get(Calendar.MONTH)+1 &&
 	    			pronostico.getFecha().get(Calendar.DATE)==tiempo.get(Calendar.DATE)).collect(Collectors.toList());
 	    	
 	    	if(pronosticosDelDia.equals(null)|| pronosticosDelDia.isEmpty()) {
@@ -42,11 +44,11 @@ try{
 	    	}
 	    	
 	    	int i=0;
-
-	    	for(i=0;pronosticosDelDia.get(i).getFecha().before(tiempo) && pronosticosDelDia.size()>i;i++);
+	    	
+	    	for(i=0;pronosticosDelDia.size()>i && pronosticosDelDia.get(i).getFecha().before(tiempo);i++);
 	    	
 	    	if(i==0) {
-	    	i=i+1; 
+	    		i=i+1; 
 	    	}
 
 	    	return pronosticosDelDia.get(i-1);
@@ -54,9 +56,8 @@ try{
 	    catch (Exception ex){
 	    	System.out.println("Error al obtener pronostico");
 	        System.out.println(ex.getMessage());
+	        throw ex;
 	    }
-		
-		return null;
     	
     }
     
@@ -120,9 +121,7 @@ try{
 					pronostico.agregarClimatologia(TipoClima.VENTOSO);
 				}
 				
-				if(pronostico.getPrecipitacion()<= 0){
-					pronostico.agregarClimatologia(TipoClima.NEVANDO);
-				}else {
+				if(pronostico.getPrecipitacion()> 0) {
 					pronostico.agregarClimatologia(TipoClima.LLUVIOSO);
 				}
 				
@@ -145,8 +144,4 @@ try{
 		
 	}
     
-    @Override
-    public Pronostico getPronostico(String ciudad, String Pais) {
-        return null;
-    }
 }

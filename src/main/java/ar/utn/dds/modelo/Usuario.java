@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Usuario implements EventoProximoObservador{
+public class Usuario{
     private List<Guardaropa> roperos;
     private String userName;
     private Membrecia membrecia;
@@ -17,7 +17,6 @@ public class Usuario implements EventoProximoObservador{
     private Sensibilidad sensibilidad;
 
 
-    //Metodos-que-no-se-usan-------------------------------
     public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, CalificacionAtuendo calificacion){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
         observadores.forEach(observador -> observer.attach(observador));
@@ -84,6 +83,7 @@ public class Usuario implements EventoProximoObservador{
     public void agregarRopero(Guardaropa ropero){
         this.roperos.add(ropero);
     }
+
     //Constructores------------------------------------------------
     Usuario(String userName, ArrayList<Guardaropa> roperos){
         this.userName = userName;
@@ -93,7 +93,7 @@ public class Usuario implements EventoProximoObservador{
         this.sensibilidad = new Ermitanio();
     }
     //Metodos-por-patrones------------------------------------------
-    @Override
+
     public void updateEventoProximo(Evento evento) {
         CentroClimatologico centroClimatologico = new CentroClimatologico();
         List<Atuendo> atuendos = this.roperos.stream()
@@ -101,6 +101,9 @@ public class Usuario implements EventoProximoObservador{
                 .collect(Collectors.toList());
         evento.agregarSugerencias(atuendos);
     }
+    
+    public List<Guardaropa> misRoperos(){ return this.roperos;}
+    public Membrecia miMembrecia(){ return this.membrecia;}
     public Sensibilidad getSensibilidad() {
         return this.sensibilidad;
     }

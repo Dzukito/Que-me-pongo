@@ -21,7 +21,7 @@ public class TareaProgramada extends TimerTask  {
 		for (Usuario usuario : usuarios) {
 			for (Evento evento : usuario.getEventos()) {
 				if(evento.diasRestantesParaElEvento()==0 || evento.estoyEnEvento(Calendar.getInstance())){
-					usuario.updateEventoProximo(evento);					
+					usuario.generaAtuendosParaEvento(evento);					
 		        }
 			}
 		}
