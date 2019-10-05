@@ -16,9 +16,9 @@ public class TipoPrenda {
     private Set<Material> materiales;
     private Fotografo fotografo;
     private Set<TipoPrenda> superponibles;
-    //private NivelDeCalor nivelDeCalor;
 
-
+    //Metodos-privados---------------------------------------------------------
+    //Metodos-publicos---------------------------------------------------------
     public Fotografo getFotografo() { return fotografo; }
     @Override
     public int hashCode(){
@@ -30,6 +30,17 @@ public class TipoPrenda {
     public boolean esSuperponible(TipoPrenda prenda){
         return superponibles.contains(prenda);
     }
+    public Boolean perteneceMaterial(Material material) {
+        if(!this.materiales().contains(material)) {
+            throw new ElMaterialNoPerteneceALaPrenda();
+        }
+        return true;
+    }
+
+    //Getters-y-Setters---------------------------------------------------------
+    public Categoria getCategoria() {
+        return categoria;
+    }
     public String categoria(){
         return this.categoria.getCategoria();
     }
@@ -39,16 +50,11 @@ public class TipoPrenda {
     public Set<Material> materiales() {
         return materiales;
     }
-    public Boolean perteneceMaterial(Material material) {
-        if(!this.materiales().contains(material)) {
-            throw new ElMaterialNoPerteneceALaPrenda();
-        }
-        return true;
-    }
     public int cantidadSuperponibles() {
         return  this.superponibles.size();
     }
 
+    //Constructores-------------------------------------------------------------
     TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales){
         this.tipo = tipo;
         this.materiales = materiales;

@@ -10,6 +10,20 @@ public class ConjuntosPredefinidos {
         private ArrayList<NivelDeCalor> nivelesDeCalor;
         private Sexo sexo;
 
+        //Not-used-methods---------------------------------------------------
+        public boolean mismoNivelDeCalor(ArrayList<NivelDeCalor> nivelesDeCalorDeOtro){
+                return this.nivelesDeCalor.stream().allMatch(nivelDeCalor -> nivelesDeCalorDeOtro.stream().anyMatch(nivelDeCalor1 -> nivelDeCalor.hashCode() == nivelDeCalor1.hashCode()));
+        }
+        //Private-methods----------------------------------------------------
+        //Public-methods-----------------------------------------------------
+        public Atuendo cargarAtuendo(ArrayList<Prenda> prendas){
+                Atuendo atuendo = new Atuendo();
+                this.conjunto.stream().forEach(tipoPrenda ->
+                        atuendo.agregarPrenda(
+                                prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda)).collect(Collectors.toList()).get(1)
+                        ));
+                return atuendo;
+        }
         public boolean yaExisteConjunto(ArrayList<ConjuntosPredefinidos> conjuntosGuardaropa){
                 return conjuntosGuardaropa.stream().anyMatch(conjunto -> this.mismoConjunto(conjunto));
         }
@@ -19,9 +33,6 @@ public class ConjuntosPredefinidos {
         public boolean esteAtuendoEsmiConjunto(Atuendo atuendo){
                 ConjuntosPredefinidos conjunto = new ConjuntosPredefinidos(atuendo.getTiposDePrenda());
                 return this.mismoConjunto(conjunto);
-        }
-        public boolean mismoNivelDeCalor(ArrayList<NivelDeCalor> nivelesDeCalorDeOtro){
-                return this.nivelesDeCalor.stream().allMatch(nivelDeCalor -> nivelesDeCalorDeOtro.stream().anyMatch(nivelDeCalor1 -> nivelDeCalor.hashCode() == nivelDeCalor1.hashCode()));
         }
         public int nivelDeCalor(Categoria categoria){ return this.conjunto.stream().filter(tipoPrenda -> tipoPrenda.categoria() == categoria.getCategoria()).collect(Collectors.toList()).size(); }
         public ArrayList<TipoPrenda> getConjunto() {
@@ -36,12 +47,11 @@ public class ConjuntosPredefinidos {
         }
 
 
-
+        //Builders-----------------------------------------------------------
         ConjuntosPredefinidos(ArrayList<TipoPrenda> conjunto){
                 this.conjunto = conjunto;
                 this.sexo = new Unisex();
                 this.nivelesDeCalor = new ArrayList<NivelDeCalor>();
-
         }
         ConjuntosPredefinidos(ArrayList<TipoPrenda> conjunto, Sexo sexo){
                 this.conjunto = conjunto;
