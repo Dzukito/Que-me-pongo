@@ -29,48 +29,35 @@ public class Usuario{
         observadores.forEach(observador -> observer.attach(observador));
         observer.notifyAceptarSugerencia(atuendo);
     }
-    public int cantidadAtuendos(int i){
-        return roperos.get(i).cantidadAtuendosGenerados();
-    }
+    public int cantidadAtuendos(int i){ return roperos.get(i).cantidadAtuendosGenerados(); }
     public Membrecia getMembrecia(){ return this.membrecia; }
-    public ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){
-        return ropero.atuendosGenerados();
-    }
+    public ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){ return ropero.atuendosGenerados(); }
     //Metodos-privados--------------------------------------
     //Metedos-publicos--------------------------------------
     @Override
-    public int hashCode(){
-        return Objects.hash(this.roperos, this.userName, this.membrecia, this.enviadores, this.eventos, this.sexo, this.sensibilidad);
-    }
+    public int hashCode(){ return Objects.hash(this.roperos, this.userName, this.membrecia, this.enviadores, this.eventos, this.sexo, this.sensibilidad); }
     public boolean mismoUsuario(Usuario usuario) { return this.hashCode() == usuario.hashCode(); }
     public void calificar(Atuendo atuendo, CalificacionAtuendo calif) {
         atuendo.setterCalificacion(calif);
 //        calif.ajustarPreferencia(this);
     }
-    public void compartirGuardaropas(int i, Usuario usuario){
-        usuario.agregarRopero(this.getGuardaropa(i));
-    }
+    public void compartirGuardaropas(int i, Usuario usuario){ usuario.agregarRopero(this.getGuardaropa(i)); }
     public boolean puedoAsistir(Evento evento){ return !eventos.stream().anyMatch(evento1 -> evento1.estoyEnEseHorario(evento)); }
-    public int cantidadPrendas(int guardaropa){
-        return this.roperos.get(guardaropa).cantidadDePrendas();
-    }
+
+
+
+
+
+    public int cantidadPrendas(int guardaropa){ return this.roperos.get(guardaropa).cantidadDePrendas(); }
     public int cantidadDePrendasPorCategoria(String categoria, int i){ return this.getGuardaropa(i).cantidadDePrendasEnCategoria(categoria); }
     public int cantidadDeRoperos() { return this.roperos.size(); }
-    public boolean tengoGuardaropas(Guardaropa ropero){
-        return this.roperos.contains(ropero);
-    }
+    public boolean tengoGuardaropas(Guardaropa ropero){ return this.roperos.contains(ropero); }
 
 
     //Getters-y-Setters--------------------------------------------
-    public Guardaropa getGuardaropa(int i){
-        return this.roperos.get(i);
-    }
-    public ArrayList<Enviador> getEnviadores() {
-        return enviadores;
-    }
-    public void setMembrecia(Membrecia membrecia) {
-        this.membrecia = membrecia;
-    }
+    public Guardaropa getGuardaropa(int i){ return this.roperos.get(i); }
+    public ArrayList<Enviador> getEnviadores() { return enviadores; }
+    public void setMembrecia(Membrecia membrecia) { this.membrecia = membrecia; }
     public List<Guardaropa> getRoperos(){ return this.roperos;}
     public void agregarEvento(Evento evento){
         if (this.puedoAsistir(evento)){
@@ -80,9 +67,7 @@ public class Usuario{
         }
     }
     public void agregarPreda(Prenda prenda, Guardaropa ropero){ ropero.agregarPrenda(prenda); }
-    public void agregarRopero(Guardaropa ropero){
-        this.roperos.add(ropero);
-    }
+    public void agregarRopero(Guardaropa ropero){ this.roperos.add(ropero); }
 
     //Constructores------------------------------------------------
     Usuario(String userName, ArrayList<Guardaropa> roperos){
@@ -93,7 +78,6 @@ public class Usuario{
         this.sensibilidad = new Ermitanio();
     }
     //Metodos-por-patrones------------------------------------------
-
     public void updateEventoProximo(Evento evento) {
         CentroClimatologico centroClimatologico = new CentroClimatologico();
         List<Atuendo> atuendos = this.roperos.stream()
@@ -116,5 +100,4 @@ public class Usuario{
 	public void setEventos(ArrayList<Evento> eventos) {
 		this.eventos = eventos;
 	}
-
 }

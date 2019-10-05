@@ -91,17 +91,9 @@ public class EventoProximoObserverTest {
         ropero3.agregarPrendas(prendas3);
         meteorologo = new MeteorologoWeatherAdapter();
         usuario1 = new Usuario("Martin", new ArrayList<Guardaropa>());
-        usuario1.agregarMeteorolo(meteorologo);
         usuario1.agregarRopero(ropero1);
         usuario1.agregarRopero(ropero2);
         usuario1.agregarRopero(ropero3);
         usuario1.agregarEvento(irAlGym);
       }
-    @Test
-    public void notifyEventoProximoObserver() {
-        EventoProximoObserver observer = new EventoProximoObserver();
-        observer.attach(usuario1);
-        observer.notifyEventoProximoObserver(irAlGym);
-        Assert.assertTrue(irAlGym.tengoSugerencias());
-    }
 }
