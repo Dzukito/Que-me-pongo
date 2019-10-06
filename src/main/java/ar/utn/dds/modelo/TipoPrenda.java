@@ -16,9 +16,12 @@ import javax.imageio.ImageIO;
 public class TipoPrenda {
 	
 	@Id
+	@GeneratedValue
 	private long id_tipoPrenda;
 	
+	@Column(name = "tipo")
     private String tipo;
+	
     private Categoria categoria;
     private Set<Material> materiales;
     private Fotografo fotografo;

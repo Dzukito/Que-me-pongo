@@ -9,14 +9,26 @@ import javax.persistence.*;
 public class Pronostico {
 	
 	@Id
+	@GeneratedValue
 	private long id_pronostico;
 	
+	@Column(name = "temperatura")
 	private double temperatura;
+	
 	private List<TipoClima> clima;
+	
+	@Column(name = "humedad")
 	private float humedad;
+	
 	protected Calendar fecha;
+	
+	@Column(name = "nubosidad")
 	protected float nubosidad;
+	
+	@Column(name = "viento")
 	protected double viento;
+	
+	@Column(name = "precipitacion")
 	protected float precipitacion;
 
 /*

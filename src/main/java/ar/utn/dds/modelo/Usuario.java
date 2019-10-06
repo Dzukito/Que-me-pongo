@@ -12,13 +12,20 @@ import javax.persistence.*;
 @Table(name="usuario")
 public class Usuario{
 	@Id
+	@GeneratedValue
 	private long id_usuario;
 	
     private List<Guardaropa> roperos;
+    
+    @Column(name = "userName")
     private String userName;
+    
     private Membrecia membrecia;
     private ArrayList<Evento> eventos;
+    
+    @Column(name = "sexo")
     private String sexo;
+    
     private ArrayList<Enviador> enviadores;
     private Sensibilidad sensibilidad;
 

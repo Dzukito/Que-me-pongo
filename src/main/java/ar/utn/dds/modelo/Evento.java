@@ -14,6 +14,7 @@ import java.util.List;
 public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaObservador{
 	
 	@Id
+	@GeneratedValue
 	private long id_evento;
 	
     private Calendar horaComienzo;
@@ -22,9 +23,12 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     private Estilo estilo;
     private Atuendo atuendo;
     private ArrayList<Atuendo> atuendosSugeridos;
+    
+    @Column(name = "tiempoAviso")
     private int tiempoAviso;
 
 
+    
     public void alertaMeteorologica(Usuario usuario, Guardaropa guardaropa, Pronostico pronostico){
         usuario.getEnviadores().forEach(enviador -> enviador.enviarAlertaMeteorologica(
                 enviador.getDireccion(),

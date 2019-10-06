@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class CentroClimatologico {
 	
 	@Id
+	@GeneratedValue
 	private long id_centroClimatologico;
 	
     private Meteorologo meteorologo;

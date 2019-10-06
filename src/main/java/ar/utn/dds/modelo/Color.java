@@ -12,7 +12,12 @@ public enum Color {
     Violeta("Violeta"),
     Verde("Verde"),
     Naranja("Naranja");
-
+	
+	@Id
+	@GeneratedValue
+	private long id_color;
+	
+	@Column(name = "color")
     private final String color;
 
     Color(String color){

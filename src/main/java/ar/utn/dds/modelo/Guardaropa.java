@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugerenciaObservador {
     
 	@Id
+	@GeneratedValue
 	private long id_guardaropa;
 	
 	private List<Prenda> prendas;

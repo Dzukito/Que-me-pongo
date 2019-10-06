@@ -8,12 +8,15 @@ import javax.persistence.*;
 public class CalificacionAtuendo {
 	
 	@Id
+	@GeneratedValue
 	private long id_calificacionAtuendo;
 	
     private Pronostico pronostico;
     private Atuendo atuendo;
     private Evento evento;
     private Usuario usuario;
+    
+    @Column(name = "calificacion")
     private int calificacion;
 
 

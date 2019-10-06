@@ -13,10 +13,14 @@ import java.util.stream.Collectors;
 public class Atuendo {
 	
 	@Id
+	@GeneratedValue
 	private long id_atuendo;
 	
     private ArrayList<Prenda> prendas;
+    
+    @Column(name = "usabilidad")
     private int usabilidad;//Cantidad de veces que fue usado
+    
     private ArrayList<CalificacionAtuendo> calificaciones;
 
 

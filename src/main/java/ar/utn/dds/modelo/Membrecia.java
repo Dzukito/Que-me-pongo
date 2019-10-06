@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "membrecia")
 public abstract class Membrecia {
 	@Id
+	@GeneratedValue
 	private long id_membrecia;
 	
    public void agregarPrenda(Prenda prenda, Usuario usuario, int i){

@@ -16,11 +16,17 @@ public enum TipoClima {
     SOLEADO("Soleado",new ArrayList<String>(Arrays.asList("Gorro","Lentes")),new ArrayList<String>(Arrays.asList("Paraguas"))),
     VENTOSO("VENTOSO",new ArrayList<String>(Arrays.asList("Rompevientos","Piloto")),new ArrayList<String>(Arrays.asList("Pollera","Gorro","Paraguas")));
 
+	@Id
+	@GeneratedValue
+	private long id_tipoClima;
 	
-
+	@Column(name = "tipoClima")
     private final String tipoClima;
+	
     private final List<String> prendasSatisfacen;
     private final List<String> prendasNegadas;
+    
+    
     TipoClima(String tipoClima,ArrayList<String> prendasSatisfacen,ArrayList<String> prendasNegadas){
         this.tipoClima = tipoClima;
         this.prendasNegadas = prendasNegadas;

@@ -12,16 +12,25 @@ import javax.persistence.*;
 public class Prenda{
 	
 	@Id
+	@GeneratedValue
 	private long id_prenda;
 	
     private ArrayList<Color> colores;
     private TipoPrenda tipoPrenda;
+    
+    @Column(name = "nombrePrenda")
     private String nombrePrenda;
+    
     private Material material;
     private ArrayList<Estilo> estilos;
+    
+    @Column(name = "disponibilidad")
     private Boolean disponibilidad;
+    
     private Fotografo fotografo;
     private Sexo sexo;
+    
+    @Column(name = "nivelDeCalor")
     private int nivelDeCalor;
 
     //Metodos-que-no-se-usan---------------------------------
