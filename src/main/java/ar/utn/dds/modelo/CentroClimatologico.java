@@ -1,12 +1,19 @@
 package ar.utn.dds.modelo;
 
 import sun.reflect.generics.repository.MethodRepository;
-
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+@Entity
+@Table(name="centroClimatologico")
 public class CentroClimatologico {
+	
+	@Id
+	private long id_centroClimatologico;
+	
     private Meteorologo meteorologo;
     private List<Meteorologo> meteorologos;
 

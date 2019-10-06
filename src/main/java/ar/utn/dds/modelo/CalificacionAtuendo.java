@@ -1,6 +1,15 @@
 package ar.utn.dds.modelo;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="calificacionAtuendo")
 public class CalificacionAtuendo {
+	
+	@Id
+	private long id_calificacionAtuendo;
+	
     private Pronostico pronostico;
     private Atuendo atuendo;
     private Evento evento;

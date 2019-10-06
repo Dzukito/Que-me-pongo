@@ -9,8 +9,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
+import javax.persistence.*;
 
+@Entity
+@Table(name="fotografo")
 public class Fotografo {
+	
+	@Id
+	private long id_fotografo;
 	//Si la imagen no se encarga de normalizar, que haya una entidad que lo haga. 
 	//Crear esta entidad podria hacer más cosas con las imagenes si el sistema lo necesita (de ahi que no se llame solo 'normalizador')...
 	private ArrayList<String> imagenes;

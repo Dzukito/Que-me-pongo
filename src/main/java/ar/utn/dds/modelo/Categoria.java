@@ -1,5 +1,9 @@
 package ar.utn.dds.modelo;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name="categoria")
 public enum Categoria {
     TORSO("Torso",5,1),
     PARTEINFERIOR("Parte Inferior",3,1),

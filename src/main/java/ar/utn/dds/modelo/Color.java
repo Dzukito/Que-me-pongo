@@ -1,5 +1,8 @@
 package ar.utn.dds.modelo;
+import javax.persistence.*;
 
+@Entity
+@Table(name="color")
 public enum Color {
     Rojo("Rojo"),
     Azul("Azul"),

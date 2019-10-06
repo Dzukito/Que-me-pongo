@@ -2,13 +2,19 @@ package ar.utn.dds.modelo;
 
 
 import ar.utn.dds.excepciones.EsaPrendaYaLaTengo;
+import javax.persistence.*;
 import ar.utn.dds.excepciones.noPuedeSuperponerse;
-
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
+@Entity
+@Table(name="atuendo")
 public class Atuendo {
+	
+	@Id
+	private long id_atuendo;
+	
     private ArrayList<Prenda> prendas;
     private int usabilidad;//Cantidad de veces que fue usado
     private ArrayList<CalificacionAtuendo> calificaciones;

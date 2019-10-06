@@ -1,7 +1,13 @@
 package ar.utn.dds.modelo;
 
-public abstract class Membrecia {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "membrecia")
+public abstract class Membrecia {
+	@Id
+	private long id_membrecia;
+	
    public void agregarPrenda(Prenda prenda, Usuario usuario, int i){
        usuario.agregarPreda(prenda,usuario.getGuardaropa(i));
    }

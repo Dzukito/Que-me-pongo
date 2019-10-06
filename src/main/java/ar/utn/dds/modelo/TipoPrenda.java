@@ -1,7 +1,7 @@
 package ar.utn.dds.modelo;
 
 import ar.utn.dds.excepciones.ElMaterialNoPerteneceALaPrenda;
-
+import javax.persistence.*;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,7 +10,14 @@ import java.util.*;
 
 import javax.imageio.ImageIO;
 
+
+@Entity
+@Table(name="tipoPrenda")
 public class TipoPrenda {
+	
+	@Id
+	private long id_tipoPrenda;
+	
     private String tipo;
     private Categoria categoria;
     private Set<Material> materiales;

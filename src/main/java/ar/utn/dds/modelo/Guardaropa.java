@@ -1,11 +1,19 @@
 package ar.utn.dds.modelo;
 
 import java.util.*;
+import javax.persistence.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+
+@Entity
+@Table(name="guardaropa")
 public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugerenciaObservador {
-    private List<Prenda> prendas;
+    
+	@Id
+	private long id_guardaropa;
+	
+	private List<Prenda> prendas;
     private List<Atuendo> atuendosMostrados;
     private List<Usuario> usuarios;
     private ArrayList<ConjuntosPredefinidos> conjuntosPredefinidos;

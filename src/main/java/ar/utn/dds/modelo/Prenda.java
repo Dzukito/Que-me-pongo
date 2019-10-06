@@ -5,8 +5,15 @@ import ar.utn.dds.excepciones.SoloTieneUnColor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import javax.persistence.*;
 
+@Entity
+@Table(name="prenda")
 public class Prenda{
+	
+	@Id
+	private long id_prenda;
+	
     private ArrayList<Color> colores;
     private TipoPrenda tipoPrenda;
     private String nombrePrenda;

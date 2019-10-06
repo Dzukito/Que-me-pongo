@@ -1,13 +1,21 @@
 package ar.utn.dds.modelo;
 
 import ar.utn.dds.Constantes;
+import javax.persistence.*;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+
+@Entity
+@Table(name="evento")
 public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaObservador{
+	
+	@Id
+	private long id_evento;
+	
     private Calendar horaComienzo;
     private Calendar horaTermino;
     private Ubicacion ubicacion;

@@ -6,8 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import javax.persistence.*;
 
+@Entity
+@Table(name="usuario")
 public class Usuario{
+	@Id
+	private long id_usuario;
+	
     private List<Guardaropa> roperos;
     private String userName;
     private Membrecia membrecia;

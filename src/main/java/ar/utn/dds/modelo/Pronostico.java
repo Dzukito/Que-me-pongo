@@ -2,8 +2,15 @@ package ar.utn.dds.modelo;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import javax.persistence.*;
 
+@Entity
+@Table(name="pronostico")
 public class Pronostico {
+	
+	@Id
+	private long id_pronostico;
+	
 	private double temperatura;
 	private List<TipoClima> clima;
 	private float humedad;

@@ -1,6 +1,14 @@
 package ar.utn.dds.modelo;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name="ubicacion")
 public class Ubicacion {
+	
+	@Id
+	private long id_ubicacion;
+	
 	private String id;
 	private String ciudad;
 	private String estado;

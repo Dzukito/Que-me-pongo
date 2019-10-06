@@ -1,5 +1,8 @@
 package ar.utn.dds.modelo;
+import javax.persistence.*;
 
+@Entity
+@Table(name="material")
 public enum Material {
     PLASTICO("Plastico"),
     CUERO("Cuero"),
