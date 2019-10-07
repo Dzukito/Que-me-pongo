@@ -6,6 +6,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import ar.utn.dds.services.apiAccuWeather.PedidoPronosticoAccuWeather;
 import ar.utn.dds.services.apiAccuWeather.PronosticoAccuWeather;
 import ar.utn.dds.services.apiAccuWeather.RespuestaAccuWeather;
@@ -15,9 +22,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MeteorologoAccuWeatherAdapter implements Meteorologo {
+
+@Entity
+@DiscriminatorValue("1")
+public class MeteorologoAccuWeatherAdapter extends MeteorologoImp implements Meteorologo {
 	
-	public List<Pronostico> pronosticosPorCincoDias;
+//	public List<Pronostico> pronosticosPorCincoDias;
 	
 	MeteorologoAccuWeatherAdapter(){
         super();

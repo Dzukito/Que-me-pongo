@@ -2,10 +2,7 @@ package ar.utn.dds.modelo;
 
 import java.util.Calendar;
 import java.util.List;
-import javax.persistence.*;
 
-@Entity
-@Table(name="meteorologo")
 public interface Meteorologo {
 	
     public List<Pronostico> getPronosticosPorCincoDias();

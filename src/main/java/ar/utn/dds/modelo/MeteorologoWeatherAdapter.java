@@ -12,9 +12,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MeteorologoWeatherAdapter implements Meteorologo {
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
-	public List<Pronostico> pronosticosPorCincoDias;
+@Entity
+@DiscriminatorValue("2")
+public class MeteorologoWeatherAdapter extends MeteorologoImp implements Meteorologo {
+	
+//	public List<Pronostico> pronosticosPorCincoDias;
 	
     MeteorologoWeatherAdapter(){
         super();

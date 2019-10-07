@@ -1,6 +1,5 @@
 package ar.utn.dds.modelo;
 
-import sun.reflect.generics.repository.MethodRepository;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,12 @@ public class CentroClimatologico {
 	@GeneratedValue
 	private long id_centroClimatologico;
 	
+	@OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "meteorologo_id")
     private Meteorologo meteorologo;
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_centroClimatologico")
     private List<Meteorologo> meteorologos;
 
     public void agregarMeteorolo(Meteorologo meteorologo){
