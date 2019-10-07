@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="pronostico")
-public class Pronostico {
+public class Pronostico extends EntidadPersistente {
 	
 	@Id
 	@GeneratedValue
@@ -15,11 +15,14 @@ public class Pronostico {
 	@Column(name = "temperatura")
 	private double temperatura;
 	
+	@OneToMany(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_clima",referencedColumnName= "id")
 	private List<TipoClima> clima;
 	
 	@Column(name = "humedad")
 	private float humedad;
 	
+	@Column(name = "fecha")
 	protected Calendar fecha;
 	
 	@Column(name = "nubosidad")
