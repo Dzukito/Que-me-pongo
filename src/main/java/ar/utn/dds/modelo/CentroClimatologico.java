@@ -15,7 +15,7 @@ public class CentroClimatologico {
 	private long id_centroClimatologico;
 	
 	@OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "meteorologo_id")
+    @JoinColumn(name = "id_meteorologo")
     private Meteorologo meteorologo;
     
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)

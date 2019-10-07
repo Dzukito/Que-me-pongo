@@ -17,11 +17,26 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
 	@GeneratedValue
 	private long id_evento;
 	
+	@Column(name = "horaComienzo")
     private Calendar horaComienzo;
+	
+	@Column(name = "horaFin")
     private Calendar horaTermino;
+	
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_ubicacion")
     private Ubicacion ubicacion;
+	
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="id_estilo")
     private Estilo estilo;
+    
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_atuendo")
     private Atuendo atuendo;
+    
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinTable(name="atuendoSugerido", joinColumns={@JoinColumn(name="id_evento")}, inverseJoinColumns={@JoinColumn(name="id_atuendo")})
     private ArrayList<Atuendo> atuendosSugeridos;
     
     @Column(name = "tiempoAviso")

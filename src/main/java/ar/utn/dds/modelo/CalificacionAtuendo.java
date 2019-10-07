@@ -11,9 +11,20 @@ public class CalificacionAtuendo {
 	@GeneratedValue
 	private long id_calificacionAtuendo;
 	
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_pronostico")
     private Pronostico pronostico;
+	
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_atuendo")
     private Atuendo atuendo;
+	
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_evento")
     private Evento evento;
+	
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_usuario")
     private Usuario usuario;
     
     @Column(name = "calificacion")
