@@ -10,17 +10,16 @@ import java.util.stream.Collectors;
 
 @Entity
 @Table(name="atuendo")
-public class Atuendo {
+public class Atuendo extends EntidadPersistente{
 	
-	@Id
-	@GeneratedValue
-	private long id_atuendo;
-	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_atuendo",referencedColumnName = "id")
     private ArrayList<Prenda> prendas;
     
     @Column(name = "usabilidad")
     private int usabilidad;//Cantidad de veces que fue usado
     
+    @OneToMany(mappedBy = "atuendo", cascade = {CascadeType.ALL})
     private ArrayList<CalificacionAtuendo> calificaciones;
 
 

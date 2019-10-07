@@ -21,6 +21,9 @@ public class Fotografo {
 	
 	//Si la imagen no se encarga de normalizar, que haya una entidad que lo haga. 
 	//Crear esta entidad podria hacer más cosas con las imagenes si el sistema lo necesita (de ahi que no se llame solo 'normalizador')...
+	@ElementCollection
+	@CollectionTable(name="foto", joinColumns=@JoinColumn(name="id_fotografo"))
+	@Column(name="fotoURL")
 	private ArrayList<String> imagenes;
 
 	public String unaImagen(int path){ //devuelve una imagen
