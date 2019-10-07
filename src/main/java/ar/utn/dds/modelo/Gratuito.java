@@ -4,7 +4,10 @@ import java.util.Properties;
 
 import ar.utn.dds.excepciones.CantidadDeArmariosMaximo;
 import ar.utn.dds.excepciones.CantidadDePrendasMaxima;
+import javax.persistence.*;
 
+@Entity
+@DiscriminatorValue("Gratuito")
 public class Gratuito extends Membrecia {
 
     @Override

@@ -3,7 +3,9 @@ package ar.utn.dds.modelo;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "membrecia")
+@Table(name="membrecia")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipoMembrecia",discriminatorType = DiscriminatorType.STRING)
 public abstract class Membrecia {
 	@Id
 	@GeneratedValue
@@ -18,3 +20,4 @@ public abstract class Membrecia {
    public abstract void cambiarAPremium(Usuario usuario);
    public abstract void cambiarAGratuito(Usuario usuario);
 }
+

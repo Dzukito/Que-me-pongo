@@ -1,7 +1,10 @@
 package ar.utn.dds.modelo;
 
 import java.util.Properties;
+import javax.persistence.*;
 
+@Entity
+@DiscriminatorValue("Premium")
 public class Premium extends Membrecia{
 
     @Override
