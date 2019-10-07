@@ -3,13 +3,27 @@ package ar.utn.dds.modelo;
 import ar.utn.dds.excepciones.NivelDeCalorIncorrecto;
 
 import java.util.Objects;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name="nivelDeCalor")
 public class NivelDeCalor {
+	
+	@Id
+	@GeneratedValue
+	private long id_nivelDeCalor;
+	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
+    
+    @Column(name="nivelDeCalor")
     private int nivelDeCalor;
 
-
-
+    
+    
+    
     public Categoria getCategoria() {
         return categoria;
     }
