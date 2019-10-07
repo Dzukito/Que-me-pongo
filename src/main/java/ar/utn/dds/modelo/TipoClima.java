@@ -23,8 +23,14 @@ public enum TipoClima {
 	@Column(name = "tipoClima")
     private final String tipoClima;
 	
+	@OneToMany(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_prendasSatifacen", referencedColumnName = "id")
     private final List<String> prendasSatisfacen;
+    
+	@OneToMany(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_prendasSatifacen", referencedColumnName = "id")
     private final List<String> prendasNegadas;
+	
     
     
     TipoClima(String tipoClima,ArrayList<String> prendasSatisfacen,ArrayList<String> prendasNegadas){
