@@ -44,6 +44,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
 
 
     
+/*
     public void alertaMeteorologica(Usuario usuario, Guardaropa guardaropa, Pronostico pronostico){
         usuario.getEnviadores().forEach(enviador -> enviador.enviarAlertaMeteorologica(
                 enviador.getDireccion(),
@@ -51,6 +52,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
                 "Desea cambiar su atuendo a uno mas adecuado a las nuevas condiciones meteorologicas, le sugerimos:",
                 guardaropa.sugerirAtuendo(pronostico,this,usuario).getImagenes()));
     }
+*/
     public void agregarSugerencias(List<Atuendo> atuendosSugeridos){
         atuendosSugeridos.stream()
                 .filter(atuendo1 -> !this.atuendosSugeridos.stream()

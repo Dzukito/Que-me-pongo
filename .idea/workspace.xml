@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="Correcciones de disenio">
+    <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentacion/DER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Enviador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Enviador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/EnviadorSMSAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/EnviadorSMSAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Guardaropa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Guardaropa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/SensibilidadPersonalizada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/SensibilidadPersonalizada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoClima.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoClima.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ubicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ubicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Caluroso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Caluroso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ermitanio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Ermitanio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/EventoRepetitivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Femenino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Femenino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Friolento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Friolento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Masculino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Masculino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Unisex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Unisex.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -264,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561576198406</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="entities">
+      <created>1570500636946</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1570500636946</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,7 +295,8 @@
     <MESSAGE value="Observer sugerencias Proximas" />
     <MESSAGE value="Pronosticos" />
     <MESSAGE value="Ni idea que toque hace 2 semanas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ni idea que toque hace 2 semanas." />
+    <MESSAGE value="entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="entities" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
