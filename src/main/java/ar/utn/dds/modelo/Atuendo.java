@@ -10,45 +10,36 @@ import java.util.stream.Collectors;
 
 @Entity
 @Table(name="atuendo")
-public class Atuendo extends EntidadPersistente{
+public class Atuendo {
 	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name="id_atuendo",referencedColumnName = "id")
+	@Id
+	@GeneratedValue
+	private long id_atuendo;
+	
     private ArrayList<Prenda> prendas;
     
     @Column(name = "usabilidad")
-    private int usabilidad;//Cantidad de veces que fue usado
+    private int usabilidad;
     
-    @OneToMany(mappedBy = "atuendo", cascade = {CascadeType.ALL})
     private ArrayList<CalificacionAtuendo> calificaciones;
 
 
     //Metodos-no-se-usan--------------------------------------------------------------------
-    public List<String> TiposDePrendas() {
-        return prendas.stream().map(prenda -> prenda.getTipoDePrenda().categoria()).collect(Collectors.toList());
-    }
+    public List<String> TiposDePrendas() { return prendas.stream().map(prenda -> prenda.getTipoDePrenda().categoria()).collect(Collectors.toList()); }
     public int nivelDeCalorTotal(){
         return prendas.size();
     }
-    public boolean tieneEstilo(){
-        return this.prendas.stream().map(prenda -> prenda.getEstilo()).distinct().collect(Collectors.toList()).size() == 1;
-    }
-    public void noPuedoAgregarPrenda(Prenda prenda){ //En lugar de un boolean que tire una nueva excepcion
-        if(this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda))) {throw new noPuedeSuperponerse();}
-    }
-    public List<String> NombresPrendas() {
-        return prendas.stream().map(prenda -> prenda.getNombrePrenda()).collect(Collectors.toList());
-    }
+    public boolean tieneEstilo(){ return this.prendas.stream().map(prenda -> prenda.getEstilo()).distinct().collect(Collectors.toList()).size() == 1; }
+    public void noPuedoAgregarPrenda(Prenda prenda){ if(this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda))) {throw new noPuedeSuperponerse();} }
+    public List<String> NombresPrendas() { return prendas.stream().map(prenda -> prenda.getNombrePrenda()).collect(Collectors.toList()); }
 
     //Metodos-privados----------------------------------------------------------------------
-    private void esaPrendaYaLaTengo(Prenda nuevaPrenda){ //Ya no evalua la categoria, sino el tipo, porque puedo tener una remera y un buso-ambos son de la misma categoria
+    private void esaPrendaYaLaTengo(Prenda nuevaPrenda){
         if (this.prendas.stream().anyMatch(prenda -> prenda.getTipoDePrenda().tipo() == nuevaPrenda.getTipoDePrenda().tipo() )) {
             throw new EsaPrendaYaLaTengo();
         }
     }
-    private boolean tengoTusPrendas(Atuendo atuendo){
-        return this.prendas.stream().allMatch(prenda -> atuendo.tengoPrenda(prenda));
-    }
+    private boolean tengoTusPrendas(Atuendo atuendo){ return this.prendas.stream().allMatch(prenda -> atuendo.tengoPrenda(prenda)); }
 
     //Metodos-publicos----------------------------------------------------------------------
     public boolean compatibleConTiempo(Pronostico pronostico,Usuario usuario) {

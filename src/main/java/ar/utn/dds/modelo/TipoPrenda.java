@@ -1,7 +1,7 @@
 package ar.utn.dds.modelo;
 
 import ar.utn.dds.excepciones.ElMaterialNoPerteneceALaPrenda;
-import javax.persistence.*;
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -9,22 +9,22 @@ import java.io.IOException;
 import java.util.*;
 
 import javax.imageio.ImageIO;
-
+import javax.persistence.*;
 
 @Entity
-@Table(name="tipoPrenda")
+@Table(name = "TipoPrenda")
 public class TipoPrenda {
-	
-	@Id
-	@GeneratedValue
-	private long id_tipoPrenda;
-	
-	@Column(name = "tipo")
+    @Column(name = "tipo")
     private String tipo;
-	
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
     private Categoria categoria;
+    @OneToMany(mappedBy = "TipoPrenda", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Set<Material> materiales;
+    @ManyToOne
+    @JoinColumn(name = "id_fotografo", referencedColumnName = "id_fotografo")
     private Fotografo fotografo;
+    @OneToMany(mappedBy = "TipoPrenda", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Set<TipoPrenda> superponibles;
 
     //Metodos-privados---------------------------------------------------------

@@ -16,6 +16,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	
 	private List<Prenda> prendas;
     private List<Atuendo> atuendosMostrados;
+    @OneToMany(mappedBy = "guardaropa", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
     private ArrayList<ConjuntosPredefinidos> conjuntosPredefinidos;
 

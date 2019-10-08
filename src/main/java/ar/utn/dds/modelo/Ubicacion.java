@@ -9,16 +9,12 @@ public class Ubicacion {
 	@Id
 	@GeneratedValue
 	private long id_ubicacion;
-	
 	@Column(name = "id")
 	private String id;
-	
 	@Column(name = "ciudad")
 	private String ciudad;
-	
 	@Column(name = "estado")
 	private String estado;
-	
 	@Column(name = "pais")
 	private String pais;
 

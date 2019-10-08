@@ -6,7 +6,8 @@ import java.util.List;
 public abstract class Enviador {
 
     private String direccion;
-
+    private String asunto;
+    private String mensaje;
 
     public String getDireccion() {
         return direccion;

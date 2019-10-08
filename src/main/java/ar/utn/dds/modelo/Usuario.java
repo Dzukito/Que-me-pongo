@@ -2,31 +2,30 @@ package ar.utn.dds.modelo;
 
 import ar.utn.dds.excepciones.HorarioYaOcupado;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import javax.persistence.*;
-
 @Entity
-@Table(name="usuario")
+@Table(name = "Usuario")
 public class Usuario{
-	@Id
-	@GeneratedValue
-	private long id_usuario;
-	
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     private List<Guardaropa> roperos;
-    
-    @Column(name = "userName")
+    @Column(name = "nombreUsuario")
     private String userName;
-    
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_membrecia")
     private Membrecia membrecia;
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_centroClimatologico")
     private ArrayList<Evento> eventos;
-    
-    @Column(name = "sexo")
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_sexo")
     private String sexo;
-    
-    private ArrayList<Enviador> enviadores;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_sensibilidad")
     private Sensibilidad sensibilidad;
 
 
@@ -48,7 +47,7 @@ public class Usuario{
     //Metodos-privados--------------------------------------
     //Metedos-publicos--------------------------------------
     @Override
-    public int hashCode(){ return Objects.hash(this.roperos, this.userName, this.membrecia, this.enviadores, this.eventos, this.sexo, this.sensibilidad); }
+    public int hashCode(){ return Objects.hash(this.roperos, this.userName, this.membrecia, this.eventos, this.sexo, this.sensibilidad); }
     public boolean mismoUsuario(Usuario usuario) { return this.hashCode() == usuario.hashCode(); }
     public void calificar(Atuendo atuendo, CalificacionAtuendo calif) {
         atuendo.setterCalificacion(calif);
@@ -69,7 +68,6 @@ public class Usuario{
 
     //Getters-y-Setters--------------------------------------------
     public Guardaropa getGuardaropa(int i){ return this.roperos.get(i); }
-    public ArrayList<Enviador> getEnviadores() { return enviadores; }
     public void setMembrecia(Membrecia membrecia) { this.membrecia = membrecia; }
     public List<Guardaropa> getRoperos(){ return this.roperos;}
     public void agregarEvento(Evento evento){

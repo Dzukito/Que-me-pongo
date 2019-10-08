@@ -59,7 +59,7 @@ Entrega 4:
         tomada acontinuacion.
 --------------------------------------------------------------------------------
     pedir recomendacion<-----------------------------------------------------
-      1_ Problematica: NivelDeCalor se relaciona con muchas entidades por
+      1_ Problema: NivelDeCalor se relaciona con muchas entidades por
          lo que no se puede agregar una columna id de cada entidad que la 
          utilize.
          Opciones: 
@@ -75,7 +75,7 @@ Entrega 4:
          Decision:
 
 ------------------------------------------------------------------------------         
-      2_ Problematica: La interfaz entidad posee 4 variantes que no 
+      2_ Problema: La interfaz entidad posee 4 variantes que no 
          contienen muchos datos de forma propia. 
          Opciones:
             a)Realizar la estrategia tabla per class.
@@ -94,7 +94,7 @@ Entrega 4:
             Optamos por la alternativa B ya que nos facilita la administracion
             de la persistencia mejorando la performance.
 ------------------------------------------------------------------------------
-      3_ Problematica: En el modelo logico, la clase fotografo se encuentra en
+      3_ Problema: En el modelo logico, la clase fotografo se encuentra en
          varias clases simultaneamente como atributo.  
          Opciones:
             a)Crear una tabla fotografo.Agregar un campo a cada tabla con un
@@ -108,25 +108,27 @@ Entrega 4:
                 
          Decision: 
 ------------------------------------------------------------------------------    
-      4_ Problematica:
+      4_ Problema:Tipo de clima contiene dos listas que son los tipos de pren-
+         das que no pueden usarse en determinado tipo de clima y las prendas 
+         que satisfacen al mismo. Situacion manyToMany.
+         Opciones:
+            a)Crear una unica tabla con el id_tipoPrenda y id_tipoClima 
+            b)
+         Decision: 
+------------------------------------------------------------------------------    
+      5_ Problema:
          Opciones:
             a)
             b)
          Decision: 
 ------------------------------------------------------------------------------    
-      5_ Problematica:
+      6_ Problema:
          Opciones:
             a)
             b)
          Decision: 
 ------------------------------------------------------------------------------    
-      6_ Problematica:
-         Opciones:
-            a)
-            b)
-         Decision: 
-------------------------------------------------------------------------------    
-      7_ Problematica:
+      7_ Problema:
          Opciones:
             a)
             b)
