@@ -14,10 +14,19 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	@GeneratedValue
 	private long id_guardaropa;
 	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_guardaropa")
 	private List<Prenda> prendas;
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_guardaropa")
     private List<Atuendo> atuendosMostrados;
+	
     @OneToMany(mappedBy = "guardaropa", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_guardaropa")
     private ArrayList<ConjuntosPredefinidos> conjuntosPredefinidos;
 
 
