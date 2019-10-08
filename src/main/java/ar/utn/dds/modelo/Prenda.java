@@ -15,19 +15,34 @@ public class Prenda{
 	@GeneratedValue
 	private long id_prenda;
 	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_prenda")
     private ArrayList<Color> colores;
+    
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_tipoPrenda")
     private TipoPrenda tipoPrenda;
     
     @Column(name = "nombrePrenda")
     private String nombrePrenda;
     
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_material")
     private Material material;
+    
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinTable(name="map_prenda_estilo", joinColumns={@JoinColumn(name="id_prenda")}, inverseJoinColumns={@JoinColumn(name="id_estilo")})
     private ArrayList<Estilo> estilos;
     
     @Column(name = "disponibilidad")
     private Boolean disponibilidad;
     
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_fotografo")
     private Fotografo fotografo;
+    
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name="id_sexo")
     private Sexo sexo;
     
     @Column(name = "nivelDeCalor")

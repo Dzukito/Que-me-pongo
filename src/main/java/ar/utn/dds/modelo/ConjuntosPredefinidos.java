@@ -4,10 +4,23 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name="conjuntosPredefinidos")
 public class ConjuntosPredefinidos {
+		
+		@ManyToMany(cascade= CascadeType.ALL, fetch = FetchType.LAZY)
+		@JoinTable(name="map_conjunto_tipoPrenda", joinColumns={@JoinColumn(name="id_conjutosPredefinidos")}, inverseJoinColumns={@JoinColumn(name="id_tipoPrenda")})
         private ArrayList<TipoPrenda> conjunto;
+		
+		@OneToMany(cascade = {CascadeType.ALL})
+		@JoinColumn(name = "id_nivelDeCalor",referencedColumnName = "id")
         private ArrayList<NivelDeCalor> nivelesDeCalor;
+		
+		@OneToOne(cascade = {CascadeType.ALL})
+		@JoinColumn(name = "id_sexo",referencedColumnName = "id")
         private Sexo sexo;
 
         //Not-used-methods---------------------------------------------------
