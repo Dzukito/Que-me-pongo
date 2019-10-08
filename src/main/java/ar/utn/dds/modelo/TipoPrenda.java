@@ -22,9 +22,20 @@ public class TipoPrenda {
 	@Column(name = "tipo")
     private String tipo;
 	
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_categoria",referencedColumnName = "id")
     private Categoria categoria;
+	
+	@ManyToMany(cascade= CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name="map_tipoPrenda_material", joinColumns={@JoinColumn(name="id_tipoPrenda")}, inverseJoinColumns={@JoinColumn(name="id_material")})
     private Set<Material> materiales;
+	
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_fotografo",referencedColumnName = "id")
     private Fotografo fotografo;
+	
+	@OneToMany(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_superponibles",referencedColumnName= "id")
     private Set<TipoPrenda> superponibles;
 
     //Metodos-privados---------------------------------------------------------
