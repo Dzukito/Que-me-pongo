@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.*;
 
 
-@Entity
-@Table(name="tipoClima")
+//@Entity
+//@Table(name="tipoClima")
 public enum TipoClima {
 
     LLUVIOSO("Lluvioso",new ArrayList<String>(Arrays.asList("Paraguas","Piloto","Rompevientos")),new ArrayList<String>()),
@@ -16,11 +16,11 @@ public enum TipoClima {
     SOLEADO("Soleado",new ArrayList<String>(Arrays.asList("Gorro","Lentes")),new ArrayList<String>(Arrays.asList("Paraguas"))),
     VENTOSO("VENTOSO",new ArrayList<String>(Arrays.asList("Rompevientos","Piloto")),new ArrayList<String>(Arrays.asList("Pollera","Gorro","Paraguas")));
 
-	@Id
-	@GeneratedValue
-	private long id_tipoClima;
+//	@Id
+//	@GeneratedValue
+//	private long id_tipoClima;
 	
-	@Column(name = "tipoClima")
+//	@Column(name = "tipoClima")
     private final String tipoClima;
 	
     private final List<String> prendasSatisfacen;

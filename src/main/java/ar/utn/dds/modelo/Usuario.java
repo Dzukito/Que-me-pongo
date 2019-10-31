@@ -10,22 +10,33 @@ import java.util.stream.Collectors;
 @Entity
 @Table(name = "Usuario")
 public class Usuario{
-    @ManyToOne
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+	
+	@Id
+	@GeneratedValue
+	private long id_usuario;
+
+	@ManyToMany
+    @JoinTable(name="map_usuario_guardaropa", joinColumns={@JoinColumn(name="id_usuario")}, inverseJoinColumns={@JoinColumn(name="id_guardaropa")})
     private List<Guardaropa> roperos;
+
     @Column(name = "nombreUsuario")
     private String userName;
+
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_membrecia")
     private Membrecia membrecia;
+    
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name="id_centroClimatologico")
-    private ArrayList<Evento> eventos;
-    @OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name="id_usuario")
+    private List<Evento> eventos;
+    
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_sexo")
-    private String sexo;
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_sensibilidad")
+    private Sexo sexo;
+
+//    @OneToOne(cascade = {CascadeType.ALL})
+//    @JoinColumn(name = "id_sensibilidad")
+    @Transient
     private Sensibilidad sensibilidad;
 
 
@@ -105,10 +116,10 @@ public class Usuario{
     public void setSensibilidad(Sensibilidad sens) {
         this.sensibilidad = sens;
     }
-    public ArrayList<Evento> getEventos() {
+    public List<Evento> getEventos() {
 		return eventos;
 	}
-	public void setEventos(ArrayList<Evento> eventos) {
+	public void setEventos(List<Evento> eventos) {
 		this.eventos = eventos;
 	}
 }

@@ -2,36 +2,15 @@ package ar.utn.dds.modelo;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import javax.persistence.*;
 
-@Entity
-@Table(name="pronostico")
-public class Pronostico extends EntidadPersistente {
+public class Pronostico {
 	
-	@Id
-	@GeneratedValue
-	private long id_pronostico;
-	
-	@Column(name = "temperatura")
-	private double temperatura;
-	
-	@OneToMany(cascade= CascadeType.ALL)
-	@JoinColumn(name="id_clima",referencedColumnName= "id")
+	private double temperatura;	
 	private List<TipoClima> clima;
-	
-	@Column(name = "humedad")
-	private float humedad;
-	
-	@Column(name = "fecha")
-	protected Calendar fecha;
-	
-	@Column(name = "nubosidad")
-	protected float nubosidad;
-	
-	@Column(name = "viento")
-	protected double viento;
-	
-	@Column(name = "precipitacion")
+	private float humedad;	
+	protected Calendar fecha;	
+	protected float nubosidad;	
+	protected double viento;	
 	protected float precipitacion;
 
 /*

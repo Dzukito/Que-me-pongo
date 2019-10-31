@@ -1,25 +1,13 @@
 package ar.utn.dds.modelo;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
-@Entity
-@Table(name="centroClimatologico")
 public class CentroClimatologico {
 	
-	@Id
-	@GeneratedValue
-	private long id_centroClimatologico;
-	
-	@OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_meteorologo")
     private Meteorologo meteorologo;
-    
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name="id_centroClimatologico")
     private List<Meteorologo> meteorologos;
 
     public void agregarMeteorolo(Meteorologo meteorologo){

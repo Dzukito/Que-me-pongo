@@ -24,7 +24,7 @@ public class Fotografo {
 	@ElementCollection
 	@CollectionTable(name="foto", joinColumns=@JoinColumn(name="id_fotografo"))
 	@Column(name="fotoURL")
-	private ArrayList<String> imagenes;
+	private List<String> imagenes;
 
 	public String unaImagen(int path){ //devuelve una imagen
 		return this.imagenes.get(path);
@@ -58,7 +58,7 @@ public class Fotografo {
 	Fotografo(){
 		this.imagenes = new ArrayList<String>();
 	}
-	Fotografo(ArrayList<String> imagenes){
+	Fotografo(List<String> imagenes){
 		this.imagenes = imagenes;
 	}
 }

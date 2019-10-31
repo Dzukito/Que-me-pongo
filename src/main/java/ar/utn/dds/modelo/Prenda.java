@@ -4,8 +4,10 @@ import ar.utn.dds.excepciones.AlMenosUnColor;
 import ar.utn.dds.excepciones.SoloTieneUnColor;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
+
 
 @Entity
 @Table(name="prenda")
@@ -15,9 +17,9 @@ public class Prenda{
 	@GeneratedValue
 	private long id_prenda;
 	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "id_prenda")
-    private ArrayList<Color> colores;
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name="map_prenda_color", joinColumns={@JoinColumn(name="id_prenda")}, inverseJoinColumns={@JoinColumn(name="id_color")})
+    private List<Color> colores;
     
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="id_tipoPrenda")
@@ -32,7 +34,7 @@ public class Prenda{
     
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name="map_prenda_estilo", joinColumns={@JoinColumn(name="id_prenda")}, inverseJoinColumns={@JoinColumn(name="id_estilo")})
-    private ArrayList<Estilo> estilos;
+    private List<Estilo> estilos;
     
     @Column(name = "disponibilidad")
     private Boolean disponibilidad;
@@ -111,11 +113,11 @@ public class Prenda{
     public Fotografo getFotografo() {
         return fotografo;
     }
-    public ArrayList<Estilo> getEstilo(){
+    public List<Estilo> getEstilo(){
         return estilos;
     }
 
-    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material){
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, List<Color> colores, Material material){
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
         this.colores = colores;
@@ -128,7 +130,7 @@ public class Prenda{
             throw new AlMenosUnColor();
         }
     }
-    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> colores, Material material, Estilo estilo){
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, List<Color> colores, Material material, Estilo estilo){
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
         this.colores = colores;

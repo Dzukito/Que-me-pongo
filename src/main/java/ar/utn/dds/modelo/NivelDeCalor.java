@@ -15,7 +15,7 @@ public class NivelDeCalor {
 	private long id_nivelDeCalor;
 	
 	@ManyToOne
-	@JoinColumn(name = "categoria_id", referencedColumnName = "id")
+	@JoinColumn(name = "id_categoria")
     private Categoria categoria;
     
     @Column(name="nivelDeCalor")

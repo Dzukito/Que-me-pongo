@@ -17,10 +17,11 @@ public enum Color {
 	@GeneratedValue
 	private long id_color;
 	
-	@Column(name = "color")
+	@Column(name = "color") 
     private final String color;
 
     Color(String color){
         this.color = color;
     }
+    
 }

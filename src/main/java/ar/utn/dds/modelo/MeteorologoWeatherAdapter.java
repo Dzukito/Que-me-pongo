@@ -15,11 +15,10 @@ import java.util.stream.Collectors;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity
-@DiscriminatorValue("2")
-public class MeteorologoWeatherAdapter extends MeteorologoImp implements Meteorologo {
+
+public class MeteorologoWeatherAdapter implements Meteorologo {
 	
-//	public List<Pronostico> pronosticosPorCincoDias;
+	public List<Pronostico> pronosticosPorCincoDias;
 	
     MeteorologoWeatherAdapter(){
         super();

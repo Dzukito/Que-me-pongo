@@ -28,7 +28,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     private Ubicacion ubicacion;
 	
 	@ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name="id_estilo")
+   @JoinColumn(name="id_estilo")
     private Estilo estilo;
     
     @OneToOne(cascade = {CascadeType.ALL})
@@ -37,13 +37,13 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name="atuendoSugerido", joinColumns={@JoinColumn(name="id_evento")}, inverseJoinColumns={@JoinColumn(name="id_atuendo")})
-    private ArrayList<Atuendo> atuendosSugeridos;
+    private List<Atuendo> atuendosSugeridos;
     
     @Column(name = "tiempoAviso")
     private int tiempoAviso;
 
 
-    
+    /*
     public void alertaMeteorologica(Usuario usuario, Guardaropa guardaropa, Pronostico pronostico){
         usuario.getEnviadores().forEach(enviador -> enviador.enviarAlertaMeteorologica(
                 enviador.getDireccion(),
@@ -51,6 +51,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
                 "Desea cambiar su atuendo a uno mas adecuado a las nuevas condiciones meteorologicas, le sugerimos:",
                 guardaropa.sugerirAtuendo(pronostico,this,usuario).getImagenes()));
     }
+    */
     public void agregarSugerencias(List<Atuendo> atuendosSugeridos){
         atuendosSugeridos.stream()
                 .filter(atuendo1 -> !this.atuendosSugeridos.stream()
@@ -116,7 +117,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     public void updateAceptarSugerencia(Atuendo atuendo) { this.atuendo = atuendo; }
     @Override
     public void downdateAceptarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) { }
-    public ArrayList<Atuendo> sugerencias() { return this.atuendosSugeridos; }
+    public List<Atuendo> sugerencias() { return this.atuendosSugeridos; }
     @Override
     public void updateRechazarSugerencia(Atuendo atuendo) { }
     @Override

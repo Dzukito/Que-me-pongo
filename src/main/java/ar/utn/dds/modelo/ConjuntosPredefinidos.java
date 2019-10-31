@@ -1,6 +1,7 @@
 package ar.utn.dds.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -10,21 +11,25 @@ import javax.persistence.*;
 @Entity
 @Table(name="conjuntosPredefinidos")
 public class ConjuntosPredefinidos {
+	
+		@Id
+		@GeneratedValue
+		private long id_conjuntoPredefinido;
 		
 		@ManyToMany(cascade= CascadeType.ALL, fetch = FetchType.LAZY)
 		@JoinTable(name="map_conjunto_tipoPrenda", joinColumns={@JoinColumn(name="id_conjutosPredefinidos")}, inverseJoinColumns={@JoinColumn(name="id_tipoPrenda")})
-        private ArrayList<TipoPrenda> conjunto;
+        private List<TipoPrenda> conjunto;
 		
 		@OneToMany(cascade = {CascadeType.ALL})
-		@JoinColumn(name = "id_nivelDeCalor",referencedColumnName = "id")
-        private ArrayList<NivelDeCalor> nivelesDeCalor;
+		@JoinColumn(name = "id_nivelDeCalor")
+		private List<NivelDeCalor> nivelesDeCalor;
 		
-		@OneToOne(cascade = {CascadeType.ALL})
-		@JoinColumn(name = "id_sexo",referencedColumnName = "id")
+		@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+		@JoinColumn(name = "id_sexo")
         private Sexo sexo;
 
         //Not-used-methods---------------------------------------------------
-        public boolean mismoNivelDeCalor(ArrayList<NivelDeCalor> nivelesDeCalorDeOtro){
+        public boolean mismoNivelDeCalor(List<NivelDeCalor> nivelesDeCalorDeOtro){
                 return this.nivelesDeCalor.stream().allMatch(nivelDeCalor -> nivelesDeCalorDeOtro.stream().anyMatch(nivelDeCalor1 -> nivelDeCalor.hashCode() == nivelDeCalor1.hashCode()));
         }
         //Private-methods----------------------------------------------------
@@ -48,7 +53,7 @@ public class ConjuntosPredefinidos {
                 return this.mismoConjunto(conjunto);
         }
         public int nivelDeCalor(Categoria categoria){ return this.conjunto.stream().filter(tipoPrenda -> tipoPrenda.categoria() == categoria.getCategoria()).collect(Collectors.toList()).size(); }
-        public ArrayList<TipoPrenda> getConjunto() {
+        public List<TipoPrenda> getConjunto() {
                 return conjunto;
         }
         public Sexo getSexo() {
@@ -61,12 +66,13 @@ public class ConjuntosPredefinidos {
 
 
         //Builders-----------------------------------------------------------
-        ConjuntosPredefinidos(ArrayList<TipoPrenda> conjunto){
+        ConjuntosPredefinidos(List<TipoPrenda> conjunto){
                 this.conjunto = conjunto;
-                this.sexo = new Unisex();
+                this.sexo = Sexo.UNISEX;
                 this.nivelesDeCalor = new ArrayList<NivelDeCalor>();
         }
-        ConjuntosPredefinidos(ArrayList<TipoPrenda> conjunto, Sexo sexo){
+
+        ConjuntosPredefinidos(List<TipoPrenda> conjunto, Sexo sexo){
                 this.conjunto = conjunto;
                 this.sexo = sexo;
         }

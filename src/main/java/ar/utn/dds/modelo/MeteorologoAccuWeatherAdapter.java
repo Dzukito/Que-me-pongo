@@ -23,11 +23,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-@Entity
-@DiscriminatorValue("1")
-public class MeteorologoAccuWeatherAdapter extends MeteorologoImp implements Meteorologo {
+public class MeteorologoAccuWeatherAdapter implements Meteorologo {
 	
-//	public List<Pronostico> pronosticosPorCincoDias;
+	public List<Pronostico> pronosticosPorCincoDias;
 	
 	MeteorologoAccuWeatherAdapter(){
         super();
