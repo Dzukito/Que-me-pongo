@@ -1,7 +1,6 @@
 package ar.utn.dds.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -11,10 +10,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="conjuntosPredefinidos")
 public class ConjuntosPredefinidos {
-	
-		@Id
-		@GeneratedValue
-		private long id_conjuntoPredefinido;
 		
 		@ManyToMany(cascade= CascadeType.ALL, fetch = FetchType.LAZY)
 		@JoinTable(name="map_conjunto_tipoPrenda", joinColumns={@JoinColumn(name="id_conjutosPredefinidos")}, inverseJoinColumns={@JoinColumn(name="id_tipoPrenda")})
@@ -68,7 +63,7 @@ public class ConjuntosPredefinidos {
         //Builders-----------------------------------------------------------
         ConjuntosPredefinidos(List<TipoPrenda> conjunto){
                 this.conjunto = conjunto;
-                this.sexo = Sexo.UNISEX;
+                this.sexo = 'unisex';
                 this.nivelesDeCalor = new ArrayList<NivelDeCalor>();
         }
 

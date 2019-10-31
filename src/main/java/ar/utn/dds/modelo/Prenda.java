@@ -42,10 +42,9 @@ public class Prenda{
     @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_fotografo")
     private Fotografo fotografo;
-    
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name="id_sexo")
-    private Sexo sexo;
+
+    @Column(name = "sexo")
+    private String sexo;
     
     @Column(name = "nivelDeCalor")
     private int nivelDeCalor;
@@ -85,7 +84,7 @@ public class Prenda{
     public int getNivelDeCalor(){
         return this.nivelDeCalor;
     }
-    public Sexo getSexo(){ return sexo; }
+    public String getSexo(){ return sexo; }
     public String tipo(){
         return this.tipoPrenda.tipo();
     }

@@ -18,25 +18,20 @@ public class Usuario{
 	@ManyToMany
     @JoinTable(name="map_usuario_guardaropa", joinColumns={@JoinColumn(name="id_usuario")}, inverseJoinColumns={@JoinColumn(name="id_guardaropa")})
     private List<Guardaropa> roperos;
-
     @Column(name = "nombreUsuario")
     private String userName;
-
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_membrecia")
     private Membrecia membrecia;
-    
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name="id_usuario")
     private List<Evento> eventos;
     
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_sexo")
-    private Sexo sexo;
-
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    @JoinColumn(name = "id_sensibilidad")
-    @Transient
+    private String sexo;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_sensibilidad")
     private Sensibilidad sensibilidad;
 
 

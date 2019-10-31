@@ -16,13 +16,10 @@ public enum Categoria {
 	@Id
 	@GeneratedValue
 	private long id_categoria;
-	
 	@Column(name = "categoria")
     private String categoria;
-	
 	@Column(name = "nivelCalorMinimo")
     private int nivelCalorMinimo;
-	
 	@Column(name = "nivelCalorMaximo")
     private int nivelCalorMaximo;
 
