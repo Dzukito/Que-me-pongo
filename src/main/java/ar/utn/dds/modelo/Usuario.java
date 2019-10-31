@@ -27,11 +27,12 @@ public class Usuario{
 	@JoinColumn(name="id_usuario")
     private List<Evento> eventos;
     
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_sexo")
+    @JoinColumn(name = "sexo")
     private String sexo;
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_sensibilidad")
+    
+//    @OneToOne(cascade = {CascadeType.ALL})
+//    @JoinColumn(name = "id_sensibilidad")
+    @Transient
     private Sensibilidad sensibilidad;
 
 
