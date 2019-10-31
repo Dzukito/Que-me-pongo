@@ -28,7 +28,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     private Ubicacion ubicacion;
 	
 	@ManyToOne(cascade = {CascadeType.ALL})
-   @JoinColumn(name="id_estilo")
+    @JoinColumn(name="id_estilo")
     private Estilo estilo;
     
     @OneToOne(cascade = {CascadeType.ALL})

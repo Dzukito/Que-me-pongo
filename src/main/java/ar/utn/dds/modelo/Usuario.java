@@ -66,11 +66,6 @@ public class Usuario{
     }
     public void compartirGuardaropas(int i, Usuario usuario){ usuario.agregarRopero(this.getGuardaropa(i)); }
     public boolean puedoAsistir(Evento evento){ return !eventos.stream().anyMatch(evento1 -> evento1.estoyEnEseHorario(evento)); }
-
-
-
-
-
     public int cantidadPrendas(int guardaropa){ return this.roperos.get(guardaropa).cantidadDePrendas(); }
     public int cantidadDePrendasPorCategoria(String categoria, int i){ return this.getGuardaropa(i).cantidadDePrendasEnCategoria(categoria); }
     public int cantidadDeRoperos() { return this.roperos.size(); }
