@@ -8,25 +8,37 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="../public/js/home.js"></script>
     <link rel="stylesheet" type="text/css" href="../public/css/homeStyle.css">
+<!-- Bootstrap CSS/JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+	<!-- END Bootstrap CSS/JS -->
     <title>Home</title>
   </head>
   <body id="body">
-	<header class="cabecera">
-		<div class="titulo">	
-			<h2> QUÉ ME PONGO?</h2>
-		</div>	
-		<div class="menu">&#9776;</div>
-			<ul class="menu-options">
-				<li class="bla">Home</li>
-			</ul>
-    </header>
-	
-    <div class="contenido">
-		<div class="guardaropas">
-			<img src="../public/img/guardaropas.png" class="guardaropasImg">
-			<h3 class="guardaropasTitulo"> Guardaropas </h3>	
+	<div class="container-fluid">
+		<div class="row bg-danger">
+			<div class="col-10 text-center">
+				<h2 class="encabezado"> QU&Eacute; ME PONGO?</h2>
+			</div>
+			<div class="col-1 menu text-center btn-group">
+			
+				<button type="button" class="btn btn-secondary bg-danger font-weight-bold text-dark border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<h4>&#9776;</h4>
+				</button>
+				<div class="dropdown-menu dropdown-menu-right bg-danger">
+					<button class="dropdown-item font-weight-bold" type="button">Home</button>
+				</div>
+			</div>
 		</div>
-		<div class="evento">
+	</div>
+    <div class="row contenido">
+		<div class="col-md-2 offset-md-2 col-sm-4 offset-sm-4 guardaropas  text-center">
+		
+				<img src="../public/img/guardaropas.png" class="guardaropasImg img-fluid rounded mx-auto d-block mr-md-10" alt="Imagen guardaropa">
+				<h3 class="guardaropasTitulo"> Guardaropas </h3>	
+			
+		</div>
+		<div class="col-md-2 offset-md-2 col-sm-4 offset-sm-4 evento text-center">
 			
 			<img src="../public/img/evento.png" class="eventoImg">
 			<h3 class="eventoTitulo">Eventos</h3>
@@ -34,7 +46,7 @@
 		
 		
     </div>
-	
+
 	
   </body>
 </html>
