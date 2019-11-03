@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/27517fada0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="../public/js/tipoPrenda.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/css/homeStyle.css">
+<!-- Bootstrap CSS/JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+	<!-- END Bootstrap CSS/JS -->
+    <title>Tipo de prenda</title>
+  </head>
+  <body>
+    <header>
+	<div class="container-fluid">
+		<div class="row bg-danger">
+			<div class="col-10 text-center">
+				<h2 class="encabezado"> QU&Eacute; ME PONGO?</h2>
+			</div>
+			<div class="col-1 menu text-center btn-group">
+				<button type="button" class="btn btn-secondary bg-danger font-weight-bold text-dark border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<h4>&#9776;</h4>
+				</button>
+				<div class="dropdown-menu dropdown-menu-right bg-danger">
+					<button class="dropdown-item font-weight-bold" type="button">Home</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="" style="margin:40px;">
+       <h3 class="tipoPrendaTitulo"> Agregar tipo de prenda </h3>
+      </div>
+    </header>
+    <div class="main_container">
+      <div class="contenedor-tipoPrenda">
+        <div class="tipoPrenda">
+            <div class="form-cargar-tipoPrenda">
+              <div class="" style="margin:40px;">
+                <label> Nombre del tipo</label>
+                <br>
+                <input type="text" name="nombre" {{#if }} value=""  class="input-datos" placeholder="Nombre">
+                <br>
+                <br>
+                <select class="input-select" name="material">
+                   <option selected disabled>Material</option>
+                  
+                       <option value="{{id}}"></option>
+                   
+                 </select>
+				 <br>
+                <br>
+                <select class="input-select" name="material">
+                   <option selected disabled>Categoria</option>
+                     
+                       <option value="{{id}}"> </option>
+                 </select>
+              </div>
+            </div>
+			<div class="" style="margin:23px;">
+			<div class="form-group">
+			<label class="col-md-4 control-label" for="filebutton">Imagen</label>
+			<div class="col-md-4">
+			<input id="filebutton" name="filebutton" class="input-file" type="file">
+			</div></div></div>
+			<!-- Aceptar/cancelar -->
+			<div class="" style="margin:38px;">
+			
+			<button id="botonAceptar" name="aceptar" class="btn btn-primary bg-danger font-weight-bold text-dark border-0">Aceptar</button>
+			<button id="botonAceptar" name="aceptar" class="btn btn-primary bg-danger font-weight-bold text-dark border-0">Cancelar</button>
+			</div>
+			
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  </html>
