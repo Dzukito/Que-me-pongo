@@ -1,82 +1,106 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
- <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://kit.fontawesome.com/27517fada0.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="../public/js/tipoPrenda.js"></script>
-    <link rel="stylesheet" type="text/css" href="../public/css/homeStyle.css">
-<!-- Bootstrap CSS/JS -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-	<!-- END Bootstrap CSS/JS -->
-    <title>Tipo de prenda</title>
-  </head>
-  <body>
-    <header>
-	<div class="container-fluid">
-		<div class="row bg-danger">
-			<div class="col-10 text-center">
-				<h2 class="encabezado"> QU&Eacute; ME PONGO?</h2>
-			</div>
-			<div class="col-1 menu text-center btn-group">
-				<button type="button" class="btn btn-secondary bg-danger font-weight-bold text-dark border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<h4>&#9776;</h4>
-				</button>
-				<div class="dropdown-menu dropdown-menu-right bg-danger">
-					<button class="dropdown-item font-weight-bold" type="button">Home</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
+    <h3 style="font-family: Rouge Script;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;"
+    >¿Qué Me Pongo?</h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon ">  <img src="../public/img/menu_hamburgesa.png" style="width:30px" alt="menu"></span>
+    </button>
+    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
+        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            <li class="nav-item active" style="margin: 5px;">
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="#">Cerrar Sesión</a></button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+<div class="card container" style="margin:auto;padding:50px;width:max-content; margin-top: 50px;">
+    <div class="col-xs-12">
+        <div class="row center-block">
+            <form style="margin-top: -20px;">
 		<div class="" style="margin:40px;">
        <h3 class="tipoPrendaTitulo"> Agregar tipo de prenda </h3>
-      </div>
-    </header>
-    <div class="main_container">
-      <div class="contenedor-tipoPrenda">
-        <div class="tipoPrenda">
-            <div class="form-cargar-tipoPrenda">
-              <div class="" style="margin:40px;">
-                <label> Nombre del tipo</label>
-                <br>
-                <input type="text" name="nombre" {{#if }} value=""  class="input-datos" placeholder="Nombre">
-                <br>
-                <br>
-                <select class="input-select" name="material">
-                   <option selected disabled>Material</option>
-                  
-                       <option value="{{id}}"></option>
-                   
-                 </select>
-				 <br>
-                <br>
-                <select class="input-select" name="material">
-                   <option selected disabled>Categoria</option>
-                     
-                       <option value="{{id}}"> </option>
-                 </select>
-              </div>
-            </div>
-			<div class="" style="margin:23px;">
-			<div class="form-group">
-			<label class="col-md-4 control-label" for="filebutton">Imagen</label>
-			<div class="col-md-4">
-			<input id="filebutton" name="filebutton" class="input-file" type="file">
-			</div></div></div>
-			<!-- Aceptar/cancelar -->
-			<div class="" style="margin:38px;">
-			
-			<button id="botonAceptar" name="aceptar" class="btn btn-primary bg-danger font-weight-bold text-dark border-0">Aceptar</button>
-			<button id="botonAceptar" name="aceptar" class="btn btn-primary bg-danger font-weight-bold text-dark border-0">Cancelar</button>
-			</div>
-			
-          </form>
-        </div>
-      </div>
+   </div>
+  
+                
+                 <div class="form-group" style="margin-top: 5px;">
+                    <input type="text" class="form-control" id="example" aria-describedby="help" placeholder="Nombre del tipo de prenda">
+                </div>
+	  
+		<br>
+ 		<div class="row" style="margin:10px;margin-top:5px;">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
+                            Materiales:
+                        </button>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Plastico</a>
+                        <a class="dropdown-item" href="#">Cuero</a>
+			<a class="dropdown-item" href="#">Algodon</a>
+			<a class="dropdown-item" href="#">Malla</a>
+			<a class="dropdown-item" href="#">Lino</a>
+                        <a class="dropdown-item" href="#">Jean</a>
+		        <a class="dropdown-item" href="#">Gabardina</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin:10px;margin-top: 30px;">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
+                            Categoria:
+                        </button>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Torso</a>
+                        <a class="dropdown-item" href="#">Parte Inferior</a>
+			<a class="dropdown-item" href="#">Calzado</a>
+			<a class="dropdown-item" href="#">Accesorios</a>
+			<a class="dropdown-item" href="#">Cuello</a>
+                        <a class="dropdown-item" href="#">Manos</a>
+		        <a class="dropdown-item" href="#">Cabeza</a>
+                        </div>
+                    </div>
+                </div>
+		<br>
+		<div class="row" style="margin:10px;margin-top: 10px;">
+		 <input type="image" src="../public/img/addIm.png" alt="Submit" width="110" height="110" style="margin-left:30.16%;">
+                </div>
+		<br>
+		<div class="row" style="margin-top:15px;margin-left:10px;">
+                    <div class="col">
+                        <button type="submit" class="btn btn-danger">Agregar</button>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-outline-dark" style="margin-left:1000"><a href="#" style="color:black">Cancelar</a></button>
+                    </div>
+                </div>
+    		
 
-    </div>
-  </body>
-  </html>
+ 		</form>
+       	    </div>
+   	 </div>
+</div>
+
+</body>
+</html>
