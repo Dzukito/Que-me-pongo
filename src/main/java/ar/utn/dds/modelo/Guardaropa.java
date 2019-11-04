@@ -13,6 +13,9 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	@Id
 	@GeneratedValue
 	private long id_guardaropa;
+//agregar al constructor	
+	@Column(name = "nombre")
+    private String guardaropaName;
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="id_guardaropa")
