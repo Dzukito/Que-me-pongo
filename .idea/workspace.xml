@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="entities">
+    <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/bufandaIcono.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/computer-icons-mulderblauw-architecten-art-organization-carousel-arrow.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/flechacambio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/gorroIcono.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/guantesIcono.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/pantalonIcono.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/plus_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/recortarIconos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/relojIcono.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/remeraIcono.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/zapatillaIcono.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/events.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -257,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570500636946</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="3-pages">
+      <created>1572802686245</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1572802686245</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,7 +306,8 @@
     <MESSAGE value="Pronosticos" />
     <MESSAGE value="Ni idea que toque hace 2 semanas." />
     <MESSAGE value="entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="entities" />
+    <MESSAGE value="3-pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="3-pages" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
