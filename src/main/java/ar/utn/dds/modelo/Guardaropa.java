@@ -15,7 +15,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	private long id_guardaropa;
 //agregar al constructor	
 	@Column(name = "nombre")
-    private String guardaropaName;
+    private String nombre;
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="id_guardaropa")
@@ -90,6 +90,12 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     public void agregarPrendas(ArrayList<Prenda> prendas){ prendas.forEach(prenda -> this.agregarPrenda(prenda)); }
     public void agregarUsuario(Usuario usuario1) { this.usuarios.add(usuario1); }
     public void quitarUsuario(Usuario usuario1) { this.usuarios = this.usuarios.stream().filter(usuario -> usuario != usuario1).collect(Collectors.toList()); }
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
     //Constructores--------------------------------------------
     Guardaropa(ArrayList<Prenda> prendas) {
             this.prendas = prendas;
@@ -124,5 +130,5 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     public void downdateRechazarSugerencia(Atuendo atuendo, Atuendo atuendoViejo) {
 
     }
-
+    
 }

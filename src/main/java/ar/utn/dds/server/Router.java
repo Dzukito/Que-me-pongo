@@ -1,6 +1,7 @@
 package ar.utn.dds.server;
 
 import ar.utn.dds.controllers.GuardaropaController;
+import ar.utn.dds.controllers.HomeController;
 import ar.utn.dds.models.GuardaropaModel;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 import ar.utn.dds.DAO.DAOMySQL;
@@ -28,10 +29,11 @@ public class Router {
 
     private static void configure(){
         GuardaropaController guardaropaController = new GuardaropaController();
+        HomeController homeController = new HomeController();
 
+        Spark.get("/home", homeController::mostrar, Router.engine);
+        
         Spark.get("/guardaropas", guardaropaController::mostrarTodos, Router.engine);
-
-//        Spark.get("/usuario/:id", usuarioController::mostrar, Router.engine);
 
 //        Spark.get("/usuario", usuarioController::crear, Router.engine);
 
@@ -41,8 +43,8 @@ public class Router {
 
   //      Spark.delete("/usuario/:id", usuarioController::eliminar);
 
-        Spark.after((req, res) -> {
-            PerThreadEntityManagers.closeEntityManager();
-        });
+        //Spark.after((req, res) -> {
+        //    PerThreadEntityManagers.closeEntityManager();
+        //});
     }
 }
