@@ -10,7 +10,7 @@ public interface DAO {
 //    List<T> obtenerTodos();
 //    T obtener(K id);
     public <T> List<T> buscarTodos();
-    public <T> T buscar(int id);
+    public <T> T buscar(long id);
     public void agregar(Object unObjeto);
     public void modificar(Object unObjeto);
     public void eliminar(Object unObjeto);

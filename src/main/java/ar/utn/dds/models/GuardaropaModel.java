@@ -20,7 +20,7 @@ public class GuardaropaModel extends Model {
     }
 
     @Override
-    public Guardaropa buscar(int id){
+    public Guardaropa buscar(long id){
         return entityManager().find(Guardaropa.class, id);
     }
 

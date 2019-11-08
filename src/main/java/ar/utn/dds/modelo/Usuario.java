@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario{
 	
 	@Id
@@ -18,16 +18,19 @@ public class Usuario{
 	@ManyToMany
     @JoinTable(name="map_usuario_guardaropa", joinColumns={@JoinColumn(name="id_usuario")}, inverseJoinColumns={@JoinColumn(name="id_guardaropa")})
     private List<Guardaropa> roperos;
+	
     @Column(name = "nombreUsuario")
     private String userName;
-    @OneToOne(cascade = {CascadeType.ALL})
+    
+	@OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_membrecia")
     private Membrecia membrecia;
+	
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name="id_usuario")
     private List<Evento> eventos;
     
-    @JoinColumn(name = "sexo")
+    @Column(name = "sexo")
     private String sexo;
     
 //    @OneToOne(cascade = {CascadeType.ALL})
@@ -35,7 +38,15 @@ public class Usuario{
     @Transient
     private Sensibilidad sensibilidad;
 
-
+    @Column(name = "password")
+    private String password;
+    
+    @Column(name = "mail")
+    private String mail;
+    
+	@Column(name = "telefono")
+    private int telefono;
+	
     public void aceptarAtuendo(ArrayList<AceptarSuegerenciaObservador> observadores,Atuendo atuendo, CalificacionAtuendo calificacion){
         AceptarSugerenciaObserver observer = new AceptarSugerenciaObserver();
         observadores.forEach(observador -> observer.attach(observador));
@@ -81,26 +92,15 @@ public class Usuario{
     }
     public void agregarPreda(Prenda prenda, Guardaropa ropero){ ropero.agregarPrenda(prenda); }
     public void agregarRopero(Guardaropa ropero){ this.roperos.add(ropero); }
-
-    //Constructores------------------------------------------------
-    Usuario(String userName, ArrayList<Guardaropa> roperos){
-        this.userName = userName;
-        this.roperos = roperos;
-        this.membrecia = new Gratuito();
-        this.eventos = new ArrayList<Evento>();
-        this.sensibilidad = new Ermitanio();
-    }
-    //Metodos-por-patrones------------------------------------------
-    public void updateEventoProximo(Evento evento) {
-        CentroClimatologico centroClimatologico = new CentroClimatologico();
-        List<Atuendo> atuendos = this.roperos.stream()
-                .map(ropero -> ropero.sugerirAtuendo(centroClimatologico.getMeteorologo().getPronosticoTiempoYUbicacion(evento.getHoraComienzo(),evento.getUbicacion()),evento,this))
-                .collect(Collectors.toList());
-        evento.agregarSugerencias(atuendos);
-    }
     
     public List<Guardaropa> misRoperos(){ return this.roperos;}
     public Membrecia miMembrecia(){ return this.membrecia;}
+    public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
     public Sensibilidad getSensibilidad() {
         return this.sensibilidad;
     }
@@ -113,4 +113,54 @@ public class Usuario{
 	public void setEventos(List<Evento> eventos) {
 		this.eventos = eventos;
 	}
+    public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+    public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	public int getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
+	}
+
+    //Constructores------------------------------------------------
+    public Usuario(String userName, ArrayList<Guardaropa> roperos){
+        this.userName = userName;
+        this.roperos = roperos;
+        this.membrecia = new Gratuito();
+        this.eventos = new ArrayList<Evento>();
+        this.sensibilidad = new Ermitanio();
+    }
+    
+    
+    public Usuario(){
+        this.roperos = new ArrayList<Guardaropa>();
+//        this.membrecia = new Gratuito();
+        this.eventos = new ArrayList<Evento>();
+        this.sensibilidad = new Ermitanio();
+    }
+    //Metodos-por-patrones------------------------------------------
+    public void updateEventoProximo(Evento evento) {
+        CentroClimatologico centroClimatologico = new CentroClimatologico();
+        List<Atuendo> atuendos = this.roperos.stream()
+                .map(ropero -> ropero.sugerirAtuendo(centroClimatologico.getMeteorologo().getPronosticoTiempoYUbicacion(evento.getHoraComienzo(),evento.getUbicacion()),evento,this))
+                .collect(Collectors.toList());
+        evento.agregarSugerencias(atuendos);
+    }
+    
 }

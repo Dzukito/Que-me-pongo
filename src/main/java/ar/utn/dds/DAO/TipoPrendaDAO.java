@@ -48,7 +48,7 @@ public class TipoPrendaDAO implements DAO{
 	}
 
 	@Override
-	public <T> T buscar(int id) {
+	public <T> T buscar(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

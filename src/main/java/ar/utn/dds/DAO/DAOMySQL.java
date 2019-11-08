@@ -18,7 +18,7 @@ public class DAOMySQL implements DAO{
     }
 
     @Override
-    public <T> T buscar(int id) {
+    public <T> T buscar(long id) {
         return this.model.buscar(id);
     }
 
