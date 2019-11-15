@@ -20,29 +20,44 @@
 			<div class="col-10 text-center">
 				<h2 class="encabezado"> QU&Eacute; ME PONGO?</h2>
 			</div>
-			<div class="col-1 menu text-center btn-group">
+			<div class="col-1 menu text-center btn-group dropdown">
 			
-				<button type="button" class="btn btn-secondary bg-danger font-weight-bold text-dark border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button type="button" class="btn btn-secondary  bg-danger font-weight-bold text-dark border-0" id="menuCabecera" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<h4>&#9776;</h4>
 				</button>
-				<div class="dropdown-menu dropdown-menu-right bg-danger">
-					<button class="dropdown-item font-weight-bold" type="button">Home</button>
+  
+				<div  form action="" method="POST" class="dropdown-menu dropdown-menu-right bg-danger " aria-labelledby="menuCabecera">
+					<a href="/home">
+					<button class="dropdown-item font-weight-bold" type="button" href="/home">Home</button>
+					</a>
+					{{#if login}}
+						<a href="/login">
+						<button class="dropdown-item font-weight-bold" type="submit">cerrar sesion</button>
+						</a>
+					{{else}}
+						<a href="/login">
+						<button class="dropdown-item font-weight-bold" type="button">iniciar sesion</button>
+						</a>
+					{{/if}}
 				</div>
+				
+			
 			</div>
 		</div>
 	</div>
     <div class="row contenido">
 		<div class="col-md-2 offset-md-2 col-sm-4 offset-sm-4 guardaropas  text-center">
-			<a href="/guardaropas">
+			<a {{#if login}}  href="/guardaropas" {{else}} href="/login" {{/if}}>
 				<img src="/img/guardaropas.png" class="guardaropasImg img-fluid rounded mx-auto d-block mr-md-10" alt="Imagen guardaropa">
 			
 			<h3 class="guardaropasTitulo text-dark"> Guardaropas </h3>
 			</a>	
 		</div>
 		<div class="col-md-2 offset-md-2 col-sm-4 offset-sm-4 evento text-center">
-			
-			<img src="/img/evento.png" class="eventoImg">
-			<h3 class="eventoTitulo text-dark">Eventos</h3>
+			<a {{#if login}}  href="/events" {{else}} href="/login"  {{/if}} >
+				<img src="/img/evento.png" class="eventoImg">
+				<h3 class="eventoTitulo text-dark">Eventos</h3>
+			</a>
 		</div>
 		
 		

@@ -20,11 +20,13 @@ public class GuardaropaController {
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
+    	
         Map<String, Object> parametros = new HashMap<>();
         Usuario usuario = request.session().attribute("nombreDeUsuario");
         List<Guardaropa> guardaropas = usuario.getRoperos();
         parametros.put("guardaropas", guardaropas);
         return  new ModelAndView(parametros, "misGuardaropas.hbs");
+    	
     }
 
 }
