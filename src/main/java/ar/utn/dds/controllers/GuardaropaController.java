@@ -1,15 +1,13 @@
 package ar.utn.dds.controllers;
-//import entities.Rol;
+
 import ar.utn.dds.modelo.Guardaropa;
+import ar.utn.dds.modelo.Usuario;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
-//import repositories.RepositorioRol;
-//import repositories.factories.FactoryRepositorioRol;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +21,8 @@ public class GuardaropaController {
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        List<Guardaropa> guardaropas = this.repo.buscarTodos();
+        Usuario usuario = request.session().attribute("nombreDeUsuario");
+        List<Guardaropa> guardaropas = usuario.getRoperos();
         parametros.put("guardaropas", guardaropas);
         return  new ModelAndView(parametros, "misGuardaropas.hbs");
     }
