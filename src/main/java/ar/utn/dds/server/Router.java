@@ -41,6 +41,10 @@ public class Router {
         Spark.get("/usuario", usuarioController::crear, Router.engine);
         
         Spark.post("/usuario", usuarioController::guardar);
+        
+        Spark.get("/login", usuarioController::crearLogin, Router.engine);
+        
+        Spark.post("/login", usuarioController::guardarLogin);
 
 //        Spark.post("/usuario/:id", usuarioController::modificar);
 
