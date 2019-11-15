@@ -1,6 +1,6 @@
 package ar.utn.dds.repositories;
 
-import ar.utn.dds.DAO.DAO;
+import ar.utn.dds.repositories.DAO.DAO;
 
 public abstract class Repositorio {
     protected DAO dao;

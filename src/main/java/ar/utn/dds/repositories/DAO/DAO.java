@@ -1,4 +1,4 @@
-package ar.utn.dds.DAO;
+package ar.utn.dds.repositories.DAO;
 
 import java.util.List;
 

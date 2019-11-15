@@ -1,12 +1,5 @@
-package ar.utn.dds.DAO;
+package ar.utn.dds.repositories.DAO;
 
-import ar.utn.dds.modelo.TipoPrenda;
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.FileReader;
-import java.lang.reflect.Type;
 import java.util.List;
 
 //public class TipoPrendaDAO implements DAO<TipoPrenda, String> {

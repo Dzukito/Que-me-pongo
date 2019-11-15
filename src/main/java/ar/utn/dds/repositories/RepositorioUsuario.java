@@ -1,7 +1,7 @@
 package ar.utn.dds.repositories;
 
 import ar.utn.dds.modelo.Usuario;
-import ar.utn.dds.DAO.DAO;
+import ar.utn.dds.repositories.DAO.DAO;
 
 import java.util.List;
 

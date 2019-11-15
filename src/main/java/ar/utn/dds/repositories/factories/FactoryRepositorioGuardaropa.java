@@ -1,9 +1,8 @@
 package ar.utn.dds.repositories.factories;
 
-import ar.utn.dds.config.Config;
 import ar.utn.dds.models.GuardaropaModel;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
-import ar.utn.dds.DAO.DAOMySQL;
+import ar.utn.dds.repositories.DAO.DAOMySQL;
 
 public class FactoryRepositorioGuardaropa {
 	private static RepositorioGuardaropa repo;

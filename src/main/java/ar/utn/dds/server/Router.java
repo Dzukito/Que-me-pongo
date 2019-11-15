@@ -37,7 +37,7 @@ public class Router {
         
         
         Spark.get("/home", homeController::mostrar, Router.engine);
-       
+        
         Spark.get("/guardaropas", guardaropaController::mostrarTodos, Router.engine);
 
         Spark.get("/usuario", usuarioController::crear, Router.engine);

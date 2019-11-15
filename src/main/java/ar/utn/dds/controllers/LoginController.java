@@ -12,7 +12,6 @@ import spark.Response;
 public class LoginController {
 	
 	private RepositorioUsuario repo;
-//	public static boolean usuarioLogin=false;
 
     public LoginController(){
         this.repo = FactoryRepositorioUsuario.get();
@@ -20,42 +19,28 @@ public class LoginController {
 	
     
     public ModelAndView crearLogin(Request request, Response response){ 
-//    	setUsuarioLogin(false);
-    	request.session().removeAttribute("nombreDeUsuario"); 
     	return  new ModelAndView(new HashMap<>(), "login.hbs");
     }
     
     public Response guardarLogin(Request request, Response response){
     	List<Usuario> usuarios = this.repo.buscarTodos();
     	
-    	for(int i = 0;i< usuarios.size() && !isUsuarioLogin(request);i=i+1) {
+    	boolean usuarioOk=false;
+    	for(int i = 0;i< usuarios.size() || !usuarioOk;i=i+1) {
     		
         	if((usuarios.get(i).getUserName().compareTo(request.queryParams("nombreDeUsuario")))==0 &&
         		(usuarios.get(i).getPassword().compareTo(request.queryParams("password")))==0) {
-        		
-        		
+//falta manejar errores        		
+        		usuarioOk=true;
         		request.session(true);
         		request.session().attribute("nombreDeUsuario",usuarios.get(i));
         		
         	} 
         	
         }
-    	if  (isUsuarioLogin(request)) {   
-    		response.redirect("/home");
-    	}else {
-    		response.redirect("/login");	
-    	}
+    	       
+    	response.redirect("/home");
         return response;
     }
 
-
-	public static boolean isUsuarioLogin(Request request) {
-		return request.session().attribute("nombreDeUsuario") != null;
-	}
-
-/*
-	public static void setUsuarioLogin(boolean usuarioLogin) {
-		LoginController.usuarioLogin = usuarioLogin;
-	}
-*/
 }

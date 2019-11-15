@@ -39,61 +39,53 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="form-group">
-                            <label for="nombreDeUsuario">Usuario:</label>
-                            <input type="text" class="form-control" name="nombreDeUsuario" id="nombreDeUsuario" placeholder="Ej: Martín">
+                            <label for="exampleInputEmail1">Usuario:</label>
+                            <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Ej: Martín">
                         </div>
                         <div class="form-group">
-                            <label for="userPassword">Password</label>
-                            <input type="password" class="form-control" name="password" id="userPassword" placeholder="Password">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="userPassword" placeholder="Password">
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div style="width: 6rem;margin-top:50px;margin-left: 10px;">
-                            <img src="/img/fotoUsuarioSinFoto.png" class="card-img-top" alt="...">
+                            <img src="../public/img/fotoUsuarioSinFoto.png" class="card-img-top" alt="...">
                         </div>
                     </div>
                 </div>
 
-                 <div class="form-group">
-                    <label for="sexo">Sexo:</label>
-                    <div>
-                        <select class="input-select form-control" name="sexo" id="sexo">
-                            <option selected disabled>Seleccionar</option>
-                            <option type="membrecia">Femenino</option>
-                            <option type="membrecia">Masculino</option>
-                            <option type="membrecia">Unisex</option>    
-                        </select>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sexo:
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Masculino</a>
+                        <a class="dropdown-item" href="#">Femenino</a>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="membrecia">Membrecia:</label>
-                    <div>
-                        <select class="input-select form-control" name="membrecia">
-                            <option selected disabled>Seleccionar</option>
-                            {{#each membrecias}}
-                                <option value="{{id_membrecia}}" type="membrecia">{{descripcion}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
+                    <label for="exampleInputEmail1">Membrecia:</label>
+                    <input type="text" class="form-control" id="typeUser" aria-describedby="emailHelp" placeholder="Ej: Martín">
                 </div>
 
 
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Ej: example@utnfrba.com">
+                    <input type="email" class="form-control" id="emailUser" aria-describedby="emailHelp" placeholder="Ej: example@utnfrba.com">
                 </div>
                 <div class="form-group">
                     <label for="phone">Telefono:</label>
-                    <input type="number" class="form-control" name="telefono" id="phone" aria-describedby="emailHelp" placeholder="Ej: +5499999999">
+                    <input type="phone" class="form-control" id="phoneUser" aria-describedby="emailHelp" placeholder="Ej: +5499999999">
                 </div>
 
                 <div class="row" style="margin-top:15px;">
                     <div class="col">
-                        <button type="submit" class="btn btn-warning">Registrarse</button>
+                        <button type="submit" class="btn btn-warning">Registrase</button>
                     </div>
                     <div class="col">
-                        <a href="/home" class="btn btn-outline-dark" style="color:black">Cancelar</a>
+                        <button type="submit" class="btn btn-outline-dark"><a href="#" style="color:black">Cancelar</a></button>
                     </div>
                 </div>
             </form>
