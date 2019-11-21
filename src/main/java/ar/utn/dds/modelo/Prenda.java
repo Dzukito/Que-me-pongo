@@ -17,8 +17,10 @@ public class Prenda{
 	@GeneratedValue
 	private long id_prenda;
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
-	@JoinTable(name="map_prenda_color", joinColumns={@JoinColumn(name="id_prenda")}, inverseJoinColumns={@JoinColumn(name="id_color")})
+	@ElementCollection(targetClass = Color.class)
+    @CollectionTable(name="colores", joinColumns=@JoinColumn(name="id_prenda"))
+    @Column(name="color")
+	@Enumerated
     private List<Color> colores;
     
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
@@ -28,12 +30,14 @@ public class Prenda{
     @Column(name = "nombrePrenda")
     private String nombrePrenda;
     
-    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_material")
+    @Enumerated
+    @Column(name="material")
     private Material material;
     
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinTable(name="map_prenda_estilo", joinColumns={@JoinColumn(name="id_prenda")}, inverseJoinColumns={@JoinColumn(name="id_estilo")})
+    @ElementCollection(targetClass = Estilo.class)
+    @CollectionTable(name="estilos", joinColumns=@JoinColumn(name="id_prenda"))
+    @Column(name="estilo")
+	@Enumerated
     private List<Estilo> estilos;
     
     @Column(name = "disponibilidad")

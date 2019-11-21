@@ -1,8 +1,7 @@
 package ar.utn.dds.modelo;
 import javax.persistence.*;
 
-@Entity
-@Table(name="material")
+
 public enum Material {
     PLASTICO("Plastico"),
     CUERO("Cuero"),
@@ -14,11 +13,10 @@ public enum Material {
     GABARDINA("Lino"),
     FRANELA("Franela");
 	
-	@Id
-	@GeneratedValue
+	
 	private long id_material;
 
-	@Column(name = "nombre")
+
     private final String nombre;
 	
     Material(String nombre) {

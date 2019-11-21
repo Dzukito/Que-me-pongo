@@ -22,12 +22,14 @@ public class TipoPrenda {
 	@Column(name = "tipo")
     private String tipo;
 	
-	@ManyToOne
-    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
+	@Enumerated
+	@Column(name="categoria")
     private Categoria categoria;
 	
-	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinTable(name="map_tipoPrenda_material", joinColumns={@JoinColumn(name="id_tipoPrenda")}, inverseJoinColumns={@JoinColumn(name="id_material")})
+	@ElementCollection(targetClass = Material.class)
+    @CollectionTable(name="materiales", joinColumns=@JoinColumn(name="id_tipoPrenda"))
+    @Column(name="material")
+	@Enumerated
     private Set<Material> materiales;
 	
 	@OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
