@@ -2,8 +2,7 @@ package ar.utn.dds.modelo;
 import javax.persistence.*;
 
 
-@Entity
-@Table(name="categoria")
+
 public enum Categoria {
     TORSO("Torso",5,1),
     PARTEINFERIOR("Parte Inferior",3,1),
@@ -13,14 +12,13 @@ public enum Categoria {
     MANOS("Manos",1,0),
     CABEZA("Cabeza",1,0);
 	
-	@Id
-	@GeneratedValue
+	
 	private long id_categoria;
-	@Column(name = "categoria")
+	
     private String categoria;
-	@Column(name = "nivelCalorMinimo")
+	
     private int nivelCalorMinimo;
-	@Column(name = "nivelCalorMaximo")
+	
     private int nivelCalorMaximo;
 
     public int getPuntoMedio(){ return ((this.nivelCalorMaximo/2)-(this.nivelCalorMaximo%2)); }

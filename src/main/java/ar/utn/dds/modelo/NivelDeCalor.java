@@ -14,8 +14,8 @@ public class NivelDeCalor {
 	@GeneratedValue
 	private long id_nivelDeCalor;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_categoria")
+	@Enumerated
+	@Column(name="categoria")
     private Categoria categoria;
     
     @Column(name="nivelDeCalor")
