@@ -6,7 +6,7 @@ import ar.utn.dds.controllers.LoginController;
 import ar.utn.dds.controllers.HomeController;
 import ar.utn.dds.models.GuardaropaModel;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
-import ar.utn.dds.DAO.DAOMySQL;
+import ar.utn.dds.repositories.DAO.DAOMySQL;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import ar.utn.dds.spark.utils.BooleanHelper;

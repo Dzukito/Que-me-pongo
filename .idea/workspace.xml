@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="6-pages">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/DAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/DAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/DAO/TipoPrendaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/TipoPrendaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/data/PrendasRopero.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/data/PrendasRopero.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/data/TiposDePrendas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/data/TiposDePrendas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/Repositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioGuardaropa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioGuardaropa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioMembrecia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioMembrecia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioGuardaropa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioGuardaropa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioMembrecia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioMembrecia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/server/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/server/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addEvent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addEvent.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/events.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -43,4 +43,7 @@ public class LoginController {
         return response;
     }
 
+    public static boolean isUsuarioLogin(Request request) {
+        return request.session().attribute("nombreDeUsuario") != null;
+    }
 }
