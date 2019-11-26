@@ -23,7 +23,7 @@ public class RepositorioUsuario extends Repositorio {
         return this.dao.buscarTodos();
     }
 
-    public Usuario buscar(int id){
+    public Usuario buscar(long id){
         return this.dao.buscar(id);
     }
 }

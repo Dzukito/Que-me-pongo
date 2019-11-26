@@ -47,13 +47,23 @@ public class Router {
         Spark.get("/login", loginController::crearLogin, Router.engine);
         
         Spark.post("/login", loginController::guardarLogin);
+        
+        Spark.post("/guardaropas", guardaropaController::crearGuardaropa);
 
 //        Spark.post("/usuario/:id", usuarioController::modificar);
 
   //      Spark.delete("/usuario/:id", usuarioController::eliminar);
 
-        //Spark.after((req, res) -> {
-        //    PerThreadEntityManagers.closeEntityManager();
-        //});
+        
+        Spark.before((req, res) -> {
+            if (!LoginController.isUsuarioLogin(req) && !req.uri().equals("/home") && !req.uri().equals("/login")) {
+            	res.redirect("/login");
+            }
+        });
+        Spark.after((req, res) -> {
+        	if(!req.uri().equals("/home") && !req.uri().equals("/login")) {
+        		PerThreadEntityManagers.closeEntityManager();
+        	}
+        });
     }
 }

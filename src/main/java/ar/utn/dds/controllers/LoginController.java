@@ -11,11 +11,11 @@ import spark.Response;
 
 public class LoginController {
 	
-	private RepositorioUsuario repo;
+	static private RepositorioUsuario repo = FactoryRepositorioUsuario.get();
 //	public static boolean usuarioLogin=false;
 
     public LoginController(){
-        this.repo = FactoryRepositorioUsuario.get();
+        //this.repo = FactoryRepositorioUsuario.get();
     }
 	
     
@@ -26,7 +26,7 @@ public class LoginController {
     }
     
     public Response guardarLogin(Request request, Response response){
-    	List<Usuario> usuarios = this.repo.buscarTodos();
+    	List<Usuario> usuarios = repo.buscarTodos();
     	
     	for(int i = 0;i< usuarios.size() && !isUsuarioLogin(request);i=i+1) {
     		
@@ -53,6 +53,10 @@ public class LoginController {
 		return request.session().attribute("nombreDeUsuario") != null;
 	}
 
+	public static Usuario getUsuario(Request request) {
+		return repo.buscar(((Usuario)request.session().attribute("nombreDeUsuario")).getId_usuario());
+		
+	}
 /*
 	public static void setUsuarioLogin(boolean usuarioLogin) {
 		LoginController.usuarioLogin = usuarioLogin;

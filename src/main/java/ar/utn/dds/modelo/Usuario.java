@@ -137,6 +137,11 @@ public class Usuario{
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+	public long getId_usuario() {
+		return id_usuario;
+	}
+	
+	public void quitarGuardaropa(Guardaropa guardaropa1) { this.roperos = this.roperos.stream().filter(guardaropa -> guardaropa != guardaropa1).collect(Collectors.toList()); }
 
     //Constructores------------------------------------------------
     public Usuario(String userName, ArrayList<Guardaropa> roperos){

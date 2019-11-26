@@ -23,7 +23,7 @@ public class RepositorioGuardaropa extends Repositorio {
         return this.dao.buscarTodos();
     }
 
-    public Guardaropa buscar(int id){
+    public Guardaropa buscar(long id){
         return this.dao.buscar(id);
     }
 }
