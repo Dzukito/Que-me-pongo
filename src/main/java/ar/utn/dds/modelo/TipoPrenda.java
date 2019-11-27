@@ -77,6 +77,36 @@ public class TipoPrenda {
         return  this.superponibles.size();
     }
 
+    public long getId_tipoPrenda() {
+		return id_tipoPrenda;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public Set<Material> getMateriales() {
+		return materiales;
+	}
+	public Set<TipoPrenda> getSuperponibles() {
+		return superponibles;
+	}
+	public void setId_tipoPrenda(long id_tipoPrenda) {
+		this.id_tipoPrenda = id_tipoPrenda;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public void setMateriales(Set<Material> materiales) {
+		this.materiales = materiales;
+	}
+	public void setFotografo(Fotografo fotografo) {
+		this.fotografo = fotografo;
+	}
+	public void setSuperponibles(Set<TipoPrenda> superponibles) {
+		this.superponibles = superponibles;
+	}
     //Constructores-------------------------------------------------------------
     TipoPrenda(Categoria categoria, String tipo, Set<Material> materiales){
         this.tipo = tipo;
@@ -95,6 +125,11 @@ public class TipoPrenda {
         this.materiales = materiales;
         this.categoria = categoria;
         this.superponibles = superponibles;
+    }
+    public TipoPrenda() {
+    	
+    	this.superponibles = new HashSet<TipoPrenda>();
+    	
     }
 
 }

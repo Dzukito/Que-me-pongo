@@ -1,5 +1,6 @@
 package ar.utn.dds.modelo;
 
+import ar.utn.dds.controllers.LoginController;
 import ar.utn.dds.excepciones.AlMenosUnColor;
 import ar.utn.dds.excepciones.SoloTieneUnColor;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Prenda{
 	@ElementCollection(targetClass = Color.class)
     @CollectionTable(name="colores", joinColumns=@JoinColumn(name="id_prenda"))
     @Column(name="color")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
     private List<Color> colores;
     
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
@@ -30,14 +31,14 @@ public class Prenda{
     @Column(name = "nombrePrenda")
     private String nombrePrenda;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name="material")
     private Material material;
     
     @ElementCollection(targetClass = Estilo.class)
     @CollectionTable(name="estilos", joinColumns=@JoinColumn(name="id_prenda"))
     @Column(name="estilo")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
     private List<Estilo> estilos;
     
     @Column(name = "disponibilidad")
@@ -53,7 +54,8 @@ public class Prenda{
     @Column(name = "nivelDeCalor")
     private int nivelDeCalor;
 
-    //Metodos-que-no-se-usan---------------------------------
+   
+	//Metodos-que-no-se-usan---------------------------------
     public int cantidadSuperponibles() {
         if ( 0 !=this.tipoPrenda.cantidadSuperponibles()) {
             return this.tipoPrenda.cantidadSuperponibles();
@@ -119,8 +121,62 @@ public class Prenda{
     public List<Estilo> getEstilo(){
         return estilos;
     }
-
-    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, List<Color> colores, Material material){
+    public long getId_prenda() {
+		return id_prenda;
+	}
+	public List<Color> getColores() {
+		return colores;
+	}
+	public TipoPrenda getTipoPrenda() {
+		return tipoPrenda;
+	}
+	public List<Estilo> getEstilos() {
+		return estilos;
+	}
+	public Boolean getDisponibilidad() {
+		return disponibilidad;
+	}
+	public void setId_prenda(long id_prenda) {
+		this.id_prenda = id_prenda;
+	}
+	public void setColores(List<Color> colores) {
+		this.colores = colores;
+	}
+	public void setColor(Color color) {
+		this.colores.add(color);
+	}
+	public void setTipoPrenda(TipoPrenda tipoPrenda) {
+		this.tipoPrenda = tipoPrenda;
+	}
+	public void setNombrePrenda(String nombrePrenda) {
+		this.nombrePrenda = nombrePrenda;
+	}
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+	public void setEstilos(List<Estilo> estilos) {
+		this.estilos = estilos;
+	}
+	public void setDisponibilidad(Boolean disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}
+	public void setFotografo(Fotografo fotografo) {
+		this.fotografo = fotografo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	 public void setNivelDeCalor(int nivelDeCalor) {
+			this.nivelDeCalor = nivelDeCalor;
+		}
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	Prenda(TipoPrenda tipoPrenda, String nombrePrenda, List<Color> colores, Material material){
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
         this.colores = colores;
@@ -147,4 +203,12 @@ public class Prenda{
             throw new AlMenosUnColor();
         }
     }
+    public Prenda(){
+
+            this.disponibilidad = true;
+            this.estilos = new ArrayList<Estilo>();
+            this.colores = new ArrayList<Color>();
+            this.fotografo= new Fotografo();
+           
+        }
 }

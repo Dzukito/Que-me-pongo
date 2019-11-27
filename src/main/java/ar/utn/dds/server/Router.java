@@ -1,10 +1,7 @@
 package ar.utn.dds.server;
 
-import ar.utn.dds.controllers.GuardaropaController;
-import ar.utn.dds.controllers.UsuarioController;
-import ar.utn.dds.controllers.LoginController;
-import ar.utn.dds.controllers.HomeController;
-import ar.utn.dds.models.GuardaropaModel;
+import ar.utn.dds.controllers.*;
+import ar.utn.dds.models.*;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 import ar.utn.dds.DAO.DAOMySQL;
 import spark.Spark;
@@ -34,6 +31,8 @@ public class Router {
     	HomeController homeController = new HomeController();
     	UsuarioController usuarioController = new UsuarioController();
         GuardaropaController guardaropaController = new GuardaropaController();
+        PrendaController prendaController = new PrendaController();
+        
         
         
         Spark.get("/home", homeController::mostrar, Router.engine);
@@ -49,6 +48,11 @@ public class Router {
         Spark.post("/login", loginController::guardarLogin);
         
         Spark.post("/guardaropas", guardaropaController::crearGuardaropa);
+        
+        Spark.get("/addPrenda", prendaController::crear, Router.engine);
+        
+        Spark.post("/addPrenda", prendaController::guardar);
+        
 
 //        Spark.post("/usuario/:id", usuarioController::modificar);
 
