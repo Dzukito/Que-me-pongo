@@ -20,14 +20,23 @@
     line-height: 42px;
     text-align: center;"
     >¿Qué Me Pongo?</h3>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon ">  <img src="../public/img/menu_hamburgesa.png" style="width:30px" alt="menu"></span>
-    </button>
+    
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            {{#if login}}
             <li class="nav-item active" style="margin: 5px;">
-                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="#">Cerrar Sesión</a></button>
+                <a href="/login">
+                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
+                </a>
             </li>
+            {{else}}
+
+            <li class="nav-item active" style="margin: 5px;">
+                
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                
+            </li>
+            {{/if}}
         </ul>
     </div>
 </nav>
@@ -36,18 +45,18 @@
     
     <div class="row" style="margin-top:5px;margin-bottom:5px;">
         <div class="col-xs-4 offset-4 text-center">  
-            <h3> Mis guardarropas </h3>        
+            <h3> Mis guardaropas </h3>        
         </div>
     </div>
     <div class="row" style="margin-top:5px;margin-bottom:5px;">
         <div class="col-xs-4 offset-4 text-center">  
-            <img src="img/guardaropas.png" class="guardaropasImg img-fluid rounded mx-auto d-block mr-md-10" alt="Imagen guardaropa">      
+           <img src="img/guardaropas.png" class="guardaropasImg" alt="Imagen guardaropa">   
         </div>
     </div>
     <div class="row" style="margin-top:5px;margin-bottom:5px;">
         <div class="col-xs-4 offset-4 text-center">  
             <div class="btn-group">
-                    <button type="button" class="btn btn-outline-dark btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
+                    <button type="button" class="btn btn-outline-dark btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     seleccionar guardaropa
                     </button>
                     <div class="dropdown-menu">
@@ -59,11 +68,44 @@
         </div>
     </div>
     <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-8 text-center">  
-            <button type="button" class="btn btn-outline-dark btn-danger">Agregar</button>  
-        </div>
+        <div class="col-xs-4 offset-xs-4 offset-7 text-center">  
+                <button type="button" class="btn btn-outline-dark btn-danger" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>  
+                <div class="modal fade" id="modalAgregarGuardaropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Agregar guardaropa</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/guardaropas" method="POST">
+                                    <div class="form-group">
+                                        <label for="nombreGuardaropa" class="col-form-label">Nombre del Guardaropa</label>
+                                        <input type="text" class="form-control" name="nombreGuardaropa" id="nombreGuardaropa">
+                                    </div>
+                                    <div>
+                                        <a href="/guardaropas"> 
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                         </a> 
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                    </div>
+                                
+                                </form>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            <a href="/home">
+                <button type="button" class="btn btn-outline-dark btn-danger">Volver</button>  
+            </a>
+        </div> 
     </div>
    
-
 </body>
 </html>
+
+
+

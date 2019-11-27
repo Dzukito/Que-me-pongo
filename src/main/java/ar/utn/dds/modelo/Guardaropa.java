@@ -97,14 +97,15 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 		this.nombre = nombre;
 	}
     //Constructores--------------------------------------------
-    Guardaropa(ArrayList<Prenda> prendas) {
+    public Guardaropa(ArrayList<Prenda> prendas) {
             this.prendas = prendas;
             this.atuendosMostrados = new ArrayList<Atuendo>();
             this.usuarios = new ArrayList<Usuario>();
         }
-    Guardaropa(){
+    public Guardaropa(){
         this.prendas = new ArrayList<Prenda>();
         this.atuendosMostrados = new ArrayList<Atuendo>();
+        this.usuarios = new ArrayList<Usuario>();
         }
     //observers-methods----------------------------------------
     @Override
