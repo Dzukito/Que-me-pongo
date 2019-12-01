@@ -18,12 +18,20 @@ public class Prenda{
 	@GeneratedValue
 	private long id_prenda;
 	
+	/*
 	@ElementCollection(targetClass = Color.class)
     @CollectionTable(name="colores", joinColumns=@JoinColumn(name="id_prenda"))
     @Column(name="color")
 	@Enumerated(EnumType.STRING)
-    private List<Color> colores;
-    
+    private List<Color> colores;*/
+	
+	@Column(name="colorPrimario")
+	@Enumerated(EnumType.STRING)
+	private Color colorPrimario;
+	
+	@Column(name="colorSecundario")
+	@Enumerated(EnumType.STRING)
+	private Color colorSecundario;
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="id_tipoPrenda")
     private TipoPrenda tipoPrenda;
@@ -80,7 +88,7 @@ public class Prenda{
     }
     @Override
     public int hashCode(){
-        return Objects.hash(colores, tipoPrenda, nombrePrenda, material);
+        return Objects.hash(colorPrimario,colorSecundario, tipoPrenda, nombrePrenda, material); //X
     }
     public boolean esSuperponible(Prenda prenda){
         return this.tipoPrenda.esSuperponible(prenda.getTipoDePrenda());
@@ -95,13 +103,13 @@ public class Prenda{
         return this.tipoPrenda.tipo();
     }
     public Color getColorPrimario(){
-        return this.colores.get(0);
+        return this.colorPrimario; //X
     }
     public  Color getColorSecundario(){
-        if (this.colores.size() == 1) {
-            throw new SoloTieneUnColor();
-        }
-        return this.colores.get(1);
+       /* if (this.colores.size() == 1) {
+            throw new SoloTieneUnColor(); //X
+        }*/
+        return this.colorSecundario; //X
     }
     public TipoPrenda getTipoDePrenda() {
         return this.tipoPrenda;
@@ -124,9 +132,7 @@ public class Prenda{
     public long getId_prenda() {
 		return id_prenda;
 	}
-	public List<Color> getColores() {
-		return colores;
-	}
+
 	public TipoPrenda getTipoPrenda() {
 		return tipoPrenda;
 	}
@@ -139,11 +145,13 @@ public class Prenda{
 	public void setId_prenda(long id_prenda) {
 		this.id_prenda = id_prenda;
 	}
-	public void setColores(List<Color> colores) {
-		this.colores = colores;
+	
+
+	public void setColorPrimario(Color color) {
+		this.colorPrimario= color;
 	}
-	public void setColor(Color color) {
-		this.colores.add(color);
+	public void setColorSecundario(Color color) {
+		this.colorSecundario= color;
 	}
 	public void setTipoPrenda(TipoPrenda tipoPrenda) {
 		this.tipoPrenda = tipoPrenda;
@@ -156,6 +164,9 @@ public class Prenda{
 	}
 	public void setEstilos(List<Estilo> estilos) {
 		this.estilos = estilos;
+	}
+	public void setEstilo(Estilo estilo) {
+		this.estilos.add(estilo);
 	}
 	public void setDisponibilidad(Boolean disponibilidad) {
 		this.disponibilidad = disponibilidad;
@@ -170,36 +181,51 @@ public class Prenda{
 			this.nivelDeCalor = nivelDeCalor;
 		}
 	 
+	
 	 
 	 
 	 
-	 
-	 
-	 
-	Prenda(TipoPrenda tipoPrenda, String nombrePrenda, List<Color> colores, Material material){
+	Prenda(TipoPrenda tipoPrenda, String nombrePrenda, Color color1,Color color2, Material material){
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
-        this.colores = colores;
+        this.colorPrimario = color1;
+        this.colorSecundario=color2;
         this.material = material;
         this.disponibilidad = true;
         this.estilos = new ArrayList<Estilo>(Arrays.asList(Estilo.NORMAL));
         this.tipoPrenda.perteneceMaterial(material);
         this.fotografo= new Fotografo();
-        if(colores.isEmpty()){
+        if(colorPrimario==null){
             throw new AlMenosUnColor();
         }
     }
-    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, List<Color> colores, Material material, Estilo estilo){
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, Color color1,Color color2, Material material, Estilo estilo){
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;
-        this.colores = colores;
+        this.colorPrimario = color1;
+        this.colorSecundario=color2;
         this.material = material;
         this.disponibilidad = true;
         this.estilos = new ArrayList<Estilo>();
         this.estilos.add(estilo);
         this.fotografo= new Fotografo();
         this.tipoPrenda.perteneceMaterial(material);
-        if(colores.isEmpty()){
+        if(colorPrimario==null && colorSecundario ==null){
+            throw new AlMenosUnColor();
+        }
+    }
+    Prenda(TipoPrenda tipoPrenda, String nombrePrenda, Color color1, Material material){
+        this.tipoPrenda = tipoPrenda;
+        this.nombrePrenda = nombrePrenda;
+        this.colorPrimario = color1;
+  
+        this.material = material;
+        this.disponibilidad = true;
+        this.estilos = new ArrayList<Estilo>();
+    
+        this.fotografo= new Fotografo();
+        this.tipoPrenda.perteneceMaterial(material);
+        if(colorPrimario==null && colorSecundario ==null){
             throw new AlMenosUnColor();
         }
     }
@@ -207,7 +233,6 @@ public class Prenda{
 
             this.disponibilidad = true;
             this.estilos = new ArrayList<Estilo>();
-            this.colores = new ArrayList<Color>();
             this.fotografo= new Fotografo();
            
         }

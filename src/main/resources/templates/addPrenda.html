@@ -1,142 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-</head>
-<body>
 
-<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
-    <h3 style="font-family: Rouge Script;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
-    text-align: center;"
-    >¿Qué Me Pongo?</h3>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon ">  <img src="../public/img/menu_hamburgesa.png" style="width:30px" alt="menu"></span>
-    </button>
-    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
-        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
-            <li class="nav-item active" style="margin: 5px;">
-                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="#">Cerrar Sesión</a></button>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-
-
-
-
-
-<div class="card container" style="margin:auto;padding:50px;width:max-content; margin-top: 50px;">
-    <div class="col-xs-12">
-        <div class="row center-block">
-            <form style="margin-top: -20px;">
-		<div class="" style="margin:40px;">
-       <h3 class="tipoPrendaTitulo"> Agregar prenda </h3>
-   </div>
   
-                
-                 <div class="form-group" style="margin-top: 5px;">
-                    <input type="text" class="form-control" id="example" aria-describedby="help" placeholder="Nombre">
-                </div>
-	 
-  		<div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Tipo de Prenda
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">-</a>
-                        </div>
-                    </div>
-                </div>
+   
+<html>
+  <select id='countries' onchange='countryChanged(this.value);'>
+    <option value=''>Select Country</option>
+    <option value='USA'>USA</option>
+    <option value='Canada'>Canada</option>
+    <option value='England'>England</option>
+  </select>
+  &nbsp;&nbsp;
+  <select id='states' onchange='stateChanged(this.value);'>
+    <option value=''>Select State</option>
+  </select>
+  &nbsp;&nbsp;
+  <select id='cities' onchange='cityChanged(this.value);'>
+    <option value=''>Select City</option>
+  </select>
+ 
+ <script type="text/javascript"> 
 
- 		<div class="row" style="margin:10px;margin-top:30px;">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Materiales:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Plastico</a>
-                        <a class="dropdown-item" href="#">Cuero</a>
-			<a class="dropdown-item" href="#">Algodon</a>
-			<a class="dropdown-item" href="#">Malla</a>
-			<a class="dropdown-item" href="#">Lino</a>
-                        <a class="dropdown-item" href="#">Jean</a>
-		        <a class="dropdown-item" href="#">Gabardina</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Estilo:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Elegante</a>
-                        <a class="dropdown-item" href="#">EleganteSport</a>
-			<a class="dropdown-item" href="#">Deportivo</a>
-			<a class="dropdown-item" href="#">Entrecasa</a>
-			<a class="dropdown-item" href="#">Navidenio</a>
-                        <a class="dropdown-item" href="#">Normal</a>
-		        <a class="dropdown-item" href="#">Playero</a>
-                        </div>
-                    </div>
-                </div>
- 		  <div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Colores:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">[listaColores??]</a>
-                        </div>
-                    </div>
-                </div>
+   var statesUSA=[];
+   var statesCanada=["Quebec", "Ontario", "Alberta"];
+   var statesEngland=["Essex", "Hampshire", "Surrey"];
+  
+   var citiesCalifornia=["Los Angeles", "San Francisco"];
+   var citiesIllinois=["Chicago", "Springfield"];
+   var citiesWisconsin=["Milwaukee", "Madison"];
+   var citiesQuebec=["Montreal", "Brossard"];
+   var citiesOntario=["Toronto", "Ottawa"];
+   var citiesAlberta=["Calgary", "Edmonton"];
+   var citiesEssex=["Birch", "Dunmow"];
+   var citiesHampshire=["Winchester", "Portsmouth"];
+   var citiesSurrey=["Fairlands", "Kingswood"];
+  
+   function countryChanged(country)
+   { 
+      var selectState = document.getElementById('states');
+      var ln = selectState.length - 1;
+      while (ln > 0)
+      {
+        selectState.remove(1);  //Remove all but "Select State"
+        ln--;
+      }
+     
+      var selectCity = document.getElementById('cities');
+      var ln = selectCity.length - 1;
+      while (ln > 0)
+      {
+        selectCity.remove(1);  //Remove all but "Select City"
+        ln--;
+      }   
+     
+      var stateArray;
+     
+      switch(country)
+      {
+        case "USA":
+            stateArray=statesUSA
+            break;
+        case "Canada":
+            stateArray=statesCanada
+            break;
+        case "England":
+            stateArray=statesEngland
+            break;
+        default:
+      }     
+         
+      for (i = 0; i < stateArray.length; i++)
+      {
+        var option = document.createElement('option');
+        option.text = stateArray[i];
+        option.value = stateArray[i];
+        selectState.add(option);
+      }     
+  }
+ 
+  function stateChanged(state)
+  { 
+     var selectCity = document.getElementById('cities');
+     var ln = selectCity.length - 1;
+     while (ln > 0)
+     {
+       selectCity.remove(1);  //Remove all but "Select City"
+       ln--;
+     }   
+    
+     var cityArray;
+    
+     switch(state)
+     {
+       case "California":
+           cityArray=citiesCalifornia
+           break;
+       case "Illinois":
+           cityArray=citiesIllinois
+           break;
+       case "Wisconsin":
+           cityArray=citiesWisconsin
+           break;
+       case "Quebec":
+           cityArray=citiesQuebec
+           break;
+       case "Ontario":
+           cityArray=citiesOntario
+           break;
+       case "Alberta":
+           cityArray=citiesAlberta
+           break;
+       case "Essex":
+           cityArray=citiesEssex
+           break;
+       case "Hampshire":
+           cityArray=citiesHampshire
+           break;
+       case "Surrey":
+           cityArray=citiesSurrey
+           break;           
+       default:
+     }  
+     
+     for (i = 0; i < cityArray.length; i++)
+     {
+       var option = document.createElement('option');
+       option.text = cityArray[i];
+       option.value = cityArray[i];
+       selectCity.add(option);
+     }     
+  }
+ 
+ 
+  
+  </script>
+</html>
 
-		<div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Sexo:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Masculino</a>
-                        <a class="dropdown-item" href="#">Femenino</a>
-                        </div>
-                    </div>
-                </div>
-	
-		  
-
-
-
-		<div class="row" style="margin:10px;margin-top: 10px;">
-		 <input type="image" src="../public/img/addIm.png" alt="Submit" width="110" height="110" style="margin-left:30.16%;">
-                </div>
-		<br>
-		<div class="row" style="margin-top:15px;margin-left:10px;">
-                    <div class="col">
-                        <button type="submit" class="btn btn-danger">Agregar</button>
-                    </div>
-                    <div class="col">
-                        <button type="submit" class="btn btn-outline-dark" style="margin-left:1000"><a href="#" style="color:black">Cancelar</a></button>
-                    </div>
-                </div>
-    		
-
- 		</form>
-       	    </div>
-   	 </div>
-</div>
-
-</body>
 </html>

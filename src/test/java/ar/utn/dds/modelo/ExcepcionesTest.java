@@ -14,7 +14,8 @@ import org.junit.Before;
 public class ExcepcionesTest {
 	  Prenda prenda1, prenda2;
 	  TipoPrenda pantalon, remera, zapatillas;
-	  ArrayList<Color> blancoYNegro, azul, vacio;
+	  ArrayList<Color> blancoYNegro, azul;
+	  Color vacio;
 	  HashSet<Material> materialRemera, materialPantalon, materialCalzado;
 
     @Before
@@ -42,13 +43,13 @@ public class ExcepcionesTest {
          azul = new ArrayList<Color>();
          azul.add(Color.Azul);
 
-         vacio = new ArrayList<Color>();
+         vacio = null;
     }
 
     @Test(expected=SoloTieneUnColor.class) 
     public void soloUnColor() {
     	this.init();
-    	prenda1 = new Prenda(pantalon, "PantalonAzulado", azul, Material.JEAN); //(solo tiene azul)
+    	prenda1 = new Prenda(pantalon, "PantalonAzulado", Color.Azul, Material.JEAN); //(solo tiene azul)
     	prenda1.getColorSecundario();
     	
     
@@ -58,7 +59,7 @@ public class ExcepcionesTest {
     @Test(expected=ElMaterialNoPerteneceALaPrenda.class)
     public void materialEquivocado() { 	
     	this.init();
-    	prenda2 = new Prenda(pantalon, "PantalonAzulado", azul, Material.PLASTICO); //(Plastico no es material)
+    	prenda2 = new Prenda(pantalon, "PantalonAzulado", Color.Azul, Material.PLASTICO); //(Plastico no es material)
     }
 
     @Test(expected=AlMenosUnColor.class)

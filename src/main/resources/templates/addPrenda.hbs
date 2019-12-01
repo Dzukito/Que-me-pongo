@@ -64,9 +64,9 @@
                     <div>
                         <select class="input-select form-control" name="material">
                             <option selected disabled>Material</option>
-                            
-                                <option value="{{id_membrecia}}" type="material">{{nombreTipoPrenda}}</option>
-                           
+                                {{#each materiales}}
+                                <option value="{{this}}" type="material">{{this}}</option>
+                            {{/each}} 
                         </select>
                     </div>
                 </div>
@@ -76,7 +76,9 @@
                         <select class="input-select form-control" name="estilo">
                             <option selected disabled>Estilo</option>
                             
-                                <option value="{{id_membrecia}}" type="estilo">{{nombreTipoPrenda}}</option>
+                                    {{#each estilos}}
+                                <option value="{{this}}" type="estilo">{{this}}</option>
+                            {{/each}} 
 
                         </select>
                     </div>
@@ -84,10 +86,10 @@
                 
  		  <div class="form-group">
                     <div>
-                        <select class="input-select form-control" name="coloPrimario">
+                        <select class="input-select form-control" name="colorPrimario">
                             <option selected disabled>Color primario</option>
                             {{#each colores}}
-                                <option value="{{this}}" type="colorePrimario">{{this}}</option>
+                                <option value="{{this}}" type="colorPrimario">{{this}}</option>
                             {{/each}}
                         </select>
                     </div>
@@ -95,10 +97,10 @@
                 
              <div class="form-group">
                     <div>
-                        <select class="input-select form-control" name="coloPrimario">
+                        <select class="input-select form-control" name="colorSecundario">
                             <option selected disabled>Color secundario</option>
                             {{#each colores}}
-                                <option value="{{this}}" type="colorePrimario">{{this}}</option>
+                                <option value="{{this}}" type="colorSecundario">{{this}}</option>
                             {{/each}}
                         </select>
                     </div>
