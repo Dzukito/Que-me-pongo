@@ -55,16 +55,18 @@
     </div>
     <div class="row" style="margin-top:5px;margin-bottom:5px;">
         <div class="col-xs-4 offset-4 text-center">  
-            <div class="btn-group">
-                    <button type="button" class="btn btn-outline-dark btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown btn-group">
+                <button type="button" class="btn btn-outline-dark btn-danger dropdown-toggle" id="menuGuardaropas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     seleccionar guardaropa
-                    </button>
-                    <div class="dropdown-menu">
-                        {{#each guardaropas}}
-                        <a class="dropdown-item" href="#">{{nombre}}</a>
-                        {{/each}}
-                    </div>
-                </div>   
+                </button>
+                <div class="dropdown-menu" aria-labelledby="menuGuardaropas">
+                    {{#each guardaropas}}
+                    <!-- usar button 
+                    <button class="dropdown-item" type="button"> ble </button>-->
+                    <a class="dropdown-item" href="/guardaropa/{{id_guardaropa}}">{{nombre}}</a>
+                    {{/each}}
+                </div>
+            </div>   
         </div>
     </div>
     <div class="row" style="margin-top:5px;margin-bottom:5px;">
@@ -84,6 +86,8 @@
                                     <div class="form-group">
                                         <label for="nombreGuardaropa" class="col-form-label">Nombre del Guardaropa</label>
                                         <input type="text" class="form-control" name="nombreGuardaropa" id="nombreGuardaropa">
+                                        <label for="descripcionGuardaropa" class="col-form-label">Descripción del Guardaropa</label>
+                                        <input type="text" class="form-control" name="descripcionGuardaropa" id="descripcionGuardaropa">
                                     </div>
                                     <div>
                                         <a href="/guardaropas"> 

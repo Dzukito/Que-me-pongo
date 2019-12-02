@@ -23,7 +23,7 @@ public class TipoPrenda {
     private String tipo;
 	
 	@Enumerated
-	@Column(name="categoria")
+	@Column(name="id_categoria")
     private Categoria categoria;
 	
 	@ElementCollection(targetClass = Material.class)

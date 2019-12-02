@@ -54,13 +54,13 @@ public class Router {
         Spark.post("/addPrenda", prendaController::guardar);
         
 
-//        Spark.post("/usuario/:id", usuarioController::modificar);
+        Spark.get("/guardaropa/:id", guardaropaController::mostrarPrendas, Router.engine);
 
   //      Spark.delete("/usuario/:id", usuarioController::eliminar);
 
         
         Spark.before((req, res) -> {
-            if (!LoginController.isUsuarioLogin(req) && !req.uri().equals("/home") && !req.uri().equals("/login")) {
+            if (!LoginController.isUsuarioLogin(req) && !req.uri().equals("/home") && !req.uri().equals("/login")&& !req.uri().equals("/usuario")) {
             	res.redirect("/login");
             }
         });

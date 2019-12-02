@@ -40,7 +40,7 @@ public class Prenda{
     private String nombrePrenda;
     
     @Enumerated(EnumType.STRING)
-    @Column(name="material")
+    @Column(name="id_material")
     private Material material;
     
     @ElementCollection(targetClass = Estilo.class)

@@ -13,9 +13,13 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	@Id
 	@GeneratedValue
 	private long id_guardaropa;
-//agregar al constructor	
+
+	//agregar al constructor	
 	@Column(name = "nombre")
     private String nombre;
+	
+	@Column(name = "Descripcion")
+    private String descripcion;
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="id_guardaropa")
@@ -82,6 +86,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     public boolean puedoCrear(Atuendo atuendo){ return atuendo.getPrendas().stream().allMatch(prenda -> this.prendas.stream().anyMatch(prenda1 -> prenda.somosIguales(prenda1))); }
     public boolean atuendoMostrado(Atuendo atuendo){ return this.atuendosMostrados.stream().anyMatch(atuendo1 -> atuendo.somosIguales(atuendo1)); }
     public int cantidadDePrendasEnCategoria(String categoria) { return this.prendas.stream().filter(prenda -> prenda.getCategoria() == categoria).collect(Collectors.toList()).size(); }
+    
     //Getters-y-Setters------------------------------------------------
     public ArrayList<Atuendo> atuendosGenerados(){ return (ArrayList<Atuendo>) this.atuendosMostrados; }
     public List<Usuario> getUsuarios() { return usuarios; }
@@ -96,6 +101,17 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public long getId_guardaropa() {
+		return id_guardaropa;
+	}
     //Constructores--------------------------------------------
     public Guardaropa(ArrayList<Prenda> prendas) {
             this.prendas = prendas;
@@ -103,6 +119,14 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
             this.usuarios = new ArrayList<Usuario>();
         }
     public Guardaropa(){
+        this.prendas = new ArrayList<Prenda>();
+        this.atuendosMostrados = new ArrayList<Atuendo>();
+        this.usuarios = new ArrayList<Usuario>();
+        }
+    
+    public Guardaropa(String nombre, String descripcion){
+    	this.nombre=nombre;
+    	this.descripcion=descripcion;
         this.prendas = new ArrayList<Prenda>();
         this.atuendosMostrados = new ArrayList<Atuendo>();
         this.usuarios = new ArrayList<Usuario>();
