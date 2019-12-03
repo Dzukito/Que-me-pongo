@@ -166,9 +166,8 @@ public class Prenda{
 	public void setEstilos(List<Estilo> estilos) {
 		this.estilos = estilos;
 	}
-	public void setEstilo(Estilo estilo) {
-		this.estilos.add(estilo);
-	}
+	public void setEstilo(Estilo e) {
+		estilos.add(e);	}
 	public void setDisponibilidad(Boolean disponibilidad) {
 		this.disponibilidad = disponibilidad;
 	}
@@ -186,7 +185,14 @@ public class Prenda{
 	 
 	 
 	//Constructores---------------------------------------------
-    public Prenda(){}
+    public Prenda(){
+    	 this.disponibilidad = true;
+         this.estilos = new ArrayList<Estilo>();
+         this.fotografo= new Fotografo();
+         this.estilos = new ArrayList<Estilo>();
+         this.fotografo= new Fotografo();
+    	
+    }
     public Prenda(TipoPrenda tipoPrenda, String nombrePrenda, ArrayList<Color> listaColores, Material material) {
         this.tipoPrenda = tipoPrenda;
         this.nombrePrenda = nombrePrenda;

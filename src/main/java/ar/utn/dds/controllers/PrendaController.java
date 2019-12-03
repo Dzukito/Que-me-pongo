@@ -6,32 +6,65 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import static spark.Spark.get;
+import static spark.Spark.post;
+import static spark.Spark.staticFiles;
+
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
+import javax.servlet.MultipartConfigElement;
+
 public class PrendaController {
-    private RepositorioPrenda repo;
+    private RepositorioPrenda repoPrenda;
     public PrendaController(){
-        this.repo = FactoryRepositorioPrenda.get();
+        this.repoPrenda = FactoryRepositorioPrenda.get();
     }
 
     
     public ModelAndView crear(Request request, Response response){
         Map<String, Object> parametros = new HashMap<>();
         RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();
+        RepositorioGuardaropa repoGuarda = FactoryRepositorioGuardaropa.get();
         List<Color> colores= Arrays.asList(Color.values());
         List<Material> materiales= Arrays.asList(Material.values());
         List<Estilo> estilos= Arrays.asList(Estilo.values());
         parametros.put("tipoPrendas", repoTipoPrenda.buscarTodos());
+        parametros.put("guardaropas", repoGuarda.buscarTodos());
         parametros.put("colores", colores);
         parametros.put("materiales", materiales);
         parametros.put("estilos", estilos);
         return new ModelAndView(parametros, "addPrenda.hbs");
     }
 
+    
     private void asignarAtributosA(Prenda prenda, Request request){
+    	
+    	if(request.queryParams("guardaropas") != null){
+          	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
+          	 Guardaropa guarda = repoGuardaropa.buscar(new Long(request.queryParams("guardaropas")));
+          	 guarda.agregarPrenda(prenda);
+         
+          	 
+          }
+    
+      
+    	if(request.queryParams("tipoPrenda") != null){
+       	 RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();
+       	 TipoPrenda tipoPrendarecibido = repoTipoPrenda.buscar(new Long(request.queryParams("tipoPrenda")));
+       	 prenda.setTipoPrenda(tipoPrendarecibido);
+       }
     	
     	 if(request.queryParams("nivelCalor") != null){ //REVISAR
     		 int nivel= new Integer(request.queryParams("nivelCalor"));
@@ -85,7 +118,7 @@ public class PrendaController {
             case "ELEGANTE":
             	prenda.setEstilo(Estilo.ELEGANTE);
             	break;
-	        case "ELEGANTESPORT":
+	        case "ELEGANTSPORT":
 	        	prenda.setEstilo(Estilo.ELEGANTSPORT);
 	        	break;
 	       case "DEPORTIVO":
@@ -179,7 +212,7 @@ public class PrendaController {
     	//FALTA MANEJO DE SESIONES!!!
         Prenda prenda = new Prenda();
         asignarAtributosA(prenda, request);
-        this.repo.agregar(prenda);
+        this.repoPrenda.agregar(prenda);
         response.redirect("/home");
         return response;
     }

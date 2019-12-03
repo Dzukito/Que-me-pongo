@@ -1,15 +1,21 @@
 package ar.utn.dds.controllers;
 
 import ar.utn.dds.modelo.Categoria;
+import ar.utn.dds.modelo.Color;
+import ar.utn.dds.modelo.Estilo;
 import ar.utn.dds.modelo.Guardaropa;
+import ar.utn.dds.modelo.Material;
 import ar.utn.dds.modelo.Prenda;
 import ar.utn.dds.modelo.Usuario;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
+import ar.utn.dds.repositories.RepositorioTipoPrenda;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
+import ar.utn.dds.repositories.factories.FactoryRepositorioTipoPrenda;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,16 +66,20 @@ public class GuardaropaController {
 	        if(guardaropa ==null){
 	        	parametros.put("guardaropa", guardaropa);
 	        }else {
+	        	
+	        	System.out.println("///////////////////////----------------------------------/////////////////////////");
+	        	
+	        	
 		        List<Prenda> prendas = guardaropa.getPrendas();
 //		        List<Prenda> prendasTorso= prendas.stream().filter(prenda -> prenda.getCategoria().compareTo(Categoria.TORSO.getCategoria())>=0).collect(Collectors.toList());
 //		        List<Prenda> prendasParteInferior= prendas.stream().filter(prenda -> prenda.getCategoria().compareTo(Categoria.PARTEINFERIOR.getCategoria())>=0).collect(Collectors.toList());
-		        List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.TORSO.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasCalzado = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CALZADO.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.ACCESORIOS.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.MANOS.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CABEZA.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CUELLO.getCategoria())==0).collect(Collectors.toList());
+		        List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.TORSO)).collect(Collectors.toList());
+		        List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.PARTEINFERIOR)).collect(Collectors.toList());
+		        List<Prenda> prendasCalzado = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.CALZADO)).collect(Collectors.toList());
+		        List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.ACCESORIOS)).collect(Collectors.toList());
+		        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.MANOS)).collect(Collectors.toList());
+		        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.CABEZA)).collect(Collectors.toList());
+		        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.CUELLO)).collect(Collectors.toList());
 		        parametros.put("login", LoginController.isUsuarioLogin(request));
 		        parametros.put("guardaropa", guardaropa.getNombre());
 		        parametros.put("guardaropaDescripcion", guardaropa.getDescripcion());
@@ -81,8 +91,10 @@ public class GuardaropaController {
 		        parametros.put("prendasManos", prendasManos);
 		        parametros.put("prendasCabeza", prendasCabeza);
 		        parametros.put("prendasCuello", prendasCuello);
+		     
+		        
 	        }    
-
+	        
 	        return  new ModelAndView(parametros, "miGuardaropa.hbs");
 	    	
 	    }

@@ -22,14 +22,14 @@ public class TipoPrenda {
 	@Column(name = "tipo")
     private String tipo;
 	
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	@Column(name="id_categoria")
     private Categoria categoria;
 	
 	@ElementCollection(targetClass = Material.class)
     @CollectionTable(name="materiales", joinColumns=@JoinColumn(name="id_tipoPrenda"))
     @Column(name="material")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
     private Set<Material> materiales;
 	
 	@OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)

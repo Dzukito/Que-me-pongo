@@ -1,142 +1,3 @@
-<<<<<<< HEAD
-
-  
-   
-<html>
-  <select id='countries' onchange='countryChanged(this.value);'>
-    <option value=''>Select Country</option>
-    <option value='USA'>USA</option>
-    <option value='Canada'>Canada</option>
-    <option value='England'>England</option>
-  </select>
-  &nbsp;&nbsp;
-  <select id='states' onchange='stateChanged(this.value);'>
-    <option value=''>Select State</option>
-  </select>
-  &nbsp;&nbsp;
-  <select id='cities' onchange='cityChanged(this.value);'>
-    <option value=''>Select City</option>
-  </select>
- 
- <script type="text/javascript"> 
-
-   var statesUSA=[];
-   var statesCanada=["Quebec", "Ontario", "Alberta"];
-   var statesEngland=["Essex", "Hampshire", "Surrey"];
-  
-   var citiesCalifornia=["Los Angeles", "San Francisco"];
-   var citiesIllinois=["Chicago", "Springfield"];
-   var citiesWisconsin=["Milwaukee", "Madison"];
-   var citiesQuebec=["Montreal", "Brossard"];
-   var citiesOntario=["Toronto", "Ottawa"];
-   var citiesAlberta=["Calgary", "Edmonton"];
-   var citiesEssex=["Birch", "Dunmow"];
-   var citiesHampshire=["Winchester", "Portsmouth"];
-   var citiesSurrey=["Fairlands", "Kingswood"];
-  
-   function countryChanged(country)
-   { 
-      var selectState = document.getElementById('states');
-      var ln = selectState.length - 1;
-      while (ln > 0)
-      {
-        selectState.remove(1);  //Remove all but "Select State"
-        ln--;
-      }
-     
-      var selectCity = document.getElementById('cities');
-      var ln = selectCity.length - 1;
-      while (ln > 0)
-      {
-        selectCity.remove(1);  //Remove all but "Select City"
-        ln--;
-      }   
-     
-      var stateArray;
-     
-      switch(country)
-      {
-        case "USA":
-            stateArray=statesUSA
-            break;
-        case "Canada":
-            stateArray=statesCanada
-            break;
-        case "England":
-            stateArray=statesEngland
-            break;
-        default:
-      }     
-         
-      for (i = 0; i < stateArray.length; i++)
-      {
-        var option = document.createElement('option');
-        option.text = stateArray[i];
-        option.value = stateArray[i];
-        selectState.add(option);
-      }     
-  }
- 
-  function stateChanged(state)
-  { 
-     var selectCity = document.getElementById('cities');
-     var ln = selectCity.length - 1;
-     while (ln > 0)
-     {
-       selectCity.remove(1);  //Remove all but "Select City"
-       ln--;
-     }   
-    
-     var cityArray;
-    
-     switch(state)
-     {
-       case "California":
-           cityArray=citiesCalifornia
-           break;
-       case "Illinois":
-           cityArray=citiesIllinois
-           break;
-       case "Wisconsin":
-           cityArray=citiesWisconsin
-           break;
-       case "Quebec":
-           cityArray=citiesQuebec
-           break;
-       case "Ontario":
-           cityArray=citiesOntario
-           break;
-       case "Alberta":
-           cityArray=citiesAlberta
-           break;
-       case "Essex":
-           cityArray=citiesEssex
-           break;
-       case "Hampshire":
-           cityArray=citiesHampshire
-           break;
-       case "Surrey":
-           cityArray=citiesSurrey
-           break;           
-       default:
-     }  
-     
-     for (i = 0; i < cityArray.length; i++)
-     {
-       var option = document.createElement('option');
-       option.text = cityArray[i];
-       option.value = cityArray[i];
-       selectCity.add(option);
-     }     
-  }
- 
- 
-  
-  </script>
-</html>
-
-</html>
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,14 +18,14 @@
     font-size: 36px;
     line-height: 42px;
     text-align: center;"
-    >Â¿QuÃ© Me Pongo?</h3>
+    >¿Qué Me Pongo?</h3>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon ">  <img src="../public/img/menu_hamburgesa.png" style="width:30px" alt="menu"></span>
     </button>
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
             <li class="nav-item active" style="margin: 5px;">
-                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="#">Cerrar SesiÃ³n</a></button>
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="#">Cerrar Sesión</a></button>
             </li>
         </ul>
     </div>
@@ -246,23 +107,33 @@
                 </div>
 
 		 <div class="form-group">
-                    <label for="sexo">Sexo:</label>
+                    
                     <div>
                         <select class="input-select form-control" name="sexo" id="sexo">
-                            <option selected disabled>Seleccionar</option>
+                            <option selected disabled>Sexo</option>
                             <option type="sexo">Femenino</option>
                             <option type="sexo">Masculino</option>
                             <option type="sexo">Unisex</option>    
                         </select>
                     </div>
                 </div>
-	
+	 <div class="form-group">
+                    <div>
+                    <label for="guardaropas">Guardaropas:</label>
+                        <select class="input-select form-control" name="guardaropas">
+                            <option selected disabled>Selecionar</option>
+                            {{#each guardaropas}}
+                                <option value="{{id_guardaropa}}" type="guardaropas">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
 		  
 
 
 
 		<div class="row" style="margin:10px;margin-top: 10px;">
-		 <input type="image" src="../public/img/addIm.png" alt="Submit" width="110" height="110" style="margin-left:30.16%;">
+		 <input type="file" id="file" name="file" accept="image/png, image/jpg">
                 </div>
 		<br>
 		<div class="row" style="margin-top:15px;margin-left:10px;">
@@ -282,4 +153,3 @@
 
 </body>
 </html>
->>>>>>> origin/master
