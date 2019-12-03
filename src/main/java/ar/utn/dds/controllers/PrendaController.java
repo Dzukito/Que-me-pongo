@@ -1,0 +1,187 @@
+package ar.utn.dds.controllers;
+import ar.utn.dds.modelo.*;
+import ar.utn.dds.repositories.*;
+import ar.utn.dds.repositories.factories.*;
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class PrendaController {
+    private RepositorioPrenda repo;
+    public PrendaController(){
+        this.repo = FactoryRepositorioPrenda.get();
+    }
+
+    
+    public ModelAndView crear(Request request, Response response){
+        Map<String, Object> parametros = new HashMap<>();
+        RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();
+        List<Color> colores= Arrays.asList(Color.values());
+        List<Material> materiales= Arrays.asList(Material.values());
+        List<Estilo> estilos= Arrays.asList(Estilo.values());
+        parametros.put("tipoPrendas", repoTipoPrenda.buscarTodos());
+        parametros.put("colores", colores);
+        parametros.put("materiales", materiales);
+        parametros.put("estilos", estilos);
+        return new ModelAndView(parametros, "addPrenda.hbs");
+    }
+
+    private void asignarAtributosA(Prenda prenda, Request request){
+    	
+    	 if(request.queryParams("nivelCalor") != null){ //REVISAR
+    		 int nivel= new Integer(request.queryParams("nivelCalor"));
+             prenda.setNivelDeCalor(nivel);
+         }
+
+    	if(request.queryParams("nombrePrenda") != null){
+            prenda.setNombrePrenda(request.queryParams("nombrePrenda"));
+        }
+        
+        if(request.queryParams("sexo") != null){
+            prenda.setSexo(request.queryParams("sexo"));
+        }
+        
+        if(request.queryParams("tipoPrenda") != null){
+        	 RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();
+        	 TipoPrenda tipoPrendarecibido = repoTipoPrenda.buscar(new Long(request.queryParams("tipoPrenda")));
+        	 prenda.setTipoPrenda(tipoPrendarecibido);
+        }
+        if(request.queryParams("material") != null){
+            String materialRecibido= (request.queryParams("material")); //HAY QUE FILTRAR!!!
+            switch(materialRecibido) {
+            case "PLASTICO":
+            	prenda.setMaterial(Material.PLASTICO);
+            	break;
+	        case "CUERO":
+	        	prenda.setMaterial(Material.CUERO);
+	        	break;
+	       case "JEAN":
+	    		prenda.setMaterial(Material.JEAN);
+	    	break;
+			case "ALGODON":
+				prenda.setMaterial(Material.ALGODON);
+				break;
+			case "MALLA":
+				prenda.setMaterial(Material.MALLA);
+				break;
+			case "LINO":
+				prenda.setMaterial(Material.LINO);
+				break;
+			case "FRANELA":
+				prenda.setMaterial(Material.FRANELA);
+				break;
+		
+        }
+           
+      }
+        if(request.queryParams("estilo") != null){
+            String estiloRecibido= (request.queryParams("estilo"));
+            switch(estiloRecibido) {
+            case "ELEGANTE":
+            	prenda.setEstilo(Estilo.ELEGANTE);
+            	break;
+	        case "ELEGANTESPORT":
+	        	prenda.setEstilo(Estilo.ELEGANTSPORT);
+	        	break;
+	       case "DEPORTIVO":
+	    		prenda.setEstilo(Estilo.DEPORTIVO);
+	    	break;
+			case "ENTRECASA":
+				prenda.setEstilo(Estilo.ENTRECASA);
+				break;
+			case "NAVIDENIO":
+				prenda.setEstilo(Estilo.NAVIDENIO);
+				break;
+			case "NORMAL":
+				prenda.setEstilo(Estilo.NORMAL);
+				break;
+			case "PLAYERO":
+				prenda.setEstilo(Estilo.PLAYERO);
+				break;
+		
+        }
+           
+      }
+         
+        if(request.queryParams("colorPrimario") != null){
+            String colorRecibido= (request.queryParams("colorPrimario"));
+            switch(colorRecibido) {
+            case "Rojo":
+            	prenda.setColorPrimario(Color.Rojo);
+            	break;
+            	        case "Azul":
+	        	prenda.setColorPrimario(Color.Azul);
+	        	break;
+	        
+	       case "Amarillo":
+	    	prenda.setColorPrimario(Color.Amarillo);
+	    	break;
+	    
+			case "Verde":
+				prenda.setColorPrimario(Color.Verde);
+				break;
+			
+			case "Violeta":
+				prenda.setColorPrimario(Color.Violeta);
+				break;
+			case "Naranja":
+				prenda.setColorPrimario(Color.Naranja);
+				break;
+			case "Negro":
+				prenda.setColorPrimario(Color.Negro);
+				break;
+			case "Blanco":
+				prenda.setColorPrimario(Color.Blanco);
+				break;
+        }
+       }
+        
+        if(request.queryParams("colorSecundario") != null){
+        	String colorRecibido=(request.queryParams("colorSecundario")); //El color 0 en la lista es el primario, asi que si agrega otro sera secundario
+            switch(colorRecibido) { //Perdon por la repeticion de codigo
+            case "Rojo":
+            	prenda.setColorSecundario(Color.Rojo);
+            	break;
+	        case "Azul":
+	        	prenda.setColorSecundario(Color.Azul);
+	        	break;
+	        
+	       case "Amarillo":
+	    	prenda.setColorSecundario(Color.Amarillo);
+	    	break;
+	    
+			case "Verde":
+				prenda.setColorSecundario(Color.Verde);
+				break;
+			
+			case "Violeta":
+				prenda.setColorSecundario(Color.Violeta);
+				break;
+			case "Naranja":
+				prenda.setColorSecundario(Color.Naranja);
+				break;
+			case "Negro":
+				prenda.setColorSecundario(Color.Negro);
+				break;
+			case "Blanco":
+				prenda.setColorSecundario(Color.Blanco);
+				break;
+        }
+        }
+    }
+
+    public Response guardar(Request request, Response response){
+    	//FALTA MANEJO DE SESIONES!!!
+        Prenda prenda = new Prenda();
+        asignarAtributosA(prenda, request);
+        this.repo.agregar(prenda);
+        response.redirect("/home");
+        return response;
+    }
+    
+}

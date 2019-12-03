@@ -1,10 +1,7 @@
 package ar.utn.dds.server;
 
-import ar.utn.dds.controllers.GuardaropaController;
-import ar.utn.dds.controllers.UsuarioController;
-import ar.utn.dds.controllers.LoginController;
-import ar.utn.dds.controllers.HomeController;
-import ar.utn.dds.models.GuardaropaModel;
+import ar.utn.dds.controllers.*;
+import ar.utn.dds.models.*;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 import ar.utn.dds.repositories.DAO.DAOMySQL;
 import spark.Spark;
@@ -34,29 +31,37 @@ public class Router {
     	HomeController homeController = new HomeController();
     	UsuarioController usuarioController = new UsuarioController();
         GuardaropaController guardaropaController = new GuardaropaController();
+        PrendaController prendaController = new PrendaController();
+        EventoController eventoController = new EventoController();
         
-        
+
+
+        //Home
         Spark.get("/home", homeController::mostrar, Router.engine);
-        
+        //Guardaropas
         Spark.get("/guardaropas", guardaropaController::mostrarTodos, Router.engine);
-
-        Spark.get("/usuario", usuarioController::crear, Router.engine);
-        
-        Spark.post("/usuario", usuarioController::guardar);
-        
-        Spark.get("/login", loginController::crearLogin, Router.engine);
-        
-        Spark.post("/login", loginController::guardarLogin);
-        
         Spark.post("/guardaropas", guardaropaController::crearGuardaropa);
+        Spark.get("/guardaropa/:id", guardaropaController::mostrarPrendas, Router.engine);
+        //Eventos
+        Spark.get("/events", eventoController::mostrarTodos, Router.engine);
+        //Registro
+        Spark.post("/usuario", usuarioController::guardar);
+        Spark.get("/usuario", usuarioController::crear, Router.engine);
+        //Login
+        Spark.get("/login", loginController::crearLogin, Router.engine);
+        Spark.post("/login", loginController::guardarLogin);
+        //Prenda
+        Spark.get("/addPrenda", prendaController::crear, Router.engine);
+        Spark.post("/addPrenda", prendaController::guardar);
+        
 
-//        Spark.post("/usuario/:id", usuarioController::modificar);
+
 
   //      Spark.delete("/usuario/:id", usuarioController::eliminar);
 
         
         Spark.before((req, res) -> {
-            if (!LoginController.isUsuarioLogin(req) && !req.uri().equals("/home") && !req.uri().equals("/login")) {
+            if (!LoginController.isUsuarioLogin(req) && !req.uri().equals("/home") && !req.uri().equals("/login")&& !req.uri().equals("/usuario")) {
             	res.redirect("/login");
             }
         });

@@ -44,10 +44,10 @@ public class EventoTest {
         accesorio = new TipoPrenda(Categoria.ACCESORIOS, "Accesorio", materialAccesorio);
         azul = new ArrayList<Color>();
         azul.add(Color.Azul);
-        remera1 = new Prenda(remera, "RemeraDePandas", azul, Material.LINO);
-        pantalon1 = new Prenda(pantalon, "Pantalon1", azul, Material.JEAN);
-        zapatillas1 = new Prenda(zapatillas, "Zapatillas1", azul, Material.CUERO);
-        accesorio1 = new Prenda(accesorio, "Gorra", azul, Material.PLASTICO);
+        remera1 = new Prenda(remera, "RemeraDePandas", Color.Azul, Material.LINO);
+        pantalon1 = new Prenda(pantalon, "Pantalon1", Color.Azul, Material.JEAN);
+        zapatillas1 = new Prenda(zapatillas, "Zapatillas1", Color.Azul, Material.CUERO);
+        accesorio1 = new Prenda(accesorio, "Gorra", Color.Azul, Material.PLASTICO);
         prendas1 = new ArrayList<Prenda>();
         prendas1.add(remera1);
         prendas1.add(accesorio1);

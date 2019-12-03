@@ -38,9 +38,9 @@ public class PrendaTest {
          rojoYVerde = new ArrayList<Color>();
          rojoYVerde.add(Color.Rojo);
          rojoYVerde.add(Color.Verde);
-         prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO, Estilo.NORMAL);
-         prenda2 = new Prenda(pantalon, "PantalonX", azul, Material.JEAN, Estilo.NORMAL);
-         prenda3 = new Prenda(zapatillas, "ZapatillasRaras", rojoYVerde, Material.CUERO, Estilo.ELEGANTSPORT);
+         prenda1 = new Prenda(remera, "RemeraZebra", Color.Blanco, Color.Negro, Material.LINO, Estilo.NORMAL);
+         prenda2 = new Prenda(pantalon, "PantalonX", Color.Azul, Material.JEAN);
+         prenda3 = new Prenda(zapatillas, "ZapatillasRaras", Color.Rojo, Color.Verde, Material.CUERO, Estilo.ELEGANTSPORT);
     }
 
 

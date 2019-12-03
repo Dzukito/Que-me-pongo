@@ -103,7 +103,7 @@ public class Atuendo {
         this.usabilidad = 0;
         this.calificaciones = new ArrayList<CalificacionAtuendo>();
     }
-    Atuendo(List<Prenda> prendas){
+    public Atuendo(List<Prenda> prendas){
         this.prendas = prendas;
         this.usabilidad = 0;
         this.calificaciones = new ArrayList<CalificacionAtuendo>();

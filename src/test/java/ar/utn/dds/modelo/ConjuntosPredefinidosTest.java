@@ -30,7 +30,7 @@ public class ConjuntosPredefinidosTest {
         blancoYNegro = new ArrayList<Color>();
         blancoYNegro.add(Color.Blanco);
         blancoYNegro.add(Color.Negro);
-        prenda = new Prenda(remeraTop, "RemeraDePandas", blancoYNegro, Material.LINO,Estilo.NORMAL);
+        prenda = new Prenda(remeraTop, "RemeraDePandas", Color.Blanco,Color.Negro, Material.LINO,Estilo.NORMAL);
         prendas1 = new ArrayList<Prenda>();
         prendas1.add(prenda);
         atuendo = new Atuendo(prendas1);

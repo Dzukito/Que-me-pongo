@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
+    <h3 style="font-family: Rouge Script;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;"
+    >¿Qué Me Pongo?</h3>
+    
+    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
+        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            {{#if login}}
+            <li class="nav-item active" style="margin: 5px;">
+                <a href="/login">
+                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
+                </a>
+            </li>
+            {{else}}
+
+            <li class="nav-item active" style="margin: 5px;">
+                
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<div class="card container" style="margin-top:5px;">
+    {{#if guardaropa}}  
+    <div class="row" style="margin-top:5px;margin-bottom:5px;">
+        <div class="col-xs-4 offset-4 text-center">  
+            <div class="dropdown btn-group text-uppercase font-weight-bold">
+            	
+                   <h2> {{guardaropa}} </h2>
+                
+            </div>  
+            <div><p class="card-text">{{guardaropaDescripcion}}</p></div> 
+        </div>
+    </div>
+    <div class="row" style="margin-top:5px;margin-bottom:5px;"> 
+        <div class="col-ms-12  col-xs-12 font-weight-bold">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-torso-tab" data-toggle="tab" href="#nav-torso" role="tab" aria-controls="nav-torso" aria-selected="true">Torso</a>
+                <a class="nav-item nav-link" id="nav-parteInferior-tab" data-toggle="tab" href="#nav-parteInferior" role="tab" aria-controls="nav-parteInferior" aria-selected="false">Parte Inferior</a>
+                <a class="nav-item nav-link" id="nav-calzado-tab" data-toggle="tab" href="#nav-calzado" role="tab" aria-controls="nav-calzado" aria-selected="false">Calzado</a>
+                <a class="nav-item nav-link" id="nav-accesorios-tab" data-toggle="tab" href="#nav-accesorios" role="tab" aria-controls="nav-accesorios" aria-selected="true">Accesorios</a>
+                <a class="nav-item nav-link" id="nav-cuello-tab" data-toggle="tab" href="#nav-cuello" role="tab" aria-controls="nav-cuello" aria-selected="false">Cuello</a>
+                <a class="nav-item nav-link" id="nav-manos-tab" data-toggle="tab" href="#nav-manos" role="tab" aria-controls="nav-manos" aria-selected="false">Manos</a>
+                <a class="nav-item nav-link" id="nav-cabeza-tab" data-toggle="tab" href="#nav-cabeza" role="tab" aria-controls="nav-cabeza" aria-selected="false">Cabeza</a>
+              </div>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-torso" role="tabpanel" aria-labelledby="nav-torso-tab">
+            <div class="row">             
+                
+                {{#if prendasTorso}}
+                    {{#each prendasTorso}}
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card">
+                                <img src="/img/remeraIcono.png" class="card-img-top" alt="Imagen prenda">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
+                                    <p class="card-text">Nivel de Calor:{{nivelDeCalor}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen prendas para el torso </h3>  
+                {{/if}}
+            
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-parteInferior" role="tabpanel" aria-labelledby="nav-parteInferior-tab">
+            <div class="row"> 
+                {{#if prendasParteInferior}}
+                    {{#each prendasParteInferior}}
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card">
+                                <img src="/img/pantalonIcono.png" class="card-img-top" alt="Imagen prenda">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
+                                    <p class="card-text">Nivel de Calor:{{nivelDeCalor}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen prendas para la parte inferior </h3>  
+                {{/if}}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-calzado" role="tabpanel" aria-labelledby="nav-calzado-tab">
+            <div class="row"> 
+                {{#if prendasCalzado}}
+                    {{#each prendasCalzado}}
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card">
+                                <img src="/img/zapatillaIcono.png" class="card-img-top" alt="Imagen prenda">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
+                                    <p class="card-text">Nivel de Calor:{{nivelDeCalor}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen calzados </h3>  
+                {{/if}}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-accesorios" role="tabpanel" aria-labelledby="nav-accesorios-tab">
+
+            <div class="row"> 
+                {{#if prendasAccesorio}}
+                    {{#each prendasAccesorio}}
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card">
+                                <img src="/img/zapatillaIcono.png" class="card-img-top" alt="Imagen prenda">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
+                                    <p class="card-text">Nivel de Calor:{{nivelDeCalor}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen accesorios </h3>  
+                {{/if}}
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-cuello" role="tabpanel" aria-labelledby="nav-cuello-tab">
+
+            <div class="row"> 
+                {{#if prendasCuello}}
+                    {{#each prendasCuello}}
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card">
+                                <img src="/img/bufandaIcono.png" class="card-img-top" alt="Imagen prenda">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
+                                    <p class="card-text">Nivel de Calor:{{nivelDeCalor}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen prendas para el cuello </h3>  
+                {{/if}}
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-manos" role="tabpanel" aria-labelledby="nav-manos-tab">
+
+            <div class="row"> 
+                {{#if prendasManos}}
+                    {{#each prendasManos}}
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card">
+                                <img src="/img/guantesIcono.png" class="card-img-top" alt="Imagen prenda">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
+                                    <p class="card-text">Nivel de Calor:{{nivelDeCalor}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen prendas para las manos </h3>  
+                {{/if}}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-cabeza" role="tabpanel" aria-labelledby="nav-cabeza-tab">
+
+            <div class="row"> 
+                {{#if prendasCabeza}}
+                    {{#each prendasCabeza}}
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card">
+                                <img src="/img/gorroIcono.png" class="card-img-top" alt="Imagen prenda">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
+                                    <p class="card-text">Nivel de Calor:{{nivelDeCalor}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                    <p class="card-text">Sexo:{{sexo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen prendas para la cabeza </h3>  
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    		
+    		
+    <div class="col-xs-4 offset-xs-4 offset-7 text-center">  
+
+        <button type="button" class="btn btn-primary btn-outline-dark btn-danger" data-toggle="modal" data-target="#usuarioModal">
+            Usuarios
+        </button>
+
+<!-- Modal -->
+        <div class="modal fade" id="usuarioModal" tabindex="-1" role="dialog" aria-labelledby="usuarioModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="usuarioModalLabel">Usuarios</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {{#each usuarios}}
+                        <div class="col-sm-10 col-xs-10">
+                            <h3> {{userName}}</h3>
+                        </div>
+                {{/each}}
+              </div>
+              <div class="modal-footer">
+                <a href="/guardaropas"> 
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-outline-dark btn-danger">Agregar Prenda</button>  
+                
+        <a href="/guardaropas">
+            <button type="button" class="btn btn-outline-dark btn-danger">Volver</button>  
+        </a>
+    </div> 
+    {{else}} 
+        <h2 class="text-uppercase"> No se encontro guardaropa </h2>  
+        <div class="col-xs-4 offset-xs-4 offset-7 text-center">            
+            <a href="/guardaropas">
+                <button type="button" class="btn btn-outline-dark btn-danger">Volver</button>  
+            </a>
+        </div> 
+    {{/if}}
+</div>
+</body>
+</html>
+
+

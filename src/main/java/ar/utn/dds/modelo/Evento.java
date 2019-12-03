@@ -84,7 +84,9 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
         return this.estilo;
     }
     public Atuendo getAtuendo(){ return this.atuendo; }
+
     //Constructores---------------------------------------------------
+    public Evento() {}
     Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo){
         this.horaComienzo= horaComienzo;
         this.horaTermino = horaTermino;

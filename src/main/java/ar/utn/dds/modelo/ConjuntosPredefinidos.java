@@ -65,7 +65,7 @@ public class ConjuntosPredefinidos {
 
 
         //Builders-----------------------------------------------------------
-        ConjuntosPredefinidos(List<TipoPrenda> conjunto){
+        public ConjuntosPredefinidos(List<TipoPrenda> conjunto){
                 this.conjunto = conjunto;
                 this.sexo = "unisex";
                 this.nivelesDeCalor = new ArrayList<NivelDeCalor>();

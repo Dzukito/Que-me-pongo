@@ -2,12 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="6-pages">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/PrendaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/models/EventoModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/models/PrendaModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/models/TipoPrendaModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioEvento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioPrenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/RepositorioTipoPrenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioEvento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioPrenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/factories/FactoryRepositorioTipoPrenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/sugeridosACalif.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/CasosDePrueba.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/DatosMinimosDelSistema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/Inicializador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/GuardaropaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/GuardaropaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Atuendo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ConjuntosPredefinidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ConjuntosPredefinidos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Guardaropa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Guardaropa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/Prenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/TipoPrenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/server/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/server/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/guardaropas.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/AtuendoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/AtuendoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/ConjuntosPredefinidosTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/ConjuntosPredefinidosTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EjecutorDeTareasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EjecutorDeTareasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EventoProximoObserverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EventoProximoObserverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EventoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/EventoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/ExcepcionesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/ExcepcionesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/GuardaropaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/GuardaropaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/ImagenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/ImagenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/PrendaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/PrendaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/TipoPrendaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/TipoPrendaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/UsuarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/UsuarioTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,9 +92,10 @@
       <recent name="C:\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\java\ar\utn\dds\data" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ar.utn.dds.repositories.factories" />
-      <recent name="ar.utn.dds.repositories" />
+      <recent name="ar.utn.dds.models" />
       <recent name="ar.utn.dds.controllers" />
+      <recent name="ar.utn.dds.repositories" />
+      <recent name="ar.utn.dds.repositories.factories" />
       <recent name="ar.utn.dds.modelo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">

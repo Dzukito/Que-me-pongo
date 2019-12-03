@@ -1,3 +1,142 @@
+<<<<<<< HEAD
+
+  
+   
+<html>
+  <select id='countries' onchange='countryChanged(this.value);'>
+    <option value=''>Select Country</option>
+    <option value='USA'>USA</option>
+    <option value='Canada'>Canada</option>
+    <option value='England'>England</option>
+  </select>
+  &nbsp;&nbsp;
+  <select id='states' onchange='stateChanged(this.value);'>
+    <option value=''>Select State</option>
+  </select>
+  &nbsp;&nbsp;
+  <select id='cities' onchange='cityChanged(this.value);'>
+    <option value=''>Select City</option>
+  </select>
+ 
+ <script type="text/javascript"> 
+
+   var statesUSA=[];
+   var statesCanada=["Quebec", "Ontario", "Alberta"];
+   var statesEngland=["Essex", "Hampshire", "Surrey"];
+  
+   var citiesCalifornia=["Los Angeles", "San Francisco"];
+   var citiesIllinois=["Chicago", "Springfield"];
+   var citiesWisconsin=["Milwaukee", "Madison"];
+   var citiesQuebec=["Montreal", "Brossard"];
+   var citiesOntario=["Toronto", "Ottawa"];
+   var citiesAlberta=["Calgary", "Edmonton"];
+   var citiesEssex=["Birch", "Dunmow"];
+   var citiesHampshire=["Winchester", "Portsmouth"];
+   var citiesSurrey=["Fairlands", "Kingswood"];
+  
+   function countryChanged(country)
+   { 
+      var selectState = document.getElementById('states');
+      var ln = selectState.length - 1;
+      while (ln > 0)
+      {
+        selectState.remove(1);  //Remove all but "Select State"
+        ln--;
+      }
+     
+      var selectCity = document.getElementById('cities');
+      var ln = selectCity.length - 1;
+      while (ln > 0)
+      {
+        selectCity.remove(1);  //Remove all but "Select City"
+        ln--;
+      }   
+     
+      var stateArray;
+     
+      switch(country)
+      {
+        case "USA":
+            stateArray=statesUSA
+            break;
+        case "Canada":
+            stateArray=statesCanada
+            break;
+        case "England":
+            stateArray=statesEngland
+            break;
+        default:
+      }     
+         
+      for (i = 0; i < stateArray.length; i++)
+      {
+        var option = document.createElement('option');
+        option.text = stateArray[i];
+        option.value = stateArray[i];
+        selectState.add(option);
+      }     
+  }
+ 
+  function stateChanged(state)
+  { 
+     var selectCity = document.getElementById('cities');
+     var ln = selectCity.length - 1;
+     while (ln > 0)
+     {
+       selectCity.remove(1);  //Remove all but "Select City"
+       ln--;
+     }   
+    
+     var cityArray;
+    
+     switch(state)
+     {
+       case "California":
+           cityArray=citiesCalifornia
+           break;
+       case "Illinois":
+           cityArray=citiesIllinois
+           break;
+       case "Wisconsin":
+           cityArray=citiesWisconsin
+           break;
+       case "Quebec":
+           cityArray=citiesQuebec
+           break;
+       case "Ontario":
+           cityArray=citiesOntario
+           break;
+       case "Alberta":
+           cityArray=citiesAlberta
+           break;
+       case "Essex":
+           cityArray=citiesEssex
+           break;
+       case "Hampshire":
+           cityArray=citiesHampshire
+           break;
+       case "Surrey":
+           cityArray=citiesSurrey
+           break;           
+       default:
+     }  
+     
+     for (i = 0; i < cityArray.length; i++)
+     {
+       var option = document.createElement('option');
+       option.text = cityArray[i];
+       option.value = cityArray[i];
+       selectCity.add(option);
+     }     
+  }
+ 
+ 
+  
+  </script>
+</html>
+
+</html>
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,79 +178,82 @@
 <div class="card container" style="margin:auto;padding:50px;width:max-content; margin-top: 50px;">
     <div class="col-xs-12">
         <div class="row center-block">
-            <form style="margin-top: -20px;">
-		<div class="" style="margin:40px;">
-       <h3 class="tipoPrendaTitulo"> Agregar prenda </h3>
-   </div>
+      <form action="" method="POST" style="margin-top: -20px;">
+				<div class="" style="margin:40px;">
+       				<h3 class="tipoPrendaTitulo"> Agregar prenda </h3>
+  				 </div>
   
                 
                  <div class="form-group" style="margin-top: 5px;">
-                    <input type="text" class="form-control" id="example" aria-describedby="help" placeholder="Nombre">
+                   <input type="text" class="form-control" name="nombrePrenda" id="nombrePrenda" placeholder="Nombre de la prenda">
                 </div>
 	 
-  		<div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Tipo de Prenda
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">-</a>
-                        </div>
+  		  <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="tipoPrenda">
+                            <option selected disabled>TipoPrenda</option>
+                            {{#each tipoPrendas}}
+                                <option value="{{id_tipoPrenda}}" type="tipoPrenda">{{tipo}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                 </div>
 
- 		<div class="row" style="margin:10px;margin-top:30px;">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Materiales:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Plastico</a>
-                        <a class="dropdown-item" href="#">Cuero</a>
-			<a class="dropdown-item" href="#">Algodon</a>
-			<a class="dropdown-item" href="#">Malla</a>
-			<a class="dropdown-item" href="#">Lino</a>
-                        <a class="dropdown-item" href="#">Jean</a>
-		        <a class="dropdown-item" href="#">Gabardina</a>
-                        </div>
+ 		 <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="material">
+                            <option selected disabled>Material</option>
+                                {{#each materiales}}
+                                <option value="{{this}}" type="material">{{this}}</option>
+                            {{/each}} 
+                        </select>
                     </div>
                 </div>
-                <div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Estilo:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Elegante</a>
-                        <a class="dropdown-item" href="#">EleganteSport</a>
-			<a class="dropdown-item" href="#">Deportivo</a>
-			<a class="dropdown-item" href="#">Entrecasa</a>
-			<a class="dropdown-item" href="#">Navidenio</a>
-                        <a class="dropdown-item" href="#">Normal</a>
-		        <a class="dropdown-item" href="#">Playero</a>
-                        </div>
+                
+                <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="estilo">
+                            <option selected disabled>Estilo</option>
+                            
+                                    {{#each estilos}}
+                                <option value="{{this}}" type="estilo">{{this}}</option>
+                            {{/each}} 
+
+                        </select>
                     </div>
                 </div>
- 		  <div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Colores:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">[listaColores??]</a>
-                        </div>
+                
+ 		  <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="colorPrimario">
+                            <option selected disabled>Color primario</option>
+                            {{#each colores}}
+                                <option value="{{this}}" type="colorPrimario">{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                
+             <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="colorSecundario">
+                            <option selected disabled>Color secundario</option>
+                            {{#each colores}}
+                                <option value="{{this}}" type="colorSecundario">{{this}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                 </div>
 
-		<div class="row" style="margin:10px;margin-top: 30px;">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" style="width: 250px;" aria-expanded="false">
-                            Sexo:
-                        </button>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Masculino</a>
-                        <a class="dropdown-item" href="#">Femenino</a>
-                        </div>
+		 <div class="form-group">
+                    <label for="sexo">Sexo:</label>
+                    <div>
+                        <select class="input-select form-control" name="sexo" id="sexo">
+                            <option selected disabled>Seleccionar</option>
+                            <option type="sexo">Femenino</option>
+                            <option type="sexo">Masculino</option>
+                            <option type="sexo">Unisex</option>    
+                        </select>
                     </div>
                 </div>
 	
@@ -128,7 +270,7 @@
                         <button type="submit" class="btn btn-danger">Agregar</button>
                     </div>
                     <div class="col">
-                        <button type="submit" class="btn btn-outline-dark" style="margin-left:1000"><a href="#" style="color:black">Cancelar</a></button>
+                       <a href="/home" class="btn btn-outline-dark" style="color:black">Cancelar</a>
                     </div>
                 </div>
     		
@@ -140,3 +282,4 @@
 
 </body>
 </html>
+>>>>>>> origin/master

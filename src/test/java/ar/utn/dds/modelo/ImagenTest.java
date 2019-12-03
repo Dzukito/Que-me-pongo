@@ -28,7 +28,7 @@ public class ImagenTest {
          blancoYNegro.add(Color.Blanco);
          blancoYNegro.add(Color.Negro);
         
-         prenda1 = new Prenda(remera, "RemeraZebra", blancoYNegro, Material.LINO);
+         prenda1 = new Prenda(remera, "RemeraZebra", Color.Blanco, Color.Negro, Material.LINO);
          
          standar= "Imagenes/defaultTorso.jpg";
          zebra= "Imagenes/test.jpg";
