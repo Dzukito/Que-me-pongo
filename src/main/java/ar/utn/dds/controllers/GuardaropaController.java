@@ -81,6 +81,7 @@ public class GuardaropaController {
 		        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.CABEZA)).collect(Collectors.toList());
 		        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.CUELLO)).collect(Collectors.toList());
 		        parametros.put("login", LoginController.isUsuarioLogin(request));
+		        parametros.put("guardaropaId", request.params(":id"));
 		        parametros.put("guardaropa", guardaropa.getNombre());
 		        parametros.put("guardaropaDescripcion", guardaropa.getDescripcion());
 		        parametros.put("usuarios", guardaropa.getUsuarios());

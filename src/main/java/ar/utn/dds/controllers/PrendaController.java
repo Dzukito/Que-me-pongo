@@ -40,6 +40,8 @@ public class PrendaController {
         List<Color> colores= Arrays.asList(Color.values());
         List<Material> materiales= Arrays.asList(Material.values());
         List<Estilo> estilos= Arrays.asList(Estilo.values());
+        parametros.put("login", LoginController.isUsuarioLogin(request));
+        parametros.put("guardaropaId",new Long (request.params(":id")));
         parametros.put("tipoPrendas", repoTipoPrenda.buscarTodos());
         parametros.put("guardaropas", repoGuarda.buscarTodos());
         parametros.put("colores", colores);
@@ -50,7 +52,7 @@ public class PrendaController {
 
     
     private void asignarAtributosA(Prenda prenda, Request request){
-    	
+/*    	
     	if(request.queryParams("guardaropas") != null){
           	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
           	 Guardaropa guarda = repoGuardaropa.buscar(new Long(request.queryParams("guardaropas")));
@@ -58,7 +60,14 @@ public class PrendaController {
          
           	 
           }
-    
+*/   
+    	if(request.params(":id") != null){
+         	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
+         	 Guardaropa guarda = repoGuardaropa.buscar(new Long (request.params(":id")));
+         	 guarda.agregarPrenda(prenda);
+        
+         	 
+         }
       
     	if(request.queryParams("tipoPrenda") != null){
        	 RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();

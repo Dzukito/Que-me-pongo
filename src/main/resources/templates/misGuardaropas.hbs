@@ -40,74 +40,119 @@
         </ul>
     </div>
 </nav>
-
+<form action="/guardaropas" method="POST">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-xs-block d-sm-none ">
+      
+       <a href="/home">
+                    <button type="button" class="btn btn-outline-dark btn-outline-success my-2 my-sm-0" style="color:black">Volver</button>  
+                </a>
+          
+        
+      
+    </nav>
+      
 <div class="card container" style="margin-top:5px;">
+    {{#if guardaropas}}
+        {{#each guardaropas}}
+            <div class="row">   
+                <div class="col-sm-8 col-xs-10">
+                    <a href="/guardaropa/{{id_guardaropa}}">
     
-    <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-4 text-center">  
-            <h3> Mis guardaropas </h3>        
+                        <div class="card mb-3 text-dark" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4 col-xs-10 text-center" style="padding: 10px;margin-top:5px;width:150px">
+                                    <img src="img/guardaropas.png" class="card-img" alt="Imagen guardaropa">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase">{{nombre}}</h5>
+                                    <p class="card-text">{{descripcion}}.</p>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </a>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <div> <h3 class="font-weight-lighter"> No existen guardaropas </h3> </div>  
+    {{/if}}    
+<!--    <div class="row" style="margin-top:5px;margin-bottom:5px;">
+        <div class="col-xs-4 offset-sm-4 offset-1 text-center">  
+           <img src="img/guardaropas.png" class="guardaropasImg" alt="Imagen guardaropa" style="margin-top:5px;width:150px">   
         </div>
     </div>
     <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-4 text-center">  
-           <img src="img/guardaropas.png" class="guardaropasImg" alt="Imagen guardaropa">   
-        </div>
-    </div>
-    <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-4 text-center">  
+        <div class="col-xs-4 offset-sm-4 offset-xs-1 text-center">  
             <div class="dropdown btn-group">
-                <button type="button" class="btn btn-outline-dark btn-danger dropdown-toggle" id="menuGuardaropas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    seleccionar guardaropa
+                <button type="button" class="btn btn-danger dropdown-toggle" id="menuGuardaropas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    guardaropas
                 </button>
                 <div class="dropdown-menu" aria-labelledby="menuGuardaropas">
                     {{#each guardaropas}}
-                    <!-- usar button 
-                    <button class="dropdown-item" type="button"> ble </button>-->
+                     
+                  
                     <a class="dropdown-item" href="/guardaropa/{{id_guardaropa}}">{{nombre}}</a>
                     {{/each}}
                 </div>
             </div>   
         </div>
     </div>
-    <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-xs-4 offset-7 text-center">  
-                <button type="button" class="btn btn-outline-dark btn-danger" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>  
-                <div class="modal fade" id="modalAgregarGuardaropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Agregar guardaropa</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="/guardaropas" method="POST">
-                                    <div class="form-group">
-                                        <label for="nombreGuardaropa" class="col-form-label">Nombre del Guardaropa</label>
-                                        <input type="text" class="form-control" name="nombreGuardaropa" id="nombreGuardaropa">
-                                        <label for="descripcionGuardaropa" class="col-form-label">Descripción del Guardaropa</label>
-                                        <input type="text" class="form-control" name="descripcionGuardaropa" id="descripcionGuardaropa">
-                                    </div>
-                                    <div>
-                                        <a href="/guardaropas"> 
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                                         </a> 
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
-                                    </div>
-                                
-                                </form>
-                            </div>
-                           
-                        </div>
-                    </div>
-                </div>
+-->
+ 
+    <div class="d-none d-xs-block d-sm-none col-xs-4 offset-sm-7 text-center" style="position:fixed; bottom:5px;">  
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>  
+            
             <a href="/home">
-                <button type="button" class="btn btn-outline-dark btn-danger">Volver</button>  
+                <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
             </a>
-        </div> 
+    </div>   
+
+    <div class="d-xs-none d-sm-block col-xs-4 offset-sm-7 text-center">  
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>  
+            
+            <a href="/home">
+                <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
+            </a>
+    </div>     
+    
+</div>
+
+<div class="modal fade" id="modalAgregarGuardaropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title uppercase" id="exampleModalCenterTitle">Agregar guardaropa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="form-group">
+                    <label for="nombreeGuardaropa" class="col-form-label">Nombre del Guardaropa</label>
+                    <input type="text" class="form-control" name="nombreGuardaropa" id="nombreGuardaropa">
+                    <label for="descripcionGuardaropa" class="col-form-label">Descripción del Guardaropa</label>
+                    <input type="text" class="form-control" name="descripcionGuardaropa" id="descripcionGuardaropa">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="/guardaropas"> 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                </a> 
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+                                     
+        </div>
+           
     </div>
-   
+</div>
+
+</form>   
 </body>
 </html>
 

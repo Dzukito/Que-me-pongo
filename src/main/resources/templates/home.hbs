@@ -16,58 +16,48 @@
   </head>
   <body id="body">
 
-	<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center row py-1 px-4">
-		<div class="col-md-8 col-xs-5"> 
-		    <h3 style="font-family: Rouge Script;
-		    font-style: italic;
-		    font-weight: normal;
-		    font-size: 36px;
-		    line-height: 42px;"
-		    >¿Qué Me Pongo?</h3>
-		</div>  
-		<div class="col-md-2 col-xs-1">
-		    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
-		        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
-		           
-		            <li class="nav-item active menu btn-group dropdown" style="margin: 5px;">
-		                
-		                <button type="button" class="btn btn-outline-dark" id="menuCabecera" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-		                	<a style="color:black" href="#"><h4>&#9776;</h4></a>
-		                </button>
-		                	<div class="dropdown-menu dropdown-menu-right bg-danger " aria-labelledby="menuCabecera">
-							<a href="/home">
-							<button class="dropdown-item font-weight-bold" type="button">Home</button>
-							</a>
-							{{#if login}}
-								<a href="/login">
-								<button class="dropdown-item font-weight-bold" type="button">cerrar sesion</button>
-								</a>
-							{{else}}
-								<a href="/login">
-								<button class="dropdown-item font-weight-bold" type="button">iniciar sesion</button>
-								</a>
-							{{/if}}
-						</div>
-		                
-		            </li>
-		            
-		        </ul>
-		    </div>
-		</div>
-	</nav>
+<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
+    <h3 style="font-family: Rouge Script;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;"
+    >¿Qué Me Pongo?</h3>
+    
+    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
+        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            {{#if login}}
+            <li class="nav-item active" style="margin: 5px;">
+                <a href="/login">
+                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
+                </a>
+            </li>
+            {{else}}
+
+            <li class="nav-item active" style="margin: 5px;">
+                
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
 	<div class="card container" style="margin-top:50px;">
 	    <div class="row contenido" style="margin-top:5px;margin-bottom:5px;">
 			<div class="col-md-3 offset-md-2 col-sm-4 offset-sm-4 guardaropas  text-center">
 				<a {{#if login}}  href="/guardaropas" {{else}} href="/login" {{/if}}>
 					<img src="/img/guardaropas.png" class="guardaropasImg img-fluid rounded mx-auto d-block mr-md-10" alt="Imagen guardaropa">
 				
-				<h3 class="guardaropasTitulo text-dark"> Guardaropas </h3>
+				<h4 class="guardaropasTitulo text-dark text-uppercase"> Guardaropas </h4>
 				</a>	
 			</div>
 			<div class="col-md-3 offset-md-2 col-sm-4 offset-sm-4 evento text-center">
 				<a {{#if login}}  href="/events" {{else}} href="/login"  {{/if}} >
-					<img src="/img/evento.png" class="eventoImg">
-					<h3 class="eventoTitulo text-dark">Eventos</h3>
+					<img src="/img/evento.png" class="eventoImg img-fluid rounded mx-auto d-block mr-md-10" alt="Imagen evento">
+					<h4 class="eventoTitulo text-dark text-uppercase">Eventos</h4>
 				</a>
 			</div>
 	    </div>
