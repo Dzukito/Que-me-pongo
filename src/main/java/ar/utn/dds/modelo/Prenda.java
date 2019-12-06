@@ -5,8 +5,12 @@ import ar.utn.dds.excepciones.AlMenosUnColor;
 import ar.utn.dds.excepciones.SoloTieneUnColor;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+
 import javax.persistence.*;
 
 
@@ -74,6 +78,7 @@ public class Prenda{
     }
     //Metodos-privados---------------------------------------
     //Metodos-publicos---------------------------------------
+    
     public boolean tieneEstilo(Estilo estilo){ return this.estilos.contains(estilo); }
     public boolean somosIguales(Prenda prenda){
         return this.hashCode() == prenda.hashCode();

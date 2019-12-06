@@ -64,9 +64,7 @@ public class PrendaController {
     	if(request.params(":id") != null){
          	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
          	 Guardaropa guarda = repoGuardaropa.buscar(new Long (request.params(":id")));
-         	 guarda.agregarPrenda(prenda);
-        
-         	 
+         	 guarda.agregarPrenda(prenda);	 
          }
       
     	if(request.queryParams("tipoPrenda") != null){
@@ -222,7 +220,17 @@ public class PrendaController {
         Prenda prenda = new Prenda();
         asignarAtributosA(prenda, request);
         this.repoPrenda.agregar(prenda);
+
+        if(request.queryParams("file") != null){
+        	RepositorioFotografo repoFotografo = FactoryRepositorioFotografo.get();
+       	 	Fotografo fotografo = repoFotografo.buscar(prenda.getFotografo().getId_fotografo());
+        	fotografo.cargarUnicaImagen(request.queryParams("file"));
+        	repoFotografo.agregar(fotografo);
+ //       	prenda.setFotografo(fotografo);
+        }
+
         response.redirect("/home");
+        //response.redirect("/guardaropa/request.params(":id")");
         return response;
     }
     

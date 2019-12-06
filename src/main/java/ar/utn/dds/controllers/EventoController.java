@@ -2,7 +2,9 @@ package ar.utn.dds.controllers;
 
 import ar.utn.dds.modelo.*;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
+import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
+import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -21,7 +23,10 @@ public class EventoController {
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        Usuario usuario = LoginController.getUsuario(request);
+//lo cambio porque no se esta yendo a buscar el usuario a la base
+//      Usuario usuario = LoginController.getUsuario(request);
+        RepositorioUsuario repoUsuario=FactoryRepositorioUsuario.get();
+        Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
         List<Evento> eventos = usuario.getEventos();
         parametros.put("eventos", eventos);
         parametros.put("login", LoginController.isUsuarioLogin(request));

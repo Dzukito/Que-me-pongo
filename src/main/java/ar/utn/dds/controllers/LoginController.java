@@ -11,23 +11,25 @@ import spark.Response;
 
 public class LoginController {
 	
-	static private RepositorioUsuario repo = FactoryRepositorioUsuario.get();
+	static private RepositorioUsuario repo= FactoryRepositorioUsuario.get();
 //	public static boolean usuarioLogin=false;
 
     public LoginController(){
-        //this.repo = FactoryRepositorioUsuario.get();
+//        this.repo = FactoryRepositorioUsuario.get();
     }
 	
     
     public ModelAndView crearLogin(Request request, Response response){ 
 //    	setUsuarioLogin(false);
-    	request.session().removeAttribute("nombreDeUsuario"); 
+    	request.session(false);
+    	request.session().removeAttribute("nombreDeUsuario");    	
     	return  new ModelAndView(new HashMap<>(), "login.hbs");
     }
     
     public Response guardarLogin(Request request, Response response){
     	List<Usuario> usuarios = repo.buscarTodos();
-    	
+    	request.session(false);
+    	request.session().removeAttribute("nombreDeUsuario"); 
     	for(int i = 0;i< usuarios.size() && !isUsuarioLogin(request);i=i+1) {
     		
         	if((usuarios.get(i).getUserName().compareTo(request.queryParams("nombreDeUsuario")))==0 &&
@@ -35,7 +37,7 @@ public class LoginController {
         		
         		
         		request.session(true);
-        		request.session().attribute("nombreDeUsuario",usuarios.get(i));
+        		request.session().attribute("nombreDeUsuario",usuarios.get(i).getId_usuario());
         		
         	} 
         	
@@ -54,7 +56,7 @@ public class LoginController {
 	}
 
 	public static Usuario getUsuario(Request request) {
-		return repo.buscar(((Usuario)request.session().attribute("nombreDeUsuario")).getId_usuario());
+		return repo.buscar(request.session().attribute("nombreDeUsuario"));
 		
 	}
 /*

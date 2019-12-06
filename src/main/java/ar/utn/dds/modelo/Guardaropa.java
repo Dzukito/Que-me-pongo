@@ -53,6 +53,8 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
                 .filter(prenda -> atuendo.tengoPrenda(prenda))
                 .forEach(prenda -> prenda.desbloquearse());
     }
+    
+    
     //Metodos-privados--------------------------------------------
     private ArrayList<Atuendo> atuendosUtilez(ArrayList<Atuendo> atuendos, Usuario usuario, Evento evento, Pronostico pronostico, ArrayList<NivelDeCalor> nivelesDeCalor){
         return (ArrayList<Atuendo>) atuendos.stream().filter(atuendo ->
@@ -87,6 +89,9 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     public boolean atuendoMostrado(Atuendo atuendo){ return this.atuendosMostrados.stream().anyMatch(atuendo1 -> atuendo.somosIguales(atuendo1)); }
     public int cantidadDePrendasEnCategoria(String categoria) { return this.prendas.stream().filter(prenda -> prenda.getCategoria() == categoria).collect(Collectors.toList()).size(); }
     
+    public boolean esDeIdUsuario(Usuario usuario) {
+        return this.getUsuarios().stream().anyMatch(usu -> usu.getId_usuario()==usuario.getId_usuario());
+    }
     //Getters-y-Setters------------------------------------------------
     public ArrayList<Atuendo> atuendosGenerados(){ return (ArrayList<Atuendo>) this.atuendosMostrados; }
     public List<Usuario> getUsuarios() { return usuarios; }

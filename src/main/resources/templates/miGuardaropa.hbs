@@ -76,13 +76,16 @@
     
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-torso" role="tabpanel" aria-labelledby="nav-torso-tab">
+     
             <div class="row">             
-                
                 {{#if prendasTorso}}
-                    {{#each prendasTorso}}
+
+                    {{#each prendasTorso}}        
                         <div class="col-sm-3 col-xs-10">
                             <div class="card">
-                                <img src="/img/remeraIcono.png" class="card-img-top" alt="Imagen prenda">
+                               {{#with (lookup ../fotoPrendas [id_prenda]) as |foto|~}}  <img src="/img/{{foto}}" class="card-img-top" alt="Imagen prenda">{{/with}} 
+
+                                
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
                                     <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
@@ -105,7 +108,7 @@
                     {{#each prendasParteInferior}}
                         <div class="col-sm-3 col-xs-10">
                             <div class="card">
-                                <img src="/img/pantalonIcono.png" class="card-img-top" alt="Imagen prenda">
+                                {{#with (lookup ../fotoPrendas [id_prenda]) as |foto|~}}  <img src="/img/{{foto}}" class="card-img-top" alt="Imagen prenda">{{/with}} 
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
                                     <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
@@ -127,7 +130,7 @@
                     {{#each prendasCalzado}}
                         <div class="col-sm-3 col-xs-10">
                             <div class="card">
-                                <img src="/img/zapatillaIcono.png" class="card-img-top" alt="Imagen prenda">
+                                {{#with (lookup ../fotoPrendas [id_prenda]) as |foto|~}}  <img src="/img/{{foto}}" class="card-img-top" alt="Imagen prenda">{{/with}} 
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
                                     <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
@@ -150,7 +153,7 @@
                     {{#each prendasAccesorio}}
                         <div class="col-sm-3 col-xs-10">
                             <div class="card">
-                                <img src="/img/zapatillaIcono.png" class="card-img-top" alt="Imagen prenda">
+                                {{#with (lookup ../fotoPrendas [id_prenda]) as |foto|~}}  <img src="/img/{{foto}}" class="card-img-top" alt="Imagen prenda">{{/with}} 
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
                                     <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
@@ -174,7 +177,7 @@
                     {{#each prendasCuello}}
                         <div class="col-sm-3 col-xs-10">
                             <div class="card">
-                                <img src="/img/bufandaIcono.png" class="card-img-top" alt="Imagen prenda">
+                                {{#with (lookup ../fotoPrendas [id_prenda]) as |foto|~}}  <img src="/img/{{foto}}" class="card-img-top" alt="Imagen prenda">{{/with}} 
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
                                     <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
@@ -198,7 +201,7 @@
                     {{#each prendasManos}}
                         <div class="col-sm-3 col-xs-10">
                             <div class="card">
-                                <img src="/img/guantesIcono.png" class="card-img-top" alt="Imagen prenda">
+                                {{#with (lookup ../fotoPrendas [id_prenda]) as |foto|~}}  <img src="/img/{{foto}}" class="card-img-top" alt="Imagen prenda">{{/with}} 
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
                                     <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
@@ -221,7 +224,7 @@
                     {{#each prendasCabeza}}
                         <div class="col-sm-3 col-xs-10">
                             <div class="card">
-                                <img src="/img/gorroIcono.png" class="card-img-top" alt="Imagen prenda">
+                                {{#with (lookup ../fotoPrendas [id_prenda]) as |foto|~}}  <img src="/img/{{foto}}" class="card-img-top" alt="Imagen prenda">{{/with}} 
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
                                     <p class="card-text">Disponibilidad:{{disponibilidad}}</p>
@@ -249,7 +252,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title uppercase" id="usuarioModalLabel">USUARIOS</h5>
+                <h5 class="modal-title" id="usuarioModalLabel1">USUARIOS</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -269,9 +272,9 @@
             </div>
           </div>
         </div>
-
-        <button type="button" class="btn btn btn-danger">Agregar</button>  
-                
+        <a href="/addPrenda/{{guardaropaId}}"> 
+            <button type="button" class="btn btn btn-danger">Agregar</button>  
+        </a>        
         <a href="/guardaropas">
             <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
         </a>

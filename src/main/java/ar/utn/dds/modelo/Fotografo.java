@@ -38,6 +38,15 @@ public class Fotografo {
 		normalizador.normalizarUnaImagen(path, destino, 600, 600, ".jpg"); //el adminImg normaliza la imagen
 		this.imagenes.add(destino);
 	}
+	
+	public void cargarUnicaImagen(String path) {
+		String destino= path.replace('/', '-').replaceAll(".jpg","");//nombre para la imagen en la carpeta donde se almacena
+		destino= path.replace('/', '-').replaceAll(".png","");
+		destino=destino+".png";
+//		this.normalizarUnaImagen("/home/dds/"+path, "/img/"+destino, 600, 600, ".png"); //el adminImg normaliza la imagen
+		this.imagenes.add(destino);
+	}
+	
 	public  void normalizarUnaImagen(String path,String destino, int width, int hight, String format) {
     	File pathOrigen= new File(path);
     	File pathDestino= new File(destino);
@@ -55,6 +64,20 @@ public class Fotografo {
     		ex.printStackTrace();}
     	}
 
+	public List<String> getImagenes() {
+		return imagenes;
+	}
+	public void setImagenes(List<String> imagenes) {
+		this.imagenes = imagenes;
+	}
+	public long getId_fotografo() {
+		return id_fotografo;
+	}
+	public void setId_fotografo(long id_fotografo) {
+		this.id_fotografo = id_fotografo;
+	}
+	
+	
 	Fotografo(){
 		this.imagenes = new ArrayList<String>();
 	}
