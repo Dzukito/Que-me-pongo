@@ -2,6 +2,8 @@ package ar.utn.dds.controllers;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import ar.utn.dds.modelo.Usuario;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
@@ -12,7 +14,7 @@ import spark.Response;
 public class LoginController {
 	
 	static private RepositorioUsuario repo= FactoryRepositorioUsuario.get();
-//	public static boolean usuarioLogin=false;
+	public static boolean usuarioLogin=false;
 
     public LoginController(){
 //        this.repo = FactoryRepositorioUsuario.get();
@@ -20,21 +22,23 @@ public class LoginController {
 	
     
     public ModelAndView crearLogin(Request request, Response response){ 
-//    	setUsuarioLogin(false);
+    	Map<String, Object> parametros = new HashMap<>();
     	request.session(false);
-    	request.session().removeAttribute("nombreDeUsuario");    	
-    	return  new ModelAndView(new HashMap<>(), "login.hbs");
+    	request.session().removeAttribute("nombreDeUsuario"); 
+    	parametros.put("intentoLogin", usuarioLogin);
+    	usuarioLogin=false;
+    	return  new ModelAndView(parametros, "login.hbs");
     }
     
     public Response guardarLogin(Request request, Response response){
     	List<Usuario> usuarios = repo.buscarTodos();
+    	usuarioLogin=false;
     	request.session(false);
     	request.session().removeAttribute("nombreDeUsuario"); 
     	for(int i = 0;i< usuarios.size() && !isUsuarioLogin(request);i=i+1) {
     		
         	if((usuarios.get(i).getUserName().compareTo(request.queryParams("nombreDeUsuario")))==0 &&
         		(usuarios.get(i).getPassword().compareTo(request.queryParams("password")))==0) {
-        		
         		
         		request.session(true);
         		request.session().attribute("nombreDeUsuario",usuarios.get(i).getId_usuario());
@@ -45,6 +49,7 @@ public class LoginController {
     	if  (isUsuarioLogin(request)) {   
     		response.redirect("/home");
     	}else {
+    		usuarioLogin=true;
     		response.redirect("/login");	
     	}
         return response;

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
+    <h3 style="font-family: Rouge Script;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;"
+    >¿Qué Me Pongo?</h3>
+    
+    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
+        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            {{#if login}}
+            <li class="nav-item active" style="margin: 5px;">
+                <a href="/login">
+                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
+                </a>
+            </li>
+            {{else}}
+
+            <li class="nav-item active" style="margin: 5px;">
+                
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<div class="card container" style="margin-top:5px;">
+  
+
+    <div class="row" style="margin-top:5px;margin-bottom:5px;"> 
+        <div class="col-ms-12  col-xs-12 font-weight-bold">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active"  style="color:black" id="nav-elegante-tab" data-toggle="tab" href="#nav-elegante" role="tab" aria-controls="nav-elegante" aria-selected="true">Elegante</a>
+                <a class="nav-item nav-link"  style="color:black" id="nav-elegantsport-tab" data-toggle="tab" href="#nav-elegantsport" role="tab" aria-controls="nav-elegantsport" aria-selected="false">Elegan Sport</a>
+                <a class="nav-item nav-link" style="color:black" id="nav-deportivo-tab" data-toggle="tab" href="#nav-deportivo" role="tab" aria-controls="nav-deportivo" aria-selected="false">Deportivo</a>
+                <a class="nav-item nav-link" style="color:black" id="nav-entrecasa-tab" data-toggle="tab" href="#nav-entrecasa" role="tab" aria-controls="nav-entrecasa" aria-selected="false">Entrecasa</a>
+                <a class="nav-item nav-link" style="color:black" id="nav-navidenio-tab" data-toggle="tab" href="#nav-navidenio" role="tab" aria-controls="nav-navidenio" aria-selected="false">Navideño</a>
+                <a class="nav-item nav-link" style="color:black" id="nav-normal-tab" data-toggle="tab" href="#nav-normal" role="tab" aria-controls="nav-normal" aria-selected="false">Normal</a>
+                <a class="nav-item nav-link" style="color:black" id="nav-playero-tab" data-toggle="tab" href="#nav-playero" role="tab" aria-controls="nav-playero" aria-selected="false">Playero</a>
+              </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-elegante" role="tabpanel" aria-labelledby="nav-elegante-tab">
+     
+            <div class="row">             
+                {{#if atuendosElegantes}}
+
+                    {{#each atuendosElegantes}}        
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                
+                                <div class="card-body">
+                                    {{#each prendas}}
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen atuendos elegantes </h3>  
+                {{/if}}
+            
+            </div>
+        </div>
+        
+        <div class="tab-pane fade" id="nav-elegantsport" role="tabpanel" aria-labelledby="nav-elegantsport-tab">
+            <div class="row"> 
+                {{#if atuendosElegantSport}}
+
+                    {{#each atuendosElegantSport}}        
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                
+                                <div class="card-body">
+                                    {{#each prendas}}
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen atuendos elegant sport </h3>  
+                {{/if}}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-deportivo" role="tabpanel" aria-labelledby="nav-deportivo-tab">
+            <div class="row"> 
+                {{#if atuendosDeportivo}}
+
+                    {{#each atuendosDeportivo}}        
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                
+                                <div class="card-body">
+                                    {{#each prendas}}
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen atuendos deportivo </h3>  
+                {{/if}}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-entrecasa" role="tabpanel" aria-labelledby="nav-entrecasa-tab">
+
+            <div class="row"> 
+                {{#if atuendosEntreCasa}}
+
+                    {{#each atuendosEntreCasa}}        
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                
+                                <div class="card-body">
+                                    {{#each prendas}}
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen atuendos de entre casa </h3>  
+                {{/if}}
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-navidenio" role="tabpanel" aria-labelledby="nav-navidenio-tab">
+
+            <div class="row"> 
+                {{#if atuendosNavidenio}}
+
+                    {{#each atuendosNavidenio}}        
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                
+                                <div class="card-body">
+                                    {{#each prendas}}
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen atuendos navide&nacute;os </h3>  
+                {{/if}}
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-normal" role="tabpanel" aria-labelledby="nav-normal-tab">
+
+            <div class="row"> 
+                {{#if atuendosNormal}}
+
+                    {{#each atuendosNormal}}        
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                
+                                <div class="card-body">
+                                    {{#each prendas}}
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen atuendos normales </h3>  
+                {{/if}}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-playero" role="tabpanel" aria-labelledby="nav-playero-tab">
+
+            <div class="row"> 
+                {{#if atuendosPlayero}}
+
+                    {{#each atuendosPlayero}}        
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                
+                                <div class="card-body">
+                                    {{#each prendas}}
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}}</h5>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>   
+                    {{/each}}
+                {{else}}
+                    <h3 class="font-weight-lighter"> No existen atuendos playeros </h3>  
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+    <div class="d-none d-xs-block d-sm-none col-xs-4 offset-sm-7 text-center" style="position:fixed; bottom:5px;">  
+        <a> 
+            <button type="button" class="btn btn btn-danger" data-toggle="modal" data-target="#estilosModal">Agregar</button>  
+        </a>        
+        <a href="/guardaropa/{{guardaropaId}}">
+            <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
+        </a>
+    </div> 		
+    		
+    <div class="d-xs-none d-sm-block col-xs-4 offset-sm-7 text-center">  
+        <a> 
+            <button type="button" class="btn btn btn-danger" data-toggle="modal" data-target="#estilosModal">Agregar</button>  
+        </a>        
+        <a href="/guardaropa/{{guardaropaId}}">
+            <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
+        </a>
+    </div> 
+</div>
+
+
+<!-- Modal Estilos-->
+<div class="modal fade" id="estilosModal" tabindex="-1" role="dialog" aria-labelledby="estilosModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="estilosModalLabel">Seleccione un Estilo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <a href="/addOutfit/{{guardaropaId}}/ELEGANTE">ELEGANTE</a>
+        <a href="/addOutfit/{{guardaropaId}}/ELEGANTSPORT">ELEGANTSPORT</a>
+        <a href="/addOutfit/{{guardaropaId}}/DEPORTIVO">DEPORTIVO</a>
+        <a href="/addOutfit/{{guardaropaId}}/ENTRECASA">ENTRECASA</a>
+        <a href="/addOutfit/{{guardaropaId}}/NAVIDENIO">NAVIDE&Noacute;O</a>
+        <a href="/addOutfit/{{guardaropaId}}/NORMAL">NORMAL</a>
+        <a href="/addOutfit/{{guardaropaId}}/PLAYERO">PLAYERO</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

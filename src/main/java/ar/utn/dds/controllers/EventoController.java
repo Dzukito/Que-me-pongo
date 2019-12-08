@@ -1,8 +1,11 @@
 package ar.utn.dds.controllers;
 
 import ar.utn.dds.modelo.*;
+import ar.utn.dds.repositories.RepositorioEvento;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
+import ar.utn.dds.repositories.RepositorioOutfit;
 import ar.utn.dds.repositories.RepositorioUsuario;
+import ar.utn.dds.repositories.factories.FactoryRepositorioEvento;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 import spark.ModelAndView;
@@ -32,6 +35,20 @@ public class EventoController {
         parametros.put("login", LoginController.isUsuarioLogin(request));
         return  new ModelAndView(parametros, "eventos.hbs");
     }
+    
+    public ModelAndView mostrar(Request request, Response response) {
+        Map<String, Object> parametros = new HashMap<>();
+        Long idEvento = new Long (request.params(":id"));
+        
+        RepositorioEvento repoEvento=FactoryRepositorioEvento.get();
+        Evento evento = repoEvento.buscar(idEvento); 
+
+        parametros.put("evento", evento);
+        parametros.put("atuendos", evento.sugerencias());
+        parametros.put("login", LoginController.isUsuarioLogin(request));
+        return  new ModelAndView(parametros, "eventos.hbs");
+    }
+    
     
 //	public Response crearEvento(Request request, Response response) {
 //

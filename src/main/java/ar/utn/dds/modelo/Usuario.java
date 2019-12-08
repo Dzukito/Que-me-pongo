@@ -61,7 +61,7 @@ public class Usuario{
     }
     public int cantidadAtuendos(int i){ return roperos.get(i).cantidadAtuendosGenerados(); }
     public Membrecia getMembrecia(){ return this.membrecia; }
-    public ArrayList<Atuendo>  atuendosGuardaropa(Guardaropa ropero){ return ropero.atuendosGenerados(); }
+    public List<Atuendo>  atuendosGuardaropa(Guardaropa ropero){ return ropero.getAtuendosMostrados(); }
     //Metodos-privados--------------------------------------
     //Metedos-publicos--------------------------------------
     @Override

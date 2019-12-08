@@ -20,6 +20,7 @@ public class UsuarioController {
     }
 
     public ModelAndView crear(Request request, Response response){
+    	
         Map<String, Object> parametros = new HashMap<>();
         RepositorioMembrecia repoMembrecia = FactoryRepositorioMembrecia.get();
         parametros.put("membrecias", repoMembrecia.buscarTodos());

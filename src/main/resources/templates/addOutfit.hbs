@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
@@ -18,30 +19,60 @@
     font-size: 36px;
     line-height: 42px;
     text-align: center;"
-    >¿Qué Me Pongo?</h3>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon ">  <img src="../public/img/menu_hamburgesa.png" style="width:30px" alt="menu"></span>
-    </button>
+    >¿Qu&eacute; Me Pongo?</h3>
+    
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            {{#if login}}
             <li class="nav-item active" style="margin: 5px;">
-                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="#">Cerrar Sesión</a></button>
+                <a href="/login">
+                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
+                </a>
             </li>
+            {{else}}
+
+            <li class="nav-item active" style="margin: 5px;">
+                
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesi&oacute;n </a></button>
+                
+            </li>
+            {{/if}}
         </ul>
     </div>
 </nav>
-<div class="card container" style="margin:auto;padding:50px;width:max-content; margin-top: 5px;">
-    <div class="col-xs-12">
-        <div class="row center-block">
-            <form action="" method="POST" style="margin-top:-25px" >
-                <div class="form-group">
-                    <input type="text" class="form-control" id="outfitName" aria-describedby="emailHelp" placeholder="Nombre del Outfit">
+
+<div class="card container" style="margin-top:5px;margin:auto;width:max-content;">
+    <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
+        <div class="col-xs-10 offset-1 text-center offset-sm-4"> 
+
+            <form action="/addOutfit" method="POST">
+                <div class="text-uppercase" >
+                    <h3 class="tipoPrendaTitulo"> Agregar Outfit </h3>
+                 </div>
+                
+                <div class="form-group" style="margin-top: 5px;">
+                   <input type="text" class="form-control" name="outfitName" id="outfitName" placeholder="Nombre de outfitName">
                 </div>
 
+                <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="estilo">
+                            <option selected disabled>Estilo</option>
+                            
+                            {{#each estilos}}
+                                <option value="{{this}}" type="estilo">{{this}}</option>
+                            {{/each}} 
+
+                        </select>
+                    </div>
+                </div>
+                 <!--Col 1-->
+                    <!--Torso-->
+<!--
                 <div class="row">
-                    <!--Col 1-->
+                    
                     <div class="col">
-                        <!--Torso-->
+                        
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,7 +94,9 @@
                                 </div>
                             </div>
                         </div>
+-->
                         <!--Cabeza-->
+<!--
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,7 +118,9 @@
                                 </div>
                             </div>
                         </div>
+-->
                         <!--Piernas-->
+<!--
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,7 +142,9 @@
                                 </div>
                             </div>
                         </div>
+-->
                         <!--Manos-->
+<!--Col 2
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -130,9 +167,12 @@
                             </div>
                         </div>
                     </div>
-                    <!--Col 2-->
+-->
+                    <!--Accesorios-->
+<!--
                     <div class="col">
-                        <!--Accesorios-->
+                        
+
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -154,7 +194,9 @@
                                 </div>
                             </div>
                         </div>
+-->
                         <!--Pies-->
+<!--
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -176,7 +218,9 @@
                                 </div>
                             </div>
                         </div>
+-->
                         <!--Cuello-->
+<!--
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -200,7 +244,7 @@
                         </div>
                     </div>
                 </div>
-
+-->
                 <div class="row" style="margin-top:15px;">
                     <div class="col">
                         <button type="submit" class="btn btn-outline-dark"><a href="#" style="color:black">Cancelar</a></button>

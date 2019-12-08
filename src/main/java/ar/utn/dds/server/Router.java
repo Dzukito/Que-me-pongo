@@ -33,6 +33,7 @@ public class Router {
         GuardaropaController guardaropaController = new GuardaropaController();
         PrendaController prendaController = new PrendaController();
         EventoController eventoController = new EventoController();
+        OutfitController outfitController = new OutfitController();
         
 
 
@@ -44,6 +45,7 @@ public class Router {
         Spark.get("/guardaropa/:id", guardaropaController::mostrarPrendas, Router.engine);
         //Eventos
         Spark.get("/events", eventoController::mostrarTodos, Router.engine);
+        Spark.get("/events/:id", eventoController::mostrar, Router.engine);
         //Registro
         Spark.post("/usuario", usuarioController::guardar);
         Spark.get("/usuario", usuarioController::crear, Router.engine);
@@ -53,6 +55,11 @@ public class Router {
         //Prenda
         Spark.get("/addPrenda/:id", prendaController::crear, Router.engine);
         Spark.post("/addPrenda/:id", prendaController::guardar);
+        
+        Spark.get("/outfit/:id", outfitController::mostrarOutfit, Router.engine);
+        Spark.get("/addOutfit/:idGuardaropa/:nombreEstilo", outfitController::crearOutfit, Router.engine);
+        Spark.post("/addOutfit/:id", outfitController::guardarOutfit);
+        
 //        Spark.post("/addPrenda", prendaController::guardar);
         
 

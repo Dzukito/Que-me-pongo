@@ -37,6 +37,11 @@
     <div class="col-xs-12">
         <div class="row center-block">
             <form action="/login" method="POST">
+                <div>
+                {{#if intentoLogin}}
+                    <p class="text-danger">*usuario o contraseña invalida.</p>
+                {{/if}} 
+                </div>
                 <div class="form-group">
                     <label for="nombreDeUsuario">Usuario</label>
                     <input type="text" class="form-control" name="nombreDeUsuario" id="nombreDeUsuario" placeholder="Ej: Martín">

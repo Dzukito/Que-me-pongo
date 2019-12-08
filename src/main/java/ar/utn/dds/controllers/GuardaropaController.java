@@ -82,12 +82,13 @@ public class GuardaropaController {
 
 	 public ModelAndView mostrarPrendas(Request request, Response response) {	    	
 	        Map<String, Object> parametros = new HashMap<>();
+	        List<Estilo> estilos= Arrays.asList(Estilo.values());
 	        Guardaropa guardaropa = this.repo.buscar(new Long (request.params(":id"))); 
 //	        Usuario usuari1 = LoginController.getUsuario(request);     
 	        RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
 	        Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
 
-	        if(guardaropa==null || !guardaropa.esDeIdUsuario(usuario)){
+	        if( !guardaropa.esDeIdUsuario(usuario)){
 	        	guardaropa=null;
 	        }
 /*	        List<Guardaropa> guardaropas = usuario.getRoperos();
@@ -112,7 +113,7 @@ public class GuardaropaController {
 		        List<Prenda> prendas = guardaropa.getPrendas();
        			
 		        Map<String, Object> fotoPrendas  = new HashMap<>();
-/*Para probar sin usar la categoria		        
+/*Para probar sin usar la categoria		       
 		        for(int i =0; i<prendas.size();i++) {
 		        	if(prendas.get(i).getFotografo().getImagenes().stream().findFirst().isPresent()) {
 		        		fotoPrendas.put(String.valueOf(prendas.get(i).getId_prenda()),prendas.get(i).getFotografo().getImagenes().stream().findFirst().get());
@@ -128,8 +129,8 @@ public class GuardaropaController {
 		        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.MANOS.getCategoria())==0).collect(Collectors.toList());
 		        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CABEZA.getCategoria())==0).collect(Collectors.toList());
 		        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CUELLO.getCategoria())==0).collect(Collectors.toList());
-		       
-*/		        
+*/		       
+		        
 		        for(int i =0; i<prendas.size();i++) {
 		        	if(prendas.get(i).getFotografo().getImagenes().stream().findFirst().isPresent()) {
 		        		fotoPrendas.put(String.valueOf(prendas.get(i).getId_prenda()),prendas.get(i).getFotografo().getImagenes().stream().findFirst().get());
@@ -189,6 +190,7 @@ public class GuardaropaController {
 		        parametros.put("prendasManos", prendasManos);
 		        parametros.put("prendasCabeza", prendasCabeza);
 		        parametros.put("prendasCuello", prendasCuello);
+		        parametros.put("estilos", estilos);
 		        
 	        } 
 	        

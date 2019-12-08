@@ -93,8 +93,13 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
         return this.getUsuarios().stream().anyMatch(usu -> usu.getId_usuario()==usuario.getId_usuario());
     }
     //Getters-y-Setters------------------------------------------------
-    public ArrayList<Atuendo> atuendosGenerados(){ return (ArrayList<Atuendo>) this.atuendosMostrados; }
-    public List<Usuario> getUsuarios() { return usuarios; }
+    public List<Atuendo> getAtuendosMostrados() {
+		return atuendosMostrados;
+	}
+	public void setAtuendosMostrados(List<Atuendo> atuendosMostrados) {
+		this.atuendosMostrados = atuendosMostrados;
+	}
+	public List<Usuario> getUsuarios() { return usuarios; }
     public List<Prenda> getPrendas() { return this.prendas; }
     public void agregarPrenda(Prenda prenda) { this.prendas.add(prenda); }
     public void agregarPrendas(ArrayList<Prenda> prendas){ prendas.forEach(prenda -> this.agregarPrenda(prenda)); }
