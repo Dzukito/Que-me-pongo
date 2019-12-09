@@ -264,13 +264,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <a href="/addOutfit/{{guardaropaId}}/ELEGANTE">ELEGANTE</a>
-        <a href="/addOutfit/{{guardaropaId}}/ELEGANTSPORT">ELEGANTSPORT</a>
-        <a href="/addOutfit/{{guardaropaId}}/DEPORTIVO">DEPORTIVO</a>
-        <a href="/addOutfit/{{guardaropaId}}/ENTRECASA">ENTRECASA</a>
-        <a href="/addOutfit/{{guardaropaId}}/NAVIDENIO">NAVIDE&Noacute;O</a>
-        <a href="/addOutfit/{{guardaropaId}}/NORMAL">NORMAL</a>
-        <a href="/addOutfit/{{guardaropaId}}/PLAYERO">PLAYERO</a>
+
+        {{#each estilos}}
+                        <div class="col-sm-10 col-xs-10 ">
+                            <a href="/addOutfit/{{guardaropaId}}/{{this}}">
+                            <h5 class="text-dark"> {{this}}</h5>
+                            </a>
+                        </div>
+                {{/each}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

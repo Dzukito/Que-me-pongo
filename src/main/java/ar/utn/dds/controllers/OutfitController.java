@@ -76,8 +76,9 @@ public class OutfitController {
         return vista;
     }
     
-    public ModelAndView mostrarOutfit(Request request, Response response) {
+    public ModelAndView mostrarOutfitPorGuardaropa(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
+        List<Estilo> estilos= Arrays.asList(Estilo.values());
         RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
         String paramId = request.params(":id");
@@ -108,47 +109,50 @@ public class OutfitController {
         
         parametros.put("login", LoginController.isUsuarioLogin(request));
         parametros.put("guardaropaId", idGuardaropa);
+        parametros.put("estilos", estilos);
         return  new ModelAndView(parametros, "outfit2.hbs");
         
     }
     
-    public ModelAndView crearOutfit(Request request, Response response) {
+    public ModelAndView crearOutfitPorGuardaropa(Request request, Response response) {
     	Map<String, Object> parametros = new HashMap<>();
     	RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
-        String paramId = request.params(":id");
-        Long idGuardaropa = new Long(paramId);
+       
+        String paramEstilo =request.params(":nombreEstilo");
+        Long idGuardaropa = new Long(request.params(":idGuardaropa"));
         Guardaropa guardaropa=usuario.getRoperos().stream().filter(guarda->guarda.getId_guardaropa()==idGuardaropa).collect(Collectors.toList()).get(0);
         List<Atuendo> atuendos;
         if(guardaropa==null) {
         	atuendos= new ArrayList<Atuendo>();
         	parametros.put("atuendos", atuendos);
         }else {
-        	List<Prenda> prendas=guardaropa.getPrendas().stream().filter(prenda->prenda.getDisponibilidad()).collect(Collectors.toList());List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.TORSO.getCategoria())==0).collect(Collectors.toList());
-	        List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0).collect(Collectors.toList());
-	        List<Prenda> prendasCalzado  = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CALZADO.getCategoria())==0).collect(Collectors.toList());
-	        List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.ACCESORIOS.getCategoria())==0).collect(Collectors.toList());
-	        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.MANOS.getCategoria())==0).collect(Collectors.toList());
-	        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CABEZA.getCategoria())==0).collect(Collectors.toList());
-	        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CUELLO.getCategoria())==0).collect(Collectors.toList());
+        	List<Prenda> prendas=guardaropa.getPrendas().stream().filter(prenda->prenda.getDisponibilidad()).collect(Collectors.toList());
+        	List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.TORSO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+	        List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+	        List<Prenda> prendasCalzado  = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CALZADO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+	        List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.ACCESORIOS.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+	        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.MANOS.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+	        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CABEZA.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+	        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CUELLO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
 	       
-        	//if()
-            List<Color> colores= Arrays.asList(Color.values());
-            List<Material> materiales= Arrays.asList(Material.values());
-            List<Estilo> estilos= Arrays.asList(Estilo.values());
+     
             parametros.put("login", LoginController.isUsuarioLogin(request));
-            parametros.put("guardaropaId",new Long (request.params(":id")));
-            //parametros.put("tipoPrendas", repoTipoPrenda.buscarTodos());
-            //parametros.put("guardaropas", repoGuarda.buscarTodos());
-            parametros.put("colores", colores);
-            parametros.put("materiales", materiales);
-            parametros.put("estilos", estilos);
+            parametros.put("guardaropaId",idGuardaropa);
+            parametros.put("estilo",paramEstilo);
+            parametros.put("prendasTorso", prendasTorso);
+	        parametros.put("prendasParteInferior", prendasParteInferior);
+	        parametros.put("prendasCalzado", prendasCalzado);
+	        parametros.put("prendasAccesorio", prendasAccesorio);
+	        parametros.put("prendasManos", prendasManos);
+	        parametros.put("prendasCabeza", prendasCabeza);
+	        parametros.put("prendasCuello", prendasCuello);
         }
-        return new ModelAndView(parametros, "addOut.hbs");
+        return new ModelAndView(parametros, "addOutfit.hbs");
     }
     
     public ModelAndView guardarOutfit(Request request, Response response) {
     	Map<String, Object> parametros = new HashMap<>();
-    	return new ModelAndView(parametros, "addOut.hbs"); // modificar esto
+    	return new ModelAndView(parametros, "addOutfit.hbs"); // modificar esto
     }
 }

@@ -87,8 +87,7 @@ public class GuardaropaController {
 //	        Usuario usuari1 = LoginController.getUsuario(request);     
 	        RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
 	        Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
-
-	        if( !guardaropa.esDeIdUsuario(usuario)){
+	        if (guardaropa!=null && !guardaropa.esDeIdUsuario(usuario)) {  	
 	        	guardaropa=null;
 	        }
 /*	        List<Guardaropa> guardaropas = usuario.getRoperos();
@@ -113,24 +112,7 @@ public class GuardaropaController {
 		        List<Prenda> prendas = guardaropa.getPrendas();
        			
 		        Map<String, Object> fotoPrendas  = new HashMap<>();
-/*Para probar sin usar la categoria		       
-		        for(int i =0; i<prendas.size();i++) {
-		        	if(prendas.get(i).getFotografo().getImagenes().stream().findFirst().isPresent()) {
-		        		fotoPrendas.put(String.valueOf(prendas.get(i).getId_prenda()),prendas.get(i).getFotografo().getImagenes().stream().findFirst().get());
-		        	}
-		        	else {
-		        			fotoPrendas.put(String.valueOf(prendas.get(i).getId_prenda()),"remeraIcono.png");	
-		        	}
-		        }
-		        List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.TORSO.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasCalzado  = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CALZADO.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.ACCESORIOS.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.MANOS.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CABEZA.getCategoria())==0).collect(Collectors.toList());
-		        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CUELLO.getCategoria())==0).collect(Collectors.toList());
-*/		       
-		        
+	        
 		        for(int i =0; i<prendas.size();i++) {
 		        	if(prendas.get(i).getFotografo().getImagenes().stream().findFirst().isPresent()) {
 		        		fotoPrendas.put(String.valueOf(prendas.get(i).getId_prenda()),prendas.get(i).getFotografo().getImagenes().stream().findFirst().get());

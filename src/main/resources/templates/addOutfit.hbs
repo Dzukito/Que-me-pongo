@@ -45,7 +45,7 @@
     <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
         <div class="col-xs-10 offset-1 text-center offset-sm-4"> 
 
-            <form action="/addOutfit" method="POST">
+            <form action="/addOutfit/{{guardaropaId}}" method="POST">
                 <div class="text-uppercase" >
                     <h3 class="tipoPrendaTitulo"> Agregar Outfit </h3>
                  </div>
@@ -56,198 +56,100 @@
 
                 <div class="form-group">
                     <div>
-                        <select class="input-select form-control" name="estilo">
-                            <option selected disabled>Estilo</option>
+                        <select class="input-select form-control" name="torso">
+                            <option selected disabled>Torso</option>
                             
-                            {{#each estilos}}
-                                <option value="{{this}}" type="estilo">{{this}}</option>
+                            {{#each prendasTorso}}
+                                <option value="{{nombrePrenda}}" type="torso">{{nombrePrenda}}</option>
                             {{/each}} 
 
                         </select>
                     </div>
                 </div>
-                 <!--Col 1-->
-                    <!--Torso-->
-<!--
-                <div class="row">
-                    
-                    <div class="col">
-                        
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Torso:
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" style="display: inline;">
-                                        <div class="row">
-                                            <div class="col-xs-4" style="margin-left:30px">
-                                                <img src="../public/img/bufandaIcono.png" alt="imagen de la prenda" style="width: 40px;">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <h6 style="font-size: 10px;">NombrePrenda</h6>
-                                                <p style="font-size: 5px;">DescripcionPrenda</p>
-                                                <input type="radio" aria-label="Radio button for following text input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
--->
-                        <!--Cabeza-->
-<!--
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Cabeza:
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" style="display: inline;">
-                                        <div class="row">
-                                            <div class="col-xs-4" style="margin-left:30px">
-                                                <img src="../public/img/bufandaIcono.png" alt="imagen de la prenda" style="width: 40px;">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <h6 style="font-size: 10px;">NombrePrenda</h6>
-                                                <p style="font-size: 5px;">DescripcionPrenda</p>
-                                                <input type="radio" aria-label="Radio button for following text input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
--->
-                        <!--Piernas-->
-<!--
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Piernas:
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" style="display: inline;">
-                                        <div class="row">
-                                            <div class="col-xs-4" style="margin-left:30px">
-                                                <img src="../public/img/bufandaIcono.png" alt="imagen de la prenda" style="width: 40px;">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <h6 style="font-size: 10px;">NombrePrenda</h6>
-                                                <p style="font-size: 5px;">DescripcionPrenda</p>
-                                                <input type="radio" aria-label="Radio button for following text input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
--->
-                        <!--Manos-->
-<!--Col 2
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Manos:
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" style="display: inline;">
-                                        <div class="row">
-                                            <div class="col-xs-4" style="margin-left:30px">
-                                                <img src="../public/img/bufandaIcono.png" alt="imagen de la prenda" style="width: 40px;">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <h6 style="font-size: 10px;">NombrePrenda</h6>
-                                                <p style="font-size: 5px;">DescripcionPrenda</p>
-                                                <input type="radio" aria-label="Radio button for following text input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
--->
-                    <!--Accesorios-->
-<!--
-                    <div class="col">
-                        
 
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Accesorios:
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" style="display: inline;">
-                                        <div class="row">
-                                            <div class="col-xs-4" style="margin-left:30px">
-                                                <img src="../public/img/bufandaIcono.png" alt="imagen de la prenda" style="width: 40px;">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <h6 style="font-size: 10px;">NombrePrenda</h6>
-                                                <p style="font-size: 5px;">DescripcionPrenda</p>
-                                                <input type="radio" aria-label="Radio button for following text input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
--->
-                        <!--Pies-->
-<!--
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pies:
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" style="display: inline;">
-                                        <div class="row">
-                                            <div class="col-xs-4" style="margin-left:30px">
-                                                <img src="../public/img/bufandaIcono.png" alt="imagen de la prenda" style="width: 40px;">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <h6 style="font-size: 10px;">NombrePrenda</h6>
-                                                <p style="font-size: 5px;">DescripcionPrenda</p>
-                                                <input type="radio" aria-label="Radio button for following text input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
--->
-                        <!--Cuello-->
-<!--
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Cuello:
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" style="display: inline;">
-                                        <div class="row">
-                                            <div class="col-xs-4" style="margin-left:30px">
-                                                <img src="../public/img/bufandaIcono.png" alt="imagen de la prenda" style="width: 40px;">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <h6 style="font-size: 10px;">NombrePrenda</h6>
-                                                <p style="font-size: 5px;">DescripcionPrenda</p>
-                                                <input type="radio" aria-label="Radio button for following text input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="inferior">
+                            <option selected disabled>Parte inferior</option>
+                            
+                            {{#each prendasParteInferior}}
+                                <option value="{{nombrePrenda}}" type="inferior">{{nombrePrenda}}</option>
+                            {{/each}} 
+
+                        </select>
                     </div>
                 </div>
--->
+
+                 <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="calzado">
+                            <option selected disabled>Calzado</option>
+                            
+                            {{#each prendasCalzado}}
+                                <option value="{{nombrePrenda}}" type="calzado">{{nombrePrenda}}</option>
+                            {{/each}} 
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="accesorio">
+                            <option selected disabled>Accesorio</option>
+                            
+                            {{#each prendasAccesorio}}
+                                <option value="{{nombrePrenda}}" type="accesorio">{{nombrePrenda}}</option>
+                            {{/each}} 
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="manos">
+                            <option selected disabled>Prenda para la mano</option>
+                            
+                            {{#each prendasManos}}
+                                <option value="{{nombrePrenda}}" type="manos">{{nombrePrenda}}</option>
+                            {{/each}} 
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="cabeza">
+                            <option selected disabled>Prenda para la cabeza</option>
+                            
+                            {{#each prendasCabeza}}
+                                <option value="{{nombrePrenda}}" type="cabeza">{{nombrePrenda}}</option>
+                            {{/each}} 
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="cuello">
+                            <option selected disabled>Prenda para el cuello</option>
+                            
+                            {{#each prendasCuello}}
+                                <option value="{{nombrePrenda}}" type="cuello">{{nombrePrenda}}</option>
+                            {{/each}} 
+
+                        </select>
+                    </div>
+                </div>
+       
                 <div class="row" style="margin-top:15px;">
                     <div class="col">
-                        <button type="submit" class="btn btn-outline-dark"><a href="#" style="color:black">Cancelar</a></button>
+                        <a href="/outfit/{{guardaropaId}}" style="color:black">
+                        <button type="button" class="btn btn-outline-dark">Cancelar</button>
+                        </a>
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-danger">Agregar</button>

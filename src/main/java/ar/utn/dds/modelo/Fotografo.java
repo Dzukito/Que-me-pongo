@@ -43,8 +43,9 @@ public class Fotografo {
 		String destino= path.replace('/', '-').replaceAll(".jpg","");//nombre para la imagen en la carpeta donde se almacena
 		destino= path.replace('/', '-').replaceAll(".png","");
 		destino=destino+".png";
+		if(!path.isEmpty()) {
 //		this.normalizarUnaImagen("/home/dds/"+path, "/img/"+destino, 600, 600, ".png"); //el adminImg normaliza la imagen
-		this.imagenes.add(destino);
+		this.imagenes.add(destino);}
 	}
 	
 	public  void normalizarUnaImagen(String path,String destino, int width, int hight, String format) {
