@@ -102,6 +102,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	public List<Usuario> getUsuarios() { return usuarios; }
     public List<Prenda> getPrendas() { return this.prendas; }
     public void agregarPrenda(Prenda prenda) { this.prendas.add(prenda); }
+    public void agregarAtuendo(Atuendo atuendo) { this.atuendosMostrados.add(atuendo); }
     public void agregarPrendas(ArrayList<Prenda> prendas){ prendas.forEach(prenda -> this.agregarPrenda(prenda)); }
     public void agregarUsuario(Usuario usuario1) { this.usuarios.add(usuario1); }
     public void quitarUsuario(Usuario usuario1) { this.usuarios = this.usuarios.stream().filter(usuario -> usuario != usuario1).collect(Collectors.toList()); }

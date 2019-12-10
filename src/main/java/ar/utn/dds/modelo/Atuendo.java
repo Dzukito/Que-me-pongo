@@ -16,8 +16,8 @@ public class Atuendo {
 	@GeneratedValue
 	private long id_atuendo;
 	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name="id_atuendo")
+	@ManyToMany
+	@JoinTable(name="map_prenda_atuendo", joinColumns={@JoinColumn(name="id_atuendo")}, inverseJoinColumns={@JoinColumn(name="id_prenda")})
     private List<Prenda> prendas;
     
     @Column(name = "usabilidad")
@@ -98,7 +98,7 @@ public class Atuendo {
     public List<List<String>> getImagenes() { return prendas.stream().map(prenda -> prenda.getFotografo().imagenes()).collect(Collectors.toList()); }
     public void setterCalificacion(CalificacionAtuendo calif) { this.calificaciones.add(calif); }
     //Constructores--------------------------------------------------
-    Atuendo(){
+    public Atuendo(){
         this.prendas = new ArrayList<Prenda>();
         this.usabilidad = 0;
         this.calificaciones = new ArrayList<CalificacionAtuendo>();

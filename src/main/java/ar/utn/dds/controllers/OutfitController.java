@@ -5,16 +5,22 @@ import ar.utn.dds.modelo.Atuendo;
 import ar.utn.dds.modelo.Categoria;
 import ar.utn.dds.modelo.Color;
 import ar.utn.dds.modelo.Estilo;
+import ar.utn.dds.modelo.Fotografo;
 import ar.utn.dds.modelo.Guardaropa;
 import ar.utn.dds.modelo.Material;
 import ar.utn.dds.modelo.Prenda;
+import ar.utn.dds.modelo.TipoPrenda;
 import ar.utn.dds.modelo.Usuario;
+import ar.utn.dds.repositories.RepositorioFotografo;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
 import ar.utn.dds.repositories.RepositorioOutfit;
+import ar.utn.dds.repositories.RepositorioPrenda;
 import ar.utn.dds.repositories.RepositorioTipoPrenda;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioAtuendo;
+import ar.utn.dds.repositories.factories.FactoryRepositorioFotografo;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
+import ar.utn.dds.repositories.factories.FactoryRepositorioPrenda;
 import ar.utn.dds.repositories.factories.FactoryRepositorioTipoPrenda;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 import spark.ModelAndView;
@@ -151,8 +157,77 @@ public class OutfitController {
         return new ModelAndView(parametros, "addOutfit.hbs");
     }
     
-    public ModelAndView guardarOutfit(Request request, Response response) {
+
+    private void asignarAtributosA(Atuendo atuendo, Request request){
+    	
+    	if(request.params(":idGuardaropa") != null){
+         	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
+         	 Guardaropa guardaropa = repoGuardaropa.buscar(new Long (request.params(":idGuardaropa")));
+         	 guardaropa.agregarAtuendo(atuendo);	 
+         }
+    	
+    	if(request.queryParams("torso") != null){
+    		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
+        	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("torso")));
+        	atuendo.agregarPrenda(prenda);
+            
+        }
+      
+    	if(request.queryParams("inferior") != null){
+    		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
+        	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("inferior")));
+        	atuendo.agregarPrenda(prenda);
+            
+        }
+    	
+    	if(request.queryParams("calzado") != null){
+    		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
+        	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("calzado")));
+        	atuendo.agregarPrenda(prenda);
+            
+        }
+    	
+    	if(request.queryParams("accesorio") != null){
+    		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
+        	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("accesorio")));
+        	atuendo.agregarPrenda(prenda);
+            
+        }
+    	
+    	if(request.queryParams("manos") != null){
+    		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
+        	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("manos")));
+        	atuendo.agregarPrenda(prenda);
+            
+        }
+    	
+    	if(request.queryParams("cabeza") != null){
+    		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
+        	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("cabeza")));
+        	atuendo.agregarPrenda(prenda);
+            
+        }
+    	
+    	if(request.queryParams("cuello") != null){
+    		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
+        	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("cuello")));
+        	atuendo.agregarPrenda(prenda);
+            
+        }
+    	 
+  }
+    
+    public Response guardarOutfit(Request request, Response response) {
     	Map<String, Object> parametros = new HashMap<>();
-    	return new ModelAndView(parametros, "addOutfit.hbs"); // modificar esto
+    	
+    	
+    	Atuendo atuendo = new Atuendo();
+        asignarAtributosA(atuendo, request);
+        this.repo.agregar(atuendo);
+
+        response.redirect("/outfit/{{guardaropaId}}");
+        //response.redirect("/guardaropa/request.params(":id")");
+        return response;
     }
+    
 }
