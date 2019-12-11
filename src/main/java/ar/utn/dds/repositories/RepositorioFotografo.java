@@ -2,7 +2,7 @@ package ar.utn.dds.repositories;
 
 import java.util.List;
 
-import ar.utn.dds.modelo.Fotografo;
+import ar.utn.dds.modelo.clases.Fotografo;
 import ar.utn.dds.repositories.DAO.DAO;
 
 public class RepositorioFotografo  extends Repositorio {

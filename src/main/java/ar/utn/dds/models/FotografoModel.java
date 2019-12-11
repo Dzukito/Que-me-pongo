@@ -2,7 +2,7 @@ package ar.utn.dds.models;
 
 import java.util.List;
 
-import ar.utn.dds.modelo.Fotografo;
+import ar.utn.dds.modelo.clases.Fotografo;
 
 
 public class FotografoModel extends Model {

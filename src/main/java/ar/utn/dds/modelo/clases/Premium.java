@@ -21,5 +21,5 @@ public class Premium extends Membrecia {
         usuario.setMembrecia(new Gratuito());
         usuario.getRoperos().forEach(ropero->ropero.bloquearExcedente(maxPrendasGuarda)); //uso la propiedad
     }
-    Premium(){}
+    public Premium(){}
 }

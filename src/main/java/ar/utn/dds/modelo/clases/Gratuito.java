@@ -59,5 +59,5 @@ public class Gratuito extends Membrecia {
     	//tiene sentido?
     }
 
-    Gratuito(){}
+    public Gratuito(){}
 }

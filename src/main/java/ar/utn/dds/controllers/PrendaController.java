@@ -1,4 +1,6 @@
 package ar.utn.dds.controllers;
+import ar.utn.dds.modelo.clases.Fotografo;
+import ar.utn.dds.modelo.clases.Guardaropa;
 import ar.utn.dds.modelo.ropa.*;
 import ar.utn.dds.repositories.*;
 import ar.utn.dds.repositories.factories.*;

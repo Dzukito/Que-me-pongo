@@ -1,5 +1,10 @@
 package ar.utn.dds.persistencia;
 
+import ar.utn.dds.modelo.clases.Gratuito;
+import ar.utn.dds.modelo.clases.Membrecia;
+import ar.utn.dds.modelo.clases.Premium;
+import ar.utn.dds.modelo.ropa.Categoria;
+import ar.utn.dds.modelo.ropa.TipoPrenda;
 import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.test.AbstractPersistenceTest;

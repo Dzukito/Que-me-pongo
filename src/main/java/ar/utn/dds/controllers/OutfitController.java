@@ -168,7 +168,7 @@ public class OutfitController {
     		RepositorioPrenda repoPrenda = FactoryRepositorioPrenda.get();
         	Prenda prenda= repoPrenda.buscar(new Long (request.queryParams("torso")));
         	atuendo.agregarPrenda(prenda);
-            
+
         }
       
     	if(request.queryParams("inferior") != null){
