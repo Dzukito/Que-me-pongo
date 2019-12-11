@@ -1,6 +1,7 @@
 package ar.utn.dds.controllers;
 import ar.utn.dds.modelo.clases.Fotografo;
 import ar.utn.dds.modelo.clases.Guardaropa;
+import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.modelo.ropa.*;
 import ar.utn.dds.repositories.*;
 import ar.utn.dds.repositories.factories.*;
@@ -27,6 +28,8 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletException;
+import javax.servlet.http.Part;
 
 public class PrendaController {
     private RepositorioPrenda repoPrenda;
@@ -233,6 +236,40 @@ public class PrendaController {
         response.redirect("/home");
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
+    }
+	//-----------------------------------------------------
+    
+    public String guardarImagen(Request req,Prenda prenda) throws IOException, ServletException {
+    	File uploadDir = new File("Imagenes/");
+        uploadDir.mkdir(); // create the upload directory if it doesn't exist
+
+            Path tempFile = Files.createTempFile(uploadDir.toPath(), "", "");
+
+            req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
+
+            try (InputStream input = req.raw().getPart("uploaded_file").getInputStream()) { // getPart needs to use same "name" as input field in form
+                Files.copy(input, tempFile, StandardCopyOption.REPLACE_EXISTING);
+                
+            }
+           	
+            logInfo(req, tempFile);
+            return tempFile.toAbsolutePath().toString();
+
+    			}
+
+		    // methods used for logging
+		    private  void logInfo(Request req, Path tempFile) throws IOException, ServletException {
+		        System.out.println("Uploaded file '" + getFileName(req.raw().getPart("uploaded_file")) + "' saved as '" + tempFile.toAbsolutePath().toString() + "'");
+		    }
+		
+		    private  String getFileName(Part part) {
+		        for (String cd : part.getHeader("content-disposition").split(";")) {
+		            if (cd.trim().startsWith("filename")) {
+		                return cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+		            }
+		        }
+		        return null;
+
     }
     
 }
