@@ -2,7 +2,7 @@ package ar.utn.dds.controllers;
 
 import java.util.HashMap;
 import java.util.List;
-import ar.utn.dds.modelo.Usuario;
+import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 import spark.ModelAndView;

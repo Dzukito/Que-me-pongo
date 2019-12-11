@@ -44,6 +44,8 @@ public class Router {
         Spark.get("/guardaropa/:id", guardaropaController::mostrarPrendas, Router.engine);
         //Eventos
         Spark.get("/events", eventoController::mostrarTodos, Router.engine);
+//        Spark.get("/addEvent", eventoController::crearEvento);
+//        Spark.post("/addEvent", eventoController::guardar);
         //Registro
         Spark.post("/usuario", usuarioController::guardar);
         Spark.get("/usuario", usuarioController::crear, Router.engine);

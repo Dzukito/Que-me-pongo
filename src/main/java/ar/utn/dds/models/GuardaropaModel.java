@@ -1,6 +1,6 @@
 package ar.utn.dds.models;
 
-import ar.utn.dds.modelo.Guardaropa;
+import ar.utn.dds.modelo.clases.Guardaropa;
 
 import java.util.List;
 

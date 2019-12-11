@@ -1,15 +1,15 @@
 Use queMePongo;
 /* Membresia */
 	/* Free */
-/*
+
 INSERT INTO queMePongo.membrecia(id_membrecia,tipoMembrecia, descripcion)
         VALUES ( 1,'Gratuito','Gratuito');
-*/
+
 	/* Premium */
-/*
+
 INSERT INTO queMePongo.membrecia(id_membrecia,tipoMembrecia, descripcion)
         VALUES ( 2,'Premium','Premium');
-*/
+
 /* Fin Membrecia */
 
 /* Categorias */
@@ -22,19 +22,19 @@ insert into queMePongo.categoria(id_categoria,categoria,nivelCalorMaximo,nivelCa
 /*
 insert into queMePongo.categoria(id_categoria,categoria,nivelCalorMaximo,nivelCalorMinimo)
 	values (2,'Inferior', 3, 1);
- */
+*/
 	/* 3 Calzado */
- /*
+/*
 insert into queMePongo.categoria(id_categoria,categoria,nivelCalorMaximo,nivelCalorMinimo)
 	values (3,'Calzado', 3, 1);
- */
+*/
 	/* 4 Accesorios */
 /*
 insert into queMePongo.categoria(id_categoria,categoria,nivelCalorMaximo,nivelCalorMinimo)
 	values (4,'Accesorios', 10, 0);
-*/ 
+ */
 	/* 5 Cuello */
-/*    
+/*
 insert into queMePongo.categoria(id_categoria,categoria,nivelCalorMaximo,nivelCalorMinimo)
 	values (5,'Cuello', 1, 0);
 */
@@ -54,34 +54,16 @@ insert into queMePongo.categoria(id_categoria,categoria,nivelCalorMaximo,nivelCa
 /*
 insert into queMePongo.material(id_material,nombre)
 	values (1,'Algodón');
-*/
-	/* seda */ 
-/*
 insert into queMePongo.material(id_material,nombre)
 	values (2,'Seda');
- */
-	/* Poliester */ 
-/*
 insert into queMePongo.material(id_material,nombre)
 	values (3,'Poliester');
- */
-	/* Lycra */ 
-/*
 insert into queMePongo.material(id_material,nombre)
 	values (4,'Lycra');
- */
-	/* Cuero */ 
-/*
 insert into queMePongo.material(id_material,nombre)
 	values (5,'Cuero');
-*/    
-    /* Nylon */ 
-/*
 insert into queMePongo.material(id_material,nombre)
 	values (6,'Nylon');
-*/
-    /* Jean */ 
-/*
 insert into queMePongo.material(id_material,nombre)
 	values (7,'Jean');
 */
@@ -91,28 +73,28 @@ insert into queMePongo.material(id_material,nombre)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (1);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (1,'Remera cuello rendondo manga corta',1,1);
 /* Fin Remera cuello rendondo manga corta*/
 /* Remera cuello rendondo manga larga*/
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (2);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (2,'Remera cuello rendondo manga larga',1,2);
 /* Fin Remera cuello rendondo manga larga*/
 /* Remera escote V manga corta */
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (3);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (3,'Remera escote V manga corta' ,1,3);
 /* Fin Remera escote V manga corta*/
 /* Remera cuello rendondo manga larga*/
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (4);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (4,'Remera escote V manga larga',1,4);
 /* Fin Remera escote V manga larga*/
 
@@ -120,7 +102,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (5);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (5,'Sueter',1,5);
 /* Fin Sueter */
 
@@ -128,7 +110,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (6);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (6,'Campera',1,6);
 /* Fin Campera */
 
@@ -136,7 +118,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (7);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (7,'Pantalon Largo',2,7);
 /* Fin Pantalon Largo */
 
@@ -144,7 +126,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (8);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (8,'Pantalon Corto',2,8);
 /* Fin Pantalon Corto */
 
@@ -152,7 +134,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (9);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (9,'Bermuda',2,9);
 /* Fin Bermuda */
 
@@ -160,7 +142,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (10);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (10,'Pollera',2,10);
 /* Fin Pollera */
 
@@ -168,7 +150,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (11);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (11,'Calza',2,11);
 /* Fin Calza */
 
@@ -176,7 +158,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (12);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (12,'Buzo',1,12);
 /* Fin Buzo */
 
@@ -184,7 +166,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (13);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (13,'Musculoza',1,13);
 /* Fin Musculoza */
 
@@ -192,7 +174,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (14);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (14,'Zapatillas',3,14);
 /* Fin Zapatillas */
 
@@ -200,7 +182,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (15);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (15,'Zapatos',3,15);
 /* Fin Zapatos */
 
@@ -208,7 +190,7 @@ Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
 		/* Fotografo */
 insert into queMePongo.fotografo(id_fotografo)
 		values (16);
-Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,categoria,id_fotografo)
+Insert into queMePongo.tipoPrenda(id_tipoPrenda,tipo,id_categoria,id_fotografo)
         values (16,'Sandalias',3,16);
 /* Fin Sandalias */
 /* Fin Tipos de Prenda*/
@@ -628,19 +610,3 @@ Insert into queMePongo.superponible(id_tipoPrenda,id_superponible)
 	values (16,10);
     /* Fin 16*/
 /* Fin Superponibles */
-/* Estilo */
-Insert into queMePongo.estilo(id_estilo,estilo)
-	values (1,'Elegante');
-Insert into queMePongo.estilo(id_estilo,estilo)
-	values (2,'ElegantSport');
-Insert into queMePongo.estilo(id_estilo,estilo)
-	values (3,'Deportivo');
-Insert into queMePongo.estilo(id_estilo,estilo)
-	values (4,'Entrecasa');    
-Insert into queMePongo.estilo(id_estilo,estilo)
-	values (5,'Normal');
-Insert into queMePongo.estilo(id_estilo,estilo)
-	values (6,'Playero');
-Insert into queMePongo.estilo(id_estilo,estilo)
-	values (7,'Invernal');
-/* Fin Estilo */

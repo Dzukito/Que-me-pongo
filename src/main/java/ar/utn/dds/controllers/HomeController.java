@@ -2,8 +2,7 @@ package ar.utn.dds.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
-import ar.utn.dds.controllers.LoginController;
-import ar.utn.dds.modelo.Usuario;
+
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

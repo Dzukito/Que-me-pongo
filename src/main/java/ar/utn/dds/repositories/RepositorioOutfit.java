@@ -1,7 +1,6 @@
 package ar.utn.dds.repositories;
 
-import ar.utn.dds.modelo.Atuendo;
-import ar.utn.dds.modelo.Guardaropa;
+import ar.utn.dds.modelo.clases.Atuendo;
 import ar.utn.dds.repositories.DAO.DAO;
 
 import java.util.List;

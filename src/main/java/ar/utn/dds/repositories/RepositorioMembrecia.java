@@ -1,6 +1,6 @@
 package ar.utn.dds.repositories;
 
-import ar.utn.dds.modelo.Membrecia;
+import ar.utn.dds.modelo.clases.Membrecia;
 import ar.utn.dds.repositories.DAO.DAO;
 
 import java.util.List;

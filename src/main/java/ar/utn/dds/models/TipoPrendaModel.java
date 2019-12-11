@@ -1,6 +1,6 @@
 package ar.utn.dds.models;
 
-import ar.utn.dds.modelo.TipoPrenda;
+import ar.utn.dds.modelo.ropa.TipoPrenda;
 
 import java.util.List;
 

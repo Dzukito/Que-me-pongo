@@ -1,12 +1,9 @@
 package ar.utn.dds.controllers;
 //import entities.Rol;
 
-import ar.utn.dds.modelo.Atuendo;
-import ar.utn.dds.modelo.Guardaropa;
-import ar.utn.dds.repositories.RepositorioGuardaropa;
+import ar.utn.dds.modelo.clases.Atuendo;
 import ar.utn.dds.repositories.RepositorioOutfit;
 import ar.utn.dds.repositories.factories.FactoryRepositorioAtuendo;
-import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

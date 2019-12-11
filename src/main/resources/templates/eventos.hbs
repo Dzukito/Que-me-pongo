@@ -48,7 +48,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Evento</th>
-            <th scope="col">Estilo</th>
+<!--            <th scope="col">Estilo</th>-->
             <th scope="col">Atuendo</th>
             <th scope="col">Comienzo</th>
             <th scope="col">Termino</th>
@@ -59,17 +59,57 @@
         {{#each eventos}}
             <tr>
                 <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
-                <td>{id_evento}</td>
-                <td>{estilo}</td>
-                <td>{horaComienzo}</td>
-                <td>{horaTermino}</td>
-                <td>{atuendo}</td>
-                <td>{ubicacion}</td>
+                <td>{{id_evento}}</td>
+<!--                <td>{{estilo}}</td>-->
+                <td>{{horaComienzo}}</td>
+                <td>{{horaTermino}}</td>
+                <td>{{atuendo}}</td>
+                <td>{{ubicacion}}</td>
             </tr>
         {{/each}}
         </tbody>
     </table>
 </div>
+
+<div class="row" style="margin-top:5px;margin-bottom:5px;">
+    <div class="col-xs-4 offset-xs-4 offset-7 text-center">
+        <button type="button" class="btn btn-outline-dark btn-danger" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>
+        <div class="modal fade" id="modalAgregarGuardaropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Agregar guardaropa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/guardaropas" method="POST">
+                            <div class="form-group">
+                                <label for="nombreGuardaropa" class="col-form-label">Nombre del Guardaropa</label>
+                                <input type="text" class="form-control" name="nombreGuardaropa" id="nombreGuardaropa">
+                                <label for="descripcionGuardaropa" class="col-form-label">Descripción del Guardaropa</label>
+                                <input type="text" class="form-control" name="descripcionGuardaropa" id="descripcionGuardaropa">
+                            </div>
+                            <div>
+                                <a href="/guardaropas">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                </a>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <a href="/home">
+            <button type="button" class="btn btn-outline-dark btn-danger">Volver</button>
+        </a>
+    </div>
+</div>
+
 
 </body>
 </html>
