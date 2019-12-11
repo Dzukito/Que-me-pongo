@@ -1,7 +1,8 @@
 package ar.utn.dds.controllers;
 
-import ar.utn.dds.modelo.*;
 import ar.utn.dds.repositories.RepositorioEvento;
+import ar.utn.dds.modelo.clases.Evento;
+import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
 import ar.utn.dds.repositories.RepositorioOutfit;
 import ar.utn.dds.repositories.RepositorioUsuario;
@@ -12,13 +13,11 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class EventoController {
     private RepositorioGuardaropa repo;
+
 
     public EventoController(){
         this.repo = FactoryRepositorioGuardaropa.get();
@@ -36,6 +35,7 @@ public class EventoController {
         return  new ModelAndView(parametros, "eventos.hbs");
     }
     
+
     public ModelAndView mostrar(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
         Long idEvento = new Long (request.params(":id"));
@@ -49,56 +49,38 @@ public class EventoController {
         return  new ModelAndView(parametros, "eventos.hbs");
     }
     
-    
-//	public Response crearEvento(Request request, Response response) {
-//
+
+//	public Response crearEvento(Request request, Response response) throws ParseException {
 //		Evento evento = new Evento();
 //		Usuario usuario = LoginController.getUsuario(request);
-//		if(request.queryParams("nombreGuardaropa") != null){
-//			guardaropa.setNombre(request.queryParams("nombreGuardaropa"));
-//			guardaropa.setDescripcion(request.queryParams("descripcionGuardaropa"));
-//			guardaropa.agregarUsuario(usuario);
-//			usuario.agregarRopero(guardaropa);
+//		if(request.queryParams("horaComienzo") != null) {
+//            String fecha = request.queryParams("horaComienzo");
+//            Calendar cal = Calendar.getInstance();
+//            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd HH:mm yyyy", Locale.ENGLISH);
 //
-//			repo.agregar(guardaropa);
+////		    evento.setHoraComienzo(cal.setTime(sdf.parse(fecha)));
+//        }
+//        if(request.queryParams("horaFin") != null) {
+//            String fecha = request.queryParams("horaFin");
+//            Calendar cal = Calendar.getInstance();
+//            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd HH:mm yyyy", Locale.ENGLISH);
+////          evento.setHoraTermino(cal.setTime(sdf.parse(fecha)));
+//        }
+//        if(request.queryParams("estilo") != null) {
+//            String fecha = request.queryParams("horaFin");
+//            Calendar cal = Calendar.getInstance();
+//            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd HH:mm yyyy", Locale.ENGLISH);
+////          evento.setHoraTermino(cal.setTime(sdf.parse(fecha)));
 //        }
 //
-//		response.redirect("/guardaropas");
+////		guardaropa.setDescripcion(request.queryParams("descripcionGuardaropa"));
+////		repo.agregar(guardaropa);
+//
+//        usuario.agregarEvento(evento);
+//		response.redirect("/events");
 //		return response;
 //
 //	 }
 
-//	 public ModelAndView mostrarPrendas(Request request, Response response) {
-//	        Map<String, Object> parametros = new HashMap<>();
-//	        Guardaropa guardaropa = this.repo.buscar(new Long (request.params(":id")));
-//	        if(guardaropa ==null){
-//	        	parametros.put("guardaropa", guardaropa);
-//	        }else {
-//		        List<Prenda> prendas = guardaropa.getPrendas();
-////		        List<Prenda> prendasTorso= prendas.stream().filter(prenda -> prenda.getCategoria().compareTo(Categoria.TORSO.getCategoria())>=0).collect(Collectors.toList());
-////		        List<Prenda> prendasParteInferior= prendas.stream().filter(prenda -> prenda.getCategoria().compareTo(Categoria.PARTEINFERIOR.getCategoria())>=0).collect(Collectors.toList());
-//		        List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.TORSO.getCategoria())==0).collect(Collectors.toList());
-//		        List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0).collect(Collectors.toList());
-//		        List<Prenda> prendasCalzado = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CALZADO.getCategoria())==0).collect(Collectors.toList());
-//		        List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.ACCESORIOS.getCategoria())==0).collect(Collectors.toList());
-//		        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.MANOS.getCategoria())==0).collect(Collectors.toList());
-//		        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CABEZA.getCategoria())==0).collect(Collectors.toList());
-//		        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CUELLO.getCategoria())==0).collect(Collectors.toList());
-//		        parametros.put("login", LoginController.isUsuarioLogin(request));
-//		        parametros.put("guardaropa", guardaropa.getNombre());
-//		        parametros.put("guardaropaDescripcion", guardaropa.getDescripcion());
-//		        parametros.put("usuarios", guardaropa.getUsuarios());
-//		        parametros.put("prendasTorso", prendasTorso);
-//		        parametros.put("prendasParteInferior", prendasParteInferior);
-//		        parametros.put("prendasCalzado", prendasCalzado);
-//		        parametros.put("prendasAccesorio", prendasAccesorio);
-//		        parametros.put("prendasManos", prendasManos);
-//		        parametros.put("prendasCabeza", prendasCabeza);
-//		        parametros.put("prendasCuello", prendasCuello);
-//	        }
-//
-//	        return  new ModelAndView(parametros, "miGuardaropa.hbs");
-//
-//	    }
 
 }

@@ -4,11 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
-
-import ar.utn.dds.modelo.Usuario;
+import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

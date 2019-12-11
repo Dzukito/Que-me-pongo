@@ -1,5 +1,5 @@
 package ar.utn.dds.controllers;
-import ar.utn.dds.modelo.*;
+import ar.utn.dds.modelo.ropa.*;
 import ar.utn.dds.repositories.*;
 import ar.utn.dds.repositories.factories.*;
 import spark.ModelAndView;
@@ -32,7 +32,6 @@ public class PrendaController {
         this.repoPrenda = FactoryRepositorioPrenda.get();
     }
 
-    
     public ModelAndView crear(Request request, Response response){
         Map<String, Object> parametros = new HashMap<>();
         RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();

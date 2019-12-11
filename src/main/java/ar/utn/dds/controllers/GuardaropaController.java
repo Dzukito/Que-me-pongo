@@ -1,18 +1,17 @@
 package ar.utn.dds.controllers;
 
-import ar.utn.dds.modelo.Categoria;
-import ar.utn.dds.modelo.Color;
-import ar.utn.dds.modelo.Estilo;
-import ar.utn.dds.modelo.Guardaropa;
-import ar.utn.dds.modelo.Material;
-import ar.utn.dds.modelo.Prenda;
-import ar.utn.dds.modelo.Usuario;
+import ar.utn.dds.modelo.ropa.Categoria;
+import ar.utn.dds.modelo.clases.Guardaropa;
+import ar.utn.dds.modelo.ropa.Estilo;
+import ar.utn.dds.modelo.ropa.Prenda;
+import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
 import ar.utn.dds.repositories.RepositorioTipoPrenda;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
 import ar.utn.dds.repositories.factories.FactoryRepositorioTipoPrenda;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -22,8 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 public class GuardaropaController {
     private RepositorioGuardaropa repo;

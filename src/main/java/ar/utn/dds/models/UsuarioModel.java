@@ -1,6 +1,6 @@
 package ar.utn.dds.models;
 
-import ar.utn.dds.modelo.Usuario;
+import ar.utn.dds.modelo.clases.Usuario;
 
 import java.util.List;
 

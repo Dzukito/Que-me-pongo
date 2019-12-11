@@ -1,6 +1,6 @@
 package ar.utn.dds.controllers;
-import ar.utn.dds.modelo.Membrecia;
-import ar.utn.dds.modelo.Usuario;
+import ar.utn.dds.modelo.clases.Membrecia;
+import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.repositories.RepositorioMembrecia;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioMembrecia;
@@ -28,6 +28,14 @@ public class UsuarioController {
     }
 
     private void asignarAtributosA(Usuario usuario, Request request){
+
+        if(request.queryParams("nombre") != null){
+            usuario.setNombre(request.queryParams("nombre"));
+        }
+
+        if(request.queryParams("apellido") != null){
+            usuario.setApellido(request.queryParams("apellido"));
+        }
 
     	if(request.queryParams("nombreDeUsuario") != null){
             usuario.setUserName(request.queryParams("nombreDeUsuario"));

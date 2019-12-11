@@ -1,10 +1,8 @@
 package ar.utn.dds.repositories;
 
-import ar.utn.dds.modelo.Evento;
-import ar.utn.dds.modelo.Guardaropa;
+import ar.utn.dds.modelo.clases.Evento;
 import ar.utn.dds.repositories.DAO.DAO;
 
-import java.awt.*;
 import java.util.List;
 
 public class RepositorioEvento extends Repositorio {

@@ -1,6 +1,6 @@
 package ar.utn.dds.models;
 
-import ar.utn.dds.modelo.Membrecia;
+import ar.utn.dds.modelo.clases.Membrecia;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package ar.utn.dds.models;
 
-import ar.utn.dds.modelo.Evento;
-import ar.utn.dds.modelo.Guardaropa;
+import ar.utn.dds.modelo.clases.Evento;
 
 import java.util.List;
 
