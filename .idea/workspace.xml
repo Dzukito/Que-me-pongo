@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="" />
+    <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro1.hbs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +45,10 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561952419928" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/public/img/redes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/public/img/background" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ar.utn.dds.modelo" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="ar.utn.dds.modelo" />
     </key>
@@ -60,7 +62,15 @@
       <recent name="ar.utn.dds.modelo.persistencia" />
       <recent name="ar.utn.dds.modelo.enviador" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\generico" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\templates" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\ropa" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\usuario" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\background" />
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\redes" />
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\css" />
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\templates" />
@@ -73,12 +83,8 @@
       <recent name="ar.utn.dds.repositories" />
       <recent name="ar.utn.dds.repositories.factories" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\generico" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\templates" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\ropa" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\usuario" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ar.utn.dds.modelo" />
     </key>
   </component>
   <component name="RunDashboard">
