@@ -66,7 +66,9 @@ public class Router {
         
 //        Spark.post("/addPrenda", prendaController::guardar);
         
-
+        //Imagen
+        Spark.get("/Imagen", prendaController::crearImagen, Router.engine);
+        Spark.post("/Imagen", prendaController::guardarFoto);
 
 
   //      Spark.delete("/usuario/:id", usuarioController::eliminar);
