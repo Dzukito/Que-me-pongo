@@ -6,6 +6,18 @@ import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
+import ar.utn.dds.modelo.clases.Atuendo;
+import ar.utn.dds.modelo.clases.CalificacionAtuendo;
+import ar.utn.dds.modelo.ropa.Categoria;
+import ar.utn.dds.modelo.ropa.Color;
+import ar.utn.dds.modelo.ropa.Estilo;
+import ar.utn.dds.modelo.clases.Fotografo;
+import ar.utn.dds.modelo.clases.Guardaropa;
+import ar.utn.dds.modelo.ropa.Material;
+import ar.utn.dds.modelo.ropa.Prenda;
+import ar.utn.dds.modelo.ropa.TipoPrenda;
+import ar.utn.dds.modelo.clases.Usuario;
+import ar.utn.dds.repositories.RepositorioCalificacion;
 import ar.utn.dds.repositories.RepositorioFotografo;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
 import ar.utn.dds.modelo.clases.Atuendo;
@@ -15,12 +27,15 @@ import ar.utn.dds.repositories.RepositorioTipoPrenda;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioAtuendo;
 
+import ar.utn.dds.repositories.factories.FactoryRepositorioCalificacion;
+import ar.utn.dds.repositories.factories.FactoryRepositorioCalificacion;
 import ar.utn.dds.repositories.factories.FactoryRepositorioFotografo;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
 import ar.utn.dds.repositories.factories.FactoryRepositorioPrenda;
 import ar.utn.dds.repositories.factories.FactoryRepositorioTipoPrenda;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 
+import ar.utn.dds.spark.utils.AtuendoCalifVista;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -45,41 +60,6 @@ public class OutfitController {
         this.repo = FactoryRepositorioAtuendo.get();
     }
 
-    public ModelAndView mostrarTodos(Request request, Response response) {
-        Map<String, Object> parametros = new HashMap<>();
-        List<Atuendo> atuendos = this.repo.buscarTodos();
-        parametros.put("atuendos", atuendos);
-        return  new ModelAndView(parametros, "outfit.hbs");
-    }
-
-    public ModelAndView mostrarImagenDePrenda(Request request, Response response){
-        int id = new Integer(request.params("id"));
-        Atuendo atuendoBuscado = this.repo.buscar(id);
-        Map<String, Object> parametros = new HashMap<>();
-        parametros.put("imgPrendas", atuendoBuscado.getPrendas().get(0).getFotografo().imagenes().get(0));
-        ModelAndView vista = new ModelAndView(parametros, "outfit.hbs");
-        return vista;
-    }
-
-    public ModelAndView mostrarPrendas(Request request, Response response){
-        int id = new Integer(request.params("id"));
-        Atuendo atuendoBuscado = this.repo.buscar(id);
-        Map<String, Object> parametros = new HashMap<>();
-        parametros.put("prendas", atuendoBuscado.getPrendas());
-        ModelAndView vista = new ModelAndView(parametros, "outfit.hbs");
-        return vista;
-    }
-
-
-    public ModelAndView mostrar(Request request, Response response){
-        int id = new Integer(request.params("id"));
-        Atuendo atuendoBuscado = this.repo.buscar(id);
-        Map<String, Object> parametros = new HashMap<>();
-        parametros.put("atuendo", atuendoBuscado);
-        ModelAndView vista = new ModelAndView(parametros, "outfit.hbs");
-        return vista;
-    }
-    
     public ModelAndView mostrarOutfitPorGuardaropa(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
         List<Estilo> estilos= Arrays.asList(Estilo.values());
@@ -94,13 +74,13 @@ public class OutfitController {
         	parametros.put("atuendos", atuendos);
         }else {
         	atuendos = guardaropa.getAtuendosMostrados();
-        	List<Atuendo> atuendosElegantes=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.ELEGANTE)))).collect(Collectors.toList());
-        	List<Atuendo> atuendosElegantSport=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.ELEGANTSPORT)))).collect(Collectors.toList());
-        	List<Atuendo> atuendosDeportivo=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.DEPORTIVO)))).collect(Collectors.toList());
-        	List<Atuendo> atuendosEntreCasa=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.ENTRECASA)))).collect(Collectors.toList());
-        	List<Atuendo> atuendosNavidenio=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.NAVIDENIO)))).collect(Collectors.toList());
-        	List<Atuendo> atuendosNormal=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.NORMAL)))).collect(Collectors.toList());
-        	List<Atuendo> atuendosPlayero=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.PLAYERO)))).collect(Collectors.toList());
+        	List<AtuendoCalifVista> atuendosElegantes=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.ELEGANTE)))).map(a1->this.crearVista(a1, usuario)).collect(Collectors.toList());
+        	List<AtuendoCalifVista> atuendosElegantSport=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.ELEGANTSPORT)))).map(a1->this.crearVista(a1, usuario)).collect(Collectors.toList());
+        	List<AtuendoCalifVista> atuendosDeportivo=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.DEPORTIVO)))).map(a1->this.crearVista(a1, usuario)).collect(Collectors.toList());
+        	List<AtuendoCalifVista> atuendosEntreCasa=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.ENTRECASA)))).map(a1->this.crearVista(a1, usuario)).collect(Collectors.toList());
+        	List<AtuendoCalifVista> atuendosNavidenio=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.NAVIDENIO)))).map(a1->this.crearVista(a1, usuario)).collect(Collectors.toList());
+        	List<AtuendoCalifVista> atuendosNormal=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.NORMAL)))).map(a1->this.crearVista(a1, usuario)).collect(Collectors.toList());
+        	List<AtuendoCalifVista> atuendosPlayero=atuendos.stream().filter(atuendo -> atuendo.getPrendas().stream().anyMatch(prenda -> prenda.getEstilo().stream().anyMatch(estilo -> estilo.equals(Estilo.PLAYERO)))).map(a1->this.crearVista(a1, usuario)).collect(Collectors.toList());
         	
         	parametros.put("atuendosElegantes", atuendosElegantes);
         	parametros.put("atuendosElegantSport", atuendosElegantSport);
@@ -118,6 +98,10 @@ public class OutfitController {
         
     }
     
+    public AtuendoCalifVista crearVista(Atuendo atuendo,Usuario usuario) {
+    	AtuendoCalifVista atuendoVista=new AtuendoCalifVista(atuendo,usuario);
+    	return atuendoVista;
+    }
     public ModelAndView crearOutfitPorGuardaropa(Request request, Response response) {
     	Map<String, Object> parametros = new HashMap<>();
     	RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
@@ -223,7 +207,49 @@ public class OutfitController {
         asignarAtributosA(atuendo, request);
         this.repo.agregar(atuendo);
 
-        response.redirect("/outfit/{{guardaropaId}}");
+        response.redirect("/outfit/"+request.params(":idGuardaropa"));
+        //response.redirect("/guardaropa/request.params(":id")");
+        return response;
+    }
+    
+    public Response calificarOutfit(Request request, Response response) {
+    	RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
+        Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
+       
+        Long idGuardaropa =new Long(request.params(":idGuardaropa"));
+        Long idAtuendo = new Long(request.params(":idAtuendo"));
+        
+        int numCalificacion=0;
+        if(request.queryParams("estrellas-"+idAtuendo)!=null) {
+        	numCalificacion= new Integer(request.queryParams("estrellas-"+idAtuendo));
+        }
+        Guardaropa guardaropa=usuario.getRoperos().stream().filter(guarda->guarda.getId_guardaropa()==idGuardaropa).collect(Collectors.toList()).get(0);
+        Atuendo atuendo=repo.buscar(idAtuendo); 
+       
+        if(guardaropa.getAtuendosMostrados().contains(atuendo)) {
+        	if(numCalificacion >0){
+        		CalificacionAtuendo calif= new CalificacionAtuendo();
+        		calif.setUsuario(usuario);
+        		calif.setAtuendo(atuendo);
+        		calif.setCalificacion(numCalificacion);
+        		
+        		RepositorioCalificacion repoCalificacion = FactoryRepositorioCalificacion.get();
+        		List<CalificacionAtuendo> allCalificaciones=repoCalificacion.buscarTodos();
+        		Optional<CalificacionAtuendo> unaCalificacion=allCalificaciones.stream().filter(c1->c1.getAtuendo()==atuendo && c1.getUsuario()==usuario).findFirst();
+        		if(unaCalificacion.isPresent()) {
+        			
+        			unaCalificacion.get().setCalificacion(numCalificacion);
+        			repoCalificacion.modificar(unaCalificacion.get());
+        		}else {
+        		atuendo.setterCalificacion(calif);
+        		repoCalificacion.agregar(calif);
+        		}
+            }
+        }
+
+
+
+        response.redirect("/outfit/"+idGuardaropa);
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
     }

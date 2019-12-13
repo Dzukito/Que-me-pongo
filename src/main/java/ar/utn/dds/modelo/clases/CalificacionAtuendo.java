@@ -46,12 +46,30 @@ public class CalificacionAtuendo {
     }
     //Getters-y-Setters--------------------------------------
     public int getCalificacion(){ return this.calificacion; }
+    public void setCalificacion(int calificacion){ this.calificacion=calificacion; }
     public Usuario getUsuario(){ return this.usuario; }
+    public void setUsuario(Usuario usuario){ this.usuario=usuario; }
     public Evento getEvento(){ return this.evento; }
     public Pronostico getPronostico(){ return this.pronostico; }
+    
+    public CalificacionAtuendo(){}
+    public Atuendo getAtuendo() {
+		return atuendo;
+	}
+	public void setAtuendo(Atuendo atuendo) {
+		this.atuendo = atuendo;
+	}
+	
+	public long getId_calificacionAtuendo() {
+		return id_calificacionAtuendo;
+	}
+	public void setId_calificacionAtuendo(long id_calificacionAtuendo) {
+		this.id_calificacionAtuendo = id_calificacionAtuendo;
+	}
     //Constructores------------------------------------------
-    CalificacionAtuendo(){}
-    CalificacionAtuendo(Pronostico pronostico, Evento evento, Usuario usuario, Atuendo atuendo){
+    
+	
+	public CalificacionAtuendo(Pronostico pronostico, Evento evento, Usuario usuario, Atuendo atuendo){
         this.pronostico = pronostico;
         this.atuendo = atuendo;
         this.evento = evento;

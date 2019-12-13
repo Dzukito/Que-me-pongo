@@ -1,8 +1,7 @@
 package ar.utn.dds.repositories.factories;
 
-import ar.utn.dds.models.GuardaropaModel;
+import ar.utn.dds.models.AtuendoModel;
 import ar.utn.dds.repositories.DAO.DAOMySQL;
-import ar.utn.dds.repositories.RepositorioGuardaropa;
 import ar.utn.dds.repositories.RepositorioOutfit;
 
 public class FactoryRepositorioAtuendo {
@@ -11,7 +10,7 @@ public class FactoryRepositorioAtuendo {
     public static RepositorioOutfit get(){
         if(repo == null){
            
-               repo = RepositorioOutfit.getInstance(new DAOMySQL(GuardaropaModel.getInstance()));
+               repo = RepositorioOutfit.getInstance(new DAOMySQL(AtuendoModel.getInstance()));
            
         }
         return repo;

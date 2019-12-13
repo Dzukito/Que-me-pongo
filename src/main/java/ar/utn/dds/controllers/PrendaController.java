@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -53,6 +54,7 @@ public class PrendaController {
         parametros.put("estilos", estilos);
         return new ModelAndView(parametros, "addPrenda.hbs");
     }
+    
 
     
     private void asignarAtributosA(Prenda prenda, Request request){
@@ -219,11 +221,13 @@ public class PrendaController {
         }
     }
 
+    Prenda aux;
     public Response guardar(Request request, Response response){
     	//FALTA MANEJO DE SESIONES!!!
         Prenda prenda = new Prenda();
         asignarAtributosA(prenda, request);
         this.repoPrenda.agregar(prenda);
+        aux=prenda;
 
         if(request.queryParams("file") != null){
         	RepositorioFotografo repoFotografo = FactoryRepositorioFotografo.get();
@@ -233,27 +237,65 @@ public class PrendaController {
  //       	prenda.setFotografo(fotografo);
         }
 
+        response.redirect("/Imagen");
+        //response.redirect("/guardaropa/request.params(":id")");
+        return response;
+    }
+    
+    //-------------------------------------------------------------------------------------------------------------------------------------------
+    
+    public Response guardarFoto(Request request, Response response){
+    	//FALTA MANEJO DE SESIONES!!!
+    	
+    	Prenda prenda = repoPrenda.buscar(aux.getId_prenda());
+    	String path=null;
+        try {
+			path=guardarImagen(request,prenda);
+			prenda.getFotografo().cargarUnicaImagen(path);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       this.repoPrenda.modificar(prenda);
+
         response.redirect("/home");
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
     }
-	//-----------------------------------------------------
+    
+    public ModelAndView crearImagen(Request request, Response response){
+        Map<String, Object> parametros = new HashMap<>();
+        RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
+        Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
+        return new ModelAndView(parametros, "imagenPrenda.hbs");
+    }
+//-----------------------------------------------------
     
     public String guardarImagen(Request req,Prenda prenda) throws IOException, ServletException {
-    	File uploadDir = new File("Imagenes/");
+    	File uploadDir = new File("src\\main\\resources\\public\\img");
         uploadDir.mkdir(); // create the upload directory if it doesn't exist
 
-            Path tempFile = Files.createTempFile(uploadDir.toPath(), "", "");
-
+            Path tempFile = Files.createTempFile(uploadDir.toPath(),"","" );
+            Path targetDir = Paths.get("src\\main\\resources\\public\\img"); 
+            
+            
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
 
+            
+            Path target = targetDir.resolve("testWOWO.jpg");
+            
             try (InputStream input = req.raw().getPart("uploaded_file").getInputStream()) { // getPart needs to use same "name" as input field in form
-                Files.copy(input, tempFile, StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(input, target, StandardCopyOption.REPLACE_EXISTING);
+                
                 
             }
            	
             logInfo(req, tempFile);
-            return tempFile.toAbsolutePath().toString();
+            System.out.println("TEMPFILE:"+tempFile.getFileName().toString());
+            return "testWOWO.jpg";
 
     			}
 
@@ -270,6 +312,6 @@ public class PrendaController {
 		        }
 		        return null;
 
-    }
+    }   
     
 }

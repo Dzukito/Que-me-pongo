@@ -23,7 +23,7 @@ public class RepositorioOutfit extends Repositorio {
         return this.dao.buscarTodos();
     }
 
-    public Atuendo buscar(int id){
+    public Atuendo buscar(long id){
         return this.dao.buscar(id);
     }
 }
