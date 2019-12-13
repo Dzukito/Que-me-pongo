@@ -221,6 +221,7 @@ public class PrendaController {
 
     public Response guardar(Request request, Response response){
     	//FALTA MANEJO DE SESIONES!!!
+    	Long idGuardaropa = new Long(request.params(":id"));
         Prenda prenda = new Prenda();
         asignarAtributosA(prenda, request);
         this.repoPrenda.agregar(prenda);
@@ -233,8 +234,8 @@ public class PrendaController {
  //       	prenda.setFotografo(fotografo);
         }
 
-        response.redirect("/home");
-        //response.redirect("/guardaropa/request.params(":id")");
+//        response.redirect("/home");
+        response.redirect("/guardaropa/"+idGuardaropa);
         return response;
     }
 	//-----------------------------------------------------
