@@ -15,11 +15,15 @@
     <title>¿Qué me pongo? | Home</title>
   </head>
   <body id="body">
-
-<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
+  <div style="
+background: url(/img/background/background_2.png) no-repeat right top;
+background-size: 100% 801px;
+display:inherit;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark aling-items-center">
     <h3 style="font-family: Rouge Script;
     font-style: italic;
     font-weight: normal;
+    color:white;
     font-size: 36px;
     line-height: 42px;
     text-align: center;"
@@ -30,22 +34,22 @@
             {{#if login}}
             <li class="nav-item active" style="margin: 5px;">
                 <a href="/login">
-                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
+                    <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
                 </a>
             </li>
             {{else}}
 
             <li class="nav-item active" style="margin: 5px;">
                 
-                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
                 
             </li>
             {{/if}}
         </ul>
     </div>
 </nav>
-
-	<div class="card container" style="margin-top:50px;">
+<div style="padding-bottom:420px">
+	<div class="card container" style="margin-top:50px;opacity:0.9">
 	    <div class="row contenido" style="margin-top:5px;margin-bottom:5px;">
 			<div class="col-md-3 offset-md-2 col-sm-4 offset-sm-4 guardaropas  text-center">
 				<a {{#if login}}  href="/guardaropas" {{else}} href="/login" {{/if}}>
@@ -55,13 +59,14 @@
 			</div>
 			<div class="col-md-3 offset-md-2 col-sm-4 offset-sm-4 evento text-center">
 				<a {{#if login}}  href="/events" {{else}} href="/login"  {{/if}} >
-					<img src="/img/evento.png" class="eventoImg img-fluid rounded mx-auto d-block mr-md-10" alt="Imagen evento">
-					<h4 class="eventoTitulo text-dark text-uppercase">Eventos</h4>
+					<img src="/img/evento/evento.png" class="eventoImg img-fluid rounded mx-auto d-block mr-md-10" alt="Imagen evento">
+					<h4 class="eventoTitulo text-dark text-uppercase" style="margin-top:30px">Eventos</h4>
 				</a>
 			</div>
 			
 	    </div>
 	</div>
-		
+</div>
+  </div>
   </body>
 </html>

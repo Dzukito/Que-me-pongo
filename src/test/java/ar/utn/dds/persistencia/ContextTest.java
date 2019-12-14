@@ -1,5 +1,6 @@
 package ar.utn.dds.persistencia;
 
+import ar.utn.dds.modelo.clases.Fotografo;
 import ar.utn.dds.modelo.clases.Gratuito;
 import ar.utn.dds.modelo.clases.Membrecia;
 import ar.utn.dds.modelo.clases.Premium;
@@ -15,6 +16,8 @@ import ar.utn.dds.db.EntityManagerHelper;
 import static org.junit.Assert.assertNotNull;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Assert;
 
@@ -58,6 +61,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
     @Test
     public void persistirTipoDePrenda(){
         TipoPrenda tipo1 = new TipoPrenda();
+        tipo1.setFotografo(new Fotografo());
         tipo1.setTipo(Categoria.TORSO.getCategoria());
         tipo1.setCategoria(Categoria.TORSO);
 
@@ -66,6 +70,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.commit();
         
         TipoPrenda tipo2 = new TipoPrenda();
+        tipo2.setFotografo(new Fotografo());
         tipo2.setTipo(Categoria.PARTEINFERIOR.getCategoria());
         tipo2.setCategoria(Categoria.PARTEINFERIOR);
 
@@ -74,6 +79,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.commit();
         
         TipoPrenda tipo3 = new TipoPrenda();
+        tipo3.setFotografo(new Fotografo());
         tipo3.setTipo(Categoria.MANOS.getCategoria());
         tipo3.setCategoria(Categoria.MANOS);
 
@@ -82,6 +88,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.commit();
         
         TipoPrenda tipo4 = new TipoPrenda();
+        tipo4.setFotografo(new Fotografo());
         tipo4.setTipo(Categoria.CUELLO.getCategoria());
         tipo4.setCategoria(Categoria.CUELLO);
 
@@ -90,6 +97,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.commit();
         
         TipoPrenda tipo5 = new TipoPrenda();
+        tipo5.setFotografo(new Fotografo());
         tipo5.setTipo(Categoria.CALZADO.getCategoria());
         tipo5.setCategoria(Categoria.CALZADO);
 
@@ -98,6 +106,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.commit();
         
         TipoPrenda tipo6 = new TipoPrenda();
+        tipo6.setFotografo(new Fotografo());
         tipo6.setTipo(Categoria.CABEZA.getCategoria());
         tipo6.setCategoria(Categoria.CABEZA);
 
@@ -106,6 +115,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.commit();
         
         TipoPrenda tipo7 = new TipoPrenda();
+        tipo7.setFotografo(new Fotografo());
         tipo7.setTipo(Categoria.ACCESORIOS.getCategoria());
         tipo7.setCategoria(Categoria.ACCESORIOS);
 

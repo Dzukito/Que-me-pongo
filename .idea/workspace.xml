@@ -3,12 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addEvent.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addEvent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addEvent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addEvent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/eventos1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/eventos1.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/shared/navbar-login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navbar-login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mostrarEvento.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mostrarEvento.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit2.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit2.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro1.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +62,9 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ar.utn.dds.modelo" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="ar.utn.dds.modelo" />
     </key>
@@ -64,13 +77,6 @@
       <recent name="ar.utn.dds.modelo.clases" />
       <recent name="ar.utn.dds.modelo.persistencia" />
       <recent name="ar.utn.dds.modelo.enviador" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\js" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\css" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\templates" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\generico" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public" />
@@ -86,8 +92,12 @@
       <recent name="ar.utn.dds.repositories" />
       <recent name="ar.utn.dds.repositories.factories" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ar.utn.dds.modelo" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\js" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\css" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\templates" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\generico" />
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -116,6 +126,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ContextTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueMePongo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.utn.dds.persistencia.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.utn.dds.persistencia" />
+      <option name="MAIN_CLASS_NAME" value="ar.utn.dds.persistencia.ContextTest" />
+      <option name="METHOD_NAME" value="persistirTipoDePrenda" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContextTest.persistirTipoDePrenda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueMePongo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.utn.dds.persistencia.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.utn.dds.persistencia" />
+      <option name="MAIN_CLASS_NAME" value="ar.utn.dds.persistencia.ContextTest" />
+      <option name="METHOD_NAME" value="persistirTipoDePrenda" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExcepcionesTest.soloUnColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QueMePongo" />
       <extension name="coverage">
@@ -127,22 +169,6 @@
       <option name="PACKAGE_NAME" value="ar.utn.dds.modelo.excepcion" />
       <option name="MAIN_CLASS_NAME" value="ar.utn.dds.modelo.excepcion.ExcepcionesTest" />
       <option name="METHOD_NAME" value="soloUnColor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PronosticoTest.nivelesDeCalorMuyCaluroso" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="QueMePongo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ar.utn.dds.modelo.clima.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ar.utn.dds.modelo.clima" />
-      <option name="MAIN_CLASS_NAME" value="ar.utn.dds.modelo.clima.PronosticoTest" />
-      <option name="METHOD_NAME" value="nivelesDeCalorMuyCaluroso" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,9 +206,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.ContextTest.persistirTipoDePrenda" />
+        <item itemvalue="JUnit.ContextTest" />
         <item itemvalue="JUnit.ar.utn.dds.modelo in QueMePongo" />
         <item itemvalue="JUnit.ExcepcionesTest.soloUnColor" />
-        <item itemvalue="JUnit.PronosticoTest.nivelesDeCalorMuyCaluroso" />
       </list>
     </recent_temporary>
   </component>
