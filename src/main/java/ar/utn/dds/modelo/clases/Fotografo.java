@@ -37,14 +37,14 @@ public class Fotografo {
 		return this.imagenes.stream().collect(Collectors.toList());
 	}
 	public void cargarImagen(String path, Fotografo normalizador) {
-		String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".jpg","")+".jpg";//nombre para la imagen en la carpeta donde se almacena
+		String destino= "Imagenes/"+path.replace('/', '-').replaceAll(".png","")+".png";//nombre para la imagen en la carpeta donde se almacena
 
-		normalizador.normalizarUnaImagen(path, destino, 600, 600, ".jpg"); //el adminImg normaliza la imagen
+		normalizador.normalizarUnaImagen(path, destino, 600, 600, ".png"); //el adminImg normaliza la imagen
 		this.imagenes.add(destino);
 	}
 	
 	public void cargarUnicaImagen(String path) {
-		/*String destino= path.replace('/', '-').replaceAll(".jpg","");//nombre para la imagen en la carpeta donde se almacena
+		/*String destino= path.replace('/', '-').replaceAll(".png","");//nombre para la imagen en la carpeta donde se almacena
 		destino= path.replace('/', '-').replaceAll(".png","");
 		destino=destino+".png";*/
 		if(!path.isEmpty()) {

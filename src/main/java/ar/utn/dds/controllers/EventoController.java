@@ -40,7 +40,7 @@ public class EventoController {
         Map<String, Object> parametros = new HashMap<>();
         List<Evento> eventos = this.repo.buscarTodos();
         parametros.put("eventos", eventos);
-        return new ModelAndView(parametros, "????.hbs");
+        return new ModelAndView(parametros, "eventos1.hbs");
     }
 
     public ModelAndView mostrar(Request request, Response response){
@@ -49,7 +49,7 @@ public class EventoController {
         Map<String, Object> parametros = new HashMap<>();
         parametros.put("evento", evento);
         
-        return new ModelAndView(parametros, "???.hbs");
+        return new ModelAndView(parametros, "mostrarEvento.hbs");
     }
 
        

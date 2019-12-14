@@ -2,28 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/background/background_atuendos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/generico/icono_percha.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/background/background_prenda.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addEvent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addEvent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/PrendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/PrendaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Fotografo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Fotografo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/eventos1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/eventos1.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mostrarEvento.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mostrarEvento.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit2.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit2.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro1.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sugeridosACalif.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sugeridosACalif.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +133,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ContextTest.persistirMembreciaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueMePongo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.utn.dds.persistencia.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.utn.dds.persistencia" />
+      <option name="MAIN_CLASS_NAME" value="ar.utn.dds.persistencia.ContextTest" />
+      <option name="METHOD_NAME" value="persistirMembreciaTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ContextTest.persistirTipoDePrenda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QueMePongo" />
       <extension name="coverage">
@@ -158,22 +160,6 @@
       <option name="PACKAGE_NAME" value="ar.utn.dds.persistencia" />
       <option name="MAIN_CLASS_NAME" value="ar.utn.dds.persistencia.ContextTest" />
       <option name="METHOD_NAME" value="persistirTipoDePrenda" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ExcepcionesTest.soloUnColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="QueMePongo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ar.utn.dds.modelo.excepcion.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ar.utn.dds.modelo.excepcion" />
-      <option name="MAIN_CLASS_NAME" value="ar.utn.dds.modelo.excepcion.ExcepcionesTest" />
-      <option name="METHOD_NAME" value="soloUnColor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -212,9 +198,9 @@
       <list>
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.ContextTest.persistirTipoDePrenda" />
+        <item itemvalue="JUnit.ContextTest.persistirMembreciaTest" />
         <item itemvalue="JUnit.ContextTest" />
         <item itemvalue="JUnit.ar.utn.dds.modelo in QueMePongo" />
-        <item itemvalue="JUnit.ExcepcionesTest.soloUnColor" />
       </list>
     </recent_temporary>
   </component>

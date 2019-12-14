@@ -52,7 +52,7 @@ public class PrendaController {
         parametros.put("colores", colores);
         parametros.put("materiales", materiales);
         parametros.put("estilos", estilos);
-        return new ModelAndView(parametros, "addPrenda.hbs");
+        return new ModelAndView(parametros, "addPrenda.html");
     }
     
 
