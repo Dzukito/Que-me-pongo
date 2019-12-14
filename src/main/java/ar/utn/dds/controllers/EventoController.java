@@ -34,8 +34,6 @@ public class EventoController {
         this.repo = FactoryRepositorioEvento.get();
     }
     
-
-    
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
         List<Evento> eventos = this.repo.buscarTodos();
@@ -63,8 +61,7 @@ public class EventoController {
         RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
         parametros.put("estilos", estilos);
-        
-        //FALTA AGARRAR LA SESION
+        parametros.put("login", LoginController.isUsuarioLogin(request));
         
         return new ModelAndView(parametros, "addEvent.hbs");
     }
@@ -77,24 +74,20 @@ public class EventoController {
         }*/
 
         if(request.queryParams("horaComienzo") != null){
-        	//Completar 
+        	//Completar
         }
-
     	if(request.queryParams("horaTermino") != null){
     		//Completar
         }
-        
         if(request.queryParams("ubicacion") != null){
         	 RepositorioUbicacion repoUbicacion = FactoryRepositorioUbicacion.get();
         	 Ubicacion ubicacion = repoUbicacion.buscar(new Long(request.queryParams("ubicacion")));
             evento.setUbicacion(ubicacion);
-            
         }
         if(request.queryParams("atuendo") != null){
        	 RepositorioOutfit repoAtuendo = FactoryRepositorioAtuendo.get();
        	 Atuendo atuendo = repoAtuendo.buscar(new Long(request.queryParams("atuendo")));
          evento.setAtuendo(atuendo);
-           
        }
         if(request.queryParams("estilo") != null){
             String estiloRecibido= (request.queryParams("estilo"));
@@ -120,7 +113,6 @@ public class EventoController {
 			case "PLAYERO":
 				evento.setEstilo(Estilo.PLAYERO);
 				break;
-		
         }
         
         }

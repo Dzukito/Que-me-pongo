@@ -28,7 +28,7 @@ public class GuardaropaController {
 
     public GuardaropaController(){
         this.repo = FactoryRepositorioGuardaropa.get();
-        
+
     }
     
     public ModelAndView mostrarTodos(Request request, Response response) {
