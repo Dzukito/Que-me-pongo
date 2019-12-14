@@ -4,6 +4,10 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,7 +24,7 @@ public class Fotografo {
 	private long id_fotografo;
 	
 	//Si la imagen no se encarga de normalizar, que haya una entidad que lo haga. 
-	//Crear esta entidad podria hacer más cosas con las imagenes si el sistema lo necesita (de ahi que no se llame solo 'normalizador')...
+	//Crear esta entidad podria hacer mÃ¡s cosas con las imagenes si el sistema lo necesita (de ahi que no se llame solo 'normalizador')...
 	@ElementCollection
 	@CollectionTable(name="foto", joinColumns=@JoinColumn(name="id_fotografo"))
 	@Column(name="fotoURL")
@@ -40,12 +44,12 @@ public class Fotografo {
 	}
 	
 	public void cargarUnicaImagen(String path) {
-		String destino= path.replace('/', '-').replaceAll(".jpg","");//nombre para la imagen en la carpeta donde se almacena
+		/*String destino= path.replace('/', '-').replaceAll(".jpg","");//nombre para la imagen en la carpeta donde se almacena
 		destino= path.replace('/', '-').replaceAll(".png","");
-		destino=destino+".png";
+		destino=destino+".png";*/
 		if(!path.isEmpty()) {
 //		this.normalizarUnaImagen("/home/dds/"+path, "/img/"+destino, 600, 600, ".png"); //el adminImg normaliza la imagen
-		this.imagenes.add(destino);}
+		this.imagenes.add(path);}
 	}
 	
 	public  void normalizarUnaImagen(String path,String destino, int width, int hight, String format) {
@@ -64,6 +68,7 @@ public class Fotografo {
     	catch(IOException ex) {
     		ex.printStackTrace();}
     	}
+	
 
 
 	public List<String> getImagenes() {
