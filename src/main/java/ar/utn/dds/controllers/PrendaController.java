@@ -285,8 +285,8 @@ public class PrendaController {
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
 
             
-            Path target = targetDir.resolve("testWOWO.jpg");
-            
+            Path target = targetDir.resolve(Math.random()+".jpg");
+            System.out.println("!···"+target.getFileName());
             try (InputStream input = req.raw().getPart("uploaded_file").getInputStream()) { // getPart needs to use same "name" as input field in form
                 Files.copy(input, target, StandardCopyOption.REPLACE_EXISTING);
                 
@@ -295,7 +295,7 @@ public class PrendaController {
            	
             logInfo(req, tempFile);
             System.out.println("TEMPFILE:"+tempFile.getFileName().toString());
-            return "testWOWO.jpg";
+            return target.getFileName().toString();
 
     			}
 
