@@ -1,6 +1,7 @@
 package ar.utn.dds.controllers;
 import ar.utn.dds.modelo.clases.Atuendo;
 import ar.utn.dds.modelo.clases.Evento;
+import ar.utn.dds.modelo.clases.Guardaropa;
 import ar.utn.dds.modelo.clases.Membrecia;
 import ar.utn.dds.modelo.clases.Ubicacion;
 import ar.utn.dds.modelo.clases.Usuario;
@@ -17,9 +18,13 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class EventoController {
@@ -28,11 +33,32 @@ public class EventoController {
     public EventoController(){
         this.repo = FactoryRepositorioEvento.get();
     }
+    
 
-    public ModelAndView crear(Request request, Response response){
+    
+    public ModelAndView mostrarTodos(Request request, Response response) {
+        Map<String, Object> parametros = new HashMap<>();
+        List<Evento> eventos = this.repo.buscarTodos();
+        parametros.put("eventos", eventos);
+        return new ModelAndView(parametros, "????.hbs");
+    }
+
+    public ModelAndView mostrar(Request request, Response response){
+        Evento evento = this.repo.buscar(new Integer(request.params("id")));
+        RepositorioEvento repoEvento = FactoryRepositorioEvento.get();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("evento", evento);
+        
+        return new ModelAndView(parametros, "???.hbs");
+    }
+
+       
+    
+
+    public ModelAndView crear(Request request, Response response){ //Pantalla de CREAR EVENTO
     	
         Map<String, Object> parametros = new HashMap<>();
-        RepositorioEvento repoEvento = FactoryRepositorioEvento.get();
+        
         List<Estilo> estilos= Arrays.asList(Estilo.values());
         RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
@@ -40,10 +66,10 @@ public class EventoController {
         
         //FALTA AGARRAR LA SESION
         
-        return new ModelAndView(parametros, "registro.hbs");
+        return new ModelAndView(parametros, "addEvent.hbs");
     }
 
-    private void asignarAtributosA(Evento evento, Request request){
+    private void asignarAtributosA(Evento evento, Request request) {
 
         /*if(request.queryParams("nombre") != null){
             usuario.setNombre(request.queryParams("nombre"));
@@ -51,11 +77,11 @@ public class EventoController {
         }*/
 
         if(request.queryParams("horaComienzo") != null){
-        	
+        	//Completar 
         }
 
     	if(request.queryParams("horaTermino") != null){
-   
+    		//Completar
         }
         
         if(request.queryParams("ubicacion") != null){
