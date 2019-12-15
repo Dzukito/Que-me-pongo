@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MeteorologoAccuWeatherAdapter implements Meteorologo {
 	public List<Pronostico> pronosticosPorCincoDias;
-	MeteorologoAccuWeatherAdapter(){
+	public MeteorologoAccuWeatherAdapter(){
         super();
     }
 	public List<Pronostico> getPronosticosPorCincoDias() {

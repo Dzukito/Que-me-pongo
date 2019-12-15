@@ -64,6 +64,9 @@ public class Router {
         Spark.get("/addOutfit/:idGuardaropa/:nombreEstilo", outfitController::crearOutfitPorGuardaropa, Router.engine);
         Spark.post("/addOutfit/:idGuardaropa", outfitController::guardarOutfit);
         
+        Spark.get("/sugerirOutfit/:idGuardaropa", outfitController::crearSugerenciaPorGuardaropa, Router.engine);
+        Spark.post("/sugerirOutfit/:idGuardaropa", outfitController::sugerirOutfit);
+        
 //        Spark.post("/addPrenda", prendaController::guardar);
         
         //Imagen

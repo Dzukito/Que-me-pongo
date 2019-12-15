@@ -2,7 +2,11 @@ package ar.utn.dds.controllers;
 //import entities.Rol;
 
 import ar.utn.dds.modelo.clases.Guardaropa;
+import ar.utn.dds.modelo.clases.Ubicacion;
 import ar.utn.dds.modelo.clases.Usuario;
+import ar.utn.dds.modelo.clima.MeteorologoAccuWeatherAdapter;
+import ar.utn.dds.modelo.clima.Pronostico;
+import ar.utn.dds.modelo.interfaces.Meteorologo;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
@@ -42,6 +46,7 @@ import spark.Response;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -253,5 +258,107 @@ public class OutfitController {
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
     }
+    
+    
+    
+
+    	 
+  
+ 
+//-----------------------------------------SUGERENCIAS--------------------------------------------------------------------------||
+    
+    public Response sugerirOutfit(Request request, Response response) {
+    	Map<String, Object> parametros = new HashMap<>();
+    	
+    	/*Algunas cosas a usar:*/
+    	Atuendo atuendoSugerido=null; 
+    	Meteorologo meteorologo = new MeteorologoAccuWeatherAdapter();
+    	Ubicacion buenosAires= buenosAires = new Ubicacion("3435910", "Buenos Aires", "BUENOS Aires", "ar");
+    	Pronostico pronostico;
+    	Estilo estilo=null;
+    	/*                   */
+    
+    	/*1) Seteo el Estilo que quiere mi usuario para la sugerencia*/
+    	if(request.queryParams("estilo") != null){ 
+            String estiloRecibido= (request.queryParams("estilo"));
+            switch(estiloRecibido) {
+            case "ELEGANTE":
+            	estilo=(Estilo.ELEGANTE);
+            	break;
+	        case "ELEGANTSPORT":
+	        	estilo=(Estilo.ELEGANTSPORT);
+	        	break;
+	       case "DEPORTIVO":
+	    		estilo=(Estilo.DEPORTIVO);
+	    	break;
+			case "ENTRECASA":
+				estilo=(Estilo.ENTRECASA);
+				break;
+			case "NAVIDENIO":
+				estilo=(Estilo.NAVIDENIO);
+				break;
+			case "NORMAL":
+				estilo=(Estilo.NORMAL);
+				break;
+			case "PLAYERO":
+				estilo=(Estilo.PLAYERO);
+				break;} 
+    			}
+    	
+    	/*2)Agarro el guardaropas que va a sugerir*/
+    	if(request.params(":idGuardaropa") != null){ //seteo el guardaropas
+         	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
+         	 Guardaropa guardaropa = repoGuardaropa.buscar(new Long (request.params(":idGuardaropa")));
+         	 
+         	 /*3) Agarro mi usuario*/
+         	RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
+            Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
+         	 
+         	 
+         	 /*4)Consulto si va a ser una sugerencia RANDOM o por evento*/
+         	 if(request.queryParams("evento")  != null && new Long(request.queryParams("evento")) ==-999) { //sugerime para ahora, no para un evento (-999 seria una id inexistente)
+        		meteorologo.getPronosticos(buenosAires);
+//        		Long fechaFormatoJson=(long) 1566939600;
+        		//x1000  para instanciar fecha de UNIX TimeStamp a fecha
+//        		Date fecha1 = new Date(fechaFormatoJson*1000);
+        		Calendar fecha = Calendar.getInstance();
+        		fecha.add(Calendar.HOUR, 3);
+//            	fecha.setTime(fecha1);
+            	pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
+            
+         	 
+         	 /*5)Sugerir*/
+         	atuendoSugerido=guardaropa.sugerirAtuendo(pronostico, estilo, usuario); 
+         	System.out.println(atuendoSugerido);
+         	 //this.repo.agregar(atuendoSugerido);
+         }
+    	}
+    	
+
+       
+        response.redirect("/outfit/"+request.params(":idGuardaropa"));
+        //response.redirect("/guardaropa/request.params(":id")");
+        return response;
+    }
+    
+    
+    public ModelAndView crearSugerenciaPorGuardaropa(Request request, Response response) {
+    	Map<String, Object> parametros = new HashMap<>();
+    	RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
+        Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
+
+        Long idGuardaropa = new Long(request.params(":idGuardaropa"));
+        List<Estilo> estilos= Arrays.asList(Estilo.values());
+          
+       
+	       
+            parametros.put("login", LoginController.isUsuarioLogin(request));
+            parametros.put("guardaropaId",idGuardaropa);
+            parametros.put("estilos",estilos);
+        
+        return new ModelAndView(parametros, "sugerirOutfit.hbs");
+    }
+    
+    
     
 }

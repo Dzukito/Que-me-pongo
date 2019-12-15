@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>¿Qué me pongo? | Agregar prenda</title>
+    <link rel="icon" type="image/x-icon" href="/img/generico/icono_percha.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark aling-items-center">
+    <h3 style="font-family: Rouge Script;
+    font-style: italic;
+    font-weight: normal;
+    color:white;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;"
+    >¿Qu&eacute; Me Pongo?</h3>
+    
+    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
+        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            {{#if login}}
+            <li class="nav-item active" style="margin: 5px;">
+                <a href="/login">
+                <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
+                </a>
+            </li>
+            {{else}}
+
+            <li class="nav-item active" style="margin: 5px;">
+                
+                <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesi&oacute;n </a></button>
+                
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<div style="margin:auto;margin-top:50px;background: url(/img/background/background_prenda.png) no-repeat center top;
+background-size: cover;
+display:inherit;">
+    <div class="card container" style="margin:auto;margin-top:5px;width:max-content;opacity:0.9;style="max-width:100%"">
+   
+    <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
+        <div class="col-xs-10 offset-1 text-center offset-sm-4" style="margin:auto; justify-content:center">
+            <form action="/sugerirOutfit/{{guardaropaId}}" method="POST" style="margin autos">
+				<div class="text-uppercase" >
+       				<h3 class="tipoPrendaTitulo"> Sugerir Atuendo </h3>
+  				 </div>
+            <div class="row">
+                <div class="col">
+                  
+
+                    <div class="form-group">
+                    <div>
+                        <select class="input-select form-control" name="estilo">
+                            <option selected disabled>Estilo</option>
+                            
+                                    {{#each estilos}}
+                                <option value="{{this}}" type="estilo">{{this}}</option>
+                            {{/each}} 
+
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div class="col">
+ 		        <div class="form-group">
+          
+        
+        	    <div class="form-group">
+                    <div>
+                        <label for="guardaropas">Evento:</label>
+                        <select class="input-select form-control" name="evento">
+                         
+                            <option value=-999 type="evento">Ninguno</option>
+                            {{#each eventos}}
+                                <option value="{{id_evento}}" type="evento">{{evento}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+        		  
+-->
+		        <div class="row" style="margin-top:15px;margin-left:5px; display:inline-bloc">
+                    <div class="col">
+                       <a href="/guardaropa/{{guardaropaId}}" class="btn btn-outline-dark" style="color:black">Cancelar</a>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+ 		    </form>
+       	</div>
+   	</div>
+</div>
+</div>
+</body>
+</html>
