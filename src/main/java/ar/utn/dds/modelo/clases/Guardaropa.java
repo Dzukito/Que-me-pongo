@@ -3,6 +3,7 @@ package ar.utn.dds.modelo.clases;
 import ar.utn.dds.modelo.clima.Pronostico;
 import ar.utn.dds.modelo.interfaces.AceptarSuegerenciaObservador;
 import ar.utn.dds.modelo.interfaces.RechazarSugerenciaObservador;
+import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.clima.NivelDeCalor;
 
@@ -68,18 +69,50 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
                         && atuendo.satisfaceNivelesDeCalor(nivelesDeCalor))
                 .collect(Collectors.toList());
     }
+    
+    private ArrayList<Atuendo> atuendosUtilez(ArrayList<Atuendo> atuendos, Usuario usuario, Estilo estilo, Pronostico pronostico, ArrayList<NivelDeCalor> nivelesDeCalor){
+        
+    	System.out.println((ArrayList<Atuendo>) atuendos.stream().filter(atuendo -> atuendo.tieneEstiloEnParticular(estilo) ).collect(Collectors.toList()));
+
+    	return (ArrayList<Atuendo>) atuendos.stream().filter(atuendo ->
+                atuendo.tieneEstiloEnParticular(estilo)
+                        && atuendo.compatibleConTiempo(pronostico,usuario)
+                        || atuendo.satisfaceNivelesDeCalor(nivelesDeCalor))
+                .collect(Collectors.toList());
+    }
     //Metodos-publicos--------------------------------------------
         //SugerenciaDeAtuendo-----------------------------------------
     public Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
+    	
         ArrayList<NivelDeCalor> nivelesDeCalor = usuario.getSensibilidad().ajustarNivelesDeCalor(pronostico.nivelesDeCalorRequeridos());
         ArrayList<Atuendo> atuendosMostradosUtilez = this.atuendosUtilez( (ArrayList<Atuendo>)this.atuendosMostrados,usuario,evento,pronostico,nivelesDeCalor);
         if(!atuendosMostradosUtilez.isEmpty()) {
-            atuendosMostradosUtilez.get(1);
+            atuendosMostradosUtilez.get(0);
             //max(Comparator.comparing(atuendo -> atuendo.promedioCalificaciones(usuario,evento,pronostico)));
         }else{
             return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
                     .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo((ArrayList<Prenda>) this.prendas)).collect(Collectors.toList()),
-                    usuario,evento,pronostico,nivelesDeCalor).get(1);
+                    usuario,evento,pronostico,nivelesDeCalor).get(0);
+        }
+        return null;
+    }
+    
+    public Atuendo sugerirAtuendo(Pronostico pronostico, Estilo estilo, Usuario usuario) {
+    	
+    	
+    	ArrayList<Atuendo> atuendos= new ArrayList<Atuendo>(this.atuendosMostrados);
+    	ArrayList<Prenda> prendas= new ArrayList<Prenda>(this.prendas);
+
+        ArrayList<NivelDeCalor> nivelesDeCalor = usuario.getSensibilidad().ajustarNivelesDeCalor(pronostico.nivelesDeCalorRequeridos());
+        ArrayList<Atuendo> atuendosMostradosUtilez =this.atuendosUtilez( atuendos,usuario,estilo,pronostico,nivelesDeCalor);
+        if(!atuendosMostradosUtilez.isEmpty()) {
+            atuendosMostradosUtilez.get(1);
+            //max(Comparator.comparing(atuendo -> atuendo.promedioCalificaciones(usuario,evento,pronostico)));
+        }else{
+        	
+            return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
+                    .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas)).collect(Collectors.toList()),
+                    usuario,estilo,pronostico,nivelesDeCalor).get(1);
         }
         return null;
     }

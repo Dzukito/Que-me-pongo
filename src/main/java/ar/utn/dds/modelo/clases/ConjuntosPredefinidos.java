@@ -6,6 +6,7 @@ import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.ropa.TipoPrenda;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -59,14 +60,22 @@ public class ConjuntosPredefinidos {
         public String getSexo() {
             return sexo;
         }
+        
         public Atuendo cargarAtuendo(ArrayList<Prenda> prendas){
         Atuendo atuendo = new Atuendo();
-        this.conjunto.stream().forEach(tipoPrenda ->
+                   
+      this.conjunto.stream().forEach(tipoPrenda ->
                 atuendo.agregarPrenda(
-                        prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda)).collect(Collectors.toList()).get(1)
+                        prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda)).collect(Collectors.toList()).get(0)
                 ));
+ 
+      System.out.println(Arrays.toString(atuendo.getPrendas().toArray()));
         return atuendo;
     }
+        
+        
+        
+        
         public List<NivelDeCalor> getNivelesDeCalor() { return nivelesDeCalor; }
 
     //Contructores-----------------------------------------------------------
@@ -75,6 +84,10 @@ public class ConjuntosPredefinidos {
                 this.sexo = "unisex";
                 this.nivelesDeCalor = new ArrayList<NivelDeCalor>();
         }
+        public ConjuntosPredefinidos(){
+ 
+            this.nivelesDeCalor = new ArrayList<NivelDeCalor>();
+    }
         ConjuntosPredefinidos(List<TipoPrenda> conjunto, String sexo){
                 this.conjunto = conjunto;
                 this.sexo = sexo;
