@@ -329,9 +329,10 @@ public class OutfitController {
          	 
          	 /*5)Sugerir*/
          	atuendoSugerido=guardaropa.sugerirAtuendo(pronostico, estilo, usuario); 
-         	System.out.println(atuendoSugerido);
-         	 //this.repo.agregar(atuendoSugerido);
          }
+         	this.repo.agregar(atuendoSugerido);
+         	guardaropa.agregarAtuendo(atuendoSugerido);
+         	repoGuardaropa.modificar(guardaropa);
     	}
     	
 
