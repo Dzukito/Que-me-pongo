@@ -12,6 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="/js/filters.js"></script>
 </head>
 <body>
 
@@ -28,6 +29,16 @@
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
             {{#if login}}
+            <li>
+                <a href="/home">
+                    <p class="nav-link" style="margin-top:5px">Inicio</p>
+                </a>
+            </li>
+            <li>
+                <a href="/events">
+                    <p class="nav-link" style="margin-top:5px">Eventos</p>
+                </a>
+            </li>
             <li class="nav-item active" style="margin: 5px;">
                 <a href="/login">
                 <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
@@ -36,14 +47,13 @@
             {{else}}
 
             <li class="nav-item active" style="margin: 5px;">
-                
                 <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
-                
             </li>
             {{/if}}
         </ul>
     </div>
 </nav>
+
 <div style="
 background: url(/img/background/guardaropa_5.png) no-repeat right top;
 background-size: 1000px;
@@ -58,6 +68,14 @@ display:inherit;">
     </nav>
 <div style="padding-bottom:420px">
 <div class="card container" style="margin-top:5px;justify-content: center;opacity:0.9;">
+    <div class="d-xs-none d-sm-block col-xs-4 offset-sm-7 text-center" style="margin-top:10px">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>
+
+        <a href="/home">
+            <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>
+        </a>
+    </div>
+
     {{#if guardaropas}}
         {{#each guardaropas}}
             <div class="row" style="justify-content: center;">
@@ -107,22 +125,7 @@ display:inherit;">
         </div>
     </div>
 -->
- 
-    <div class="d-none d-xs-block d-sm-none col-xs-4 offset-sm-7 text-center" style="position:fixed; bottom:5px;justify-content: center;">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>
-            <a href="/home">
-                <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
-            </a>
-    </div>   
 
-    <div class="d-xs-none d-sm-block col-xs-4 offset-sm-7 text-center">  
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>
-            
-            <a href="/home">
-                <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
-            </a>
-    </div>     
-    
 </div>
 </div>
 <div class="modal fade" id="modalAgregarGuardaropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

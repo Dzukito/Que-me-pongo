@@ -20,19 +20,38 @@
     font-weight: normal;
     font-size: 36px;
     line-height: 42px;
-    text-align: center;"
-    >¿Qué Me Pongo?</h3>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon ">  <img src="../public/img/menu_hamburgesa.png" style="width:30px" alt="menu"></span>
-    </button>
+    text-align: center;">¿Qué Me Pongo?</h3>
+
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
-            <li class="nav-item active" style="margin: 5px;">
-                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="#">Cerrar Sesión</a></button>
-            </li>
+            {{#if login}}
+                <li>
+                    <a href="/home">
+                        <p class="nav-link" style="margin-top:5px">Inicio</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/guardaropas">
+                        <p class="nav-link" style="margin-top:5px">Guardaropas</p>
+                    </a>
+                </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <a href="/login">
+                        <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
+                    </a>
+                </li>
+            {{else}}
+
+                <li class="nav-item active" style="margin: 5px;">
+
+                    <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+
+                </li>
+            {{/if}}
         </ul>
     </div>
 </nav>
+
 
 <div class="container">
     <div class="row" style="margin-top:5px;margin-bottom:5px;">

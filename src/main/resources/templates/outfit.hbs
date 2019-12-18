@@ -14,30 +14,38 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark aling-items-center">
     <h3 style="font-family: Rouge Script;
     font-style: italic;
     font-weight: normal;
     font-size: 36px;
+    color:white;
     line-height: 42px;
-    text-align: center;"
-    >¿Qu&eacute; Me Pongo?</h3>
-    
+    text-align: center;">¿Qué Me Pongo?</h3>
+
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
             {{#if login}}
-            <li class="nav-item active" style="margin: 5px;">
-                <a href="/login">
-                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
-                </a>
-            </li>
+                <li>
+                    <a href="/home">
+                        <p class="nav-link" style="margin-top:5px">Inicio</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/events">
+                        <p class="nav-link" style="margin-top:5px">Eventos</p>
+                    </a>
+                </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <a href="/login">
+                        <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
+                    </a>
+                </li>
             {{else}}
 
-            <li class="nav-item active" style="margin: 5px;">
-                
-                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesi&oacute;n </a></button>
-                
-            </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                </li>
             {{/if}}
         </ul>
     </div>

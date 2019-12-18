@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/eventos1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/eventos1.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/miGuardaropa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuarda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/outfit2.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/outfit2.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sugerirOutfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sugerirOutfit.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +54,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561952419928" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Repos/unisocial-spark" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
@@ -97,7 +108,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ContextTest.recuperandoUsuario">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ar.utn.dds.server.Server" />
       <module name="QueMePongo" />
@@ -192,8 +203,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ContextTest.recuperandoUsuario" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.ContextTest.recuperandoUsuario" />
         <item itemvalue="JUnit.ContextTest.persistirTipoDePrenda" />
         <item itemvalue="JUnit.ContextTest.persistirMembreciaTest" />
         <item itemvalue="JUnit.ContextTest" />

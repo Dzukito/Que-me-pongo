@@ -13,10 +13,11 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-danger bg-danger aling-items-center">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark aling-items-center">
     <h3 style="font-family: Rouge Script;
     font-style: italic;
     font-weight: normal;
+    color:white;
     font-size: 36px;
     line-height: 42px;
     text-align: center;"
@@ -238,7 +239,7 @@
             
     <div class="col-xs-4 offset-xs-4 offset-7 text-center">  
 
-        <button type="button" class="btn btn-primary btn-outline-dark btn-danger" data-toggle="modal" data-target="#usuarioModal">
+        <button type="button" class="btn btn-primary btn-outline-dark btn-light" data-toggle="modal" data-target="#usuarioModal">
             Usuarios
         </button>
 
@@ -267,17 +268,17 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-outline-dark btn-danger">Agregar Prenda</button>  
+        <button type="button" class="btn btn-outline-dark btn-primary">Agregar Prenda</button>
                 
         <a href="/guardaropas">
-            <button type="button" class="btn btn-outline-dark btn-danger">Volver</button>  
+            <button type="button" class="btn btn-outline-dark btn-outline-dark">Volver</button>
         </a>
     </div> 
     {{else}} 
         <h2 class="text-uppercase"> No se encontro guardaropa </h2>  
         <div class="col-xs-4 offset-sm-7 text-center">            
             <a href="/guardaropas">
-                <button type="button" class="btn btn-outline-dark btn-danger">Volver</button>  
+                <button type="button" class="btn btn-outline-dark btn-outline-dark">Volver</button>
             </a>
         </div> 
     {{/if}}
