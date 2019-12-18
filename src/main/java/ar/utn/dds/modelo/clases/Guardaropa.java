@@ -59,8 +59,9 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
                 .filter(prenda -> atuendo.tengoPrenda(prenda))
                 .forEach(prenda -> prenda.desbloquearse());
     }
-    
-    
+//    public Atuendo sugerirAtuendoSinEvento(){
+//        new Atuendo
+//    }
     //Metodos-privados--------------------------------------------
     private ArrayList<Atuendo> atuendosUtilez(ArrayList<Atuendo> atuendos, Usuario usuario, Evento evento, Pronostico pronostico, ArrayList<NivelDeCalor> nivelesDeCalor){
         return (ArrayList<Atuendo>) atuendos.stream().filter(atuendo ->
@@ -172,7 +173,6 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
         this.atuendosMostrados = new ArrayList<Atuendo>();
         this.usuarios = new ArrayList<Usuario>();
         }
-    
     public Guardaropa(String nombre, String descripcion){
     	this.nombre=nombre;
     	this.descripcion=descripcion;

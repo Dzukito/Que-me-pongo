@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="/img/generico/icono_percha.ico">
-    <title>¿Qué me pongo? | Guardaropa</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>¿Qué me pongo? | Guardaropas registro</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -18,113 +15,80 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark aling-items-center">
     <h3 style="font-family: Rouge Script;
     font-style: italic;
+    color:white;
     font-weight: normal;
     font-size: 36px;
-    color:white;
     line-height: 42px;
-    text-align: center;"
-    >¿Qué Me Pongo?</h3>
+    text-align: center;">¿Qué Me Pongo?</h3>
     
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
             {{#if login}}
             <li class="nav-item active" style="margin: 5px;">
                 <a href="/login">
-                <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
+                <button type="button" class="btn btn-outline-dark text-dark"> Cerrar Sesión</button>
                 </a>
             </li>
             {{else}}
 
             <li class="nav-item active" style="margin: 5px;">
                 
-                <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                <button type="button" class="btn btn-outline-dark"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
                 
             </li>
             {{/if}}
         </ul>
     </div>
 </nav>
-<div style="
-background: url(/img/background/guardaropa_5.png) no-repeat right top;
-background-size: 1000px;
-display:inherit;">
-<div action="/guardaropas" method="POST">
+<form action="/guardaropas" method="POST">
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-xs-block d-sm-none ">
       
        <a href="/home">
                     <button type="button" class="btn btn-outline-dark btn-outline-success my-2 my-sm-0" style="color:black">Volver</button>  
                 </a>
-
+          
+        
+      
     </nav>
-<div style="padding-bottom:420px">
-<div class="card container" style="margin-top:5px;justify-content: center;opacity:0.9;">
+      
+<div class="card container" style="margin-top:20px;">
+    <div class="col" style="padding:auto; margin-top:20px">
+        <div class="row">
     {{#if guardaropas}}
         {{#each guardaropas}}
-            <div class="row" style="justify-content: center;">
-                <div class="col-sm-8 col-xs-10 text-center" style="justify-content: center;">
-                    <a href="/guardaropa/{{id_guardaropa}}">
-    
-                        <div class="card mb-3 text-dark" style="max-width: 540px;justify-content: center;opacity:0.9;margin-top:20px">
-                            <div class="col no-gutters" style="justify-content: center;">
-                                <div class="row-md-4 col-xs-10 text-center" style="margin:auto;padding: 10px;margin-top:5px;width:150px;justify-content: center;">
-                                    <img src="img/generico/guardaropas.png" class="card-img" alt="Imagen guardaropa" style="margin:auto;justify-content: center;">
-                                </div>
-                                <div class="row-md-8" style="justify-content: center;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-uppercase">{{nombre}}</h5>
-                                        <p class="card-text">{{descripcion}}.</p>
-                                    </div>
+                <a href="/guardaropa/{{id_guardaropa}}">
+                    <div class="col">
+                        <div class="card mb-3 text-dark" style="width: 200px;justify-content:center">
+                            <div class="row no-gutters" style="margin: auto;padding:auto">
+                                <div style="padding: 10px;margin-top:5px;width:150px">
+                                    <img src="img/generico/guardaropas.png" class="card-img" alt="Imagen guardaropa">
                                 </div>
                             </div>
+                            <div class="row card-body" style="margin: auto;padding:auto">
+                                    <h5 class="card-title text-uppercase">{{nombre}}</h5>
+                                    <p class="card-text">{{descripcion}}.</p>
+                            </div>
                         </div>
-                
-                    </a>
-                </div>
-            </div>
+                    </div>
+                </a>
         {{/each}}
-    {{else}}
-        <div> <h3 class="font-weight-lighter"> No existen guardaropas </h3> </div>  
-    {{/if}}    
-<!--    <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-sm-4 offset-1 text-center">  
-           <img src="img/guardaropas.png" class="guardaropasImg" alt="Imagen guardaropa" style="margin-top:5px;width:150px">   
-        </div>
+        {{else}}
+        <div> <h3 class="font-weight-lighter"> No existen guardaropas </h3> </div>
+        {{/if}}
     </div>
-    <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-sm-4 offset-xs-1 text-center">  
-            <div class="dropdown btn-group">
-                <button type="button" class="btn btn-danger dropdown-toggle" id="menuGuardaropas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    guardaropas
-                </button>
-                <div class="dropdown-menu" aria-labelledby="menuGuardaropas">
-                    {{#each guardaropas}}
-                     
-                  
-                    <a class="dropdown-item" href="/guardaropa/{{id_guardaropa}}">{{nombre}}</a>
-                    {{/each}}
-                </div>
-            </div>   
-        </div>
+       <div class="row" style="display:inline-flex;justify-content:center;margin:auto;padding:auto;">
+           <div class="col">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>
+           </div>
+           <div class="col">
+                <a href="/home">
+                    <button type="button" class="btn btn-light" style="color:black;border-radius:1px black;">Volver</button>
+                </a>
+           </div>
+       </div>
     </div>
--->
- 
-    <div class="d-none d-xs-block d-sm-none col-xs-4 offset-sm-7 text-center" style="position:fixed; bottom:5px;justify-content: center;">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>
-            <a href="/home">
-                <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
-            </a>
-    </div>   
+</div>
 
-    <div class="d-xs-none d-sm-block col-xs-4 offset-sm-7 text-center">  
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarGuardaropa">Agregar</button>
-            
-            <a href="/home">
-                <button type="button" class="btn btn-outline-dark" style="color:black">Volver</button>  
-            </a>
-    </div>     
-    
-</div>
-</div>
 <div class="modal fade" id="modalAgregarGuardaropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -155,8 +119,8 @@ display:inherit;">
            
     </div>
 </div>
-</form>
-</div>
+
+</form>   
 </body>
 </html>
 

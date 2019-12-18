@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/css/components.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/0.17460170265359765.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/0.9763116062701186.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/0.9812767647011591.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/2023543965023203602" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/6724255420394547075" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/9078254600212930875" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/PrendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/PrendaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Guardaropa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Guardaropa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,9 +94,9 @@
       <recent name="ar.utn.dds.repositories.factories" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\templates" />
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\js" />
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\css" />
-      <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\templates" />
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img\generico" />
       <recent name="C:\UTN\Diseño de sistemas\QueMePongo\2019-ma-ma-group-07\src\main\resources\public\img" />
     </key>
@@ -97,7 +113,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ContextTest.recuperandoUsuario">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ar.utn.dds.server.Server" />
       <module name="QueMePongo" />
@@ -121,13 +137,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="ar.utn.dds.persistencia" />
       <option name="MAIN_CLASS_NAME" value="ar.utn.dds.persistencia.ContextTest" />
-      <option name="METHOD_NAME" value="persistirTipoDePrenda" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContextTest.persistirMembreciaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContextTest.recuperandoMembrecia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QueMePongo" />
       <extension name="coverage">
         <pattern>
@@ -137,13 +152,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="ar.utn.dds.persistencia" />
       <option name="MAIN_CLASS_NAME" value="ar.utn.dds.persistencia.ContextTest" />
-      <option name="METHOD_NAME" value="persistirMembreciaTest" />
+      <option name="METHOD_NAME" value="recuperandoMembrecia" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContextTest.persistirTipoDePrenda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContextTest.recuperandoTipoDePrendaUno" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QueMePongo" />
       <extension name="coverage">
         <pattern>
@@ -153,7 +168,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ar.utn.dds.persistencia" />
       <option name="MAIN_CLASS_NAME" value="ar.utn.dds.persistencia.ContextTest" />
-      <option name="METHOD_NAME" value="persistirTipoDePrenda" />
+      <option name="METHOD_NAME" value="recuperandoTipoDePrendaUno" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -192,11 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ContextTest.recuperandoUsuario" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.ContextTest.persistirTipoDePrenda" />
-        <item itemvalue="JUnit.ContextTest.persistirMembreciaTest" />
+        <item itemvalue="JUnit.ContextTest.recuperandoUsuario" />
         <item itemvalue="JUnit.ContextTest" />
+        <item itemvalue="JUnit.ContextTest.recuperandoTipoDePrendaUno" />
+        <item itemvalue="JUnit.ContextTest.recuperandoMembrecia" />
       </list>
     </recent_temporary>
   </component>

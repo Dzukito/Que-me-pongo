@@ -92,6 +92,10 @@ public class Usuario{
 
 
     //Getters-y-Setters--------------------------------------------
+//    public List<Prenda> getAllPrendas(){
+//        List<Prenda> retorno = (List<Prenda>) new ArrayList<Prenda>();
+//        return this.roperos.forEach(ropero -> retorno.addAll(ropero.getPrendas()));
+//    }
     public Guardaropa getGuardaropa(int i){ return this.roperos.get(i); }
     public void setMembrecia(Membrecia membrecia) { this.membrecia = membrecia; }
     public List<Guardaropa> getRoperos(){ return this.roperos;}
