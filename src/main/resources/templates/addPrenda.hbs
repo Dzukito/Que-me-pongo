@@ -19,42 +19,50 @@
     <h3 style="font-family: Rouge Script;
     font-style: italic;
     font-weight: normal;
-    color:white;
     font-size: 36px;
+    color:white;
     line-height: 42px;
-    text-align: center;"
-    >¿Qu&eacute; Me Pongo?</h3>
-    
+    text-align: center;">¿Qué Me Pongo?</h3>
+
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
             {{#if login}}
-            <li class="nav-item active" style="margin: 5px;">
-                <a href="/login">
-                <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
-                </a>
-            </li>
+                <li>
+                    <a href="/home">
+                        <p class="nav-link" style="margin-top:5px">Inicio</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/events">
+                        <p class="nav-link" style="margin-top:5px">Eventos</p>
+                    </a>
+                </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <a href="/login">
+                        <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
+                    </a>
+                </li>
             {{else}}
 
-            <li class="nav-item active" style="margin: 5px;">
-                
-                <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesi&oacute;n </a></button>
-                
-            </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                </li>
             {{/if}}
         </ul>
     </div>
 </nav>
 
-<div style="margin:auto;margin-top:50px;background: url(/img/background/background_prenda.png) no-repeat center top;
+
+<div style="margin:auto;margin-top:50px;padding-bottom:100px;background: url(/img/background/background_prenda.png) no-repeat center top;
 background-size: cover;
 display:inherit;">
-    <div class="card container" style="margin:auto;margin-top:5px;width:max-content;opacity:0.9;style="max-width:100%"">
+    <div class="card container" style="margin:auto;margin-top:5px;width:max-content;opacity:0.9;max-width:100%">
    
     <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-10 offset-1 text-center offset-sm-4" style="margin:auto; justify-content:center">
+        <div class="col-xs-10 offset-1 text-center offset-sm-4" style="margin:50px; justify-content:center">
             <form action="/addPrenda/{{guardaropaId}}" method="POST" style="margin autos">
 				<div class="text-uppercase" >
-       				<h3 class="tipoPrendaTitulo"> Agregar prenda </h3>
+       				<h3 class="tipoPrendaTitulo" style="margin-bottom:20px"> Agregar prenda </h3>
   				 </div>
             <div class="row">
                 <div class="col">
@@ -65,7 +73,7 @@ display:inherit;">
                     <div class="form-group">
                         <div>
                             <select class="input-select form-control" name="tipoPrenda">
-                                <option selected disabled>TipoPrenda</option>
+                                <option selected disabled>Tipo de prenda</option>
                                 {{#each tipoPrendas}}
                                     <option value="{{id_tipoPrenda}}" type="tipoPrenda">{{tipo}}</option>
                                 {{/each}}
@@ -131,20 +139,13 @@ display:inherit;">
                         </select>
                     </div>
                 </div>
-<!--
-        	    <div class="form-group">
-                    <div>
-                        <label for="guardaropas">Guardaropas:</label>
-                        <select class="input-select form-control" name="guardaropas">
-                            <option selected disabled>Selecionar</option>
-                            {{#each guardaropas}}
-                                <option value="{{id_guardaropa}}" type="guardaropas">{{nombre}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
+
+                <div class="form-group" style="margin-top: 5px;">
+                    <input type="number" class="form-control" name="niveldecalor" id="niveldecalor" placeholder="Nivel de calor">
                 </div>
-        		  
--->
+
+                </div>
+            </div>
 		        <div class="row" style="margin-top:15px;margin-left:5px; display:inline-bloc">
                     <div class="col">
                        <a href="/guardaropa/{{guardaropaId}}" class="btn btn-outline-dark" style="color:black">Cancelar</a>
@@ -152,8 +153,6 @@ display:inherit;">
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Agregar</button>
                     </div>
-                </div>
-                </div>
             </div>
  		    </form>
        	</div>

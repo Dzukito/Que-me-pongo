@@ -23,36 +23,36 @@
     font-size: 36px;
     color:white;
     line-height: 42px;
-    text-align: center;"
-    >¿Qué Me Pongo?</h3>
-    
+    text-align: center;">¿Qué Me Pongo?</h3>
+
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
             {{#if login}}
-            <li>
-                <a href="/home">
-                    <p class="nav-link" style="margin-top:5px">Inicio</p>
-                </a>
-            </li>
-            <li>
-                <a href="/events">
-                    <p class="nav-link" style="margin-top:5px">Eventos</p>
-                </a>
-            </li>
-            <li class="nav-item active" style="margin: 5px;">
-                <a href="/login">
-                <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
-                </a>
-            </li>
+                <li>
+                    <a href="/home">
+                        <p class="nav-link" style="margin-top:5px">Inicio</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/events">
+                        <p class="nav-link" style="margin-top:5px">Eventos</p>
+                    </a>
+                </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <a href="/login">
+                        <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
+                    </a>
+                </li>
             {{else}}
 
-            <li class="nav-item active" style="margin: 5px;">
-                <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
-            </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                </li>
             {{/if}}
         </ul>
     </div>
 </nav>
+
 
 <div style="
 background: url(/img/background/guardaropa_5.png) no-repeat right top;
@@ -60,9 +60,9 @@ background-size: 1000px;
 display:inherit;">
 <div action="/guardaropas" method="POST">
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-xs-block d-sm-none ">
-      
+
        <a href="/home">
-                    <button type="button" class="btn btn-outline-dark btn-outline-success my-2 my-sm-0" style="color:black">Volver</button>  
+                    <button type="button" class="btn btn-outline-dark btn-outline-success my-2 my-sm-0" style="color:black">Volver</button>
                 </a>
 
     </nav>
@@ -81,7 +81,6 @@ display:inherit;">
             <div class="row" style="justify-content: center;">
                 <div class="col-sm-8 col-xs-10 text-center" style="justify-content: center;">
                     <a href="/guardaropa/{{id_guardaropa}}">
-    
                         <div class="card mb-3 text-dark" style="max-width: 540px;justify-content: center;opacity:0.9;margin-top:20px">
                             <div class="col no-gutters" style="justify-content: center;">
                                 <div class="row-md-4 col-xs-10 text-center" style="margin:auto;padding: 10px;margin-top:5px;width:150px;justify-content: center;">
@@ -95,36 +94,14 @@ display:inherit;">
                                 </div>
                             </div>
                         </div>
-                
+
                     </a>
                 </div>
             </div>
         {{/each}}
     {{else}}
-        <div> <h3 class="font-weight-lighter"> No existen guardaropas </h3> </div>  
-    {{/if}}    
-<!--    <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-sm-4 offset-1 text-center">  
-           <img src="img/guardaropas.png" class="guardaropasImg" alt="Imagen guardaropa" style="margin-top:5px;width:150px">   
-        </div>
-    </div>
-    <div class="row" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-4 offset-sm-4 offset-xs-1 text-center">  
-            <div class="dropdown btn-group">
-                <button type="button" class="btn btn-danger dropdown-toggle" id="menuGuardaropas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    guardaropas
-                </button>
-                <div class="dropdown-menu" aria-labelledby="menuGuardaropas">
-                    {{#each guardaropas}}
-                     
-                  
-                    <a class="dropdown-item" href="/guardaropa/{{id_guardaropa}}">{{nombre}}</a>
-                    {{/each}}
-                </div>
-            </div>   
-        </div>
-    </div>
--->
+        <div> <h3 class="font-weight-lighter"> No existen guardaropas </h3> </div>
+    {{/if}}
 
 </div>
 </div>
@@ -138,7 +115,7 @@ display:inherit;">
                 </button>
             </div>
             <div class="modal-body">
-                
+
                 <div class="form-group">
                     <label for="nombreeGuardaropa" class="col-form-label">Nombre del Guardaropa</label>
                     <input type="text" class="form-control" name="nombreGuardaropa" id="nombreGuardaropa">
@@ -148,14 +125,12 @@ display:inherit;">
             </div>
 
             <div class="modal-footer">
-                <a href="/guardaropas"> 
+                <a href="/guardaropas">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                </a> 
+                </a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
-                                     
         </div>
-           
     </div>
 </div>
 </form>

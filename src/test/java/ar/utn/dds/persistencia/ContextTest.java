@@ -3,6 +3,8 @@ package ar.utn.dds.persistencia;
 import ar.utn.dds.modelo.clases.*;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.TipoPrenda;
+import ar.utn.dds.repositories.RepositorioUsuario;
+import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.test.AbstractPersistenceTest;
@@ -50,7 +52,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
     public void recuperandoMembrecia(){
         Gratuito gratuito = (Gratuito) EntityManagerHelper.createQuery("from Membrecia where descripcion = 'Gratuito'").getSingleResult();
         Assert.assertEquals("Gratuito", gratuito.getDescripcion());
-        
+
         Premium premium = (Premium) EntityManagerHelper.createQuery("from Membrecia where descripcion = 'Premium'").getSingleResult();
         Assert.assertEquals("Premium", premium.getDescripcion());
     }
@@ -84,13 +86,16 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.getEntityManager().persist(jazul);
         EntityManagerHelper.commit();
     }
+    @SuppressWarnings("unchecked")
     @Test
     public void recuperandoUsuario(){
-        Usuario aroco = (Usuario) EntityManagerHelper.createQuery("from usuario where nombreUsuario = 'aroco'").getSingleResult();
+        Usuario aroco = (Usuario) entityManager().createQuery("SELECT * from usuario where id_usuario = :id").
+                setParameter("id", 1).
+                getSingleResult();
         Assert.assertEquals("aroco", aroco.getUserName());
-
-        Usuario jazul = (Usuario) EntityManagerHelper.createQuery("from usuario where nombreUsuario = 'jazul'").getSingleResult();
-        Assert.assertEquals("jazul", jazul.getUserName());
+//
+//        Usuario jazul = (Usuario) EntityManagerHelper.createQuery("from usuario where id_usuario = 3").getSingleResult();
+//        Assert.assertEquals("jazul", jazul.getUserName());
     }
     @Test
     public void persistirGuardaropas(){
@@ -306,31 +311,29 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.commit();
     }
     @Test
+    public void recuperandoTipoDePrendaUno(){
+        TipoPrenda tipo1 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where tipo = 'Remera cuello rendondo manga corta'").getSingleResult();
+        System.out.println(tipo1.getTipo());
+        Assert.assertEquals("Remera cuello rendondo manga corta", tipo1.getTipo());
+	}
+    @Test
     public void recuperandoTipoDePrenda(){
         TipoPrenda tipo1 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 1").getSingleResult();
         Assert.assertEquals("Remera cuello rendondo manga corta", tipo1.getTipo());
-
         TipoPrenda tipo2 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 2").getSingleResult();
         Assert.assertEquals("Remera cuello rendondo manga larga", tipo2.getTipo());
-
         TipoPrenda tipo3 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 3").getSingleResult();
         Assert.assertEquals("Remera escote V manga corta", tipo3.getTipo());
-
         TipoPrenda tipo4 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 4").getSingleResult();
         Assert.assertEquals("Remera escote V manga larga", tipo4.getTipo());
-
         TipoPrenda tipo5 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 5").getSingleResult();
         Assert.assertEquals("Sueter", tipo5.getTipo());
-
         TipoPrenda tipo6 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 6").getSingleResult();
         Assert.assertEquals("Campera", tipo6.getTipo());
-
         TipoPrenda tipo7 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 7").getSingleResult();
         Assert.assertEquals("Pantalon Largo", tipo7.getTipo());
-
         TipoPrenda tipo8 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 8").getSingleResult();
         Assert.assertEquals("Pantalon Corto", tipo8.getTipo());
-
         TipoPrenda tipo9 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 9").getSingleResult();
         Assert.assertEquals("Bermuda", tipo9.getTipo());
         TipoPrenda tipo10 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 10").getSingleResult();
@@ -354,7 +357,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         TipoPrenda tipo19 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 19").getSingleResult();
         Assert.assertEquals("Gorro", tipo19.getTipo());
         TipoPrenda tipo20 = (TipoPrenda) EntityManagerHelper.createQuery("from tipoPrenda where id_tipoPrenda = 20").getSingleResult();
-        Assert.assertEquals(Categoria.ACCESORIOS.getCategoria(), tipo1.getTipo());
+        Assert.assertEquals(Categoria.ACCESORIOS.getCategoria(), tipo20.getTipo());
         }
     @Test
     public void persistirPrendasSuperponibles(){

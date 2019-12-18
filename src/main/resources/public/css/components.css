@@ -1,0 +1,9 @@
+
+.footer{
+    bottom:0;
+    display: inline-flex;
+    justify-content: center;
+    position:relative;
+    width:100%;
+    min-height: 100%;
+}
