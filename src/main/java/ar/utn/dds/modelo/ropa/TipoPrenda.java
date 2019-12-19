@@ -44,7 +44,7 @@ public class TipoPrenda {
         return Objects.hash(this.tipo, this.categoria, this.materiales, this.superponibles);
     }
     public boolean mismoTipoDePrenda(TipoPrenda tipoPrenda){
-    	return true;
+    	return this.categoria==this.categoria;
       //  return this.hashCode() == tipoPrenda.hashCode();
     }
     public boolean esSuperponible(TipoPrenda prenda){
