@@ -2,6 +2,7 @@ package ar.utn.dds.modelo.clases;
 
 import ar.utn.dds.modelo.clima.NivelDeCalor;
 import ar.utn.dds.modelo.ropa.Categoria;
+import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.ropa.TipoPrenda;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.stream.Collectors;
 import javax.persistence.*;
 
@@ -61,15 +63,33 @@ public class ConjuntosPredefinidos {
             return sexo;
         }
         
-        public Atuendo cargarAtuendo(ArrayList<Prenda> prendas){
+        public long getId_conjuntoPredefinido() {
+			return id_conjuntoPredefinido;
+		}
+		public void setId_conjuntoPredefinido(long id_conjuntoPredefinido) {
+			this.id_conjuntoPredefinido = id_conjuntoPredefinido;
+		}
+		public void setConjunto(List<TipoPrenda> conjunto) {
+			this.conjunto = conjunto;
+		}
+		public void setNivelesDeCalor(List<NivelDeCalor> nivelesDeCalor) {
+			this.nivelesDeCalor = nivelesDeCalor;
+		}
+		public void setSexo(String sexo) {
+			this.sexo = sexo;
+		}
+		public Atuendo cargarAtuendo(ArrayList<Prenda> prendas, Estilo estilo){
         Atuendo atuendo = new Atuendo();
+        Random r= new Random();
                    
       this.conjunto.stream().forEach(tipoPrenda ->
                 atuendo.agregarPrenda(
-                        prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda)).collect(Collectors.toList()).get(0)
+                        prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda)&&prenda.getEstilo().get(0).equals(estilo)).collect(Collectors.toList()).get(r.nextInt( prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda) && prenda.getEstilo().get(0).equals(estilo)).collect(Collectors.toList()).size()-0)+0)
+                        
                 ));
  
-      System.out.println(Arrays.toString(atuendo.getPrendas().toArray()));
+      System.out.println("Estilo: "+ atuendo.getPrendas().get(0).getEstilo());
+     
         return atuendo;
     }
         
