@@ -73,11 +73,11 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     
     private ArrayList<Atuendo> atuendosUtilez(ArrayList<Atuendo> atuendos, Usuario usuario, Estilo estilo, Pronostico pronostico, ArrayList<NivelDeCalor> nivelesDeCalor){
         
-    	System.out.println((ArrayList<Atuendo>) atuendos.stream().filter(atuendo -> atuendo.tieneEstiloEnParticular(estilo) ).collect(Collectors.toList()));
+    	System.out.println("Atuendo:"+atuendos.stream().filter(atuendo -> 1==1 ).collect(Collectors.toList()).get(0).getPrendas().get(0).getEstilo());
 
     	return (ArrayList<Atuendo>) atuendos.stream().filter(atuendo ->
                 atuendo.tieneEstiloEnParticular(estilo)
-                        && atuendo.compatibleConTiempo(pronostico,usuario)
+                       // && atuendo.compatibleConTiempo(pronostico,usuario)
                         || atuendo.satisfaceNivelesDeCalor(nivelesDeCalor))
                 .collect(Collectors.toList());
     }
@@ -91,32 +91,59 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
             atuendosMostradosUtilez.get(0);
             //max(Comparator.comparing(atuendo -> atuendo.promedioCalificaciones(usuario,evento,pronostico)));
         }else{
-            return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
+           /* return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
                     .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo((ArrayList<Prenda>) this.prendas)).collect(Collectors.toList()),
-                    usuario,evento,pronostico,nivelesDeCalor).get(0);
+                    usuario,evento,pronostico,nivelesDeCalor).get(0);*/
         }
         return null;
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public Atuendo sugerirAtuendo(Pronostico pronostico, Estilo estilo, Usuario usuario) {
-    	
     	
     	ArrayList<Atuendo> atuendos= new ArrayList<Atuendo>(this.atuendosMostrados);
     	ArrayList<Prenda> prendas= new ArrayList<Prenda>(this.prendas);
 
         ArrayList<NivelDeCalor> nivelesDeCalor = usuario.getSensibilidad().ajustarNivelesDeCalor(pronostico.nivelesDeCalorRequeridos());
         ArrayList<Atuendo> atuendosMostradosUtilez =this.atuendosUtilez( atuendos,usuario,estilo,pronostico,nivelesDeCalor);
-        if(!atuendosMostradosUtilez.isEmpty()) {
-            atuendosMostradosUtilez.get(1);
+        if(!atuendosMostradosUtilez.isEmpty() && 1==0) {
+            atuendosMostradosUtilez.get(0);
             //max(Comparator.comparing(atuendo -> atuendo.promedioCalificaciones(usuario,evento,pronostico)));
         }else{
         	
             return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
-                    .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas)).collect(Collectors.toList()),
-                    usuario,estilo,pronostico,nivelesDeCalor).get(1);
+                    .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas,estilo)).collect(Collectors.toList()),
+                    usuario,estilo,pronostico,nivelesDeCalor).get(0);
         }
         return null;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public List<String> tiposCategorias(List<Prenda> prendas){ return prendas.stream().map(prenda -> prenda.getCategoria()).distinct().collect(Collectors.toList()); }
     public int cantidadCategorioas(List<Prenda> prendas){ return this.tiposCategorias(prendas).size(); }
     public int cantidadAtuendosGenerados() { return this.atuendosMostrados.size(); }
