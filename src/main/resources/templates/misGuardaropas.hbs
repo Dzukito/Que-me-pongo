@@ -58,7 +58,6 @@
 background: url(/img/background/guardaropa_5.png) no-repeat right top;
 background-size: 1000px;
 display:inherit;">
-<div action="/guardaropas" method="POST">
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-xs-block d-sm-none ">
 
        <a href="/home">
@@ -114,6 +113,7 @@ display:inherit;">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="/guardaropas" method="POST">
             <div class="modal-body">
 
                 <div class="form-group">
@@ -130,10 +130,10 @@ display:inherit;">
                 </a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
-</form>
 </div>
 </body>
 </html>

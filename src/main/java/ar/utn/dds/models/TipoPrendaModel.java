@@ -14,9 +14,13 @@ public class TipoPrendaModel extends Model {
         return instance;
     }
 
+    private TipoPrendaModel(){
+
+    }
+
     @Override
     public List<TipoPrenda> buscarTodos(){
-        return entityManager().createQuery("from TipoPrenda").getResultList();
+        return entityManager().createQuery("from tipoprenda").getResultList();
     }
 
     @Override
