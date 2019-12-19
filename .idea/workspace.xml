@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/models/TipoPrendaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/models/TipoPrendaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/misGuardaropas.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/DatosMinimosDelSistema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/DatosMinimosDelSistema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
