@@ -207,37 +207,37 @@ public class PrendaController {
         	String colorRecibido=(request.queryParams("colorSecundario")); //El color 0 en la lista es el primario, asi que si agrega otro sera secundario
             switch(colorRecibido) { //Perdon por la repeticion de codigo
             case "Rojo":
-            	prenda.setColorPrimario(Color.Rojo);
+            	prenda.setColorSecundario(Color.Rojo);
             	break;
 	    case "Celeste":
-		prenda.setColorPrimario(Color.Celeste);
+		prenda.setColorSecundario(Color.Celeste);
 		break;
 	    case "Bordo":
-		prenda.setColorPrimario(Color.Bordo);
+		prenda.setColorSecundario(Color.Bordo);
 		break;
 	    case "Gris":
-		prenda.setColorPrimario(Color.Gris);
+		prenda.setColorSecundario(Color.Gris);
 		break;			    
 	    case "Azul":
-		prenda.setColorPrimario(Color.Azul);
+		prenda.setColorSecundario(Color.Azul);
 		break;
             case "Amarillo":
-		prenda.setColorPrimario(Color.Amarillo);
+		prenda.setColorSecundario(Color.Amarillo);
 		break;
 	    case "Verde":
-		prenda.setColorPrimario(Color.Verde);
+		prenda.setColorSecundario(Color.Verde);
 		break;
 	    case "Violeta":
-		prenda.setColorPrimario(Color.Violeta);
+		prenda.setColorSecundario(Color.Violeta);
 		break;
 	    case "Naranja":
-		prenda.setColorPrimario(Color.Naranja);
+		prenda.setColorSecundario(Color.Naranja);
 		break;
 	    case "Negro":
-		prenda.setColorPrimario(Color.Negro);
+		prenda.setColorSecundario(Color.Negro);
 		break;
 	    case "Blanco":
-		prenda.setColorPrimario(Color.Blanco);
+		prenda.setColorSecundario(Color.Blanco);
 		break;
 
         }
