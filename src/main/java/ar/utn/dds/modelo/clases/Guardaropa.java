@@ -66,50 +66,45 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     private ArrayList<Atuendo> atuendosUtilez(ArrayList<Atuendo> atuendos, Usuario usuario, Evento evento, Pronostico pronostico, ArrayList<NivelDeCalor> nivelesDeCalor){
         return (ArrayList<Atuendo>) atuendos.stream().filter(atuendo ->
                 atuendo.tieneEstiloEnParticular(evento.getEstilo())
-                        && atuendo.compatibleConTiempo(pronostico,usuario)
+                       // && atuendo.compatibleConTiempo(pronostico,usuario)
                         && atuendo.satisfaceNivelesDeCalor(nivelesDeCalor))
                 .collect(Collectors.toList());
     }
     
     private ArrayList<Atuendo> atuendosUtilez(ArrayList<Atuendo> atuendos, Usuario usuario, Estilo estilo, Pronostico pronostico, ArrayList<NivelDeCalor> nivelesDeCalor){
         
-    	System.out.println("Atuendo:"+atuendos.stream().filter(atuendo -> 1==1 ).collect(Collectors.toList()).get(0).getPrendas().get(0).getEstilo());
-
+    	System.out.println("Atuendos:"+atuendos.stream().filter(atuendo -> 1==1 ).collect(Collectors.toList()));
+    	
     	return (ArrayList<Atuendo>) atuendos.stream().filter(atuendo ->
                 atuendo.tieneEstiloEnParticular(estilo)
-                       // && atuendo.compatibleConTiempo(pronostico,usuario)
-                        || atuendo.satisfaceNivelesDeCalor(nivelesDeCalor))
+                       // && atuendo.compatibleConTiempo(pronostico,usuario) REVISAR 
+                       && atuendo.satisfaceNivelesDeCalor(nivelesDeCalor))
                 .collect(Collectors.toList());
+ 
     }
     //Metodos-publicos--------------------------------------------
         //SugerenciaDeAtuendo-----------------------------------------
     public Atuendo sugerirAtuendo(Pronostico pronostico, Evento evento, Usuario usuario) {
     	
+    	ArrayList<Atuendo> atuendos= new ArrayList<Atuendo>(this.atuendosMostrados);
+    	ArrayList<Prenda> prendas= new ArrayList<Prenda>(this.prendas);
+
         ArrayList<NivelDeCalor> nivelesDeCalor = usuario.getSensibilidad().ajustarNivelesDeCalor(pronostico.nivelesDeCalorRequeridos());
-        ArrayList<Atuendo> atuendosMostradosUtilez = this.atuendosUtilez( (ArrayList<Atuendo>)this.atuendosMostrados,usuario,evento,pronostico,nivelesDeCalor);
-        if(!atuendosMostradosUtilez.isEmpty()) {
+        ArrayList<Atuendo> atuendosMostradosUtilez =this.atuendosUtilez( atuendos,usuario,evento,pronostico,nivelesDeCalor);
+        if(!atuendosMostradosUtilez.isEmpty() && 1==0) { //Que hacemos con esto?? Se estanca con el get(0)
             atuendosMostradosUtilez.get(0);
             //max(Comparator.comparing(atuendo -> atuendo.promedioCalificaciones(usuario,evento,pronostico)));
         }else{
-           /* return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
-                    .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo((ArrayList<Prenda>) this.prendas)).collect(Collectors.toList()),
-                    usuario,evento,pronostico,nivelesDeCalor).get(0);*/
+        	
+        	if(!this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream().map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas,evento.getEstilo())).collect(Collectors.toList()),usuario,evento.getEstilo(),pronostico,nivelesDeCalor).isEmpty())
+            {return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
+                    .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas,evento.getEstilo())).collect(Collectors.toList()),
+                    usuario,evento,pronostico,nivelesDeCalor).get(0);}
+        	else
+        		System.out.println("ATENCION: NO SE ENCONTRO NINGUNA SUGERENCIA ACORDE A SUS NECESIDADES");
         }
         return null;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     public Atuendo sugerirAtuendo(Pronostico pronostico, Estilo estilo, Usuario usuario) {
@@ -119,30 +114,20 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 
         ArrayList<NivelDeCalor> nivelesDeCalor = usuario.getSensibilidad().ajustarNivelesDeCalor(pronostico.nivelesDeCalorRequeridos());
         ArrayList<Atuendo> atuendosMostradosUtilez =this.atuendosUtilez( atuendos,usuario,estilo,pronostico,nivelesDeCalor);
-        if(!atuendosMostradosUtilez.isEmpty() && 1==0) {
+        if(!atuendosMostradosUtilez.isEmpty() && 1==0) { //Que hacemos con esto??
             atuendosMostradosUtilez.get(0);
             //max(Comparator.comparing(atuendo -> atuendo.promedioCalificaciones(usuario,evento,pronostico)));
         }else{
         	
-            return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
+        	if(!this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream().map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas,estilo)).collect(Collectors.toList()),usuario,estilo,pronostico,nivelesDeCalor).isEmpty())
+            {return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
                     .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas,estilo)).collect(Collectors.toList()),
-                    usuario,estilo,pronostico,nivelesDeCalor).get(0);
+                    usuario,estilo,pronostico,nivelesDeCalor).get(0);}
+        	else
+        		System.out.println("ATENCION: NO SE ENCONTRO NINGUNA SUGERENCIA ACORDE A SUS NECESIDADES");
         }
         return null;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     public List<String> tiposCategorias(List<Prenda> prendas){ return prendas.stream().map(prenda -> prenda.getCategoria()).distinct().collect(Collectors.toList()); }
     public int cantidadCategorioas(List<Prenda> prendas){ return this.tiposCategorias(prendas).size(); }

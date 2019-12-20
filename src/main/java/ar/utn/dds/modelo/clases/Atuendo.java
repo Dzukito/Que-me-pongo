@@ -54,12 +54,14 @@ public class Atuendo {
         return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&
                 prendas.stream().anyMatch(prenda->pronostico.prendasSatisfacen().contains(prenda.tipo()));
     }
-    public boolean satisfaceNivelesDeCalor(ArrayList<NivelDeCalor>nivelesDeCalor){
+    public boolean satisfaceNivelesDeCalor(ArrayList<NivelDeCalor>nivelesDeCalor){ 
         return nivelesDeCalor.stream().allMatch( nivelDeCalor ->
                 this.prendas.stream().filter(
                     prenda -> prenda.getTipoDePrenda().getCategoria() == nivelDeCalor.getCategoria())
-                    .collect(Collectors.toList()).size() == nivelDeCalor.getNivelDeCalor()
-        );
+                    .collect(Collectors.toList()).size() == nivelDeCalor.getNivelDeCalor()) || nivelesDeCalor.stream().allMatch( nivelDeCalor ->
+                    this.prendas.stream().filter(
+                            prenda -> prenda.getTipoDePrenda().getCategoria() == nivelDeCalor.getCategoria())
+                            .collect(Collectors.toList()).size() == nivelDeCalor.getNivelDeCalor()-1); //Igual igual no van a ser los niveles de calor calculo...
     }
     public boolean tieneEstiloEnParticular(Estilo estilo){
         return this.prendas.stream().anyMatch(prenda -> prenda.tieneEstilo(estilo));
