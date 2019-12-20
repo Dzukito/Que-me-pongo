@@ -54,9 +54,6 @@ public class PrendaController {
         parametros.put("estilos", estilos);
         return new ModelAndView(parametros, "addPrenda.hbs");
     }
-    
-
-    
     private void asignarAtributosA(Prenda prenda, Request request){
 /*    	
     	if(request.queryParams("guardaropas") != null){
@@ -79,10 +76,10 @@ public class PrendaController {
        	 prenda.setTipoPrenda(tipoPrendarecibido);
        }
     	
-    	 if(request.queryParams("nivelCalor") != null){ //REVISAR
-    		 int nivel= new Integer(request.queryParams("nivelCalor"));
-             prenda.setNivelDeCalor(nivel);
-         }
+//    	 if(request.queryParams("nivelCalor") != null){ //REVISAR
+//    		 int nivel= new Integer(request.queryParams("nivelCalor"));
+//             prenda.setNivelDeCalor(nivel);
+//         }
 
     	if(request.queryParams("nombrePrenda") != null){
             prenda.setNombrePrenda(request.queryParams("nombrePrenda"));
@@ -96,7 +93,11 @@ public class PrendaController {
         	 RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();
         	 TipoPrenda tipoPrendarecibido = repoTipoPrenda.buscar(new Long(request.queryParams("tipoPrenda")));
         	 prenda.setTipoPrenda(tipoPrendarecibido);
-        }
+        }else{
+			RepositorioTipoPrenda repoTipoPrenda = FactoryRepositorioTipoPrenda.get();
+			TipoPrenda tipoPrendarecibido = repoTipoPrenda.buscar(new Long(1));
+			prenda.setTipoPrenda(tipoPrendarecibido);
+		}
         if(request.queryParams("material") != null){
             String materialRecibido= (request.queryParams("material")); //HAY QUE FILTRAR!!!
             switch(materialRecibido) {
@@ -111,6 +112,15 @@ public class PrendaController {
 	    	break;
 			case "ALGODON":
 				prenda.setMaterial(Material.ALGODON);
+				break;
+			case "LYCRA":
+				prenda.setMaterial(Material.LYCRA);
+				break;
+			case "POLIESTER":
+				prenda.setMaterial(Material.POLIESTER);
+				break;
+			case "NYLON":
+				prenda.setMaterial(Material.NYLON);
 				break;
 			case "MALLA":
 				prenda.setMaterial(Material.MALLA);
@@ -160,30 +170,36 @@ public class PrendaController {
             case "Rojo":
             	prenda.setColorPrimario(Color.Rojo);
             	break;
-            	        case "Azul":
-	        	prenda.setColorPrimario(Color.Azul);
-	        	break;
-	        
-	       case "Amarillo":
-	    	prenda.setColorPrimario(Color.Amarillo);
-	    	break;
-	    
-			case "Verde":
-				prenda.setColorPrimario(Color.Verde);
-				break;
-			
-			case "Violeta":
-				prenda.setColorPrimario(Color.Violeta);
-				break;
-			case "Naranja":
-				prenda.setColorPrimario(Color.Naranja);
-				break;
-			case "Negro":
-				prenda.setColorPrimario(Color.Negro);
-				break;
-			case "Blanco":
-				prenda.setColorPrimario(Color.Blanco);
-				break;
+	    case "Celeste":
+		prenda.setColorPrimario(Color.Celeste);
+		break;
+	    case "Bordo":
+		prenda.setColorPrimario(Color.Bordo);
+		break;
+	    case "Gris":
+		prenda.setColorPrimario(Color.Gris);
+		break;			    
+	    case "Azul":
+		prenda.setColorPrimario(Color.Azul);
+		break;
+            case "Amarillo":
+		prenda.setColorPrimario(Color.Amarillo);
+		break;
+	    case "Verde":
+		prenda.setColorPrimario(Color.Verde);
+		break;
+	    case "Violeta":
+		prenda.setColorPrimario(Color.Violeta);
+		break;
+	    case "Naranja":
+		prenda.setColorPrimario(Color.Naranja);
+		break;
+	    case "Negro":
+		prenda.setColorPrimario(Color.Negro);
+		break;
+	    case "Blanco":
+		prenda.setColorPrimario(Color.Blanco);
+		break;
         }
        }
         
@@ -193,34 +209,43 @@ public class PrendaController {
             case "Rojo":
             	prenda.setColorSecundario(Color.Rojo);
             	break;
-	        case "Azul":
-	        	prenda.setColorSecundario(Color.Azul);
-	        	break;
-	        
-	       case "Amarillo":
-	    	prenda.setColorSecundario(Color.Amarillo);
-	    	break;
-	    
-			case "Verde":
-				prenda.setColorSecundario(Color.Verde);
-				break;
-			
-			case "Violeta":
-				prenda.setColorSecundario(Color.Violeta);
-				break;
-			case "Naranja":
-				prenda.setColorSecundario(Color.Naranja);
-				break;
-			case "Negro":
-				prenda.setColorSecundario(Color.Negro);
-				break;
-			case "Blanco":
-				prenda.setColorSecundario(Color.Blanco);
-				break;
-        }
-        }
-    }
+	    case "Celeste":
+		prenda.setColorSecundario(Color.Celeste);
+		break;
+	    case "Bordo":
+		prenda.setColorSecundario(Color.Bordo);
+		break;
+	    case "Gris":
+		prenda.setColorSecundario(Color.Gris);
+		break;			    
+	    case "Azul":
+		prenda.setColorSecundario(Color.Azul);
+		break;
+            case "Amarillo":
+		prenda.setColorSecundario(Color.Amarillo);
+		break;
+	    case "Verde":
+		prenda.setColorSecundario(Color.Verde);
+		break;
+	    case "Violeta":
+		prenda.setColorSecundario(Color.Violeta);
+		break;
+	    case "Naranja":
+		prenda.setColorSecundario(Color.Naranja);
+		break;
+	    case "Negro":
+		prenda.setColorSecundario(Color.Negro);
+		break;
+	    case "Blanco":
+		prenda.setColorSecundario(Color.Blanco);
+		break;
 
+        }
+        }
+		if(request.queryParams("niveldecalor") != null){
+			prenda.setNivelDeCalor( Integer.parseInt(request.queryParams("niveldecalor")));
+		}
+    }
     Prenda aux;
     public Response guardar(Request request, Response response){
     	//FALTA MANEJO DE SESIONES!!!
@@ -241,12 +266,9 @@ public class PrendaController {
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
     }
-    
     //-------------------------------------------------------------------------------------------------------------------------------------------
-    
     public Response guardarFoto(Request request, Response response){
     	//FALTA MANEJO DE SESIONES!!!
-    	
     	Prenda prenda = repoPrenda.buscar(aux.getId_prenda());
     	String path=null;
         try {
@@ -265,7 +287,6 @@ public class PrendaController {
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
     }
-    
     public ModelAndView crearImagen(Request request, Response response){
         Map<String, Object> parametros = new HashMap<>();
         RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
@@ -273,7 +294,6 @@ public class PrendaController {
         return new ModelAndView(parametros, "imagenPrenda.hbs");
     }
 //-----------------------------------------------------
-    
     public String guardarImagen(Request req,Prenda prenda) throws IOException, ServletException {
     	File uploadDir = new File("src\\main\\resources\\public\\img");
         uploadDir.mkdir(); // create the upload directory if it doesn't exist
@@ -285,7 +305,7 @@ public class PrendaController {
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
 
             
-            Path target = targetDir.resolve(Math.random()+".jpg");
+            Path target = targetDir.resolve(Math.random()+".png");
             System.out.println("!···"+target.getFileName());
             try (InputStream input = req.raw().getPart("uploaded_file").getInputStream()) { // getPart needs to use same "name" as input field in form
                 Files.copy(input, target, StandardCopyOption.REPLACE_EXISTING);
@@ -298,12 +318,10 @@ public class PrendaController {
             return target.getFileName().toString();
 
     			}
-
 		    // methods used for logging
 		    private  void logInfo(Request req, Path tempFile) throws IOException, ServletException {
 		        System.out.println("Uploaded file '" + getFileName(req.raw().getPart("uploaded_file")) + "' saved as '" + tempFile.toAbsolutePath().toString() + "'");
 		    }
-		
 		    private  String getFileName(Part part) {
 		        for (String cd : part.getHeader("content-disposition").split(";")) {
 		            if (cd.trim().startsWith("filename")) {
@@ -311,7 +329,6 @@ public class PrendaController {
 		            }
 		        }
 		        return null;
-
-    }   
+    }
     
 }

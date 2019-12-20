@@ -34,6 +34,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="/guardaropas">
+                        <p class="nav-link" style="margin-top:5px">Guardaropas</p>
+                    </a>
+                </li>
+                <li>
                     <a href="/events">
                         <p class="nav-link" style="margin-top:5px">Eventos</p>
                     </a>
@@ -52,22 +57,16 @@
         </ul>
     </div>
 </nav>
-
-
-<div class="card container" style="margin-top:5px;margin:auto;width:max-content;">
-   
+<div class="card container" style="margin:auto;width:max-content;margin-top:50px;">
     <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-10 offset-1 text-center offset-sm-4"> 
+        <div class="col">
             <form method="POST" enctype='multipart/form-data' >
 				<div class="text-uppercase" >
        				<h3 class="tipoPrendaTitulo"> Agregar Imagen </h3>
   				 </div>
-
-
         		<div class="row" style="margin:10px;margin-top: 10px;">
-                   <input type="file" id="uploaded_file" name="uploaded_file" accept="image/png, image/jpg">
+                   <input type="file" id="uploaded_file" name="uploaded_file" accept="image/png, image/jpg" required>
                 </div>
-		
 		        <div class="row" style="margin-top:15px;margin-left:10px;">
                     <div class="col">
                        <a href="/guardaropas" class="btn btn-outline-dark" style="color:black">Cancelar</a>
@@ -75,9 +74,7 @@
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Agregar</button>
                     </div>
-                    
                 </div>
-    		
  		    </form>
        	</div>
    	</div>

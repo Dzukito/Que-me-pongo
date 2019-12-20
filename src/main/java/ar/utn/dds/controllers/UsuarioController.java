@@ -28,38 +28,30 @@ public class UsuarioController {
     }
 
     private void asignarAtributosA(Usuario usuario, Request request){
-
         if(request.queryParams("nombre") != null){
             usuario.setNombre(request.queryParams("nombre"));
         }
-
         if(request.queryParams("apellido") != null){
             usuario.setApellido(request.queryParams("apellido"));
         }
-
     	if(request.queryParams("nombreDeUsuario") != null){
             usuario.setUserName(request.queryParams("nombreDeUsuario"));
         }
-        
         if(request.queryParams("password") != null){
             String password = new String(request.queryParams("password"));
             usuario.setPassword(password);
         }
-        
         if(request.queryParams("sexo") != null){
             usuario.setSexo(request.queryParams("sexo"));
         }
-        
         if(request.queryParams("membrecia") != null){
         	 RepositorioMembrecia repoMembrecia = FactoryRepositorioMembrecia.get();
         	 Membrecia unaMembrecia = repoMembrecia.buscar(new Long(request.queryParams("membrecia")));
             usuario.setMembrecia(unaMembrecia);
         }
-        
         if(request.queryParams("email") != null){
             usuario.setMail(request.queryParams("email"));
         }
-        
         if(request.queryParams("telefono") != null){
             int telefono = new Integer(request.queryParams("telefono"));
             usuario.setTelefono(telefono);
