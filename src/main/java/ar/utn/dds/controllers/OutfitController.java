@@ -13,6 +13,7 @@ import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.clases.Atuendo;
 import ar.utn.dds.modelo.clases.CalificacionAtuendo;
+import ar.utn.dds.modelo.clases.ConjuntosPredefinidos;
 import ar.utn.dds.modelo.clases.Evento;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.Color;
@@ -22,6 +23,7 @@ import ar.utn.dds.modelo.clases.Guardaropa;
 import ar.utn.dds.modelo.ropa.Material;
 import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.ropa.TipoPrenda;
+import ar.utn.dds.modelo.sensibilidades.Ermitanio;
 import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.repositories.RepositorioCalificacion;
 import ar.utn.dds.repositories.RepositorioEvento;
@@ -31,6 +33,7 @@ import ar.utn.dds.modelo.clases.Atuendo;
 import ar.utn.dds.repositories.RepositorioOutfit;
 import ar.utn.dds.repositories.RepositorioPrenda;
 import ar.utn.dds.repositories.RepositorioTipoPrenda;
+import ar.utn.dds.repositories.RepositorioUbicacion;
 import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioAtuendo;
 
@@ -41,6 +44,7 @@ import ar.utn.dds.repositories.factories.FactoryRepositorioFotografo;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
 import ar.utn.dds.repositories.factories.FactoryRepositorioPrenda;
 import ar.utn.dds.repositories.factories.FactoryRepositorioTipoPrenda;
+import ar.utn.dds.repositories.factories.FactoryRepositorioUbicacion;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 
 import ar.utn.dds.spark.utils.AtuendoCalifVista;
@@ -387,6 +391,94 @@ public class OutfitController {
         return new ModelAndView(parametros, "sugerirOutfit.hbs");
     }
     
+//-----------------------------------------SUGERENCIA-POR-GUARDAROPA------------------------------------------------------------||
+    
+    public Response sugerirOutfitPorGuardaropa(Request request, Response response) {
+    	Map<String, Object> parametros = new HashMap<>();
+    	System.out.println("/////////////////////////////////////////////////////////////////////////////Entro correctamente:   ");
+    	Atuendo atuendoSugerido=null; 
+    	Meteorologo meteorologo = new MeteorologoAccuWeatherAdapter();
+    	
+    	RepositorioUbicacion repoUbicacion=FactoryRepositorioUbicacion.get();
+    	Ubicacion buenosAires=repoUbicacion.buscarTodos().get(0); 
+    	Pronostico pronostico;
+    	Estilo estilo=null;
+    	String paramEstilo =(request.queryParams("estilo"));
+    	
+    	meteorologo.getPronosticos(buenosAires);
+    	
+    	/*1) Seteo el Estilo que quiere mi usuario para la sugerencia*/
+    	if(request.queryParams("estilo") != null){ 
+    		
+    		System.out.println("/////////////////////////////////////////////////////////////////////////////Entro correccctamente:   ");
+            String estiloRecibido= (request.queryParams("estilo"));
+            switch(estiloRecibido) {
+            case "ELEGANTE":
+            	estilo=(Estilo.ELEGANTE);
+            	break;
+	        case "ELEGANTSPORT":
+	        	estilo=(Estilo.ELEGANTSPORT);
+	        	break;
+	       case "DEPORTIVO":
+	    		estilo=(Estilo.DEPORTIVO);
+	    	break;
+			case "ENTRECASA":
+				estilo=(Estilo.ENTRECASA);
+				break;
+			case "NAVIDENIO":
+				estilo=(Estilo.NAVIDENIO);
+				break;
+			case "NORMAL":
+				estilo=(Estilo.NORMAL);
+				break;
+			case "PLAYERO":
+				estilo=(Estilo.PLAYERO);
+				break;} 
+    			}
+    	
+    	/*2)Verifico guardaropa para ese usuario*/
+    
+    	if(request.params(":idGuardaropa") != null){ 
+         	 
+            RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
+            Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
+            usuario.setSensibilidad(new Ermitanio());
+            
+            Long idGuardaropa = new Long(request.params(":idGuardaropa"));
+            Guardaropa guardaropa=usuario.getRoperos().stream().filter(guarda->guarda.getId_guardaropa()==idGuardaropa).collect(Collectors.toList()).get(0);
+            
+            
+            if(guardaropa!=null) {
+            	Calendar fecha = Calendar.getInstance();
+        		fecha.add(Calendar.HOUR, 9);
+        		ArrayList<TipoClima>  nublado = new ArrayList<TipoClima>(Arrays.asList(TipoClima.NUBLADO));
+        		pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
+        		System.out.println("////////////////////////////////////////// pronostico :        "+pronostico.getTemperatura());
+
+        		
+        		atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa(pronostico, estilo, usuario); 
+        		
+/*        		RepositorioPrenda repoPrenda=FactoryRepositorioPrenda.get();
+        		List<Prenda> ps= repoPrenda.buscarTodos();
+        		Prenda p1= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList()).get(0);
+        		ArrayList<Prenda>  prendas1= new ArrayList<Prenda>(Arrays.asList(p1));
+        		atuendoSugerido=new Atuendo(prendas1);
+*/        		
+            }
+            if(atuendoSugerido!=null) { 
+            	
+            	guardaropa.agregarAtuendo(atuendoSugerido);
+             	this.repo.agregar(atuendoSugerido);
+             	
+            } else {
+             		 System.out.println("ATENCION: NO HAY SUGERENCIAS"); //Puede que no tenga las prendas suficientes que satisfagan el conjunto, o no cumplan el estilo dichas prendas. Hay varios motivos para llegar aca...
+        	}
+    	}	
+
+    	response.redirect("/outfit/"+request.params(":idGuardaropa"));
+        return response;
+   
+    }
     
     
 }
