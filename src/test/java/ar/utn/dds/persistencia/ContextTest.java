@@ -3,6 +3,7 @@ package ar.utn.dds.persistencia;
 import ar.utn.dds.modelo.clases.Gratuito;
 import ar.utn.dds.modelo.clases.Membrecia;
 import ar.utn.dds.modelo.clases.Premium;
+import ar.utn.dds.modelo.clases.Ubicacion;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.TipoPrenda;
 import org.junit.Test;
@@ -45,6 +46,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.getEntityManager().persist(membreciaPremium);
         EntityManagerHelper.commit();
     }
+	
 
     @Test
     public void recuperandoMembrecia(){
@@ -53,6 +55,16 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         
         Premium premium = (Premium) EntityManagerHelper.createQuery("from Membrecia where descripcion = 'Premium'").getSingleResult();
         Assert.assertEquals("Premium", premium.getDescripcion());
+    }
+    
+    @Test
+    public void persistirUbicacionTest(){
+		Ubicacion buenosAires = new Ubicacion("3435910", "Buenos Aires", "BUENOS Aires", "ar");
+        
+        EntityManagerHelper.beginTransaction();
+        EntityManagerHelper.getEntityManager().persist(buenosAires);
+        EntityManagerHelper.commit();      
+       
     }
 
     @Test
