@@ -420,10 +420,10 @@ Insert into queMePongo.superponible(id_tipoPrenda,id_superponible)
 
 
 /* Usuarios */
-insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
-		values ('Alejandro','Roco','','123456','masculino',0,'aroco',1);
-insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
-		values ('Julieta','Azul','','123456','femenino',0,'jazul',2);
+-- insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
+-- 		values ('Alejandro','Roco','','123456','masculino',0,'aroco',1);
+-- insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
+-- 		values ('Julieta','Azul','','123456','femenino',0,'jazul',2);
 /* Fin usuarios */
 /* Guardaropas */
 insert INTO queMePongo.guardaropa(id_guardaropa,nombre)

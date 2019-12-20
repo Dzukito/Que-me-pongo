@@ -4,8 +4,6 @@
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/CasosDePrueba.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/CasosDePrueba.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/prendas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/prendas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/superponibles.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/superponibles.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
