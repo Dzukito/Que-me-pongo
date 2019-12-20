@@ -119,6 +119,9 @@ public class PrendaController {
 			case "POLIESTER":
 				prenda.setMaterial(Material.POLIESTER);
 				break;
+			case "NYLON":
+				prenda.setMaterial(Material.NYLON);
+				break;
 			case "MALLA":
 				prenda.setMaterial(Material.MALLA);
 				break;
