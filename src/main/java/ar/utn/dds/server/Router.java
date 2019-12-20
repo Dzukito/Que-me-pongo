@@ -62,7 +62,9 @@ public class Router {
         Spark.get("/outfit/:id", outfitController::mostrarOutfitPorGuardaropa, Router.engine);
         Spark.post("/outfit/:idGuardaropa/:idAtuendo", outfitController::calificarOutfit);
         Spark.get("/addOutfit/:idGuardaropa/:nombreEstilo", outfitController::crearOutfitPorGuardaropa, Router.engine);
+ //       Spark.get("/addOutfit/:idGuardaropa/:nombreEstilo/sugerencia", outfitController::sugerirOutfitPorGuardaropa, Router.engine);
         Spark.post("/addOutfit/:idGuardaropa", outfitController::guardarOutfit);
+        Spark.post("/addOutfit/:idGuardaropa/sugerencia", outfitController::sugerirOutfitPorGuardaropa);
         
         Spark.get("/sugerirOutfit/:idGuardaropa", outfitController::crearSugerenciaPorGuardaropa, Router.engine);
         Spark.post("/sugerirOutfit/:idGuardaropa", outfitController::sugerirOutfit);
