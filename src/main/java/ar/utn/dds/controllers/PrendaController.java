@@ -167,30 +167,36 @@ public class PrendaController {
             case "Rojo":
             	prenda.setColorPrimario(Color.Rojo);
             	break;
-			case "Celeste":
-				prenda.setColorPrimario(Color.Celeste);
-				break;
-			case "Azul":
-	        	prenda.setColorPrimario(Color.Azul);
-	        	break;
-	       case "Amarillo":
-				prenda.setColorPrimario(Color.Amarillo);
-				break;
-			case "Verde":
-				prenda.setColorPrimario(Color.Verde);
-				break;
-			case "Violeta":
-				prenda.setColorPrimario(Color.Violeta);
-				break;
-			case "Naranja":
-				prenda.setColorPrimario(Color.Naranja);
-				break;
-			case "Negro":
-				prenda.setColorPrimario(Color.Negro);
-				break;
-			case "Blanco":
-				prenda.setColorPrimario(Color.Blanco);
-				break;
+	    case "Celeste":
+		prenda.setColorPrimario(Color.Celeste);
+		break;
+	    case "Bordo":
+		prenda.setColorPrimario(Color.Bordo);
+		break;
+	    case "Gris":
+		prenda.setColorPrimario(Color.Gris);
+		break;			    
+	    case "Azul":
+		prenda.setColorPrimario(Color.Azul);
+		break;
+            case "Amarillo":
+		prenda.setColorPrimario(Color.Amarillo);
+		break;
+	    case "Verde":
+		prenda.setColorPrimario(Color.Verde);
+		break;
+	    case "Violeta":
+		prenda.setColorPrimario(Color.Violeta);
+		break;
+	    case "Naranja":
+		prenda.setColorPrimario(Color.Naranja);
+		break;
+	    case "Negro":
+		prenda.setColorPrimario(Color.Negro);
+		break;
+	    case "Blanco":
+		prenda.setColorPrimario(Color.Blanco);
+		break;
         }
        }
         
@@ -198,32 +204,39 @@ public class PrendaController {
         	String colorRecibido=(request.queryParams("colorSecundario")); //El color 0 en la lista es el primario, asi que si agrega otro sera secundario
             switch(colorRecibido) { //Perdon por la repeticion de codigo
             case "Rojo":
-            	prenda.setColorSecundario(Color.Rojo);
+            	prenda.setColorPrimario(Color.Rojo);
             	break;
-	        case "Azul":
-	        	prenda.setColorSecundario(Color.Azul);
-	        	break;
-	        
-	       case "Amarillo":
-	    	prenda.setColorSecundario(Color.Amarillo);
-	    	break;
-	    
-			case "Verde":
-				prenda.setColorSecundario(Color.Verde);
-				break;
-			
-			case "Violeta":
-				prenda.setColorSecundario(Color.Violeta);
-				break;
-			case "Naranja":
-				prenda.setColorSecundario(Color.Naranja);
-				break;
-			case "Negro":
-				prenda.setColorSecundario(Color.Negro);
-				break;
-			case "Blanco":
-				prenda.setColorSecundario(Color.Blanco);
-				break;
+	    case "Celeste":
+		prenda.setColorPrimario(Color.Celeste);
+		break;
+	    case "Bordo":
+		prenda.setColorPrimario(Color.Bordo);
+		break;
+	    case "Gris":
+		prenda.setColorPrimario(Color.Gris);
+		break;			    
+	    case "Azul":
+		prenda.setColorPrimario(Color.Azul);
+		break;
+            case "Amarillo":
+		prenda.setColorPrimario(Color.Amarillo);
+		break;
+	    case "Verde":
+		prenda.setColorPrimario(Color.Verde);
+		break;
+	    case "Violeta":
+		prenda.setColorPrimario(Color.Violeta);
+		break;
+	    case "Naranja":
+		prenda.setColorPrimario(Color.Naranja);
+		break;
+	    case "Negro":
+		prenda.setColorPrimario(Color.Negro);
+		break;
+	    case "Blanco":
+		prenda.setColorPrimario(Color.Blanco);
+		break;
+
         }
         }
 		if(request.queryParams("niveldecalor") != null){
