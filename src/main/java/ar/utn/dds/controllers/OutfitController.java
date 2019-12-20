@@ -6,12 +6,14 @@ import ar.utn.dds.modelo.clases.Ubicacion;
 import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.modelo.clima.MeteorologoAccuWeatherAdapter;
 import ar.utn.dds.modelo.clima.Pronostico;
+import ar.utn.dds.modelo.clima.TipoClima;
 import ar.utn.dds.modelo.interfaces.Meteorologo;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.clases.Atuendo;
 import ar.utn.dds.modelo.clases.CalificacionAtuendo;
+import ar.utn.dds.modelo.clases.Evento;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.Color;
 import ar.utn.dds.modelo.ropa.Estilo;
@@ -22,6 +24,7 @@ import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.ropa.TipoPrenda;
 import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.repositories.RepositorioCalificacion;
+import ar.utn.dds.repositories.RepositorioEvento;
 import ar.utn.dds.repositories.RepositorioFotografo;
 import ar.utn.dds.repositories.RepositorioGuardaropa;
 import ar.utn.dds.modelo.clases.Atuendo;
@@ -32,6 +35,7 @@ import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioAtuendo;
 
 import ar.utn.dds.repositories.factories.FactoryRepositorioCalificacion;
+import ar.utn.dds.repositories.factories.FactoryRepositorioEvento;
 import ar.utn.dds.repositories.factories.FactoryRepositorioCalificacion;
 import ar.utn.dds.repositories.factories.FactoryRepositorioFotografo;
 import ar.utn.dds.repositories.factories.FactoryRepositorioGuardaropa;
@@ -253,7 +257,7 @@ public class OutfitController {
         }
 
 
-
+        	
         response.redirect("/outfit/"+idGuardaropa);
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
@@ -306,6 +310,7 @@ public class OutfitController {
     			}
     	
     	/*2)Agarro el guardaropas que va a sugerir*/
+    
     	if(request.params(":idGuardaropa") != null){ //seteo el guardaropas
          	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
          	 Guardaropa guardaropa = repoGuardaropa.buscar(new Long (request.params(":idGuardaropa")));
@@ -318,25 +323,44 @@ public class OutfitController {
          	 /*4)Consulto si va a ser una sugerencia RANDOM o por evento*/
          	 if(request.queryParams("evento")  != null && new Long(request.queryParams("evento")) ==-999) { //sugerime para ahora, no para un evento (-999 seria una id inexistente)
         		meteorologo.getPronosticos(buenosAires);
-//        		Long fechaFormatoJson=(long) 1566939600;
-        		//x1000  para instanciar fecha de UNIX TimeStamp a fecha
-//        		Date fecha1 = new Date(fechaFormatoJson*1000);
+//   
         		Calendar fecha = Calendar.getInstance();
         		fecha.add(Calendar.HOUR, 3);
 //            	fecha.setTime(fecha1);
-            	pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
+        		ArrayList<TipoClima>  nublado = new ArrayList<TipoClima>(Arrays.asList(TipoClima.NUBLADO));
+            	//pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
+            	pronostico= new Pronostico((float)23,nublado,(float)1.1);
             
          	 
          	 /*5)Sugerir*/
          	atuendoSugerido=guardaropa.sugerirAtuendo(pronostico, estilo, usuario); 
+         
          }
+         	 if(request.queryParams("evento")  != null && new Long(request.queryParams("evento")) !=-999) { //sugerime para un evento
+         		
+         		 RepositorioEvento repoEvento= FactoryRepositorioEvento.get();
+         		 Evento evento = repoEvento.buscar(new Long (request.params("evento")));
+//         		
+         		Calendar fecha = Calendar.getInstance();
+         		fecha.add(Calendar.HOUR, 3);
+//             	fecha.setTime(fecha1);
+         		ArrayList<TipoClima>  nublado = new ArrayList<TipoClima>(Arrays.asList(TipoClima.NUBLADO));
+             	//pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
+             	pronostico= new Pronostico((float)23,nublado,(float)1.1);
+             
+          	 
+          	 /*5)Sugerir*/
+          	atuendoSugerido=guardaropa.sugerirAtuendo(pronostico, evento, usuario); 
+          
+          }
+        if(atuendoSugerido!=null) { //Encontro algo que sugerir
          	this.repo.agregar(atuendoSugerido);
          	guardaropa.agregarAtuendo(atuendoSugerido);
-         	repoGuardaropa.modificar(guardaropa);
+         	repoGuardaropa.modificar(guardaropa);}
+         	 else
+         		 System.out.println("ATENCION: NO HAY SUGERENCIAS"); //Puede que no tenga las prendas suficientes que satisfagan el conjunto, o no cumplan el estilo dichas prendas. Hay varios motivos para llegar aca...
     	}
-    	
-
-       
+    
         response.redirect("/outfit/"+request.params(":idGuardaropa"));
         //response.redirect("/guardaropa/request.params(":id")");
         return response;
@@ -347,15 +371,18 @@ public class OutfitController {
     	Map<String, Object> parametros = new HashMap<>();
     	RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
+        RepositorioEvento repoEvento= FactoryRepositorioEvento.get();
+        
 
         Long idGuardaropa = new Long(request.params(":idGuardaropa"));
         List<Estilo> estilos= Arrays.asList(Estilo.values());
-          
+        List<Evento> eventos =repoEvento.buscarTodos().stream().filter(evento->usuario.getEventos().contains(evento)).collect(Collectors.toList());
        
 	       
             parametros.put("login", LoginController.isUsuarioLogin(request));
             parametros.put("guardaropaId",idGuardaropa);
             parametros.put("estilos",estilos);
+            parametros.put("eventos", eventos);
         
         return new ModelAndView(parametros, "sugerirOutfit.hbs");
     }

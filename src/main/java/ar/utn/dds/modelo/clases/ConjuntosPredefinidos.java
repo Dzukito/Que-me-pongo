@@ -84,13 +84,13 @@ public class ConjuntosPredefinidos {
                    
       this.conjunto.stream().forEach(tipoPrenda ->
                 atuendo.agregarPrenda(
-                        prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda)&&prenda.getEstilo().get(0).equals(estilo)).collect(Collectors.toList()).get(r.nextInt( prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda) && prenda.getEstilo().get(0).equals(estilo)).collect(Collectors.toList()).size()-0)+0)
+                        prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda)&& prenda.getEstilo().get(0).equals(estilo)).collect(Collectors.toList()).get(r.nextInt( prendas.stream().filter(prenda -> prenda.getTipoDePrenda().mismoTipoDePrenda(tipoPrenda) && prenda.getEstilo().get(0).equals(estilo)).collect(Collectors.toList()).size()-0)+0)
                         
                 ));
  
       System.out.println("Estilo: "+ atuendo.getPrendas().get(0).getEstilo());
      
-        return atuendo;
+        return atuendo; //ya tiene el estilo
     }
         
         
