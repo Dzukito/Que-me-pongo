@@ -55,8 +55,8 @@
 
 <div style="margin:auto;margin-top:50px;padding-bottom:100px;background: url(/img/background/background_prenda.png) no-repeat center top;
 background-size: cover;
-display:inherit;">
-    <div class="card container" style="margin:auto;margin-top:5px;width:max-content;opacity:0.9;max-width:100%">
+display:inherit;    ">
+    <div class="card container" style="margin:auto;margin-top:5px;width:max-content;opacity:0.9;max-width:100%;margin-top:20px">
    
     <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
         <div class="col-xs-10 offset-1 text-center offset-sm-4" style="margin:50px; justify-content:center">
@@ -67,12 +67,12 @@ display:inherit;">
             <div class="row">
                 <div class="col">
                      <div class="form-group" style="margin-top: 5px;">
-                       <input type="text" class="form-control" name="nombrePrenda" id="nombrePrenda" placeholder="Nombre de la prenda">
+                       <input type="text" class="form-control" name="nombrePrenda" id="nombrePrenda" placeholder="Nombre de la prenda" required>
                     </div>
 
                     <div class="form-group">
                         <div>
-                            <select class="input-select form-control" name="tipoPrenda">
+                            <select class="input-select form-control" name="tipoPrenda" required>
                                 <option selected disabled>Tipo de prenda</option>
                                 {{#each tipoPrendas}}
                                     <option value="{{id_tipoPrenda}}" type="tipoPrenda">{{tipo}}</option>
@@ -83,7 +83,7 @@ display:inherit;">
 
                      <div class="form-group">
                         <div>
-                            <select class="input-select form-control" name="material">
+                            <select class="input-select form-control" name="material" required>
                                 <option selected disabled>Material</option>
                                     {{#each materiales}}
                                     <option value="{{this}}" type="material">{{this}}</option>
@@ -94,7 +94,7 @@ display:inherit;">
 
                     <div class="form-group">
                     <div>
-                        <select class="input-select form-control" name="estilo">
+                        <select class="input-select form-control" name="estilo" required>
                             <option selected disabled>Estilo</option>
                             
                                     {{#each estilos}}
@@ -141,7 +141,7 @@ display:inherit;">
                 </div>
 
                 <div class="form-group" style="margin-top: 5px;">
-                    <input type="number" class="form-control" name="niveldecalor" id="niveldecalor" placeholder="Nivel de calor">
+                    <input type="number" class="form-control" name="niveldecalor" id="niveldecalor" placeholder="Nivel de calor" required>
                 </div>
 
                 </div>

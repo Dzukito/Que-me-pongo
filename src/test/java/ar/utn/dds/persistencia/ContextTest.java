@@ -464,7 +464,9 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
     @Test
     public void recuperandoPrendasSuperpobibles(){}
     @Test
-    public void persistirPrendas(){}
+    public void persistirPrendas(){
+
+    }
     @Test
     public void recuperandoPrendas(){}
     @Test

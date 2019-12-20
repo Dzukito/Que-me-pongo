@@ -7,8 +7,11 @@ public enum Material {
     CUERO("Cuero"),
     ALGODON("Algodon"),
     ACEROINOXIDABLE("Acero Inoxidable"),
+    NYLON("Nylon"),
+    POLIESTER("Poliester"),
     MALLA("Malla"),
     LINO("Lino"),
+    LYCRA("Lycra"),
     JEAN("JEAN"),
     GABARDINA("Lino"),
     FRANELA("Franela");
