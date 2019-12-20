@@ -5,7 +5,7 @@ import ar.utn.dds.repositories.RepositorioUbicacion;
 import ar.utn.dds.repositories.DAO.DAOMySQL;
 
 public class FactoryRepositorioUbicacion {
-
+	
 	private static RepositorioUbicacion repo;
 
     public static RepositorioUbicacion get(){
@@ -16,4 +16,5 @@ public class FactoryRepositorioUbicacion {
         }
         return repo;
     }
+
 }

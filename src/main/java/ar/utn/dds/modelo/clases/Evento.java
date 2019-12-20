@@ -21,6 +21,12 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
 	@GeneratedValue
 	private long id_evento;
 	
+	@Column(name = "nombre")
+    private String nombre;
+	
+	@Column(name = "lugar")
+    private String lugar;
+	
 	@Column(name = "horaComienzo")
     private Calendar horaComienzo;
 	
@@ -31,7 +37,7 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
 	@JoinColumn(name = "id_ubicacion")
     private Ubicacion ubicacion;
 
-    @Column(nullable=false,name="estilo")
+    @Column(name="estilo")
     @Enumerated(EnumType.STRING)
     private Estilo estilo;
     
@@ -99,8 +105,34 @@ public class Evento implements AceptarSuegerenciaObservador, RechazarSugerenciaO
     public void setUbicacion(Ubicacion ubicacion) { this.ubicacion = ubicacion; }
     public void setAtuendo(Atuendo atuendo) { this.atuendo = atuendo; }
     public void setTiempoAviso(int tiempoAviso) { this.tiempoAviso = tiempoAviso; }
-    //Constructores---------------------------------------------------
-    public Evento() {}
+    public long getId_evento() {
+		return id_evento;
+	}
+	public void setId_evento(long id_evento) {
+		this.id_evento = id_evento;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public List<Atuendo> getAtuendosSugeridos() {
+		return atuendosSugeridos;
+	}
+	public void setAtuendosSugeridos(List<Atuendo> atuendosSugeridos) {
+		this.atuendosSugeridos = atuendosSugeridos;
+	}
+	public String getLugar() {
+		return lugar;
+	}
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+	//Constructores---------------------------------------------------
+    public Evento() {
+    	this.atuendosSugeridos = new ArrayList<Atuendo>();
+    }
     public Evento(Calendar horaComienzo, Calendar horaTermino, Ubicacion ubicacion, Estilo estilo){
         this.horaComienzo= horaComienzo;
         this.horaTermino = horaTermino;

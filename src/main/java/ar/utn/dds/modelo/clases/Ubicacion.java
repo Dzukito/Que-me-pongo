@@ -18,9 +18,18 @@ public class Ubicacion {
 	@Column(name = "pais")
 	private String pais;
 
+	public long getId_ubicacion() {
+		return id_ubicacion;
+	}
+	
+	public void setId_ubicacion(long id_ubicacion) {
+		this.id_ubicacion = id_ubicacion;
+	}
+	
 	public String ciudad(){
 		return this.ciudad;
 	}
+	
 	public String estado(){
 		return this.estado;
 	}
@@ -36,5 +45,8 @@ public class Ubicacion {
 		this.ciudad = ciudad;
 		this.estado = estado;
 		this.pais = pais;
+	}
+	public Ubicacion() {
+		
 	}
 }

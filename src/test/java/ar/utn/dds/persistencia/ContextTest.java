@@ -1,10 +1,14 @@
 package ar.utn.dds.persistencia;
 
-import ar.utn.dds.modelo.clases.*;
+import ar.utn.dds.modelo.clases.Fotografo;
+import ar.utn.dds.modelo.clases.Gratuito;
+import ar.utn.dds.modelo.clases.Guardaropa;
+import ar.utn.dds.modelo.clases.Membrecia;
+import ar.utn.dds.modelo.clases.Premium;
+import ar.utn.dds.modelo.clases.Ubicacion;
+import ar.utn.dds.modelo.clases.Usuario;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.TipoPrenda;
-import ar.utn.dds.repositories.RepositorioUsuario;
-import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
 import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.test.AbstractPersistenceTest;
@@ -17,7 +21,6 @@ import static org.junit.Assert.assertNotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
 import org.junit.Assert;
@@ -32,6 +35,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
 	public void contextUpWithTransaction() throws Exception {
 		withTransaction(() -> {});
 	}
+	
 	@Test
     public void persistirMembreciaTest(){
         Membrecia membreciaGratuito = new Gratuito();
@@ -48,14 +52,27 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.getEntityManager().persist(membreciaPremium);
         EntityManagerHelper.commit();
     }
+	
+
     @Test
     public void recuperandoMembrecia(){
         Gratuito gratuito = (Gratuito) EntityManagerHelper.createQuery("from Membrecia where descripcion = 'Gratuito'").getSingleResult();
         Assert.assertEquals("Gratuito", gratuito.getDescripcion());
-
+        
         Premium premium = (Premium) EntityManagerHelper.createQuery("from Membrecia where descripcion = 'Premium'").getSingleResult();
         Assert.assertEquals("Premium", premium.getDescripcion());
     }
+    
+    @Test
+    public void persistirUbicacionTest(){
+		Ubicacion buenosAires = new Ubicacion("3435910", "Buenos Aires", "BUENOS Aires", "ar");
+        
+        EntityManagerHelper.beginTransaction();
+        EntityManagerHelper.getEntityManager().persist(buenosAires);
+        EntityManagerHelper.commit();      
+       
+    }
+    
     @Test
     public void persistirUsuarios(){
         Usuario aroco = new Usuario();

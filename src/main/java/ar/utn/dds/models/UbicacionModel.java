@@ -2,26 +2,26 @@ package ar.utn.dds.models;
 
 import java.util.List;
 
-import ar.utn.dds.modelo.clases.CalificacionAtuendo;
 import ar.utn.dds.modelo.clases.Ubicacion;
 
-public class UbicacionModel extends Model {
-	 private static UbicacionModel instance;
+public class UbicacionModel extends Model{
 
-	    public static UbicacionModel getInstance() {
-	        if(instance == null){
-	            instance = new UbicacionModel();
-	        }
-	        return instance;
-	    }
+    private static UbicacionModel instance;
 
-	    @Override
-	    public List<Ubicacion> buscarTodos(){
-	        return entityManager().createQuery("from Ubicacion").getResultList();
-	    }
+    public static UbicacionModel getInstance() {
+        if(instance == null){
+            instance = new UbicacionModel();
+        }
+        return instance;
+    }
 
-	    @Override
-	    public Ubicacion buscar(long id){
-	        return entityManager().find(Ubicacion.class, id);
-	    }
+    @Override
+    public List<Ubicacion> buscarTodos(){
+        return entityManager().createQuery("from Ubicacion").getResultList();
+    }
+
+    @Override
+    public Ubicacion buscar(long id){
+        return entityManager().find(Ubicacion.class, id);
+    }
 }
