@@ -2,38 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/ropa/remeras/remera_mujer_7.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/ropa/remeras/remera_mujer_8.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/ropa/sueter/sueter_blanco_hombre_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/ropa/sueter/sueter_verde_mujer_1.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/ropa/zapatillas/zapatillas_hombre_6.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/img/ropa/zapatillas/zapato_hombre_1.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/materiales.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/prendas.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/PrendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/PrendaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Estilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Estilo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/0.050051569233870996.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/0.08053626448658513.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/0.17460170265359765.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/0.9385894838757247.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/0.9763116062701186.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/0.9812767647011591.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/2023543965023203602" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/4549888589277889364" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/6724255420394547075" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/7057746279225588398" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/9078254600212930875" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/img/9192327892530840301" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/imagenPrenda.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/CasosDePrueba.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/CasosDePrueba.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/LimpiaTablas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/LimpiaTablas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/prendas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/prendas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/superponibles.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/superponibles.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

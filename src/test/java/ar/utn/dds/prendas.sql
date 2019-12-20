@@ -125,16 +125,43 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (34,"ropa/pollera/pollera_1.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (14,1,"SEDA",10,"Sueter","Femenino",34,10,2,"Negro","Negro");
+		values (14,1,"SEDA",10,"Pollera","Femenino",34,10,2,"Negro","Negro");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (14,"ENTRECASA");
--- Pollera
+-- Calza
 insert into queMePongo.fotografo(id_fotografo)
 		values (35);
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (35,"ropa/pollera/pollera_1.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (15,1,"SEDA",10,"Sueter","Femenino",35,11,2,"Negro","Negro");
+		values (15,1,"NYLON",10,"Calza","Femenino",35,11,2,"Negro","Negro");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (15,"ENTRECASA");
+-- Buzo
+insert into queMePongo.fotografo(id_fotografo)
+		values (36);
+insert into queMePongo.foto(id_fotografo,fotoURL)
+		values (36,"ropa/buzo/buzo_mujer_1.PNG");
+insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
+		values (16,1,"ALGODON",10,"Buzo","Femenino",36,12,2,"Blanco","Blanco");
+insert INTO queMePongo.estilos(id_prenda,estilo)
+		values (16,"ENTRECASA");
+-- Zapatos
+insert into queMePongo.fotografo(id_fotografo)
+		values (37);
+insert into queMePongo.foto(id_fotografo,fotoURL)
+		values (37,"ropa/buzo/buzo_mujer_1.PNG");
+insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
+		values (17,1,"CUERO",10,"Zapatos","Femenino",37,15,2,"Negro","Negro");
+insert INTO queMePongo.estilos(id_prenda,estilo)
+		values (17,"ENTRECASA");
+-- Zapatos
+insert into queMePongo.fotografo(id_fotografo)
+		values (38);
+insert into queMePongo.foto(id_fotografo,fotoURL)
+		values (38,"ropa/buzo/buzo_mujer_1.PNG");
+insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
+		values (18,1,"CUERO",10,"Sandalias","Femenino",38,16,2,"Negro","Negro");
+insert INTO queMePongo.estilos(id_prenda,estilo)
+		values (18,"ENTRECASA");
 /* Fin jazul*/
