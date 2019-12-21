@@ -8,6 +8,7 @@ public enum Material {
     ALGODON("Algodon"),
     ACEROINOXIDABLE("Acero Inoxidable"),
     NYLON("Nylon"),
+    SEDA("Seda"),
     POLIESTER("Poliester"),
     MALLA("Malla"),
     LINO("Lino"),

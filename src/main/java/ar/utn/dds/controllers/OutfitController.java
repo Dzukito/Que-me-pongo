@@ -415,21 +415,16 @@ public class OutfitController {
             	Calendar fecha = Calendar.getInstance();
         		fecha.add(Calendar.HOUR, 9);
         		pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
-        		
-//        		atuendoSugerido= guardaropa.sugerirAtuendo(pronostico,  estilo, usuario);
-//        		atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa(pronostico, estilo, usuario); 
+
+
         		atuendoSugerido=new Atuendo();
         		RepositorioPrenda repoPrenda=FactoryRepositorioPrenda.get();
         		List<Prenda> ps= repoPrenda.buscarTodos();
-        		Prenda p1= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList()).get(0);
-        		
+        		List<Prenda> prendasEstilo =ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList());
+        		Prenda p1= prendasEstilo.get((int) (Math.random()*prendasEstilo.size() + 0));
         		atuendoSugerido.agregarPrenda(p1);
-        		
-        		
-        		
-        		Prenda p2= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList()).get(1);
-        		atuendoSugerido.agregarPrenda(p2);
-        		
+        		guardaropa.sugerirAtuendoSinEvento(estilo,atuendoSugerido);
+
         		atuendos.add(atuendoSugerido);
         		
             }
