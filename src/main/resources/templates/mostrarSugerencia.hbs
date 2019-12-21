@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Qué me pongo? | MostrarSugerencia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="/img/generico/icono_percha.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="/js/home.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/homeStyle.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark aling-items-center">
+    <h3 style="font-family: Rouge Script;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 36px;
+    color:white;
+    line-height: 42px;
+    text-align: center;">¿Qué Me Pongo?</h3>
+
+    <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
+        <ul class="navbar-nav mr-auto" style="margin-left:65%;">
+            {{#if login}}
+                <li>
+                    <a href="/home">
+                        <p class="nav-link" style="margin-top:5px">Inicio</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/events">
+                        <p class="nav-link" style="margin-top:5px">Eventos</p>
+                    </a>
+                </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <a href="/login">
+                        <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
+                    </a>
+                </li>
+            {{else}}
+
+                <li class="nav-item active" style="margin: 5px;">
+                    <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesión</a></button>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<div class="card container" style="margin-top:5px;">
+  
+
+    <div class="row" style="margin-top:5px;margin-bottom:5px;"> 
+        <div class="col-ms-12  col-xs-12 font-weight-bold">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active"  style="color:black" id="nav-elegante-tab" data-toggle="tab" href="#nav-elegante" role="tab" aria-controls="nav-elegante" aria-selected="true">{{estilo}}</a>
+              </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-elegante" role="tabpanel" aria-labelledby="nav-elegante-tab">
+            <form action="/sugerir/{{guardaropaId}}/{{estilo}}" method="POST">
+            <div class="row">    
+                {{#if atuendos}}
+                        {{#each atuendos}} 
+                        <div class="col-sm-3 col-xs-10">
+                            <div class="card text-center">
+                               <img src="/img/outfit.png" class="card-img-top" alt="Imagen prenda"  style="max-width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                                <div class="card-body">
+
+                                    {{#each prendas}}
+                                        <div class="form-group">
+                                        <h5 class="card-title text-uppercase">{{nombrePrenda}} </h5>
+                                        <input type="hidden" class="form-control" name="prenda-{{id_prenda}}" value="{{id_prenda}}">
+                                        </div>
+
+                                    {{/each}}
+                                </div>
+
+                            </div>
+                        </div>   
+                        {{/each}}
+                    
+                {{else}}
+                    <h3 class="font-weight-lighter"> No se pudo generar el atuendo </h3>  
+                {{/if}}
+            </div>
+        
+
+            <div class="d-xs-none d-sm-block col-xs-4 offset-sm-7 text-center">
+                <a>
+                    <button type="submit" class="btn btn btn-primary" data-toggle="modal" data-target="#estilosModal">Aceptar</button>
+                </a>
+                <a href="/sugerir/{{guardaropaId}}/{{estilo}}">
+                    <button type="button" class="btn btn btn btn-dark" data-toggle="modal" data-target="#estilosModal2">Siguiente</button>  
+                </a> 
+                <a href="/guardaropa/{{guardaropaId}}">
+                    <button type="button" class="btn btn-outline-dark" style="color:black">cancelar</button>
+                </a>
+            </div>
+            </form>
+</div>
+
+</body>
+</html>
+
