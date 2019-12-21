@@ -28,7 +28,17 @@ public class EventoController {
         this.repo = FactoryRepositorioEvento.get();
 		this.repoOutfit = FactoryRepositorioAtuendo.get();
     }
-    
+	public Response seleccionarAtuendo(Request request, Response response) {
+    	long id_evento = new Long(request.params("id_evento"));
+		long id_atuendo = new Long(request.params("id_atuendo"));
+		Evento evento =	repo.buscar(id_evento);
+		Atuendo atuendo = repoOutfit.buscar(id_atuendo);
+		evento.setAtuendo(atuendo);
+		response.redirect("/events/:id");
+		return response;
+
+	}
+
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
 
@@ -49,7 +59,8 @@ public class EventoController {
     }
     public ModelAndView mostrarAtuendo(Request request, Response response){
 //		Map<String, Object> parametros = new HashMap<>();
-        Long idEvento = new Long (request.params(":id"));
+		Guardaropa guardaropa = null;
+        Long idEvento = new Long(request.params(":id_evento"));
         Evento evento = repo.buscar(idEvento);
 ////        List<AtuendoCalifVista> atuendosElegantes = evento.agregarSugerencias();
         RepositorioUsuario repoUsuario=FactoryRepositorioUsuario.get();
@@ -111,7 +122,7 @@ public class EventoController {
 			usuario.setSensibilidad(new Ermitanio());
 
 
-			Guardaropa guardaropa = usuario.getGuardaropa(0);
+			guardaropa = usuario.getGuardaropa(0);
 
 
 			if(guardaropa!=null) {
@@ -140,8 +151,13 @@ public class EventoController {
 			}
 
 		}
+		if(!(evento.getAtuendo() == null)){
+			parametros.put("atuendo", evento.getAtuendo());
+			parametros.put("id_atuendo",evento.getAtuendo().getId_atuendo());
+		}
+		parametros.put("id_evento",evento.getId_evento());
 		parametros.put("login", LoginController.isUsuarioLogin(request));
-		parametros.put("guardaropaId",request.params(":idGuardaropa"));
+		parametros.put("guardaropaId", guardaropa.getId_guardaropa());
 		parametros.put("estilo",request.params(":nombreEstilo"));
 		parametros.put("atuendos", atuendos);
         return  new ModelAndView(parametros, "AtuendosDeEvento.hbs");
