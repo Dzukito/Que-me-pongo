@@ -106,6 +106,9 @@ public class Prenda{
         return this.nivelDeCalor;
     }
     public String getSexo(){ return sexo; }
+    public boolean tengoEstilo(Estilo estilo){
+        return this.estilos.contains(estilo);
+    }
     public String tipo(){
         return this.tipoPrenda.tipo();
     }

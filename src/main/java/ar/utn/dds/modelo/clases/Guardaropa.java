@@ -43,7 +43,15 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
     private List<ConjuntosPredefinidos> conjuntosPredefinidos;
 
 
-
+    public Atuendo sugerirAtuendoSinEvento(Estilo estilo, Atuendo atuendoSugerido) {
+        this.prendas.stream().filter(prenda -> prenda.tengoEstilo(estilo)).forEach(prenda -> atuendoSugerido.agregarPrenda(prenda));
+        return atuendoSugerido;
+    }
+    public Atuendo sugerirAtuendoSinEvento(Estilo estilo) {
+        Atuendo atuendoSugerido = new Atuendo();
+        this.prendas.stream().filter(prenda -> prenda.tengoEstilo(estilo)).forEach(prenda -> atuendoSugerido.agregarPrenda(prenda));
+        return atuendoSugerido;
+    }
     public Atuendo sugerirAtuendoSinEvento() {
         Atuendo atuendoSugerido = new Atuendo();
         this.prendas.forEach(prenda -> atuendoSugerido.agregarPrenda(prenda));
