@@ -296,7 +296,7 @@ public class OutfitController {
 			/*4)Consulto si va a ser una sugerencia RANDOM o por evento*/
 			if(request.queryParams("evento")  != null && new Long(request.queryParams("evento")) ==-999) { //sugerime para ahora, no para un evento (-999 seria una id inexistente)
 				meteorologo.getPronosticos(buenosAires);
-//   
+//
 				Calendar fecha = Calendar.getInstance();
 				fecha.add(Calendar.HOUR, 3);
 //            	fecha.setTime(fecha1);
@@ -308,6 +308,7 @@ public class OutfitController {
 
 			}
 			if(request.queryParams("evento")  != null && new Long(request.queryParams("evento")) !=-999) { //sugerime para un evento
+
 				RepositorioEvento repoEvento= FactoryRepositorioEvento.get();
 				Evento evento = repoEvento.buscar(new Long (request.params("evento")));
 				Calendar fecha = Calendar.getInstance();
@@ -329,6 +330,7 @@ public class OutfitController {
 			else
 				System.out.println("ATENCION: NO HAY SUGERENCIAS"); //Puede que no tenga las prendas suficientes que satisfagan el conjunto, o no cumplan el estilo dichas prendas. Hay varios motivos para llegar aca...
 		}
+
 		response.redirect("/outfit/"+request.params(":idGuardaropa"));
 		//response.redirect("/guardaropa/request.params(":id")");
 		return response;
@@ -355,8 +357,7 @@ public class OutfitController {
 		return new ModelAndView(parametros, "sugerirOutfit.hbs");
 	}
 
-//-----------------------------------------SUGERENCIA-POR-GUARDAROPA------------------------------------------------------------||
-
+	//-----------------------------------------SUGERENCIA-POR-GUARDAROPA------------------------------------------------------------||
 	public ModelAndView sugerirOutfitPorGuardaropa(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
 
@@ -367,6 +368,7 @@ public class OutfitController {
 		Ubicacion buenosAires=repoUbicacion.buscarTodos().get(0);
 		Pronostico pronostico;
 		Estilo estilo=null;
+
 		String estiloRecibido= request.params(":nombreEstilo");
 		meteorologo.getPronosticos(buenosAires);
 		List<Atuendo> atuendos = new ArrayList<Atuendo>();
@@ -414,19 +416,13 @@ public class OutfitController {
 				fecha.add(Calendar.HOUR, 9);
 				pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
 
-//        		atuendoSugerido= guardaropa.sugerirAtuendo(pronostico,  estilo, usuario);
-//        		atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa(pronostico, estilo, usuario); 
 				atuendoSugerido=new Atuendo();
 				RepositorioPrenda repoPrenda=FactoryRepositorioPrenda.get();
 				List<Prenda> ps= repoPrenda.buscarTodos();
-				Prenda p1= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList()).get(0);
-
+				List<Prenda> prendasEstilo =ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList());
+				Prenda p1= prendasEstilo.get((int) (Math.random()*prendasEstilo.size() + 0));
 				atuendoSugerido.agregarPrenda(p1);
-
-
-
-				Prenda p2= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList()).get(1);
-				atuendoSugerido.agregarPrenda(p2);
+				guardaropa.sugerirAtuendoSinEvento(estilo,atuendoSugerido);
 
 				atuendos.add(atuendoSugerido);
 
@@ -458,6 +454,7 @@ public class OutfitController {
 		}
 
 		this.repo.agregar(atuendo);
+
 
 		response.redirect("/outfit/"+request.params(":idGuardaropa"));
 		//response.redirect("/guardaropa/request.params(":id")");

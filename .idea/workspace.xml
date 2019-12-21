@@ -3,9 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Material.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addOutfit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/eventos.hbs" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/OutfitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/OutfitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Guardaropa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Guardaropa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Prenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Prenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/event_calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/event_calendar.js" afterDir="false" />
+>>>>>>> ae7d14b955ef360275728114144360905546d9ac
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
