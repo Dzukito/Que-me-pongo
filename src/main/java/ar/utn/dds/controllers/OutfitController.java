@@ -59,6 +59,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
@@ -356,9 +357,9 @@ public class OutfitController {
     
 //-----------------------------------------SUGERENCIA-POR-GUARDAROPA------------------------------------------------------------||
     
-    public Response sugerirOutfitPorGuardaropa(Request request, Response response) {
+    public ModelAndView sugerirOutfitPorGuardaropa(Request request, Response response) {
     	Map<String, Object> parametros = new HashMap<>();
-    	System.out.println("/////////////////////////////////////////////////////////////////////////////Entro correctamente:   ");
+    	
     	Atuendo atuendoSugerido=null; 
     	Meteorologo meteorologo = new MeteorologoAccuWeatherAdapter();
     	
@@ -366,15 +367,12 @@ public class OutfitController {
     	Ubicacion buenosAires=repoUbicacion.buscarTodos().get(0); 
     	Pronostico pronostico;
     	Estilo estilo=null;
-    	String paramEstilo =(request.queryParams("estilo"));
-    	
+    	String estiloRecibido= request.params(":nombreEstilo");
     	meteorologo.getPronosticos(buenosAires);
-    	
+    	List<Atuendo> atuendos = new ArrayList<Atuendo>();
     	/*1) Seteo el Estilo que quiere mi usuario para la sugerencia*/
-    	if(request.queryParams("estilo") != null){ 
-    		
-    		System.out.println("/////////////////////////////////////////////////////////////////////////////Entro correccctamente:   ");
-            String estiloRecibido= (request.queryParams("estilo"));
+    	if(request.params(":nombreEstilo") != null){ 
+            
             switch(estiloRecibido) {
             case "ELEGANTE":
             	estilo=(Estilo.ELEGANTE);
@@ -414,33 +412,56 @@ public class OutfitController {
             if(guardaropa!=null) {
             	Calendar fecha = Calendar.getInstance();
         		fecha.add(Calendar.HOUR, 9);
-        		ArrayList<TipoClima>  nublado = new ArrayList<TipoClima>(Arrays.asList(TipoClima.NUBLADO));
         		pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
-        		System.out.println("////////////////////////////////////////// pronostico :        "+pronostico.getTemperatura());
-
         		
-        		atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa(pronostico, estilo, usuario); 
-        		
-/*        		RepositorioPrenda repoPrenda=FactoryRepositorioPrenda.get();
+//        		atuendoSugerido= guardaropa.sugerirAtuendo(pronostico,  estilo, usuario);
+//        		atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa(pronostico, estilo, usuario); 
+        		atuendoSugerido=new Atuendo();
+        		RepositorioPrenda repoPrenda=FactoryRepositorioPrenda.get();
         		List<Prenda> ps= repoPrenda.buscarTodos();
-        		Prenda p1= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList()).get(0);
-        		ArrayList<Prenda>  prendas1= new ArrayList<Prenda>(Arrays.asList(p1));
-        		atuendoSugerido=new Atuendo(prendas1);
-*/        		
+        		Prenda p1= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList()).get(0);
+        		
+        		atuendoSugerido.agregarPrenda(p1);
+        		
+        		
+        		
+        		Prenda p2= ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList()).get(1);
+        		atuendoSugerido.agregarPrenda(p2);
+        		
+        		atuendos.add(atuendoSugerido);
+        		
             }
-            if(atuendoSugerido!=null) { 
-            	
-            	guardaropa.agregarAtuendo(atuendoSugerido);
-             	this.repo.agregar(atuendoSugerido);
-             	
-            } else {
-             		 System.out.println("ATENCION: NO HAY SUGERENCIAS"); //Puede que no tenga las prendas suficientes que satisfagan el conjunto, o no cumplan el estilo dichas prendas. Hay varios motivos para llegar aca...
-        	}
+         
     	}	
-
-    	response.redirect("/outfit/"+request.params(":idGuardaropa"));
-        return response;
+    	parametros.put("login", LoginController.isUsuarioLogin(request));
+        parametros.put("guardaropaId",request.params(":idGuardaropa"));
+        parametros.put("estilo",request.params(":nombreEstilo"));
+        parametros.put("atuendos", atuendos);
+    	return new ModelAndView(parametros, "mostrarSugerencia.hbs");
    
+    }
+    
+    public Response guardarOutfitPorGuardaropa(Request request, Response response) {
+    	
+    	Atuendo atuendo = new Atuendo();
+    	Prenda prenda;
+    	RepositorioPrenda repoPrenda=FactoryRepositorioPrenda.get();
+    	Set<String> claves=request.queryParams(); 
+    	for (String clave : claves) {
+			prenda = repoPrenda.buscar(new Long(request.queryParams(clave)));
+			atuendo.agregarPrenda(prenda);
+		}
+    	if(request.params(":idGuardaropa") != null){
+        	 RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
+        	 Guardaropa guardaropa = repoGuardaropa.buscar(new Long (request.params(":idGuardaropa")));
+        	 guardaropa.agregarAtuendo(atuendo);	 
+        }
+    	
+        this.repo.agregar(atuendo);
+
+        response.redirect("/outfit/"+request.params(":idGuardaropa"));
+        //response.redirect("/guardaropa/request.params(":id")");
+        return response;
     }
     
     
