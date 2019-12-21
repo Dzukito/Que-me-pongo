@@ -17,7 +17,6 @@ public enum Material {
     GABARDINA("Lino"),
     FRANELA("Franela");
 	
-	
 	private long id_material;
 
 

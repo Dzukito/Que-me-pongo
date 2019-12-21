@@ -4,13 +4,13 @@ import javax.persistence.*;
 
 
 public enum Categoria {
-    TORSO("Torso",5,1),
-    PARTEINFERIOR("Parte Inferior",3,1),
-    CALZADO("Calzado",3,1),
-    ACCESORIOS("Accesorios",10,0),
-    CUELLO("Cuello",1,0),
-    MANOS("Manos",1,0),
-    CABEZA("Cabeza",1,0);
+    TORSO("TORSO",5,1),
+    PARTEINFERIOR("PARTEINFERIOR",3,1),
+    CALZADO("CALZADO",3,1),
+    ACCESORIOS("ACCESORIOS",10,0),
+    CUELLO("CUELLO",1,0),
+    MANOS("MANOS",1,0),
+    CABEZA("CABEZA",1,0);
 	
 	
 	private long id_categoria;

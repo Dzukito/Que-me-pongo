@@ -130,13 +130,13 @@ public class OutfitController {
 			parametros.put("atuendos", atuendos);
 		}else {
 			List<Prenda> prendas=guardaropa.getPrendas().stream().filter(prenda->prenda.getDisponibilidad()).collect(Collectors.toList());
-			List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.TORSO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
-			List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
-			List<Prenda> prendasCalzado  = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CALZADO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
-			List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.ACCESORIOS.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
-			List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.MANOS.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
-			List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CABEZA.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
-			List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getTipo().compareTo(Categoria.CUELLO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+			List<Prenda> prendasTorso = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().toString().compareTo(Categoria.TORSO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+			List<Prenda> prendasParteInferior = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().toString().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+			List<Prenda> prendasCalzado  = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().toString().compareTo(Categoria.CALZADO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+			List<Prenda> prendasAccesorio = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().toString().compareTo(Categoria.ACCESORIOS.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+			List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().toString().compareTo(Categoria.MANOS.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+			List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().toString().compareTo(Categoria.CABEZA.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
+			List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().toString().compareTo(Categoria.CUELLO.getCategoria())==0 && prenda.getEstilos().get(0).toString().compareTo(paramEstilo)==0).collect(Collectors.toList());
 
 
 			parametros.put("login", LoginController.isUsuarioLogin(request));
