@@ -36,10 +36,12 @@ $(function() {
 
                 for(var i in e.events) {
                   let event = e.events[i];
-                    content += '<div id="pop-'+event.id+'" class="event-tooltip-content popover-update-event" style="background-color:'+ e.events[i].color +';">'
-                                    + '<div class="event-name">' + e.events[i].name + '</div>'
-                                    + '<div class="event-location">' + e.events[i].location + '</div>'
-                                + '</div>';
+                    content += '<a href="/events/'+event.id+'" style="color:white">'
+                                    + '<div id="pop-'+event.id+'" class="event-tooltip-content popover-update-event" style="background-color:'+ e.events[i].color +';">'
+                                    + '<div class="event-name" style="color:white">' + e.events[i].name + '</div>'
+                                    + '<div class="event-location" style="color:white">' + e.events[i].location + '</div>'
+                                + '</div>'
+                                + '</a>';
                 }
 
                 content += '<span class="popover-add-event">+<span>';

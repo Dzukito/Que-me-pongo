@@ -9,6 +9,7 @@ import ar.utn.dds.repositories.RepositorioUsuario;
 import ar.utn.dds.repositories.factories.FactoryRepositorioEvento;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUbicacion;
 import ar.utn.dds.repositories.factories.FactoryRepositorioUsuario;
+import ar.utn.dds.spark.utils.AtuendoCalifVista;
 import ar.utn.dds.spark.utils.EventoVista;
 import spark.ModelAndView;
 import spark.Request;
@@ -42,12 +43,10 @@ public class EventoController {
 //        return new ModelAndView(parametros, "eventos1.hbs");	
         return  new ModelAndView(parametros, "eventos.hbs");
     }
-    
     public EventoVista crearVistaE(Evento evento,Usuario usuario) {
     	EventoVista eventoVista=new EventoVista(evento,usuario);
     	return eventoVista;
     }
-
     public ModelAndView mostrarAtuendo(Request request, Response response){
 //        Evento evento = this.repo.buscar(new Integer(request.params("id")));
 //        RepositorioEvento repoEvento = FactoryRepositorioEvento.get();
@@ -55,13 +54,13 @@ public class EventoController {
 //        parametros.put("evento", evento);
         
 //        return new ModelAndView(parametros, "mostrarEvento.hbs");
-
 		Map<String, Object> parametros = new HashMap<>();
         Long idEvento = new Long (request.params(":id"));
         Evento evento = repo.buscar(idEvento); 
-        
+//        List<AtuendoCalifVista> atuendosElegantes = evento.agregarSugerencias();
         RepositorioUsuario repoUsuario=FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
+
         if(usuario.getEventos().contains(evento)) {
         	parametros.put("evento", evento);
         	parametros.put("login", LoginController.isUsuarioLogin(request));
@@ -72,8 +71,6 @@ public class EventoController {
         parametros.put("login", LoginController.isUsuarioLogin(request));
         return  new ModelAndView(parametros, "AtuendosDeEvento.hbs");
     }
-
-
     private void asignarAtributosA(Evento evento, Request request){
     	
     	if(request.queryParams("event-name") != null){
