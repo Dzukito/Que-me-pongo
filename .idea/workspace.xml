@@ -4,7 +4,6 @@
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/server/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/server/Router.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/atuendosDeEvento.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/atuendosDeEvento.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -34,7 +34,8 @@ public class EventoController {
 		Evento evento =	repo.buscar(id_evento);
 		Atuendo atuendo = repoOutfit.buscar(id_atuendo);
 		evento.setAtuendo(atuendo);
-		response.redirect("/events/:id");
+		repo.modificar(evento);
+		response.redirect("/events");
 		return response;
 
 	}
@@ -151,9 +152,10 @@ public class EventoController {
 			}
 
 		}
+		List<Atuendo> atuendoElegido = (List<Atuendo>) new ArrayList<Atuendo>(Arrays.asList(evento.getAtuendo()));
 		if(!(evento.getAtuendo() == null)){
-			parametros.put("atuendo", evento.getAtuendo());
-			parametros.put("id_atuendo",evento.getAtuendo().getId_atuendo());
+			parametros.put("atuendo", atuendoElegido);
+			parametros.put("id_atuendo",evento.getAtuendo().getId_atuendo())	;
 		}
 		parametros.put("id_evento",evento.getId_evento());
 		parametros.put("login", LoginController.isUsuarioLogin(request));
