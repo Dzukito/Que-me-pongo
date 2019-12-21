@@ -32,49 +32,36 @@ public class GuardaropaController {
     }
     
     public ModelAndView mostrarTodos(Request request, Response response) {
-    	
         Map<String, Object> parametros = new HashMap<>();
  //       Usuario usuario1 = LoginController.getUsuario(request);
         RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
-       
         List<Guardaropa> guardaropas = usuario.getRoperos();
         parametros.put("guardaropas", guardaropas);
         parametros.put("login", LoginController.isUsuarioLogin(request));
-        
         return  new ModelAndView(parametros, "misGuardaropas.hbs");
         
     }
     
 	public Response crearGuardaropa(Request request, Response response) {
-	    	
 		Guardaropa guardaropa = new Guardaropa();
 //		Usuario usuario = request.session().attribute("nombreDeUsuario");
-        
 //		Usuario usuario1 = LoginController.getUsuario(request);
         RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
-        
 		if(request.queryParams("nombreGuardaropa") != null){
 			guardaropa.setNombre(request.queryParams("nombreGuardaropa"));
 			guardaropa.setDescripcion(request.queryParams("descripcionGuardaropa"));
 			guardaropa.agregarUsuario(usuario);
 			usuario.agregarRopero(guardaropa);
-			
 //			usuario.modificar(usuario);
 			repo.agregar(guardaropa);
-			
         }
-	
 		List<Guardaropa> guarda=repo.buscarTodos();
-		
         PerThreadEntityManagers.closeEntityManager();
         System.out.println("************** cierro  *************");
-		
-        
         response.redirect("/guardaropas");
 		return response;
-		
 	 }
 
 	 public ModelAndView mostrarPrendas(Request request, Response response) {	    	
@@ -96,20 +83,13 @@ public class GuardaropaController {
 	        }
 */
 	        if(guardaropa ==null){
-
 	        	parametros.put("guardaropa", guardaropa);
 	        	parametros.put("login", LoginController.isUsuarioLogin(request));
-	        	
 		    }
-	        
 	        else { 	
 	        	System.out.println("///////////////////////----------------------------------/////////////////////////");
-	        	
-	        	
 		        List<Prenda> prendas = guardaropa.getPrendas();
-       			
 		        Map<String, Object> fotoPrendas  = new HashMap<>();
-	        
 		        for(int i =0; i<prendas.size();i++) {
 		        	if(prendas.get(i).getFotografo().getImagenes().stream().findFirst().isPresent()) {
 		        		fotoPrendas.put(String.valueOf(prendas.get(i).getId_prenda()),prendas.get(i).getFotografo().getImagenes().stream().findFirst().get());
@@ -154,8 +134,6 @@ public class GuardaropaController {
 		        List<Prenda> prendasManos = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.MANOS)).collect(Collectors.toList());
 		        List<Prenda> prendasCabeza = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.CABEZA)).collect(Collectors.toList());
 		        List<Prenda> prendasCuello = prendas.stream().filter(prenda->prenda.getTipoDePrenda().getCategoria().equals(Categoria.CUELLO)).collect(Collectors.toList());
-		        
-
 		        parametros.put("login", LoginController.isUsuarioLogin(request));
 		        parametros.put("guardaropaId", request.params(":id"));
 		        parametros.put("guardaropa", guardaropa.getNombre());

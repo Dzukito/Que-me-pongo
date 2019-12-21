@@ -67,6 +67,10 @@ public class Pronostico {
 		return this.temperatura > 32;
 	}
 
+	public ArrayList<NivelDeCalor> nivelesDeCalorTemplado(){
+		ArrayList<NivelDeCalor> nivelesDeCalor = new ArrayList<NivelDeCalor>(Arrays.asList(new NivelDeCalor(Categoria.TORSO,2),new NivelDeCalor(Categoria.PARTEINFERIOR,1),new NivelDeCalor(Categoria.CALZADO,2),new NivelDeCalor(Categoria.ACCESORIOS,5),new NivelDeCalor(Categoria.CUELLO,0),new NivelDeCalor(Categoria.MANOS,0),new NivelDeCalor(Categoria.CABEZA,0)));
+		return nivelesDeCalor;
+	}
 	@Override
 	public int hashCode() { return Objects.hash(clima); }
 	public boolean somosSimilares(Pronostico pronostico){

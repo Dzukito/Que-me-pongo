@@ -87,7 +87,6 @@ public class Atuendo {
         try {
             this.esaPrendaYaLaTengo(prenda);
             this.prendas.add(prenda);
-
         }catch (EsaPrendaYaLaTengo e){
             this.cambiarPrenda(prenda);
         }
@@ -105,18 +104,14 @@ public class Atuendo {
     public ArrayList<TipoPrenda> getTiposDePrenda(){ return (ArrayList<TipoPrenda>) this.getPrendas().stream().map(prenda -> prenda.getTipoDePrenda()).collect(Collectors.toList()); }
     public Prenda getPrenda(String categoria) { return this.prendas.stream().filter(prenda -> prenda.getCategoria() == categoria).collect(Collectors.toList()).get(0); }
     public List<List<String>> getImagenes() { return prendas.stream().map(prenda -> prenda.getFotografo().imagenes()).collect(Collectors.toList()); }
-
     public void addCalificacion(CalificacionAtuendo calif) { this.calificaciones.add(calif); }
-    
     public void setterCalificacion(CalificacionAtuendo calif) { this.calificaciones.add(calif); }
-    
     public long getId_atuendo() {
 		return id_atuendo;
 	}
 	public void setId_atuendo(long id_atuendo) {
 		this.id_atuendo = id_atuendo;
 	}
-    
 	public void setCalificaciones(List<CalificacionAtuendo> calificaciones) {
 		this.calificaciones = calificaciones;
 	}

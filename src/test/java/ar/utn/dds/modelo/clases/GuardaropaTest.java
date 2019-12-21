@@ -1,5 +1,7 @@
 package ar.utn.dds.modelo.clases;
 
+import ar.utn.dds.modelo.clima.Pronostico;
+import ar.utn.dds.modelo.interfaces.Meteorologo;
 import ar.utn.dds.modelo.ropa.*;
 import ar.utn.dds.modelo.clima.NivelDeCalor;
 import org.junit.Assert;
@@ -17,10 +19,12 @@ public class GuardaropaTest {
     HashSet<Material> materialRemera, materialPantalon, materialCalzado, materialAccesorio;
     TipoPrenda tipoPantalon, tipoRemera, tipoZapatillas, tipoAccesorio, tipoTop, tipoCuello, tipoZapatos, tipoPantalonCorto, tipoManos, tipoCabeza;
     Prenda remera1, remera2, pantalon1, pantalon2, zapatillas1, zapatillas2, accesorio1, accesorio2;
-    ArrayList<Prenda> prendas1, prendas2, prendas3;
+    ArrayList<Prenda> prendas1, prendas2, prendas3, prendas4;
     Guardaropa ropero1, ropero2, ropero3;
     ArrayList<NivelDeCalor> nivelDeCalor1, nivelDeCalor2;
-
+    Pronostico templado;
+    Usuario usuario1;
+    HashSet<TipoPrenda> superponiblesTodos;
     @Before
     public void setup() {
         //Material tipoPrenda
@@ -39,19 +43,53 @@ public class GuardaropaTest {
         tipoCuello = new TipoPrenda(Categoria.CUELLO, "Bufanda", materialAccesorio);
         tipoManos = new TipoPrenda(Categoria.MANOS, "Guantes", materialAccesorio);
         tipoCabeza = new TipoPrenda(Categoria.CABEZA, "Guantes", materialAccesorio);
+
+        superponiblesTodos = new HashSet<TipoPrenda>();
+        superponiblesTodos.add(tipoRemera);
+        superponiblesTodos.add(tipoPantalon);
+        superponiblesTodos.add(tipoPantalonCorto);
+        superponiblesTodos.add(tipoTop);
+        superponiblesTodos.add(tipoZapatillas);
+        superponiblesTodos.add(tipoZapatos);
+        superponiblesTodos.add(tipoAccesorio);
+        superponiblesTodos.add(tipoCuello);
+        superponiblesTodos.add(tipoManos);
+        superponiblesTodos.add(tipoCabeza);
+        tipoRemera.setSuperponibles(superponiblesTodos);
+        tipoPantalon.setSuperponibles(superponiblesTodos);
+        tipoPantalonCorto.setSuperponibles(superponiblesTodos);
+        tipoTop.setSuperponibles(superponiblesTodos);
+        tipoZapatillas.setSuperponibles(superponiblesTodos);
+        tipoZapatos.setSuperponibles(superponiblesTodos);
+        tipoAccesorio.setSuperponibles(superponiblesTodos);
+        tipoCuello.setSuperponibles(superponiblesTodos);
+        tipoManos.setSuperponibles(superponiblesTodos);
+        tipoCabeza.setSuperponibles(superponiblesTodos);
+
+
         //Prendas
         remera1 = new Prenda(tipoRemera, "RemeraDePandas", Color.Blanco,Color.Negro , Material.LINO);
+        remera1.setEstilo(Estilo.ENTRECASA);
         remera2 = new Prenda(tipoTop, "Top", Color.Blanco,Color.Negro, Material.ALGODON);
+        remera2.setEstilo(Estilo.ENTRECASA);
         pantalon1 = new Prenda(tipoPantalon, "Pantalon1", Color.Azul, Material.JEAN);
+        pantalon1.setEstilo(Estilo.ENTRECASA);
         pantalon2 = new Prenda(tipoPantalonCorto, "PantalonCorto", Color.Amarillo, Material.JEAN);
+        pantalon2.setEstilo(Estilo.ENTRECASA);
         zapatillas1 = new Prenda(tipoZapatillas, "Zapatillas1",Color.Rojo,Color.Verde, Material.CUERO);
+        zapatillas1.setEstilo(Estilo.ENTRECASA);
         zapatillas2 = new Prenda(tipoZapatos, "Zapatos", Color.Blanco,Color.Negro, Material.CUERO);
+        zapatillas2.setEstilo(Estilo.ENTRECASA);
         accesorio1 = new Prenda(tipoAccesorio, "Gorra", Color.Azul, Material.PLASTICO);
+        accesorio1.setEstilo(Estilo.ENTRECASA);
         accesorio2 = new Prenda(tipoCuello, "Bufanda", Color.Amarillo, Material.ACEROINOXIDABLE);
+        accesorio2.setEstilo(Estilo.ENTRECASA);
+
         //Lista de prendas
         prendas1 = new ArrayList<Prenda>(Arrays.asList(remera1, accesorio1, zapatillas1, pantalon1));
         prendas2 = new ArrayList<Prenda>(Arrays.asList(remera2, accesorio2, zapatillas2, pantalon2));
         prendas3 = new ArrayList<Prenda>(Arrays.asList(zapatillas1,pantalon1,remera2));
+        prendas4 = new ArrayList<Prenda>(Arrays.asList(remera2, accesorio2, zapatillas2, pantalon2, remera1, accesorio1, zapatillas1, pantalon1));
         //Guardaropas
         ropero1 = new Guardaropa(prendas1);
         ropero2 = new Guardaropa(prendas2);
@@ -74,8 +112,16 @@ public class GuardaropaTest {
         irATrabajar = new Evento(fechaDeHoyMenos1Hora,fechaDeHoyMas1Hora,buenosAires,Estilo.ELEGANTE);
         irALaFacu = new Evento(pasadomaniana,pasadomaniana,buenosAires,Estilo.ELEGANTSPORT);
         entreCasa = new Evento(fechaDeHoyMenos2Hora,fechaDeHoy,buenosAires,Estilo.NORMAL);
+        usuario1 = new Usuario("Martin", new ArrayList<Guardaropa>());
     }
 
+
+    @Test
+    public void generarAtuendoSinEvento(){
+        Atuendo atuendoSugerido = ropero2.sugerirAtuendoSinEvento();
+        atuendoSugerido.getPrendas().forEach(prenda -> System.out.println(prenda.getCategoria()));
+        Assert.assertEquals(Atuendo.class,atuendoSugerido.getClass());
+    }
     @Test
     @DisplayName("Verifica que se agregue un usuario al guardaropas")
     public void agregarUsuario(){
@@ -96,17 +142,5 @@ public class GuardaropaTest {
     @Test
     @DisplayName("Verifica que se genere un atuendo que satisfaga las necesidades del pronostico, del evento y las sensibilidades del usuario")
     public void sugerirAtuendoPorPronosticoEventoYUsuario(){
-        
     }
-//    @Test
-//    @DisplayName("Test de la clase Guardaropa")
-//    public void prendasYaUsadasPorOtro(){
-//
-//    }
-//    @Test
-//    @DisplayName("Test de la clase Guardaropa")
-//    public void prendasYaUsadasPorOtro(){
-//
-//    }
-
 }
