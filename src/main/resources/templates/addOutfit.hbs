@@ -24,19 +24,19 @@
     line-height: 42px;
     text-align: center;"
     >¿Qu&eacute; Me Pongo?</h3>
-    
+
     <div class="collapse navbar-collapse aling-items-end" id="navbarSupportedContent" style="align-self: flex-end;">
         <ul class="navbar-nav mr-auto" style="margin-left:65%;">
             {{#if login}}
-            <li class="nav-item active" style="margin: 5px;">
-                <a href="/login">
-                <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
-                </a>
-            </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <a href="/login">
+                        <button type="button" class="btn btn-light text-dark"> Cerrar Sesión</button>
+                    </a>
+                </li>
             {{else}}
-            <li class="nav-item active" style="margin: 5px;">
-                <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesi&oacute;n </a></button>
-            </li>
+                <li class="nav-item active" style="margin: 5px;">
+                    <button type="button" class="btn btn-light"> <a style="color:black" href="/login">Iniciar Sesi&oacute;n </a></button>
+                </li>
             {{/if}}
         </ul>
     </div>
@@ -46,128 +46,128 @@ background: url(/img/background/background_atuendos.png) no-repeat center top;
 background-size: 1000px;
 display:inherit;">
     <div class="container" style="padding-top:50px;padding-bottom:421px">
-<div class="card container" style="margin:auto;margin-top:20px;margin:auto;opacity:0.9">
-    <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
-        <div class="col-xs-10 offset-1 text-center offset-sm-4" style="margin:auto; justify-content:center">
+        <div class="card container" style="margin:auto;margin-top:20px;margin:auto;opacity:0.9">
+            <div class="row center-block" style="margin-top:5px;margin-bottom:5px;">
+                <div class="col-xs-10 offset-1 text-center offset-sm-4" style="margin:auto; justify-content:center">
 
-            <form action="/addOutfit/{{guardaropaId}}" method="POST" style="margin:auto; justify-content:center">
-                <div class="text-uppercase" style="margin:auto; justify-content:center">
-                    <h3 class="tipoPrendaTitulo" style="margin:auto; justify-content:center"> Agregar Outfit </h3>
-                 </div>
-                <div class="row" style="justify-content:center; margin: auto">
-                <div class="col-xs-3" style="margin: auto">
-                    <div class="form-group" style="margin-top: 5px;">
-                       <input type="text" class="form-control" name="outfitName" id="outfitName" placeholder="Nombre de outfitName">
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <select class="input-select form-control" name="torso">
-                                <option selected disabled>Torso</option>
-
-                                {{#each prendasTorso}}
-                                    <option value="{{id_prenda}}" type="torso">{{nombrePrenda}}</option>
-                                {{/each}}
-
-                            </select>
+                    <form action="/addOutfit/{{guardaropaId}}" method="POST" style="margin:auto; justify-content:center">
+                        <div class="text-uppercase" style="margin:auto; justify-content:center">
+                            <h3 class="tipoPrendaTitulo" style="margin:auto; justify-content:center"> Agregar Outfit </h3>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <select class="input-select form-control" name="inferior">
-                                <option selected disabled>Parte inferior</option>
+                        <div class="row" style="justify-content:center; margin: auto">
+                            <div class="col-xs-3" style="margin: auto">
+                                <div class="form-group" style="margin-top: 5px;">
+                                    <input type="text" class="form-control" name="outfitName" id="outfitName" placeholder="Nombre de outfitName">
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <select class="input-select form-control" name="torso">
+                                            <option selected disabled>Torso</option>
 
-                                {{#each prendasParteInferior}}
-                                    <option value="{{id_prenda}}" type="inferior">{{nombrePrenda}}</option>
-                                {{/each}}
+                                            {{#each prendasTorso}}
+                                                <option value="{{id_prenda}}" type="torso">{{nombrePrenda}}</option>
+                                            {{/each}}
 
-                            </select>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <select class="input-select form-control" name="inferior">
+                                            <option selected disabled>Parte inferior</option>
+
+                                            {{#each prendasParteInferior}}
+                                                <option value="{{id_prenda}}" type="inferior">{{nombrePrenda}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <select class="input-select form-control" name="calzado">
+                                            <option selected disabled>Calzado</option>
+
+                                            {{#each prendasCalzado}}
+                                                <option value="{{id_prenda}}" type="calzado">{{nombrePrenda}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-3" style="margin:auto;margin-left:20px">
+                                <div class="form-group">
+                                    <div>
+                                        <select class="input-select form-control" name="accesorio">
+                                            <option selected disabled>Accesorio</option>
+
+                                            {{#each prendasAccesorio}}
+                                                <option value="{{id_prenda}}" type="accesorio">{{nombrePrenda}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div>
+                                        <select class="input-select form-control" name="manos">
+                                            <option selected disabled>Prenda para la mano</option>
+
+                                            {{#each prendasManos}}
+                                                <option value="{{id_prenda}}" type="manos">{{nombrePrenda}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div>
+                                        <select class="input-select form-control" name="cabeza">
+                                            <option selected disabled>Prenda para la cabeza</option>
+
+                                            {{#each prendasCabeza}}
+                                                <option value="{{id_prenda}}" type="cabeza">{{nombrePrenda}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div>
+                                        <select class="input-select form-control" name="cuello">
+                                            <option selected disabled>Prenda para el cuello</option>
+
+                                            {{#each prendasCuello}}
+                                                <option value="{{id_prenda}}" type="cuello">{{nombrePrenda}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                     <div class="form-group">
-                        <div>
-                            <select class="input-select form-control" name="calzado">
-                                <option selected disabled>Calzado</option>
-
-                                {{#each prendasCalzado}}
-                                    <option value="{{id_prenda}}" type="calzado">{{nombrePrenda}}</option>
-                                {{/each}}
-
-                            </select>
+                        <div class="row" style="margin-top:15px;">
+                            <div class="col">
+                                <a href="/outfit/{{guardaropaId}}" style="color:black">
+                                    <button type="button" class="btn btn-outline-dark">Cancelar</button>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Agregar</button>
+                            </div>
                         </div>
-                    </div>
+
+                    </form>
                 </div>
-
-                <div class="col-xs-3" style="margin:auto;margin-left:20px">
-                    <div class="form-group">
-                        <div>
-                            <select class="input-select form-control" name="accesorio">
-                                <option selected disabled>Accesorio</option>
-
-                                {{#each prendasAccesorio}}
-                                    <option value="{{id_prenda}}" type="accesorio">{{nombrePrenda}}</option>
-                                {{/each}}
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div>
-                            <select class="input-select form-control" name="manos">
-                                <option selected disabled>Prenda para la mano</option>
-
-                                {{#each prendasManos}}
-                                    <option value="{{id_prenda}}" type="manos">{{nombrePrenda}}</option>
-                                {{/each}}
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div>
-                            <select class="input-select form-control" name="cabeza">
-                                <option selected disabled>Prenda para la cabeza</option>
-
-                                {{#each prendasCabeza}}
-                                    <option value="{{id_prenda}}" type="cabeza">{{nombrePrenda}}</option>
-                                {{/each}}
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div>
-                            <select class="input-select form-control" name="cuello">
-                                <option selected disabled>Prenda para el cuello</option>
-
-                                {{#each prendasCuello}}
-                                    <option value="{{id_prenda}}" type="cuello">{{nombrePrenda}}</option>
-                                {{/each}}
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="row" style="margin-top:15px;">
-                    <div class="col">
-                        <a href="/outfit/{{guardaropaId}}" style="color:black">
-                        <button type="button" class="btn btn-outline-dark">Cancelar</button>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <button type="submit" class="btn btn-primary">Agregar</button>
-                    </div>
-                </div>
-
-            </form>
+            </div>
         </div>
-    </div>
-</div>
 
-</div>
+    </div>
 </div>
 </div>
 </body>
