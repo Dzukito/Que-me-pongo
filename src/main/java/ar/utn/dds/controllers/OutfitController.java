@@ -73,7 +73,6 @@ public class OutfitController {
 	public OutfitController(){
 		this.repo = FactoryRepositorioAtuendo.get();
 	}
-
 	public ModelAndView mostrarOutfitPorGuardaropa(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
 		List<Estilo> estilos= Arrays.asList(Estilo.values());
@@ -111,7 +110,6 @@ public class OutfitController {
 		return  new ModelAndView(parametros, "outfit2.hbs");
 
 	}
-
 	public AtuendoCalifVista crearVista(Atuendo atuendo,Usuario usuario) {
 		AtuendoCalifVista atuendoVista=new AtuendoCalifVista(atuendo,usuario);
 		return atuendoVista;
@@ -152,8 +150,6 @@ public class OutfitController {
 		}
 		return new ModelAndView(parametros, "addOutfit.hbs");
 	}
-
-
 	private void asignarAtributosA(Atuendo atuendo, Request request){
 		if(request.params(":idGuardaropa") != null){
 			RepositorioGuardaropa repoGuardaropa = FactoryRepositorioGuardaropa.get();
@@ -196,7 +192,6 @@ public class OutfitController {
 			atuendo.agregarPrenda(prenda);
 		}
 	}
-
 	public Response guardarOutfit(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
 		Atuendo atuendo = new Atuendo();
@@ -206,7 +201,6 @@ public class OutfitController {
 		//response.redirect("/guardaropa/request.params(":id")");
 		return response;
 	}
-
 	public Response calificarOutfit(Request request, Response response) {
 		RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
 		Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
@@ -240,15 +234,7 @@ public class OutfitController {
 		//response.redirect("/guardaropa/request.params(":id")");
 		return response;
 	}
-
-
-
-
-
-
-
 //-----------------------------------------SUGERENCIAS--------------------------------------------------------------------------||
-
 	public Response sugerirOutfit(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
 		/*Algunas cosas a usar:*/
@@ -335,8 +321,6 @@ public class OutfitController {
 		//response.redirect("/guardaropa/request.params(":id")");
 		return response;
 	}
-
-
 	public ModelAndView crearSugerenciaPorGuardaropa(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
 		RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
@@ -356,7 +340,6 @@ public class OutfitController {
 
 		return new ModelAndView(parametros, "sugerirOutfit.hbs");
 	}
-
 	//-----------------------------------------SUGERENCIA-POR-GUARDAROPA------------------------------------------------------------||
 	public ModelAndView sugerirOutfitPorGuardaropa(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
@@ -436,7 +419,6 @@ public class OutfitController {
 		return new ModelAndView(parametros, "mostrarSugerencia.hbs");
 
 	}
-
 	public Response guardarOutfitPorGuardaropa(Request request, Response response) {
 
 		Atuendo atuendo = new Atuendo();
@@ -460,6 +442,4 @@ public class OutfitController {
 		//response.redirect("/guardaropa/request.params(":id")");
 		return response;
 	}
-
-
 }

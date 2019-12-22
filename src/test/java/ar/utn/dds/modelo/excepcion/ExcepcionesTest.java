@@ -61,7 +61,7 @@ public class ExcepcionesTest {
     @Test(expected=ElMaterialNoPerteneceALaPrenda.class)
     public void materialEquivocado() { 	
     	this.init();
-    	prenda2 = new Prenda(pantalon, "PantalonAzulado", Color.Azul, Material.PLASTICO); //(Plastico no es material)
+    	prenda2 = new Prenda(pantalon, "PantalonAzulado", Color.Azul, Material.PLASTICO); //(PLASTICO no es material)
     }
 
     @Test(expected=AlMenosUnColor.class)

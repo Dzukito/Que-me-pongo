@@ -1,13 +1,14 @@
 Use quemepongo;
+delete from superponibles where id_tipoPrenda = 14;
 -- delete from map_conjunto_tipoprenda;
 -- delete from map_prenda_atuendo;
 -- delete from membrecia;
 delete from foto;
 delete from estilos;
-delete from prenda;
-delete from superponible;
-delete from materiales;
+-- delete from superponible;
+-- delete from materiales;
 delete from tipoprenda;
+delete from prenda;
 delete from fotografo;
 delete from map_usuario_guardaropa;
 delete from guardaropa;

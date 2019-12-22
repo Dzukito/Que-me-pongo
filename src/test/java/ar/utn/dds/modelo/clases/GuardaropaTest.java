@@ -114,14 +114,6 @@ public class GuardaropaTest {
         entreCasa = new Evento(fechaDeHoyMenos2Hora,fechaDeHoy,buenosAires,Estilo.NORMAL);
         usuario1 = new Usuario("Martin", new ArrayList<Guardaropa>());
     }
-
-
-    @Test
-    public void generarAtuendoSinEvento(){
-        Atuendo atuendoSugerido = ropero2.sugerirAtuendoSinEvento();
-        atuendoSugerido.getPrendas().forEach(prenda -> System.out.println(prenda.getCategoria()));
-        Assert.assertEquals(Atuendo.class,atuendoSugerido.getClass());
-    }
     @Test
     @DisplayName("Verifica que se agregue un usuario al guardaropas")
     public void agregarUsuario(){
@@ -140,7 +132,32 @@ public class GuardaropaTest {
         Assert.assertEquals(0, ropero1.getUsuarios().size());
     }
     @Test
-    @DisplayName("Verifica que se genere un atuendo que satisfaga las necesidades del pronostico, del evento y las sensibilidades del usuario")
-    public void sugerirAtuendoPorPronosticoEventoYUsuario(){
+    @DisplayName("Verifica que se genere un atuendo que satisfaga aleatorio")
+    public void generarAtuendoSinEvento(){
+        Atuendo atuendoSugerido = ropero2.sugerirAtuendoSinEvento();
+        atuendoSugerido.getPrendas().forEach(prenda -> System.out.println(prenda.getCategoria()));
+        Assert.assertEquals(Atuendo.class,atuendoSugerido.getClass());
     }
+    @Test
+    @DisplayName("Verifica que se genere un atuendo que satisfaga las necesidades del pronostico, del evento y las sensibilidades del usuario")
+    public void sugerirAtuendoPorPronosticoEventoYUsuario(){}
+    @Test
+    @DisplayName("Verifica que se genere un conjunto predefinido con las prendas minimas de torso, calzado y parate Inferior")
+    public void conjuntoPredefinidoMinimo(){}
+    @Test
+    @DisplayName("Verifica que se genere un conjunto predefinido aleatorio")
+    public void conjuntoPredefinidoPosibles(){}
+    @Test
+    @DisplayName("Verifica que se genere un atuendo que satisfaga las necesidades del pronostico, del evento y las sensibilidades del usuario")
+    public void conjuntoPredefinidoTipico(){}
+    @Test
+    @DisplayName("Verifica que se genere un atuendo que satisfaga las necesidades del pronostico, del evento y las sensibilidades del usuario")
+    public void llenadoConjuntoPredefinido(){}
+    @Test
+    @DisplayName("Verifica que se genere un atuendo que satisfaga las necesidades del pronostico, del evento y las sensibilidades del usuario")
+    public void atuendoCoincide(){}
+    @Test
+    @DisplayName("Verifica que se genere un atuendo que satisfaga las necesidades del pronostico, del evento y las sensibilidades del usuario")
+    public void generacionDeUnAtuendoConsiderandoUnConjuntoPredefinidoSinUtilizarlo(){}
+
 }

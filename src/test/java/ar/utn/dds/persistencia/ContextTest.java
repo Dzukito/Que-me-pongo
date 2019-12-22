@@ -81,7 +81,7 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
             aroco.setApellido("Roco");
             aroco.setMail("aroco@dds.com");
             aroco.setPassword("123456");
-            aroco.setSexo("masculino");
+            aroco.setSexo("mascuLINO");
             aroco.setTelefono(01123427701);
             aroco.setUserName("aroco");
             aroco.setMembrecia(gratuito);

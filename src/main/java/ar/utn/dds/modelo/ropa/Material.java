@@ -3,19 +3,19 @@ import javax.persistence.*;
 
 
 public enum Material {
-    PLASTICO("Plastico"),
-    CUERO("Cuero"),
-    ALGODON("Algodon"),
+    PLASTICO("PLASTICO"),
+    CUERO("CUERO"),
+    ALGODON("ALGODON"),
     ACEROINOXIDABLE("Acero Inoxidable"),
-    NYLON("Nylon"),
-    SEDA("Seda"),
-    POLIESTER("Poliester"),
-    MALLA("Malla"),
-    LINO("Lino"),
-    LYCRA("Lycra"),
+    NYLON("NYLON"),
+    SEDA("SEDA"),
+    POLIESTER("POLIESTER"),
+    MALLA("MALLA"),
+    LINO("LINO"),
+    LYCRA("LYCRA"),
     JEAN("JEAN"),
-    GABARDINA("Lino"),
-    FRANELA("Franela");
+    GABARDINA("GABARDINA"),
+    FRANELA("FRANELA");
 	
 	private long id_material;
 

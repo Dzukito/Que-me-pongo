@@ -113,6 +113,11 @@ public class AtuendoTest {
         assertFalse(atuendo1.somosIguales(atuendo3));
     }
     @Test
+    @DisplayName("Test para verificar que una prenda no pueda agregarse en un atuendo si alguna prenda no lo tiene de superponible")
+    public void noPuedoAgregarPrenda(){
+
+    }
+    @Test
     @DisplayName("Test para verificar la superposición de prendas")
     public void agregarPrendaTeniendoEseTipoDePrenda(){
         atuendo1.agregarPrenda(accesorio2);

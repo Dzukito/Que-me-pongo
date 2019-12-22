@@ -1,152 +1,152 @@
 /* Materiales */
 	/* 1 Remera cuello redondo manga corta */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (1,"Algodón");
+        values (1,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (1,"Seda");
+        values (1,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (1,"Poliester");
+        values (1,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (1,"Lycra");
+        values (1,"LYCRA");
 	/* Fin 1 */
 	/* 2 Remera cuello redondo manga larga */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (2,"Algodón");
+        values (2,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (2,"Seda");
+        values (2,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (2,"Poliester");
+        values (2,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (2,"Lycra");
+        values (2,"LYCRA");
 	/* Fin 2 */
 	/* 3 Remera escote V manga corta */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (3,"Algodón");
+        values (3,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (3,"Seda");
+        values (3,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (3,"Poliester");
+        values (3,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (3,"Lycra");
+        values (3,"LYCRA");
 	/* Fin 3 */
 	/* 4 Remera escote V manga larga */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (4,"Algodón");
+        values (4,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (4,"Seda");
+        values (4,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (4,"Poliester");
+        values (4,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (4,"Lycra");
+        values (4,"LYCRA");
 	/* Fin 4 */
 	/* 5 Sueter */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (5,"Algodón");
+        values (5,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (5,"Seda");
+        values (5,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (5,"Poliester");
+        values (5,"POLIESTER");
 	/* Fin 5 */
 	/* 6 Campera */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (6,"Algodón");
+        values (6,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (6,"Seda");
+        values (6,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (6,"Poliester");
+        values (6,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (6,"Cuero");
+        values (6,"CUERO");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (6,"Nylon");
+        values (6,"NYLON");
 	/* Fin 6 */
 	/* 7 Pantalon largo */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (7,"Algodón");
+        values (7,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (7,"Seda");
+        values (7,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (7,"Poliester");
+        values (7,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (7,"Nylon");
+        values (7,"NYLON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (7,"Jean");
+        values (7,"JEAN");
 	/* Fin 7 */
     
 	/* 8 Pantalon corto */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (8,"Algodón");
+        values (8,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (8,"Seda");
+        values (8,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (8,"Poliester");
+        values (8,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (8,"Nylon");
+        values (8,"NYLON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (8,"Jean");
+        values (8,"JEAN");
 	/* Fin 8 */
 	/* 9  Bermuda */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (9,"Algodón");
+        values (9,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (9,"Seda");
+        values (9,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (9,"Poliester");
+        values (9,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (9,"Nylon");
+        values (9,"NYLON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (9,"Jean");
+        values (9,"JEAN");
 	/* Fin 9 */
 	/* 10  Pollera*/
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (10,"Algodón");
+        values (10,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (10,"Seda");
+        values (10,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (10,"Poliester");
+        values (10,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (10,"Nylon");
+        values (10,"NYLON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (10,"Jean");
+        values (10,"JEAN");
 	/* Fin 10 */
 	/* 11 Calza */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (11,"Algodón");
+        values (11,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (11,"Seda");
+        values (11,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (11,"Poliester");
+        values (11,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (11,"Nylon");
+        values (11,"NYLON");
 	/* Fin 11 */
 	/* 12 Buzo */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (12,"Algodón");
+        values (12,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (12,"Seda");
+        values (12,"SEDA");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (12,"Poliester");
+        values (12,"POLIESTER");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (12,"Nylon");
+        values (12,"NYLON");
 	/* Fin 12 */
     /* 13 Musculoza */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-	values (13,"Algodón");
+	values (13,"ALGODON");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-	values (13,"Lycra");
+	values (13,"LYCRA");
     /* Fin 13*/
 	/* 14  Zapatillas */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (14,"Cuero");
+        values (14,"CUERO");
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-        values (14,"Nylon");
+        values (14,"NYLON");
 	/* Fin 14 */    
 	/* 15 Zapatos */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-	values (15,"Cuero");
+	values (15,"CUERO");
     /* Fin 15 */
 	/* 16 Sandalias */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
-	values (16,"Cuero");
+	values (16,"CUERO");
 	/* Fin 16 */
 /* Fin Materiales*/
 
@@ -421,7 +421,7 @@ Insert into queMePongo.superponible(id_tipoPrenda,id_superponible)
 
 /* Usuarios */
 -- insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
--- 		values ('Alejandro','Roco','','123456','masculino',0,'aroco',1);
+-- 		values ('Alejandro','Roco','','123456','mascuLINO',0,'aroco',1);
 -- insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
 -- 		values ('Julieta','Azul','','123456','femenino',0,'jazul',2);
 /* Fin usuarios */
@@ -445,7 +445,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (21,"ropa/remeras/remera_hombre_1.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (1,1,"ALGODON",5,"Remera cuello redondo manga corta","Masculino",21,1,1,"Negro","Negro");
+		values (1,1,"ALGODON",5,"Remera cuello redondo manga corta","MascuLINO",21,1,1,"Negro","Negro");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (1,"ENTRECASA");
 -- REMERA
@@ -454,7 +454,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (22,"ropa/remeras/remera_hombre_2.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (2,1,"LYCRA",5,"Remera cuello redondo manga corta","Masculino",22,2,1,"Blanco","Blanco");
+		values (2,1,"LYCRA",5,"Remera cuello redondo manga corta","MascuLINO",22,2,1,"Blanco","Blanco");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (2,"ENTRECASA");
 -- Musculoza
@@ -463,7 +463,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (23,"/ropa/remeras/remera_hombre_4.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (3,1,"LYCRA",5,"Musculosa","Masculino",23,13,1,"Amarillo","Amarillo");
+		values (3,1,"LYCRA",5,"Musculosa","MascuLINO",23,13,1,"Amarillo","Amarillo");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (3,"ENTRECASA");
 -- CAMPERA
@@ -472,7 +472,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (24,"ropa/campera/campera_hombre_4.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (4,1,"CUERO",10,"Campera","Masculino",24,6,1,"Blanco","Blanco");
+		values (4,1,"CUERO",10,"Campera","MascuLINO",24,6,1,"Blanco","Blanco");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (4,"ENTRECASA");
 -- SUETER
@@ -481,7 +481,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (25,"ropa/sueter/sueter_blanco_hombre_1.png");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (5,1,"POLIESTER",8,"Sueter","Masculino",25,5,1,"Blanco","Blanco");
+		values (5,1,"POLIESTER",8,"Sueter","MascuLINO",25,5,1,"Blanco","Blanco");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (5,"ENTRECASA");
 -- Bermuda
@@ -490,7 +490,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (26,"ropa/pantalon_corto/pantalon_corto_hombre_4.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (6,1,"JEAN",3,"Bermuda","Masculino",26,9,1,"Celeste","Celeste");
+		values (6,1,"JEAN",3,"Bermuda","MascuLINO",26,9,1,"Celeste","Celeste");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (6,"ENTRECASA");
 -- Pantalón largo
@@ -499,7 +499,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (27,"ropa/pantalon_largo/pantalon_largo_hombre_5.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (7,1,"NYLON",10,"Pantalón largo","Masculino",27,7,1,"Gris","Gris");
+		values (7,1,"NYLON",10,"Pantalón largo","MascuLINO",27,7,1,"Gris","Gris");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (7,"ENTRECASA");
 -- Zapatillas
@@ -508,7 +508,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (28,"ropa/zapatillas/zapatillas_hombre_6.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (8,1,"NYLON",6,"Zapatillas","Masculino",28,14,1,"Bordo","Bordo");
+		values (8,1,"NYLON",6,"Zapatillas","MascuLINO",28,14,1,"Bordo","Bordo");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (8,"ENTRECASA");
 -- Zapato
@@ -517,7 +517,7 @@ insert into queMePongo.fotografo(id_fotografo)
 insert into queMePongo.foto(id_fotografo,fotoURL)
 		values (29,"ropa/zapatillas/zapato_hombre_1.PNG");
 insert INTO queMePongo.prenda(id_prenda,disponibilidad,id_material,nivelDeCalor,nombrePrenda,sexo,id_fotografo,id_tipoPrenda,id_guardaropa,colorPrimario,colorSecundario)
-		values (9,1,"CUERO",8,"Zapatos","Masculino",29,15,1,"Negro","Negro");
+		values (9,1,"CUERO",8,"Zapatos","MascuLINO",29,15,1,"Negro","Negro");
 insert INTO queMePongo.estilos(id_prenda,estilo)
 		values (9,"ENTRECASA");
 /*Fin aroco*/

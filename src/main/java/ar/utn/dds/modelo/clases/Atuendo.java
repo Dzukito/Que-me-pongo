@@ -38,7 +38,7 @@ public class Atuendo {
         return prendas.size();
     }
     public boolean tieneEstilo(){ return this.prendas.stream().map(prenda -> prenda.getEstilo()).distinct().collect(Collectors.toList()).size() == 1; }
-    public void noPuedoAgregarPrenda(Prenda prenda){ if(this.prendas.stream().anyMatch(prenda1 -> !prenda1.esSuperponible(prenda))) {throw new noPuedeSuperponerse();} }
+    public boolean puedeAgregarPrenda(Prenda prenda){ return this.prendas.stream().allMatch(prenda1 -> prenda1.esSuperponible(prenda)); }
     public List<String> NombresPrendas() { return prendas.stream().map(prenda -> prenda.getNombrePrenda()).collect(Collectors.toList()); }
 
     //Metodos-privados----------------------------------------------------------------------
@@ -48,7 +48,6 @@ public class Atuendo {
         }
     }
     private boolean tengoTusPrendas(Atuendo atuendo){ return this.prendas.stream().allMatch(prenda -> atuendo.tengoPrenda(prenda)); }
-
     //Metodos-publicos----------------------------------------------------------------------
     public boolean compatibleConTiempo(Pronostico pronostico, Usuario usuario) {
         return !prendas.stream().anyMatch(prenda->pronostico.prendasNegadas().contains(prenda.tipo())) &&

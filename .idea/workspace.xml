@@ -3,8 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="f8477f12-c273-4d03-b638-7c9bc05cff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/EventoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/atuendosDeEvento.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/atuendosDeEvento.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/OutfitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/controllers/OutfitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Atuendo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/clases/Atuendo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Prenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/modelo/ropa/Prenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/data/PrendasRopero.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/data/PrendasRopero.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/data/TiposDePrendas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/utn/dds/repositories/DAO/data/TiposDePrendas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registro.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tipoPrenda.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/CasosDePrueba.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/CasosDePrueba.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/DatosMinimosDelSistema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/DatosMinimosDelSistema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/LimpiaTablas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/LimpiaTablas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/materiales.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/materiales.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/clases/AtuendoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/clases/AtuendoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/clases/GuardaropaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/clases/GuardaropaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/excepcion/ExcepcionesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/modelo/excepcion/ExcepcionesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/ContextTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/model/usuarioPersistentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/persistencia/model/usuarioPersistentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/prendas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/prendas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ar/utn/dds/superponibles.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/utn/dds/superponibles.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +67,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561952419928" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Repos/unisocial-hibernate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Repos/Que-Me-Pongo/Que-Me-Pongo" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -197,8 +217,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.GuardaropaTest.generarAtuendoSinEvento" />
         <item itemvalue="JUnit.ContextTest" />
+        <item itemvalue="JUnit.GuardaropaTest.generarAtuendoSinEvento" />
         <item itemvalue="JUnit.tipoPrendaPresistentTest.recuperandoTipoDePrendaUno" />
         <item itemvalue="JUnit.ContextTest.recuperandoTipoDePrendaUno" />
       </list>

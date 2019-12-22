@@ -260,7 +260,7 @@ public class Prenda{
             throw new AlMenosUnColor();
         }
     }
-    public Prenda(TipoPrenda remeraTop, String remeraDePandas, ArrayList<Color> blancoYNegro, Material lino, Estilo normal){
+    public Prenda(TipoPrenda remeraTop, String remeraDePandas, ArrayList<Color> blancoYNegro, Material LINO, Estilo normal){
 
             this.disponibilidad = true;
             this.estilos = new ArrayList<Estilo>();

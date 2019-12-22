@@ -37,12 +37,9 @@ public class EventoController {
 		repo.modificar(evento);
 		response.redirect("/events");
 		return response;
-
 	}
-
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-
         RepositorioUsuario repoUsuario=FactoryRepositorioUsuario.get();
         Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
         List<Evento> eventos = usuario.getEventos();
@@ -140,7 +137,7 @@ public class EventoController {
 							Prenda p1 = prendasEstilo.get((int) (Math.random() * prendasEstilo.size() + 0));
 							atuendoSugerido.agregarPrenda(p1);
 							guardaropa.sugerirAtuendoSinEvento(estilo, atuendoSugerido);
-
+							Atuendo atuendoSugerido2 = atuendoSugerido;
 							this.repoOutfit.agregar(atuendoSugerido);
 							evento.agregarSugerencia(atuendoSugerido);
 							atuendos.add(atuendoSugerido);
@@ -164,9 +161,6 @@ public class EventoController {
 		parametros.put("atuendos", atuendos);
         return  new ModelAndView(parametros, "AtuendosDeEvento.hbs");
     }
-
-
-
     private void asignarAtributosA(Evento evento, Request request){
     	
     	if(request.queryParams("event-name") != null){
@@ -253,6 +247,4 @@ public class EventoController {
 		return response;
 		
 	 }
-
-
 }
