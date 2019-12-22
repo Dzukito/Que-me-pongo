@@ -114,6 +114,9 @@ public class Atuendo {
 	public void setCalificaciones(List<CalificacionAtuendo> calificaciones) {
 		this.calificaciones = calificaciones;
 	}
+	public void setPrendas(List<Prenda> prendas) {
+		this.prendas = prendas;
+	}
 	//Constructores--------------------------------------------------
     public Atuendo(){
         this.prendas = new ArrayList<Prenda>();

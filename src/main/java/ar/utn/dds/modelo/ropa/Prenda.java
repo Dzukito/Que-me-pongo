@@ -100,6 +100,13 @@ public class Prenda{
     public boolean esSuperponible(Prenda prenda){
         return this.tipoPrenda.esSuperponible(prenda.getTipoDePrenda());
     }
+    
+    public boolean esSuperponible2(Prenda prenda){
+        return this.getTipoDePrenda().getSuperponibles().contains(prenda.tipoPrenda);
+    }
+    public boolean TieneMismaCategoria(Categoria categoria) {
+    	return this.getTipoDePrenda().categoria()==categoria.getCategoria();
+    }
 
     //Getters-y-Setters----------------------------------------
     public int getNivelDeCalor(){

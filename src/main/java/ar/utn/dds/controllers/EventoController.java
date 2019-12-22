@@ -159,7 +159,7 @@ public class EventoController {
 		parametros.put("guardaropaId", guardaropa.getId_guardaropa());
 		parametros.put("estilo",request.params(":nombreEstilo"));
 		parametros.put("atuendos", atuendos);
-        return  new ModelAndView(parametros, "AtuendosDeEvento.hbs");
+        return  new ModelAndView(parametros, "atuendosDeEvento.hbs");
     }
     private void asignarAtributosA(Evento evento, Request request){
     	

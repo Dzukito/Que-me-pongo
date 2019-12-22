@@ -3,6 +3,7 @@ package ar.utn.dds.modelo.clases;
 import ar.utn.dds.modelo.clima.Pronostico;
 import ar.utn.dds.modelo.interfaces.AceptarSuegerenciaObservador;
 import ar.utn.dds.modelo.interfaces.RechazarSugerenciaObservador;
+import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
 import ar.utn.dds.modelo.clima.NivelDeCalor;
@@ -142,24 +143,63 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
         return null;
     }
 
-    public Atuendo sugerirAtuendoPorGuardaropa(Pronostico pronostico, Estilo estilo, Usuario usuario) {
+    public Atuendo sugerirAtuendoPorGuardaropa(Pronostico pronostico, Estilo estilo) {
 
-        ArrayList<Atuendo> atuendos= new ArrayList<Atuendo>(this.atuendosMostrados);
-        ArrayList<Prenda> prendas= new ArrayList<Prenda>(this.prendas);
-        ArrayList<NivelDeCalor> nivelesDeCalor = usuario.getSensibilidad().ajustarNivelesDeCalor(pronostico.nivelesDeCalorRequeridos());
-        System.out.println("////////////////////////////////////////// atuendosMostrados :        "+this.atuendosMostrados.size());
-        System.out.println("////////////////////////////////////////// prendas :        "+this.prendas.size());
-        System.out.println("////////////////////////////////////////// nivelesDeCalor :        "+ nivelesDeCalor.size());
-        System.out.println("////////////////////////////////////////// conjuntosPredefinidos :        "+ this.conjuntosPredefinidos.size());
-        if(!this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream().map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas,estilo)).collect(Collectors.toList()),usuario,estilo,pronostico,nivelesDeCalor).isEmpty())
-        {return this.atuendosUtilez((ArrayList<Atuendo>) this.conjuntosPredefinidos.stream()
-                        .map(conjuntoPredefinido -> conjuntoPredefinido.cargarAtuendo(prendas,estilo)).collect(Collectors.toList()),
-                usuario,estilo,pronostico,nivelesDeCalor).get(0);
-        }	else {
-            System.out.println("ATENCION: NO SE ENCONTRO NINGUNA SUGERENCIA ACORDE A SUS NECESIDADES");
-        }
+        Atuendo atuendoPosible=new Atuendo(this.getPrendas().stream().filter(p->p.tengoEstilo(estilo)).collect(Collectors.toList()));
+        
+        List<Prenda> prendasNoSuperponibles=this.ObtenerPrendasNoSuperponibles(atuendoPosible.getPrendas());
+    	Collections.shuffle(prendasNoSuperponibles);
+    	List<Prenda> prendasNoSuperponiblesDistintas=this.obtenerPrendasNoSuperponiblesDeDistintasCategorias(prendasNoSuperponibles);
+    	
+    	List<Prenda> prendasASacar;
+    	Collections.shuffle(prendasNoSuperponiblesDistintas);
+    	Collections.shuffle(prendasNoSuperponibles);
+ 
+    	if(prendasNoSuperponibles.size()!=prendasNoSuperponiblesDistintas.size()) {
+    		prendasASacar=prendasNoSuperponibles.stream().filter(p-> !(prendasNoSuperponiblesDistintas.contains(p))).collect(Collectors.toList());		
+    	} else {
+    		prendasASacar=new ArrayList<Prenda>();
+    	}
+    	List<Prenda> prendasFinales= new ArrayList<Prenda>();
+    	Atuendo atuendoSugerido=new Atuendo();
+//genero atuendo sugerido        	
+        	prendasFinales =
+        	atuendoPosible.getPrendas().stream().filter(prenda-> !(prendasASacar.contains(prenda)) && 
+        			(prendasNoSuperponiblesDistintas.contains(prenda)||
+        			 prendasNoSuperponiblesDistintas.stream().anyMatch(prendaBase-> prendaBase.esSuperponible2(prenda)))).collect(Collectors.toList());
+
+        	//que tenga minimamente estas tres categorias
+        	if(!prendasFinales.isEmpty() && prendasFinales.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.TORSO)) && 
+            	prendasFinales.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.PARTEINFERIOR))  && 
+                prendasFinales.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.CALZADO))) {
+        		prendasFinales.forEach(prenda -> atuendoSugerido.agregarPrenda(prenda));
+        		return atuendoSugerido;
+        	}else {
+                System.out.println("ATENCION: NO SE ENCONTRO NINGUNA SUGERENCIA ACORDE A SUS NECESIDADES");
+            }
+
         return null;
     }
+    
+	public List<Prenda> ObtenerPrendasNoSuperponibles(List<Prenda> prendas){
+		List<Prenda> prendasNoSuperponibles=new ArrayList<Prenda>();
+		for(int i=0; i<prendas.size();i++) {
+			Prenda prendaBase=prendas.get(i);
+			if(!prendas.stream().anyMatch(p->p.esSuperponible2(prendaBase))) {			
+				prendasNoSuperponibles.add(prendaBase);
+			}
+		}
+		return prendasNoSuperponibles;
+	}
+	public List<Prenda> obtenerPrendasNoSuperponiblesDeDistintasCategorias(List<Prenda> prendas){
+		List<Prenda> prendasNoSuperponiblesDistintas=new ArrayList<Prenda>();
+		for (Prenda prenda : prendas) {
+			if(!(prendasNoSuperponiblesDistintas.stream().anyMatch(p->!(p==prenda) && p.getCategoria().compareTo(prenda.getCategoria())==0)) ) {
+				prendasNoSuperponiblesDistintas.add(prenda);
+			}	
+		}
+		return prendasNoSuperponiblesDistintas;
+	}
     public List<String> tiposCategorias(List<Prenda> prendas){ return prendas.stream().map(prenda -> prenda.getCategoria()).distinct().collect(Collectors.toList()); }
     public int cantidadCategorioas(List<Prenda> prendas){ return this.tiposCategorias(prendas).size(); }
     public int cantidadAtuendosGenerados() { return this.atuendosMostrados.size(); }
