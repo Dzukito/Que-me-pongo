@@ -52,8 +52,6 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         EntityManagerHelper.getEntityManager().persist(membreciaPremium);
         EntityManagerHelper.commit();
     }
-	
-
     @Test
     public void recuperandoMembrecia(){
         Gratuito gratuito = (Gratuito) EntityManagerHelper.createQuery("from Membrecia where descripcion = 'Gratuito'").getSingleResult();
@@ -62,7 +60,6 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         Premium premium = (Premium) EntityManagerHelper.createQuery("from Membrecia where descripcion = 'Premium'").getSingleResult();
         Assert.assertEquals("Premium", premium.getDescripcion());
     }
-    
     @Test
     public void persistirUbicacionTest(){
 		Ubicacion buenosAires = new Ubicacion("3435910", "Buenos Aires", "BUENOS Aires", "ar");
@@ -116,38 +113,6 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
         Usuario jazul = (Usuario) EntityManagerHelper.createQuery("from usuario where id_usuario = '2'").getSingleResult();
         Assert.assertEquals("jazul", jazul.getUserName());
     }
-    @Test
-    public void persistirGuardaropas(){
-        Usuario aroco = (Usuario) EntityManagerHelper.createQuery("from usuario where nombreUsuario = 'aroco'").getSingleResult();
-        Usuario jazul = (Usuario) EntityManagerHelper.createQuery("from usuario where nombreUsuario = 'jazul'").getSingleResult();
-        Guardaropa roperoAroco = new Guardaropa();
-            roperoAroco.setNombre("aroco");
-            roperoAroco.setDescripcion("casoPruebaGratuito");
-        aroco.agregarRopero(roperoAroco);
-        Guardaropa roperoJazul = new Guardaropa();
-            roperoJazul.setNombre("aroco");
-            roperoJazul.setDescripcion("casoPruebaGratuito");
-        jazul.agregarRopero(roperoJazul);
-    }
-    @Test
-    public void recuperandoGuardaropas(){
-        Guardaropa aroco = (Guardaropa) EntityManagerHelper.createQuery(
-                "from guardaropa" +
-                        " join map_usuario_guardaropa on map_usuario_guardaropa.id_guardaropa = guardaropa.id_guardaropa" +
-                        " join usuario on usuario.id_usuario = map_usuario_guardaropa.id_usuario" +
-                "where usuario.id_usuario = 1 and guardaropa.id_guardaropa = 1"
-        ).getSingleResult();
-        Assert.assertEquals("aroco", aroco.getNombre());
-
-        Guardaropa jazul = (Guardaropa) EntityManagerHelper.createQuery(
-                "from guardaropa" +
-                        " join map_usuario_guardaropa on map_usuario_guardaropa.id_guardaropa = guardaropa.id_guardaropa" +
-                        " join usuario on usuario.id_usuario = map_usuario_guardaropa.id_usuario" +
-                        "where usuario.id_usuario = 1 and guardaropa.id_guardaropa = 1"
-        ).getSingleResult();
-        Assert.assertEquals("jazul", jazul.getNombre());
-    }
-
 //    @Test
 //    public void persistirTipoDePrenda1(){
 //        TipoPrenda tipo1 = new TipoPrenda();

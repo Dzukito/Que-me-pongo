@@ -1,3 +1,107 @@
+Use quemepongo;
+select * from membrecia;
+/* Membrecia */
+insert into queMePongo.membrecia(tipoMembrecia,id_membrecia,descripcion)
+	values ("Gratuito",1,"Gratuito");
+insert into queMePongo.membrecia(tipoMembrecia,id_membrecia,descripcion)
+	values ("Premium",2,"Premium");
+/* Fin membrecia */
+/* Ubicación */
+insert into queMePongo.ubicacion(id_ubicacion,ciudad,estado,id,pais)
+ 		values (1,"Buenos Aires","BUENOS Aires","3435910","ar");
+/* Fin ubicación */
+/* tipoPrenda */
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (1);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (1,"TORSO","Remera cuello rendondo manga corta",1);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (2);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (2,"TORSO","Remera cuello rendondo manga larga",2);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (3);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (3,"TORSO","Remera escote V manga corta",3);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (4);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (4,"TORSO","Remera escote V manga larga",4);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (5);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (5,"TORSO","Sueter",5);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (6);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (6,"TORSO","Campera",6);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (7);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (7,"PARTEINFERIOR","Pantalon Largo",7);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (8);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (8,"PARTEINFERIOR","Pantalon Corto",8);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (9);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (9,"PARTEINFERIOR","Bermuda",9);
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (10);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (10,"PARTEINFERIOR","Pollera",10);
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (11);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (11,"PARTEINFERIOR","Calza",11);        
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (12);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (12,"TORSO","Buzo",12);        
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (13);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (13,"TORSO","Musculoza",13);
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (14);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (14,"CALZADO","Zapatillas",14);   
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (15);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (15,"CALZADO","Zapatos",15); 
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (16);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (16,"CALZADO","Sandalias",16);
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (17);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (17,"MANOS","MANOS",17);        
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (18);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (18,"CUELLO","Bufanda",18);        
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (19);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (19,"CABEZA","Gorro",19);        
+
+insert into queMePongo.fotografo(id_fotografo)
+ 		values (20);
+insert into queMePongo.tipoPrenda(id_tipoPrenda,id_categoria,tipo,id_fotografo)
+        values (20,"ACCESORIOS","ACCESORIOS",20);        
+/* Fin tipoPrenda */
 /* Materiales */
 	/* 1 Remera cuello redondo manga corta */
 Insert into queMePongo.materiales(id_tipoPrenda,material)
@@ -420,10 +524,10 @@ Insert into queMePongo.superponible(id_tipoPrenda,id_superponible)
 
 
 /* Usuarios */
--- insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
--- 		values ('Alejandro','Roco','','123456','mascuLINO',0,'aroco',1);
--- insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
--- 		values ('Julieta','Azul','','123456','femenino',0,'jazul',2);
+ insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
+ 		values ('Alejandro','Roco','','123456','mascuLINO',0,'aroco',1);
+ insert INTO queMePongo.usuario(nombre,apellido,mail, password, sexo, telefono, nombreUsuario, id_membrecia)
+ 		values ('Julieta','Azul','','123456','femenino',0,'jazul',2);
 /* Fin usuarios */
 /* Guardaropas */
 insert INTO queMePongo.guardaropa(id_guardaropa,nombre)

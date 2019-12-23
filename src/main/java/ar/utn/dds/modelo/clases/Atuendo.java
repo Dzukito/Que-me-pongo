@@ -69,12 +69,8 @@ public class Atuendo {
         this.prendas = this.prendas.stream().filter(prenda -> prenda.getCategoria() != prendaNueva.getCategoria()).collect(Collectors.toList());
         this.prendas.add(prendaNueva);
     }
-    public boolean somosIguales(Atuendo atuendo){
-       return (this.tengoTusPrendas(atuendo) && atuendo.tengoTusPrendas(this));
-    }
-    public boolean tengoPrenda(Prenda prenda){
-        return this.prendas.stream().anyMatch(prenda1 -> prenda1.somosIguales(prenda));
-    }
+    public boolean somosIguales(Atuendo atuendo){ return (this.tengoTusPrendas(atuendo) && atuendo.tengoTusPrendas(this)); }
+    public boolean tengoPrenda(Prenda prenda){ return this.prendas.stream().anyMatch(prenda1 -> prenda1.somosIguales(prenda)); }
     public float promedioCalificaciones(Usuario usuario, Evento evento, Pronostico pronostico) {
         AtomicReference<Integer> w= new AtomicReference<>(0);
         this.getCalificacionesPor(usuario, pronostico, evento).stream().map(calificaicon -> w.updateAndGet(v -> v + calificaicon));
@@ -83,7 +79,7 @@ public class Atuendo {
 
     //Getters-y-Setters----------------------------------------------------------------------
     public void agregarPrenda(Prenda prenda){
-        try {
+        try{
             this.esaPrendaYaLaTengo(prenda);
             this.prendas.add(prenda);
         }catch (EsaPrendaYaLaTengo e){
