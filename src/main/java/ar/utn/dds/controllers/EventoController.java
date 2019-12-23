@@ -83,13 +83,13 @@ public class EventoController {
 		Pronostico pronostico;
 		Estilo estilo=null;
 
-		String estiloRecibido= evento.getEstilo().toString();
+
 		meteorologo.getPronosticos(buenosAires);
 		List<Atuendo> atuendos = new ArrayList<Atuendo>();
 		/*1) Seteo el Estilo que quiere mi usuario para la sugerencia*/
-		if(evento.getEstilo().toString() != null){
+		if(evento.getEstilo() != null){
 
-			switch(estiloRecibido) {
+			switch(evento.getEstilo().toString()) {
 				case "ELEGANTE":
 					estilo=(Estilo.ELEGANTE);
 					break;
@@ -129,19 +129,11 @@ public class EventoController {
 				pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
 				if(evento.sugerencias().isEmpty()){
 					for(int i = 0; i<5;i++){
-						atuendoSugerido=new Atuendo();
-						RepositorioPrenda repoPrenda= FactoryRepositorioPrenda.get();
-						List<Prenda> ps= repoPrenda.buscarTodos();
-						List<Prenda> prendasEstilo =ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).filter(prenda -> prenda.tengoEstilo(evento.getEstilo())).collect(Collectors.toList());
-						if(!prendasEstilo.isEmpty()) {
-							Prenda p1 = prendasEstilo.get((int) (Math.random() * prendasEstilo.size() + 0));
-							atuendoSugerido.agregarPrenda(p1);
-							guardaropa.sugerirAtuendoSinEvento(estilo, atuendoSugerido);
-							Atuendo atuendoSugerido2 = atuendoSugerido;
-							this.repoOutfit.agregar(atuendoSugerido);
+							atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa2(pronostico, evento.getEstilo());
 							evento.agregarSugerencia(atuendoSugerido);
-							atuendos.add(atuendoSugerido);
-						}
+							if( atuendoSugerido != null && !atuendoSugerido.getPrendas().isEmpty()){
+								atuendos.add(atuendoSugerido);
+							}
 					}
 				}else{
 					evento.sugerencias().forEach(atuendo -> atuendos.add(atuendo));

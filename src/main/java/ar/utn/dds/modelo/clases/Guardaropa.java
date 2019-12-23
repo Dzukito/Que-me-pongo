@@ -204,7 +204,6 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	
 	
     public Atuendo sugerirAtuendoPorGuardaropa2(Pronostico pronostico, Estilo estilo) {
-		
     	List<Prenda> prendas = this.getPrendas();
     	List<Prenda> prendasAtuendo=new ArrayList<Prenda>();
     	Prenda prendaaux;
