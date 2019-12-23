@@ -229,6 +229,12 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	        		}
 	        	}
 	        	prendasAtuendo.add(prenda.get());
+	        	if(!prendasAtuendo.stream().anyMatch(p->p.getCategoria().compareTo(Categoria.CALZADO.getCategoria())==0)) {
+	        		Prenda prendaObtenida=obtengoPrenda(Categoria.CALZADO.getCategoria(),prenda.get(),estilo);
+	        		if (prendaObtenida!=null) {
+	        			prendasAtuendo.add(prendaObtenida);
+	        		}
+	        	}
         	}
     	}
 //que tenga minimamente estas tres categorias   
@@ -236,6 +242,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
         	prendasAtuendo.stream().anyMatch(p->p.getCategoria().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0) &&  
         	prendasAtuendo.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.CALZADO))) {
     		Atuendo atuendoSugerido=new Atuendo(prendasAtuendo);
+    		
     		return atuendoSugerido;
     	}else {
             System.out.println("ATENCION: NO SE ENCONTRO NINGUNA SUGERENCIA ACORDE A SUS NECESIDADES    ");
@@ -244,13 +251,19 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
         return null;
     }
     public Prenda obtengoPrenda(String categoria, Prenda prenda,List<TipoPrenda> tPrendas) {
-    	
     	List<Prenda> prendasDelGuardaropa=this.getPrendas().stream().filter(p->p.getCategoria().equals(categoria) && tPrendas.stream().anyMatch(tprenda->tprenda==(p.getTipoDePrenda()))).collect(Collectors.toList());
     	if(!prendasDelGuardaropa.isEmpty()) {
 	    	Collections.shuffle(prendasDelGuardaropa);
 	    	return prendasDelGuardaropa.get(0);
     	}
-
+		return null;
+	}
+    public Prenda obtengoPrenda(String categoria, Prenda prenda,Estilo estilo) {
+    	List<Prenda> prendasDelGuardaropa=this.getPrendas().stream().filter(p->p.getCategoria().equals(categoria) && p.tengoEstilo(estilo)).collect(Collectors.toList());
+    	if(!prendasDelGuardaropa.isEmpty()) {
+	    	Collections.shuffle(prendasDelGuardaropa);
+	    	return prendasDelGuardaropa.get(0);
+    	}
 		return null;
 	}
 	public List<String> tiposCategorias(List<Prenda> prendas){ return prendas.stream().map(prenda -> prenda.getCategoria()).distinct().collect(Collectors.toList()); }
