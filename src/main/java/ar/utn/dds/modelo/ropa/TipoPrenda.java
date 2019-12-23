@@ -39,15 +39,42 @@ public class TipoPrenda {
     //Metodos-privados---------------------------------------------------------
     //Metodos-publicos---------------------------------------------------------
     public Fotografo getFotografo() { return fotografo; }
-    @Override
-    public int hashCode(){
-        return Objects.hash(this.tipo, this.categoria, this.materiales, this.superponibles);
-    }
+ //   @Override
+//    public int hashCode(){
+//        return Objects.hash(this.tipo, this.categoria, this.materiales, this.superponibles);
+//    }
+    
     public boolean mismoTipoDePrenda(TipoPrenda tipoPrenda){
     	return this.categoria==this.categoria;
       //  return this.hashCode() == tipoPrenda.hashCode();
     }
-    public boolean esSuperponible(TipoPrenda prenda){
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id_tipoPrenda ^ (id_tipoPrenda >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		TipoPrenda other = (TipoPrenda) obj;
+		if (id_tipoPrenda != other.id_tipoPrenda) {
+			return false;
+		}
+		return true;
+	}
+
+	public boolean esSuperponible(TipoPrenda prenda){
         return superponibles.contains(prenda);
     }
     public Boolean perteneceMaterial(Material material) {
