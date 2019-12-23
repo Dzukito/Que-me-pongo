@@ -231,9 +231,10 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 	        	prendasAtuendo.add(prenda.get());
         	}
     	}
-//que tenga minimamente estas tres categorias    &&  prendasAtuendo.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.CALZADO))
+//que tenga minimamente estas tres categorias   
     	if(!prendasAtuendo.isEmpty() && prendasAtuendo.stream().anyMatch(p->p.getCategoria().compareTo(Categoria.TORSO.getCategoria())==0) && 
-        	prendasAtuendo.stream().anyMatch(p->p.getCategoria().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0)) {
+        	prendasAtuendo.stream().anyMatch(p->p.getCategoria().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0) &&  
+        	prendasAtuendo.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.CALZADO))) {
     		Atuendo atuendoSugerido=new Atuendo(prendasAtuendo);
     		return atuendoSugerido;
     	}else {
