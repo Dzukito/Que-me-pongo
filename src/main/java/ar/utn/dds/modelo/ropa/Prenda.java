@@ -101,7 +101,7 @@ public class Prenda{
         return this.tipoPrenda.esSuperponible(prenda.getTipoDePrenda());
     }
     
-    public boolean esSuperponible2(Prenda prenda){
+    public boolean tieneSuperponibleA(Prenda prenda){
         return this.getTipoDePrenda().getSuperponibles().contains(prenda.tipoPrenda);
     }
     public boolean TieneMismaCategoria(Categoria categoria) {
