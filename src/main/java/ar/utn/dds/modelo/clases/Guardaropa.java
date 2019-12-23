@@ -6,6 +6,7 @@ import ar.utn.dds.modelo.interfaces.RechazarSugerenciaObservador;
 import ar.utn.dds.modelo.ropa.Categoria;
 import ar.utn.dds.modelo.ropa.Estilo;
 import ar.utn.dds.modelo.ropa.Prenda;
+import ar.utn.dds.modelo.ropa.TipoPrenda;
 import ar.utn.dds.modelo.clima.NivelDeCalor;
 
 import java.util.*;
@@ -166,9 +167,9 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
         	prendasFinales =
         	atuendoPosible.getPrendas().stream().filter(prenda-> !(prendasASacar.contains(prenda)) && 
         			(prendasNoSuperponiblesDistintas.contains(prenda)||
-        			 prendasNoSuperponiblesDistintas.stream().anyMatch(prendaBase-> prendaBase.esSuperponible2(prenda)))).collect(Collectors.toList());
+        			 prendasNoSuperponiblesDistintas.stream().anyMatch(prendaBase-> prendaBase.tieneSuperponibleA(prenda)))).collect(Collectors.toList());
 
-        	//que tenga minimamente estas tres categorias
+//que tenga minimamente estas tres categorias
         	if(!prendasFinales.isEmpty() && prendasFinales.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.TORSO)) && 
             	prendasFinales.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.PARTEINFERIOR))  && 
                 prendasFinales.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.CALZADO))) {
@@ -185,7 +186,7 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 		List<Prenda> prendasNoSuperponibles=new ArrayList<Prenda>();
 		for(int i=0; i<prendas.size();i++) {
 			Prenda prendaBase=prendas.get(i);
-			if(!prendas.stream().anyMatch(p->p.esSuperponible2(prendaBase))) {			
+			if(!prendas.stream().anyMatch(p->p.tieneSuperponibleA(prendaBase))) {			
 				prendasNoSuperponibles.add(prendaBase);
 			}
 		}
@@ -200,7 +201,59 @@ public class Guardaropa implements AceptarSuegerenciaObservador, RechazarSugeren
 		}
 		return prendasNoSuperponiblesDistintas;
 	}
-    public List<String> tiposCategorias(List<Prenda> prendas){ return prendas.stream().map(prenda -> prenda.getCategoria()).distinct().collect(Collectors.toList()); }
+	
+	
+    public Atuendo sugerirAtuendoPorGuardaropa2(Pronostico pronostico, Estilo estilo) {
+		
+    	List<Prenda> prendas = this.getPrendas();
+    	List<Prenda> prendasAtuendo=new ArrayList<Prenda>();
+    	Prenda prendaaux;
+    	if(!prendas.isEmpty()) {
+    		Collections.shuffle(prendas);
+        	Optional<Prenda> prenda=prendas.stream().filter(p->p.tengoEstilo(estilo)).findFirst();
+        	if(prenda.isPresent()) {
+        		prendaaux=prenda.get();
+        		
+	        	List<TipoPrenda> tipoDePrendas=prenda.get().getTipoDePrenda().getSuperponibles().stream().collect(Collectors.toList());
+	        	List<String> categoriasObtenidas=new ArrayList<String>();
+	        	
+	        	for (TipoPrenda tipoPrenda : tipoDePrendas) {
+	        		if(!categoriasObtenidas.contains(tipoPrenda.categoria())) {
+	        			categoriasObtenidas.add(tipoPrenda.categoria());
+	        		}
+				}
+	        	for(int i=0;i<categoriasObtenidas.size();i++) {
+	        		Prenda prendaObtenida=obtengoPrenda(categoriasObtenidas.get(i),prenda.get(),tipoDePrendas);
+	        		if (prendaObtenida!=null) {
+	        			prendasAtuendo.add(prendaObtenida);
+	        		}
+	        	}
+	        	prendasAtuendo.add(prenda.get());
+        	}
+    	}
+//que tenga minimamente estas tres categorias   
+    	if(!prendasAtuendo.isEmpty() && prendasAtuendo.stream().anyMatch(p->p.getCategoria().compareTo(Categoria.TORSO.getCategoria())==0) && 
+        	prendasAtuendo.stream().anyMatch(p->p.getCategoria().compareTo(Categoria.PARTEINFERIOR.getCategoria())==0) &&  
+        	prendasAtuendo.stream().anyMatch(p->p.TieneMismaCategoria(Categoria.CALZADO))) {
+    		Atuendo atuendoSugerido=new Atuendo(prendasAtuendo);
+    		return atuendoSugerido;
+    	}else {
+            System.out.println("ATENCION: NO SE ENCONTRO NINGUNA SUGERENCIA ACORDE A SUS NECESIDADES    ");
+        }
+
+        return null;
+    }
+    public Prenda obtengoPrenda(String categoria, Prenda prenda,List<TipoPrenda> tPrendas) {
+    	
+    	List<Prenda> prendasDelGuardaropa=this.getPrendas().stream().filter(p->p.getCategoria().equals(categoria) && tPrendas.stream().anyMatch(tprenda->tprenda==(p.getTipoDePrenda()))).collect(Collectors.toList());
+    	if(!prendasDelGuardaropa.isEmpty()) {
+	    	Collections.shuffle(prendasDelGuardaropa);
+	    	return prendasDelGuardaropa.get(0);
+    	}
+
+		return null;
+	}
+	public List<String> tiposCategorias(List<Prenda> prendas){ return prendas.stream().map(prenda -> prenda.getCategoria()).distinct().collect(Collectors.toList()); }
     public int cantidadCategorioas(List<Prenda> prendas){ return this.tiposCategorias(prendas).size(); }
     public int cantidadAtuendosGenerados() { return this.atuendosMostrados.size(); }
     public void bloquearPrenda(int i) {	this.prendas.get(i).bloquearse(); }

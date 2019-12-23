@@ -62,6 +62,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 //import repositories.RepositorioRol;
@@ -385,7 +386,6 @@ public class OutfitController {
 		/*2)Verifico guardaropa para ese usuario*/
 
 		if(request.params(":idGuardaropa") != null){
-
 			RepositorioUsuario repoUsuario = FactoryRepositorioUsuario.get();
 			Usuario usuario = repoUsuario.buscar(request.session().attribute("nombreDeUsuario"));
 			usuario.setSensibilidad(new Ermitanio());
@@ -394,11 +394,13 @@ public class OutfitController {
 			List<Guardaropa> guardaropas=usuario.getRoperos().stream().filter(guarda->guarda.getId_guardaropa()==idGuardaropa).collect(Collectors.toList());
 			if(guardaropas.size()>0) {
 				Guardaropa guardaropa=guardaropas.get(0);
+				
+				
 				Calendar fecha = Calendar.getInstance();
 				fecha.add(Calendar.HOUR, 9);
 				pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
 			
-				atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa(pronostico, estilo);
+				atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa2(pronostico, estilo);
 
 				if(atuendoSugerido!=null) {
 				atuendos.add(atuendoSugerido);
