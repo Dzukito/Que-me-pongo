@@ -344,7 +344,7 @@ public class OutfitController {
 	public ModelAndView sugerirOutfitPorGuardaropa(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
 
-		Atuendo atuendoSugerido=null;
+		Atuendo atuendoSugerido;
 		Meteorologo meteorologo = new MeteorologoAccuWeatherAdapter();
 
 		RepositorioUbicacion repoUbicacion=FactoryRepositorioUbicacion.get();
@@ -356,7 +356,7 @@ public class OutfitController {
 		meteorologo.getPronosticos(buenosAires);
 		List<Atuendo> atuendos = new ArrayList<Atuendo>();
 		/*1) Seteo el Estilo que quiere mi usuario para la sugerencia*/
-		if(request.params(":nombreEstilo") != null){
+		if(request.params(":nombreEstilo") != null){ 
 
 			switch(estiloRecibido) {
 				case "ELEGANTE":
@@ -391,24 +391,18 @@ public class OutfitController {
 			usuario.setSensibilidad(new Ermitanio());
 
 			Long idGuardaropa = new Long(request.params(":idGuardaropa"));
-			Guardaropa guardaropa=usuario.getRoperos().stream().filter(guarda->guarda.getId_guardaropa()==idGuardaropa).collect(Collectors.toList()).get(0);
-
-
-			if(guardaropa!=null) {
+			List<Guardaropa> guardaropas=usuario.getRoperos().stream().filter(guarda->guarda.getId_guardaropa()==idGuardaropa).collect(Collectors.toList());
+			if(guardaropas.size()>0) {
+				Guardaropa guardaropa=guardaropas.get(0);
 				Calendar fecha = Calendar.getInstance();
 				fecha.add(Calendar.HOUR, 9);
 				pronostico = meteorologo.getPronosticoTiempoYUbicacion(fecha, buenosAires); //seteo el pronostico
+			
+				atuendoSugerido=guardaropa.sugerirAtuendoPorGuardaropa(pronostico, estilo);
 
-				atuendoSugerido=new Atuendo();
-				RepositorioPrenda repoPrenda=FactoryRepositorioPrenda.get();
-				List<Prenda> ps= repoPrenda.buscarTodos();
-				List<Prenda> prendasEstilo =ps.stream().filter(p->p.getEstilos().get(0).toString().compareTo(estiloRecibido)==0).collect(Collectors.toList());
-				Prenda p1= prendasEstilo.get((int) (Math.random()*prendasEstilo.size() + 0));
-				atuendoSugerido.agregarPrenda(p1);
-				guardaropa.sugerirAtuendoSinEvento(estilo,atuendoSugerido);
-
+				if(atuendoSugerido!=null) {
 				atuendos.add(atuendoSugerido);
-
+				}
 			}
 
 		}
